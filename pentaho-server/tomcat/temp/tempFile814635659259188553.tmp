@@ -1,0 +1,20 @@
+<Schema name="act_return_sales_trans_mondrian_schema">
+  <Dimension name="fps">
+    <Hierarchy hasAll="true">
+      <Table name="act_return_sales_trans" schema="tracking"/>
+      <Level name="return_receipt_id" uniqueMembers="true" column="return_receipt_id" type="Numeric">
+      </Level>
+      <Level name="receipt_id" uniqueMembers="true" column="receipt_id" type="Numeric">
+      </Level>
+      <Level name="service_name" uniqueMembers="true" column="service_name" type="String">
+      </Level>
+      <Level name="service_class" uniqueMembers="true" column="service_class" type="String">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="act_return_sales_trans_mondrian_schema">
+    <Table name="act_return_sales_trans" schema="tracking"/>
+    <DimensionUsage name="fps" source="fps"/>
+    <Measure name="return_receipt_id" column="return_receipt_id" aggregator="count"/>
+  </Cube>
+</Schema>

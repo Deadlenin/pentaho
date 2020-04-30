@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="12c05130-b8a6-49ee-aaf0-59411e24e2ac" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/PentahoInfo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/web/util/PentahoInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/web/util/pentahoMainPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/css/PentahoInfo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/jquery.inputmask.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/PentahoInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/crystal/globalCrystal.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/crystal/globalCrystal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/onyx/globalOnyx.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/onyx/globalOnyx.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/sapphire/globalSapphire.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/sapphire/globalSapphire.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/slate/globalSlate.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/common-ui/resources/themes/slate/globalSlate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/version/db.h2.db" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/version/db.h2.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/version/db.lock.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/db.h2.db" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/db.h2.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/db.lock.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1/_n.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1/_n_5.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1/segments_10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1g/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1g/_0_6.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1g/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1g/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1g/segments_8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1x/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1x/_0_2.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1x/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1x/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1x/segments_4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1z/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1z/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1z/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_1z/segments_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_2/_f.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_2/_f_2.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_2/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_2/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_2/segments_r" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_21/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_21/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_21/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_21/segments_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_22/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_22/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_22/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_22/segments_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_23/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_23/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_23/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_23/segments_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_3/_8.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_3/_8_1.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_3/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_3/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_3/segments_g" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_4/_9.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_4/_9_1.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_4/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_4/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_4/segments_i" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_5/_j.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_5/_j_1.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_5/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_5/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_5/segments_s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_6/_5u.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_6/_5u_1.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_6/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_6/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_6/segments_ah" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_7/_35.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_7/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_7/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_7/segments_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_7/segments_5k" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_u/_0.cfs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_u/_0_5.del" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_u/cache.inSegmentParents" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_u/segments.gen" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/_u/segments_7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/default/index/indexes_21" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/security/db.h2.db" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/jackrabbit/repository/workspaces/security/db.h2.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/activemq/server/factory.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/activemq/server/factory.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/activemq/webconsole.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/activemq/webconsole.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/felix/fileinstall/factory.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/felix/fileinstall/factory.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/karaf/management.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/karaf/management.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/karaf/shell.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/apache/karaf/shell.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/logging.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/logging.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/url/mvn.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/url/mvn.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/ops4j/pax/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/pentaho/caching/factory.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org/pentaho/caching/factory.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org_apache_felix_cm_impl_DynamicBindings.config" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle13/data/config/org_apache_felix_cm_impl_DynamicBindings.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle27/data/FeaturesServiceState.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/cache/bundle27/data/FeaturesServiceState.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/log/karaf.log" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/caches/default/data-1/log/karaf.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/etc/org.apache.karaf.management.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/etc/org.apache.karaf.management.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/karaf/instances/instance.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/karaf/instances/instance.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/logs/audit/PentahoAuditLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/logs/audit/PentahoAuditLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf-dd/css/CDF-CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf-dd/css/CDF-CSS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf-dd/resources/custom/components/OlapSelector/OlapSelector.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf-dd/resources/custom/components/OlapSelector/OlapSelector.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/css/cdf-blueprint-style-includes.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/css/cdf-blueprint-style-includes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/cdf.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/cdf.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/components/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/blueprint/screen.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/blueprint/screen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/dataTables/css/jquery.dataTables.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/dataTables/css/jquery.dataTables.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/daterangepicker/daterangepicker.jQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/daterangepicker/daterangepicker.jQuery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/daterangepicker/ui.daterangepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/daterangepicker/ui.daterangepicker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/OlapUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/OlapUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/cdf-blueprint-script-includes.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/cdf-blueprint-script-includes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/components/CommentsComponent.ext.js" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/js/components/CommentsComponent.ext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/resources.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/pentaho-cdf/resources.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentaho-solutions/system/restConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pentaho-solutions/system/restConfig.properties" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_cde: schema" type="7a4dc14c:VertImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_cde: schema" type="7a4dc14c:VertImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_cde: schema" type="7a4dc14c:VertImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balance_fact: table" type="a3fb8e31:VertImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_macroregion_test: schema" type="7a4dc14c:VertImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_macroregion_test: schema" type="7a4dc14c:VertImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="balances_macroregion_test: schema" type="7a4dc14c:VertImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="full_history_enriched: table" type="a3fb8e31:VertImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tracking: schema" type="7a4dc14c:VertImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tracking: schema" type="7a4dc14c:VertImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="vertica_ds" type="feb32156:DbDataSourceImpl" />
+        <item name="rpdc: database" type="99e582a5:VertImplModel$Database" />
+        <item name="external schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="pentaho-server" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Tag Library Descriptor" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/pentaho-solutions/system" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1Q0J43HyDVjSdwSyXww0QL2dguI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="vertica" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="home.css&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/webapps/pentaho/mantle/home/css/home.css&#10;pentahoin&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/pentaho-cdf/js/PentahoInfo.js&#10;pentahoinfo&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/common-ui/resources/web/util/PentahoInfo.js&#10;PentahoInfo&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/pentaho-cdf/css/PentahoInfo.css&#10;Pe&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/data-access/resources/gwt/PentahoInfo.css&#10;SessionExpiryCheckStartingPoint&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/common-ui/resources/web/util/SessionExpiryCheckStartingPoint.js&#10;index.html&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/pentaho-cdf-dd/resources/mobile/index.html&#10;screen&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/pentaho-cdf/js-legacy/lib/blueprint/screen.css&#10;webpack&#9;null&#9;null&#10;table.js&#9;FILE&#9;file://C:/Alex/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/pentaho-cdf/js-legacy/components/table.js" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565095225995" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\common-ui\resources\web\util" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\pentaho-cdf\js" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\common-ui\resources\themes" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\data-access\resources\gwt" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\pentaho-cdf\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\pentaho-cdf\css" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\pentaho-cdf\js" />
+      <recent name="C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\pentaho-cdf\js-legacy" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.048701297" />
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12c05130-b8a6-49ee-aaf0-59411e24e2ac" name="Default" comment="" />
+      <created>1533908528856</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533908528856</updated>
+      <workItem from="1533908531594" duration="18746000" />
+      <workItem from="1536226935479" duration="2144000" />
+      <workItem from="1541069767096" duration="206000" />
+      <workItem from="1541070017978" duration="4837000" />
+      <workItem from="1541499341320" duration="669000" />
+      <workItem from="1541502665044" duration="2923000" />
+      <workItem from="1542027580165" duration="185000" />
+      <workItem from="1542107164251" duration="2640000" />
+      <workItem from="1542799094095" duration="2856000" />
+      <workItem from="1542880837320" duration="39861000" />
+      <workItem from="1543329114677" duration="54204000" />
+      <workItem from="1549612798028" duration="14126000" />
+      <workItem from="1549880214765" duration="5196000" />
+      <workItem from="1549965706133" duration="25911000" />
+      <workItem from="1550073740594" duration="290000" />
+      <workItem from="1550143816027" duration="39609000" />
+      <workItem from="1550658866707" duration="22378000" />
+      <workItem from="1550827654543" duration="14165000" />
+      <workItem from="1551438284488" duration="12765000" />
+      <workItem from="1552560444311" duration="3430000" />
+      <workItem from="1553775212148" duration="432000" />
+      <workItem from="1554802755920" duration="1479000" />
+      <workItem from="1556539039433" duration="1032000" />
+      <workItem from="1556540555110" duration="3388000" />
+      <workItem from="1557836718437" duration="10474000" />
+      <workItem from="1557924886195" duration="40318000" />
+      <workItem from="1558625942562" duration="5415000" />
+      <workItem from="1558709557038" duration="3864000" />
+      <workItem from="1559128125340" duration="14439000" />
+      <workItem from="1559211611006" duration="736000" />
+      <workItem from="1559214635390" duration="5056000" />
+      <workItem from="1561373010610" duration="224000" />
+      <workItem from="1561374414351" duration="1185000" />
+      <workItem from="1561377734967" duration="5251000" />
+      <workItem from="1565006987196" duration="11881000" />
+      <workItem from="1565094475983" duration="653000" />
+      <workItem from="1565095318296" duration="641000" />
+      <workItem from="1566556614094" duration="469000" />
+      <workItem from="1566901388620" duration="833000" />
+      <workItem from="1568023519252" duration="953000" />
+      <workItem from="1568027305631" duration="1132000" />
+      <workItem from="1568994412466" duration="1485000" />
+      <workItem from="1569323064518" duration="1380000" />
+      <workItem from="1572525718619" duration="744000" />
+      <workItem from="1575109022811" duration="64000" />
+      <workItem from="1575287330892" duration="145000" />
+      <workItem from="1580806592493" duration="16286000" />
+      <workItem from="1581681544748" duration="581000" />
+      <workItem from="1581699532135" duration="50041000" />
+      <workItem from="1582279477709" duration="62266000" />
+      <workItem from="1583927556130" duration="65000" />
+      <workItem from="1584536159741" duration="38000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/tomcat/webapps/pentaho/mantle/browser/js/browser.js</url>
+          <line>764</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

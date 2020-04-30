@@ -1,0 +1,6 @@
+20-May-2019 13:35:33.929 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+20-May-2019 13:57:35.313 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+20-May-2019 14:52:32.532 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+20-May-2019 14:56:30.875 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+20-May-2019 15:39:19.283 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+20-May-2019 15:42:39.175 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received

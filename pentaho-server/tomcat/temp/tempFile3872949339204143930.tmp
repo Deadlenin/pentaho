@@ -1,0 +1,51 @@
+<Schema name="sorba_rpo_fact_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="mail_type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+    <Hierarchy name="mail_type" visible="true" hasAll="true" primaryKey="code" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      <Table name="mail_type_groups" schema="dicts">
+      </Table>
+      <Level name="group" visible="true" table="mail_type_groups" column="group" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1053;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1073;&#1080;&#1079;&#1085;&#1077;&#1089;&#1072;">
+      </Level>
+      <Level name="name" visible="true" table="mail_type_groups" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="mail_ctg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="mail_ctg" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="mailctg" schema="dicts">
+      </Table>
+      <Level name="mail_ctg" visible="true" table="mailctg" column="code" nameColumn="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="fps" caption="&#1060;&#1055;&#1057;">
+    <Hierarchy name="fps" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1043;&#1088;&#1072;&#1085;&#1080;&#1094;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+      <Level name="post_office" visible="true" table="dim_fps_structure" column="post_office" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1090;">
+      </Level>
+      <Level name="object_border" visible="true" table="dim_fps_structure" column="object_border_index" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1043;&#1088;&#1072;&#1085;&#1080;&#1094;&#1072;">
+        <NameExpression>
+          <SQL dialect="vertica">
+            <![CDATA[object_border_index || ' ' || object_border]]>
+          </SQL>
+        </NameExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="sorba_rpo_fact" visible="true" cache="true" enabled="true">
+    <Table name="sorba_rpo_fact" schema="sorting_balances_preprod">
+    </Table>
+    <DimensionUsage source="mail_type" name="mail_type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_type" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="mail_ctg" name="mail_ctg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_ctg" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="fps" name="fps" caption="&#1043;&#1088;&#1072;&#1085;&#1080;&#1094;&#1072; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072;" visible="true" foreignKey="last_index_oper" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="value_sum" column="mass" aggregator="sum" caption="value_sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

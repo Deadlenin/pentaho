@@ -1,0 +1,104 @@
+<Schema name="mmpo_kpi_mondrian_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="fps" caption="&#1057;&#1087;&#1088;&#1072;&#1074;&#1086;&#1095;&#1085;&#1080;&#1082; &#1054;&#1055;&#1057;">
+    <Hierarchy name="fps" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1057;&#1087;&#1088;&#1072;&#1074;&#1086;&#1095;&#1085;&#1080;&#1082; &#1054;&#1055;&#1057;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+      </Level>
+      <Level name="post_office" visible="true" table="dim_fps_structure" column="post_office" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="IfBlankName" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1090;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="countries" caption="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072;">
+    <Hierarchy name="countries" visible="true" hasAll="true" primaryKey="code" caption="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072;">
+      <Table name="countries_full" schema="dicts">
+      </Table>
+      <Level name="name_ru" visible="true" table="countries_full" column="name_ru" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="mail_type" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="mail_type" visible="true" hasAll="true" primaryKey="code" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="mailtype" schema="dicts">
+      </Table>
+      <Level name="name" visible="true" table="mailtype" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="mail_ctg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="mail_ctg" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="mailctg" schema="dicts">
+      </Table>
+      <Level name="name" visible="true" table="mailctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="transtype" caption="&#1058;&#1080;&#1087; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1079;&#1082;&#1080;">
+    <Hierarchy name="transtype" visible="true" hasAll="true" primaryKey="code" caption="&#1058;&#1080;&#1087; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1079;&#1082;&#1080;">
+      <Table name="transtype" schema="dicts">
+      </Table>
+      <Level name="name" visible="true" table="transtype" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1079;&#1082;&#1080;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="direct_ctg" caption="&#1050;&#1083;&#1072;&#1089;&#1089; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="direct_ctg" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1083;&#1072;&#1089;&#1089; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="direct_ctg" schema="dicts">
+      </Table>
+      <Level name="name" visible="true" table="direct_ctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1083;&#1072;&#1089;&#1089; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="exit_points" caption="&#1058;&#1086;&#1095;&#1082;&#1080; &#1074;&#1099;&#1093;&#1086;&#1076;&#1072;">
+    <Hierarchy name="exit_point" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1058;&#1086;&#1095;&#1082;&#1072; &#1074;&#1099;&#1093;&#1086;&#1076;&#1072;">
+      <Table name="post_object_to_mmpo_mapping" schema="dicts">
+      </Table>
+      <Level name="mmpo" visible="true" table="post_object_to_mmpo_mapping" column="mmpo" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1086;&#1095;&#1082;&#1072; &#1074;&#1099;&#1093;&#1086;&#1076;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="place_type">
+    <Hierarchy name="place_type" visible="true" hasAll="true" primaryKey="code" caption="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="place_type" visible="true" table="place_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="oktmo_centers" caption="&#1043;&#1086;&#1088;&#1086;&#1076;/&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;">
+    <Hierarchy name="oktmo_centers" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1043;&#1086;&#1088;&#1086;&#1076;/&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;">
+      <Table name="oktmo_centers" schema="dicts">
+      </Table>
+      <Level name="place" visible="true" table="oktmo_centers" column="place" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1043;&#1086;&#1088;&#1086;&#1076;/&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="mmpo_kpi" visible="true" cache="false" enabled="true">
+    <Table name="dual" schema="dicts">
+    </Table>
+    <DimensionUsage source="fps" name="fps" caption="&#1057;&#1087;&#1088;&#1072;&#1074;&#1086;&#1095;&#1085;&#1080;&#1082; &#1054;&#1055;&#1057;" visible="true" foreignKey="post_object_index" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="countries" name="countries" caption="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="mail_type" name="mail_type" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="mail_ctg" name="mail_ctg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="transtype" name="transtype" caption="&#1058;&#1080;&#1087; &#1087;&#1077;&#1088;&#1077;&#1074;&#1086;&#1079;&#1082;&#1080;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="direct_ctg" name="direct_ctg" caption="&#1050;&#1083;&#1072;&#1089;&#1089; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="exit_points" name="exit_points" caption="&#1058;&#1086;&#1095;&#1082;&#1072; &#1074;&#1099;&#1093;&#1086;&#1076;&#1072;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="place_type" name="place_type" caption="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072;" visible="true" foreignKey="name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="oktmo_centers" name="oktmo_centers" caption="&#1043;&#1086;&#1088;&#1086;&#1076;/&#1054;&#1073;&#1083;&#1072;&#1089;&#1090;&#1100;" visible="true" foreignKey="post_object_index" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="placeholder" column="name" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

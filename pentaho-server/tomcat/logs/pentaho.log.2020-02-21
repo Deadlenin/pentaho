@@ -1,0 +1,676 @@
+2020-02-21 13:01:22,963 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2020-02-21 13:01:24,078 INFO  [org.pentaho.platform.osgi.OSGIBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+2020-02-21 13:01:29,999 INFO  [org.pentaho.platform.osgi.KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 1 at C:\Pentaho_src\pentaho-server71CleanWithDat ***
+***   aSource\pentaho-server\pentaho-solutions\system\karaf\caches\default\data-1***
+*** Karaf Port:8802                                                         ***
+*** OSGI Service Port:9051                                                  ***
+*** JMX RMI Registry Port:11099                                             ***
+*** RMI Server Port:44445                                                   ***
+*******************************************************************************
+2020-02-21 13:01:53,015 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2020-02-21 13:02:17,552 ERROR [pt.webdetails.cpk.CpkEngine] There isn't a default element
+2020-02-21 13:02:17,634 ERROR [pt.webdetails.cpk.CpkEngine] There isn't a default element
+2020-02-21 13:02:23,061 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2020-02-21 13:02:43,233 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] The system has finished initializing.
+2020-02-21 13:02:53,064 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] The system has finished initializing.
+2020-02-21 13:07:24,879 ERROR [pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency] Error getting input stream for dependency js-legacy/Pentaho.Reporting.js. Skipping..
+java.io.IOException: Stream closed
+	at java.io.PushbackInputStream.ensureOpen(PushbackInputStream.java:74)
+	at java.io.PushbackInputStream.read(PushbackInputStream.java:135)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.get(JSMin.java:86)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.next(JSMin.java:114)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.action(JSMin.java:180)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.jsmin(JSMin.java:212)
+	at pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency$JsMinificationEnumeration.nextElement(JsMinifiedDependency.java:62)
+	at pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency$JsMinificationEnumeration.nextElement(JsMinifiedDependency.java:41)
+	at java.io.SequenceInputStream.nextStream(SequenceInputStream.java:110)
+	at java.io.SequenceInputStream.read(SequenceInputStream.java:211)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1488)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1465)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1440)
+	at pt.webdetails.cpf.repository.impl.FileBasedResourceAccess.saveFile(FileBasedResourceAccess.java:191)
+	at pt.webdetails.cpf.packager.dependencies.PackagedFileDependency.getFileInputStream(PackagedFileDependency.java:39)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getCheckSum(FileDependency.java:46)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getVersion(FileDependency.java:58)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getDependencyInclude(FileDependency.java:74)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getPackagedDependency(DependenciesPackage.java:242)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getDependencies(DependenciesPackage.java:119)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getDependencies(DependenciesPackage.java:138)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.appendDependencies(CdfHeadersProvider.java:243)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.getHeaders(CdfHeadersProvider.java:146)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.getHeaders(CdfHeadersProvider.java:120)
+	at org.pentaho.cdf.render.CdfHtmlRenderer.getHeaders(CdfHtmlRenderer.java:357)
+	at org.pentaho.cdf.CdfContentGenerator.getHeaders(CdfContentGenerator.java:264)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at pt.webdetails.cpf.InterPluginCall.run(InterPluginCall.java:352)
+	at pt.webdetails.cpf.InterPluginCall.call(InterPluginCall.java:365)
+	at pt.webdetails.cpf.InterPluginCall.call(InterPluginCall.java:67)
+	at pt.webdetails.cdf.dd.InterPluginBroker.getCdfIncludes(InterPluginBroker.java:63)
+	at pt.webdetails.cdf.dd.PentahoCdeEnvironment.getCdfIncludes(PentahoCdeEnvironment.java:151)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.writeHeaders(CdfRunJsDashboardWriter.java:219)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.write(CdfRunJsDashboardWriter.java:101)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.write(CdfRunJsDashboardWriter.java:66)
+	at pt.webdetails.cdf.dd.DashboardManager.writeDashboardToCdfRunJs(DashboardManager.java:571)
+	at pt.webdetails.cdf.dd.DashboardManager.getDashboardCdfRunJs(DashboardManager.java:260)
+	at pt.webdetails.cdf.dd.DashboardManager.getDashboardCdfRunJs(DashboardManager.java:191)
+	at pt.webdetails.cdf.dd.api.RenderApi.loadDashboard(RenderApi.java:495)
+	at pt.webdetails.cdf.dd.api.RenderApi.render(RenderApi.java:201)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:106)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-02-21 13:07:24,896 ERROR [pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency] Error getting input stream for dependency js-legacy/components/testfile.js. Skipping..
+java.io.IOException: Stream closed
+	at java.io.PushbackInputStream.ensureOpen(PushbackInputStream.java:74)
+	at java.io.PushbackInputStream.read(PushbackInputStream.java:135)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.get(JSMin.java:86)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.next(JSMin.java:114)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.action(JSMin.java:180)
+	at pt.webdetails.cpf.packager.dependencies.JSMin.jsmin(JSMin.java:212)
+	at pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency$JsMinificationEnumeration.nextElement(JsMinifiedDependency.java:62)
+	at pt.webdetails.cpf.packager.dependencies.JsMinifiedDependency$JsMinificationEnumeration.nextElement(JsMinifiedDependency.java:41)
+	at java.io.SequenceInputStream.nextStream(SequenceInputStream.java:110)
+	at java.io.SequenceInputStream.read(SequenceInputStream.java:211)
+	at java.io.InputStream.read(InputStream.java:101)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1488)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1465)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1440)
+	at pt.webdetails.cpf.repository.impl.FileBasedResourceAccess.saveFile(FileBasedResourceAccess.java:191)
+	at pt.webdetails.cpf.packager.dependencies.PackagedFileDependency.getFileInputStream(PackagedFileDependency.java:39)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getCheckSum(FileDependency.java:46)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getVersion(FileDependency.java:58)
+	at pt.webdetails.cpf.packager.dependencies.FileDependency.getDependencyInclude(FileDependency.java:74)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getPackagedDependency(DependenciesPackage.java:242)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getDependencies(DependenciesPackage.java:119)
+	at pt.webdetails.cpf.packager.DependenciesPackage.getDependencies(DependenciesPackage.java:138)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.appendDependencies(CdfHeadersProvider.java:243)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.getHeaders(CdfHeadersProvider.java:146)
+	at org.pentaho.cdf.packager.CdfHeadersProvider.getHeaders(CdfHeadersProvider.java:120)
+	at org.pentaho.cdf.render.CdfHtmlRenderer.getHeaders(CdfHtmlRenderer.java:357)
+	at org.pentaho.cdf.CdfContentGenerator.getHeaders(CdfContentGenerator.java:264)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at pt.webdetails.cpf.InterPluginCall.run(InterPluginCall.java:352)
+	at pt.webdetails.cpf.InterPluginCall.call(InterPluginCall.java:365)
+	at pt.webdetails.cpf.InterPluginCall.call(InterPluginCall.java:67)
+	at pt.webdetails.cdf.dd.InterPluginBroker.getCdfIncludes(InterPluginBroker.java:63)
+	at pt.webdetails.cdf.dd.PentahoCdeEnvironment.getCdfIncludes(PentahoCdeEnvironment.java:151)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.writeHeaders(CdfRunJsDashboardWriter.java:219)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.write(CdfRunJsDashboardWriter.java:101)
+	at pt.webdetails.cdf.dd.model.inst.writer.cdfrunjs.dashboard.legacy.CdfRunJsDashboardWriter.write(CdfRunJsDashboardWriter.java:66)
+	at pt.webdetails.cdf.dd.DashboardManager.writeDashboardToCdfRunJs(DashboardManager.java:571)
+	at pt.webdetails.cdf.dd.DashboardManager.getDashboardCdfRunJs(DashboardManager.java:260)
+	at pt.webdetails.cdf.dd.DashboardManager.getDashboardCdfRunJs(DashboardManager.java:191)
+	at pt.webdetails.cdf.dd.api.RenderApi.loadDashboard(RenderApi.java:495)
+	at pt.webdetails.cdf.dd.api.RenderApi.render(RenderApi.java:201)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:106)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-02-21 13:07:53,184 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@243f7a63
+2020-02-21 13:07:53,291 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 13:16:17,635 INFO  [org.pentaho.di] 2020/02/21 13:16:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:16:17,966 INFO  [org.pentaho.di] 2020/02/21 13:16:17 - PurRepository - Creating repository meta store interface
+2020-02-21 13:16:17,974 INFO  [org.pentaho.di] 2020/02/21 13:16:17 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:16:18,059 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-21 13:16:18,060 INFO  [org.pentaho.di] 2020/02/21 13:16:18 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:16:18,062 INFO  [org.pentaho.di] 2020/02/21 13:16:18 - PurRepository - Creating repository meta store interface
+2020-02-21 13:16:18,064 INFO  [org.pentaho.di] 2020/02/21 13:16:18 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:16:18,474 INFO  [org.pentaho.di] 2020/02/21 13:16:18 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 13:16:28,783 INFO  [org.pentaho.di] 2020/02/21 13:16:28 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:16:28,793 INFO  [org.pentaho.di] 2020/02/21 13:16:28 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:16:28,972 INFO  [org.pentaho.di] 2020/02/21 13:16:28 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 13:22:36,660 INFO  [org.pentaho.di] 2020/02/21 13:22:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:22:46,647 INFO  [org.pentaho.di] 2020/02/21 13:22:46 - PurRepository - Creating repository meta store interface
+2020-02-21 13:22:46,649 INFO  [org.pentaho.di] 2020/02/21 13:22:46 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:22:46,801 INFO  [org.pentaho.di] 2020/02/21 13:22:46 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 13:22:46,945 INFO  [org.pentaho.di] 2020/02/21 13:22:46 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:22:46,958 INFO  [org.pentaho.di] 2020/02/21 13:22:46 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:22:47,224 INFO  [org.pentaho.di] 2020/02/21 13:22:47 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 13:27:37,855 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-21 13:27:37,858 INFO  [org.pentaho.di] 2020/02/21 13:27:37 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:27:37,900 INFO  [org.pentaho.di] 2020/02/21 13:27:37 - PurRepository - Creating repository meta store interface
+2020-02-21 13:27:37,901 INFO  [org.pentaho.di] 2020/02/21 13:27:37 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:34:33,122 INFO  [org.pentaho.di] 2020/02/21 13:34:33 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:34:33,233 INFO  [org.pentaho.di] 2020/02/21 13:34:33 - PurRepository - Creating repository meta store interface
+2020-02-21 13:34:33,235 INFO  [org.pentaho.di] 2020/02/21 13:34:33 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:34:33,340 INFO  [org.pentaho.di] 2020/02/21 13:34:33 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 13:34:43,421 INFO  [org.pentaho.di] 2020/02/21 13:34:43 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:34:43,437 INFO  [org.pentaho.di] 2020/02/21 13:34:43 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:34:43,605 INFO  [org.pentaho.di] 2020/02/21 13:34:43 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:02,961 INFO  [org.pentaho.di] 2020/02/21 13:54:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:54:03,065 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - PurRepository - Creating repository meta store interface
+2020-02-21 13:54:03,068 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:54:03,231 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 13:54:03,384 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:03,398 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:03,603 INFO  [org.pentaho.di] 2020/02/21 13:54:03 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:38,189 INFO  [org.pentaho.di] 2020/02/21 13:54:38 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 13:54:38,341 INFO  [org.pentaho.di] 2020/02/21 13:54:38 - PurRepository - Creating repository meta store interface
+2020-02-21 13:54:38,342 INFO  [org.pentaho.di] 2020/02/21 13:54:38 - PurRepository - Connected to the enterprise repository
+2020-02-21 13:54:38,381 INFO  [org.pentaho.di] 2020/02/21 13:54:38 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 13:54:48,459 INFO  [org.pentaho.di] 2020/02/21 13:54:48 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:48,472 INFO  [org.pentaho.di] 2020/02/21 13:54:48 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 13:54:48,651 INFO  [org.pentaho.di] 2020/02/21 13:54:48 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 14:01:35,353 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-21 14:01:35,354 INFO  [org.pentaho.di] 2020/02/21 14:01:35 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 14:01:35,532 INFO  [org.pentaho.di] 2020/02/21 14:01:35 - PurRepository - Creating repository meta store interface
+2020-02-21 14:01:35,534 INFO  [org.pentaho.di] 2020/02/21 14:01:35 - PurRepository - Connected to the enterprise repository
+2020-02-21 14:38:30,633 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@7a35d1a2
+2020-02-21 14:38:30,635 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 14:39:36,589 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@7a35d1a2
+2020-02-21 14:39:36,590 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 14:40:18,649 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@7a35d1a2
+2020-02-21 14:40:18,650 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 14:43:16,007 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@7a35d1a2
+2020-02-21 14:43:55,930 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/large_deal_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@7a35d1a2
+2020-02-21 14:53:02,399 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 14:53:02,430 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2020-02-21 15:02:28,810 INFO  [org.pentaho.di] 2020/02/21 15:02:28 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:02:28,915 INFO  [org.pentaho.di] 2020/02/21 15:02:28 - PurRepository - Creating repository meta store interface
+2020-02-21 15:02:28,917 INFO  [org.pentaho.di] 2020/02/21 15:02:28 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:02:28,983 INFO  [org.pentaho.di] 2020/02/21 15:02:28 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:02:29,056 INFO  [org.pentaho.di] 2020/02/21 15:02:29 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:02:29,068 INFO  [org.pentaho.di] 2020/02/21 15:02:29 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:02:29,457 INFO  [org.pentaho.di] 2020/02/21 15:02:29 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 15:03:01,900 INFO  [org.pentaho.di] 2020/02/21 15:03:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:03:02,011 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - PurRepository - Creating repository meta store interface
+2020-02-21 15:03:02,012 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:03:02,058 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:03:02,123 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:03:02,138 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:03:02,255 INFO  [org.pentaho.di] 2020/02/21 15:03:02 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:03:17,355 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:03:17,466 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - PurRepository - Creating repository meta store interface
+2020-02-21 15:03:17,467 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:03:17,502 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:03:17,584 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:03:17,597 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:03:17,689 INFO  [org.pentaho.di] 2020/02/21 15:03:17 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:14:53,245 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:14:53,360 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - PurRepository - Creating repository meta store interface
+2020-02-21 15:14:53,361 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:14:53,418 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:14:53,494 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:14:53,508 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:14:53,677 INFO  [org.pentaho.di] 2020/02/21 15:14:53 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 15:25:50,631 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:25:50,745 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - PurRepository - Creating repository meta store interface
+2020-02-21 15:25:50,746 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:25:50,798 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:25:50,941 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:25:50,959 INFO  [org.pentaho.di] 2020/02/21 15:25:50 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:25:51,174 INFO  [org.pentaho.di] 2020/02/21 15:25:51 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:30:55,555 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:30:55,676 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - PurRepository - Creating repository meta store interface
+2020-02-21 15:30:55,677 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:30:55,736 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:30:55,807 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:30:55,822 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:30:55,947 INFO  [org.pentaho.di] 2020/02/21 15:30:55 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:32:33,520 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:32:33,639 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - PurRepository - Creating repository meta store interface
+2020-02-21 15:32:33,640 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:32:33,684 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:32:33,760 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:32:33,779 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:32:33,934 INFO  [org.pentaho.di] 2020/02/21 15:32:33 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 15:36:51,444 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:36:51,571 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - PurRepository - Creating repository meta store interface
+2020-02-21 15:36:51,573 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:36:51,623 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:36:51,705 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:36:51,716 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:36:51,843 INFO  [org.pentaho.di] 2020/02/21 15:36:51 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:40:01,299 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:40:01,436 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - PurRepository - Creating repository meta store interface
+2020-02-21 15:40:01,437 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:40:01,486 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:40:01,558 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:40:01,569 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:40:01,689 INFO  [org.pentaho.di] 2020/02/21 15:40:01 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:03,218 INFO  [org.pentaho.di] 2020/02/21 15:41:03 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:41:03,357 INFO  [org.pentaho.di] 2020/02/21 15:41:03 - PurRepository - Creating repository meta store interface
+2020-02-21 15:41:03,358 INFO  [org.pentaho.di] 2020/02/21 15:41:03 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:41:03,542 INFO  [org.pentaho.di] 2020/02/21 15:41:03 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:41:13,709 INFO  [org.pentaho.di] 2020/02/21 15:41:13 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:13,719 INFO  [org.pentaho.di] 2020/02/21 15:41:13 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:13,814 INFO  [org.pentaho.di] 2020/02/21 15:41:13 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:20,190 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:41:20,324 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - PurRepository - Creating repository meta store interface
+2020-02-21 15:41:20,325 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:41:20,368 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:41:20,455 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:20,469 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:41:20,669 INFO  [org.pentaho.di] 2020/02/21 15:41:20 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 15:42:04,911 INFO  [org.pentaho.di] 2020/02/21 15:42:04 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:42:05,021 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - PurRepository - Creating repository meta store interface
+2020-02-21 15:42:05,022 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:42:05,073 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:42:05,144 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:42:05,160 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:42:05,313 INFO  [org.pentaho.di] 2020/02/21 15:42:05 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 15:44:27,319 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 15:44:27,423 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - PurRepository - Creating repository meta store interface
+2020-02-21 15:44:27,424 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - PurRepository - Connected to the enterprise repository
+2020-02-21 15:44:27,464 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 15:44:27,572 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:44:27,581 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 15:44:27,741 INFO  [org.pentaho.di] 2020/02/21 15:44:27 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:05:15,950 INFO  [org.pentaho.di] 2020/02/21 16:05:15 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:05:16,063 INFO  [org.pentaho.di] 2020/02/21 16:05:16 - PurRepository - Creating repository meta store interface
+2020-02-21 16:05:16,066 INFO  [org.pentaho.di] 2020/02/21 16:05:16 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:05:16,130 INFO  [org.pentaho.di] 2020/02/21 16:05:16 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:05:36,203 INFO  [org.pentaho.di] 2020/02/21 16:05:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:05:36,216 INFO  [org.pentaho.di] 2020/02/21 16:05:36 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:05:36,317 INFO  [org.pentaho.di] 2020/02/21 16:05:36 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 16:34:50,324 INFO  [org.pentaho.di] 2020/02/21 16:34:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:34:50,431 INFO  [org.pentaho.di] 2020/02/21 16:34:50 - PurRepository - Creating repository meta store interface
+2020-02-21 16:34:50,432 INFO  [org.pentaho.di] 2020/02/21 16:34:50 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:34:50,487 INFO  [org.pentaho.di] 2020/02/21 16:34:50 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:34:51,019 INFO  [org.pentaho.di] 2020/02/21 16:34:51 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:34:51,046 INFO  [org.pentaho.di] 2020/02/21 16:34:51 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:34:51,982 INFO  [org.pentaho.di] 2020/02/21 16:34:51 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-21 16:37:01,497 INFO  [org.pentaho.di] 2020/02/21 16:37:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:37:01,611 INFO  [org.pentaho.di] 2020/02/21 16:37:01 - PurRepository - Creating repository meta store interface
+2020-02-21 16:37:01,612 INFO  [org.pentaho.di] 2020/02/21 16:37:01 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:37:01,661 INFO  [org.pentaho.di] 2020/02/21 16:37:01 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:37:11,735 INFO  [org.pentaho.di] 2020/02/21 16:37:11 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:37:11,756 INFO  [org.pentaho.di] 2020/02/21 16:37:11 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:37:11,911 INFO  [org.pentaho.di] 2020/02/21 16:37:11 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:41:36,198 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:41:36,303 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - PurRepository - Creating repository meta store interface
+2020-02-21 16:41:36,304 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:41:36,346 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:41:36,408 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:41:36,425 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:41:36,579 INFO  [org.pentaho.di] 2020/02/21 16:41:36 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:45:26,350 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:45:26,471 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - PurRepository - Creating repository meta store interface
+2020-02-21 16:45:26,472 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:45:26,527 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:45:26,598 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:45:26,610 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:45:26,769 INFO  [org.pentaho.di] 2020/02/21 16:45:26 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:46:48,914 INFO  [org.pentaho.di] 2020/02/21 16:46:48 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:46:49,053 INFO  [org.pentaho.di] 2020/02/21 16:46:49 - PurRepository - Creating repository meta store interface
+2020-02-21 16:46:49,054 INFO  [org.pentaho.di] 2020/02/21 16:46:49 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:46:49,113 INFO  [org.pentaho.di] 2020/02/21 16:46:49 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:47:09,545 INFO  [org.pentaho.di] 2020/02/21 16:47:09 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:47:09,564 INFO  [org.pentaho.di] 2020/02/21 16:47:09 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:47:09,949 INFO  [org.pentaho.di] 2020/02/21 16:47:09 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:47:54,551 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:47:54,676 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - PurRepository - Creating repository meta store interface
+2020-02-21 16:47:54,677 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:47:54,713 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:47:54,879 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:47:54,897 INFO  [org.pentaho.di] 2020/02/21 16:47:54 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:47:55,220 INFO  [org.pentaho.di] 2020/02/21 16:47:55 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 16:49:41,171 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 16:49:41,305 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - PurRepository - Creating repository meta store interface
+2020-02-21 16:49:41,306 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - PurRepository - Connected to the enterprise repository
+2020-02-21 16:49:41,355 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 16:49:41,436 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:49:41,455 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 16:49:41,627 INFO  [org.pentaho.di] 2020/02/21 16:49:41 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:22:30,408 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:22:30,522 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - PurRepository - Creating repository meta store interface
+2020-02-21 17:22:30,525 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:22:30,603 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:22:30,678 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:22:30,700 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:22:30,847 INFO  [org.pentaho.di] 2020/02/21 17:22:30 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:26:20,341 INFO  [org.pentaho.di] 2020/02/21 17:26:20 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:26:20,454 INFO  [org.pentaho.di] 2020/02/21 17:26:20 - PurRepository - Creating repository meta store interface
+2020-02-21 17:26:20,456 INFO  [org.pentaho.di] 2020/02/21 17:26:20 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:26:20,516 INFO  [org.pentaho.di] 2020/02/21 17:26:20 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:26:21,106 INFO  [org.pentaho.di] 2020/02/21 17:26:21 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:26:21,124 INFO  [org.pentaho.di] 2020/02/21 17:26:21 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:26:22,320 INFO  [org.pentaho.di] 2020/02/21 17:26:22 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:31:50,069 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:31:50,175 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - PurRepository - Creating repository meta store interface
+2020-02-21 17:31:50,180 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:31:50,247 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:31:50,328 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:31:50,336 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:31:50,511 INFO  [org.pentaho.di] 2020/02/21 17:31:50 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:35:40,107 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:35:40,237 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - PurRepository - Creating repository meta store interface
+2020-02-21 17:35:40,238 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:35:40,294 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:35:40,364 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:35:40,384 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:35:40,644 INFO  [org.pentaho.di] 2020/02/21 17:35:40 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:54:50,508 INFO  [org.pentaho.di] 2020/02/21 17:54:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:54:50,660 INFO  [org.pentaho.di] 2020/02/21 17:54:50 - PurRepository - Creating repository meta store interface
+2020-02-21 17:54:50,663 INFO  [org.pentaho.di] 2020/02/21 17:54:50 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:54:50,730 INFO  [org.pentaho.di] 2020/02/21 17:54:50 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:55:10,802 INFO  [org.pentaho.di] 2020/02/21 17:55:10 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:55:10,820 INFO  [org.pentaho.di] 2020/02/21 17:55:10 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:55:10,980 INFO  [org.pentaho.di] 2020/02/21 17:55:10 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 17:57:57,754 INFO  [org.pentaho.di] 2020/02/21 17:57:57 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 17:57:57,861 INFO  [org.pentaho.di] 2020/02/21 17:57:57 - PurRepository - Creating repository meta store interface
+2020-02-21 17:57:57,863 INFO  [org.pentaho.di] 2020/02/21 17:57:57 - PurRepository - Connected to the enterprise repository
+2020-02-21 17:57:57,918 INFO  [org.pentaho.di] 2020/02/21 17:57:57 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 17:58:18,000 INFO  [org.pentaho.di] 2020/02/21 17:58:18 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:58:18,015 INFO  [org.pentaho.di] 2020/02/21 17:58:18 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 17:58:18,173 INFO  [org.pentaho.di] 2020/02/21 17:58:18 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:01:00,785 INFO  [org.pentaho.di] 2020/02/21 18:01:00 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:01:00,915 INFO  [org.pentaho.di] 2020/02/21 18:01:00 - PurRepository - Creating repository meta store interface
+2020-02-21 18:01:00,918 INFO  [org.pentaho.di] 2020/02/21 18:01:00 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:01:00,975 INFO  [org.pentaho.di] 2020/02/21 18:01:00 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:01:01,052 INFO  [org.pentaho.di] 2020/02/21 18:01:01 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:01:01,066 INFO  [org.pentaho.di] 2020/02/21 18:01:01 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:01:01,227 INFO  [org.pentaho.di] 2020/02/21 18:01:01 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:09:02,142 INFO  [org.pentaho.di] 2020/02/21 18:09:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:09:02,274 INFO  [org.pentaho.di] 2020/02/21 18:09:02 - PurRepository - Creating repository meta store interface
+2020-02-21 18:09:02,276 INFO  [org.pentaho.di] 2020/02/21 18:09:02 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:09:02,329 INFO  [org.pentaho.di] 2020/02/21 18:09:02 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:09:12,392 INFO  [org.pentaho.di] 2020/02/21 18:09:12 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:09:12,405 INFO  [org.pentaho.di] 2020/02/21 18:09:12 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:09:12,554 INFO  [org.pentaho.di] 2020/02/21 18:09:12 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:11:30,407 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:11:30,531 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - PurRepository - Creating repository meta store interface
+2020-02-21 18:11:30,532 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:11:30,579 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:11:30,655 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:11:30,674 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:11:30,815 INFO  [org.pentaho.di] 2020/02/21 18:11:30 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:44:27,455 INFO  [org.pentaho.di] 2020/02/21 18:44:27 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:44:27,585 INFO  [org.pentaho.di] 2020/02/21 18:44:27 - PurRepository - Creating repository meta store interface
+2020-02-21 18:44:27,588 INFO  [org.pentaho.di] 2020/02/21 18:44:27 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:44:27,638 INFO  [org.pentaho.di] 2020/02/21 18:44:27 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:44:37,850 INFO  [org.pentaho.di] 2020/02/21 18:44:37 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:44:37,871 INFO  [org.pentaho.di] 2020/02/21 18:44:37 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:44:38,169 INFO  [org.pentaho.di] 2020/02/21 18:44:38 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:46:56,267 INFO  [org.pentaho.di] 2020/02/21 18:46:56 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:46:56,379 INFO  [org.pentaho.di] 2020/02/21 18:46:56 - PurRepository - Creating repository meta store interface
+2020-02-21 18:46:56,381 INFO  [org.pentaho.di] 2020/02/21 18:46:56 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:46:56,430 INFO  [org.pentaho.di] 2020/02/21 18:46:56 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:47:16,603 INFO  [org.pentaho.di] 2020/02/21 18:47:16 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:47:16,623 INFO  [org.pentaho.di] 2020/02/21 18:47:16 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:47:17,072 INFO  [org.pentaho.di] 2020/02/21 18:47:17 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:49:02,853 INFO  [org.pentaho.di] 2020/02/21 18:49:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:49:02,966 INFO  [org.pentaho.di] 2020/02/21 18:49:02 - PurRepository - Creating repository meta store interface
+2020-02-21 18:49:02,968 INFO  [org.pentaho.di] 2020/02/21 18:49:02 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:49:03,009 INFO  [org.pentaho.di] 2020/02/21 18:49:03 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:49:13,332 INFO  [org.pentaho.di] 2020/02/21 18:49:13 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:49:13,350 INFO  [org.pentaho.di] 2020/02/21 18:49:13 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:49:13,861 INFO  [org.pentaho.di] 2020/02/21 18:49:13 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:51:47,429 INFO  [org.pentaho.di] 2020/02/21 18:51:47 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:51:47,534 INFO  [org.pentaho.di] 2020/02/21 18:51:47 - PurRepository - Creating repository meta store interface
+2020-02-21 18:51:47,535 INFO  [org.pentaho.di] 2020/02/21 18:51:47 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:51:47,572 INFO  [org.pentaho.di] 2020/02/21 18:51:47 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:52:07,640 INFO  [org.pentaho.di] 2020/02/21 18:52:07 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:52:07,657 INFO  [org.pentaho.di] 2020/02/21 18:52:07 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:52:07,798 INFO  [org.pentaho.di] 2020/02/21 18:52:07 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:54:36,277 INFO  [org.pentaho.di] 2020/02/21 18:54:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:54:36,410 INFO  [org.pentaho.di] 2020/02/21 18:54:36 - PurRepository - Creating repository meta store interface
+2020-02-21 18:54:36,412 INFO  [org.pentaho.di] 2020/02/21 18:54:36 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:54:36,466 INFO  [org.pentaho.di] 2020/02/21 18:54:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:54:56,538 INFO  [org.pentaho.di] 2020/02/21 18:54:56 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:54:56,558 INFO  [org.pentaho.di] 2020/02/21 18:54:56 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:54:56,705 INFO  [org.pentaho.di] 2020/02/21 18:54:56 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:55:12,954 INFO  [org.pentaho.di] 2020/02/21 18:55:12 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:55:13,083 INFO  [org.pentaho.di] 2020/02/21 18:55:13 - PurRepository - Creating repository meta store interface
+2020-02-21 18:55:13,084 INFO  [org.pentaho.di] 2020/02/21 18:55:13 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:55:13,125 INFO  [org.pentaho.di] 2020/02/21 18:55:13 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:55:33,202 INFO  [org.pentaho.di] 2020/02/21 18:55:33 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:55:33,228 INFO  [org.pentaho.di] 2020/02/21 18:55:33 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:55:33,392 INFO  [org.pentaho.di] 2020/02/21 18:55:33 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 18:55:50,127 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 18:55:50,255 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - PurRepository - Creating repository meta store interface
+2020-02-21 18:55:50,257 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - PurRepository - Connected to the enterprise repository
+2020-02-21 18:55:50,296 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 18:55:50,357 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:55:50,372 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 18:55:50,524 INFO  [org.pentaho.di] 2020/02/21 18:55:50 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:03:30,124 INFO  [org.pentaho.di] 2020/02/21 19:03:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:03:30,274 INFO  [org.pentaho.di] 2020/02/21 19:03:30 - PurRepository - Creating repository meta store interface
+2020-02-21 19:03:30,276 INFO  [org.pentaho.di] 2020/02/21 19:03:30 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:03:30,334 INFO  [org.pentaho.di] 2020/02/21 19:03:30 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:03:50,407 INFO  [org.pentaho.di] 2020/02/21 19:03:50 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:03:50,424 INFO  [org.pentaho.di] 2020/02/21 19:03:50 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:03:50,593 INFO  [org.pentaho.di] 2020/02/21 19:03:50 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:04:03,770 INFO  [org.pentaho.di] 2020/02/21 19:04:03 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:04:03,914 INFO  [org.pentaho.di] 2020/02/21 19:04:03 - PurRepository - Creating repository meta store interface
+2020-02-21 19:04:03,915 INFO  [org.pentaho.di] 2020/02/21 19:04:03 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:04:03,957 INFO  [org.pentaho.di] 2020/02/21 19:04:03 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:04:04,028 INFO  [org.pentaho.di] 2020/02/21 19:04:04 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:04:04,045 INFO  [org.pentaho.di] 2020/02/21 19:04:04 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:04:04,201 INFO  [org.pentaho.di] 2020/02/21 19:04:04 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:04:56,809 INFO  [org.pentaho.di] 2020/02/21 19:04:56 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:04:56,956 INFO  [org.pentaho.di] 2020/02/21 19:04:56 - PurRepository - Creating repository meta store interface
+2020-02-21 19:04:56,957 INFO  [org.pentaho.di] 2020/02/21 19:04:56 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:04:57,008 INFO  [org.pentaho.di] 2020/02/21 19:04:57 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:04:57,078 INFO  [org.pentaho.di] 2020/02/21 19:04:57 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:04:57,098 INFO  [org.pentaho.di] 2020/02/21 19:04:57 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:04:57,263 INFO  [org.pentaho.di] 2020/02/21 19:04:57 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:06:45,723 INFO  [org.pentaho.di] 2020/02/21 19:06:45 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:06:45,911 INFO  [org.pentaho.di] 2020/02/21 19:06:45 - PurRepository - Creating repository meta store interface
+2020-02-21 19:06:45,912 INFO  [org.pentaho.di] 2020/02/21 19:06:45 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:06:45,968 INFO  [org.pentaho.di] 2020/02/21 19:06:45 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:06:46,041 INFO  [org.pentaho.di] 2020/02/21 19:06:46 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:06:46,064 INFO  [org.pentaho.di] 2020/02/21 19:06:46 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:06:46,221 INFO  [org.pentaho.di] 2020/02/21 19:06:46 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:08:32,593 INFO  [org.pentaho.di] 2020/02/21 19:08:32 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:08:32,741 INFO  [org.pentaho.di] 2020/02/21 19:08:32 - PurRepository - Creating repository meta store interface
+2020-02-21 19:08:32,743 INFO  [org.pentaho.di] 2020/02/21 19:08:32 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:08:32,790 INFO  [org.pentaho.di] 2020/02/21 19:08:32 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:08:52,870 INFO  [org.pentaho.di] 2020/02/21 19:08:52 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:08:52,900 INFO  [org.pentaho.di] 2020/02/21 19:08:52 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:08:53,077 INFO  [org.pentaho.di] 2020/02/21 19:08:53 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:09:09,860 INFO  [org.pentaho.di] 2020/02/21 19:09:09 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:09:10,024 INFO  [org.pentaho.di] 2020/02/21 19:09:10 - PurRepository - Creating repository meta store interface
+2020-02-21 19:09:10,026 INFO  [org.pentaho.di] 2020/02/21 19:09:10 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:09:10,085 INFO  [org.pentaho.di] 2020/02/21 19:09:10 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:09:20,170 INFO  [org.pentaho.di] 2020/02/21 19:09:20 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:09:20,186 INFO  [org.pentaho.di] 2020/02/21 19:09:20 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:09:20,333 INFO  [org.pentaho.di] 2020/02/21 19:09:20 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:11:40,391 INFO  [org.pentaho.di] 2020/02/21 19:11:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:11:40,484 INFO  [org.pentaho.di] 2020/02/21 19:11:40 - PurRepository - Creating repository meta store interface
+2020-02-21 19:11:40,486 INFO  [org.pentaho.di] 2020/02/21 19:11:40 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:11:40,528 INFO  [org.pentaho.di] 2020/02/21 19:11:40 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:11:50,596 INFO  [org.pentaho.di] 2020/02/21 19:11:50 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:11:50,611 INFO  [org.pentaho.di] 2020/02/21 19:11:50 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:11:50,751 INFO  [org.pentaho.di] 2020/02/21 19:11:50 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:13:56,552 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-21 19:13:56,552 INFO  [org.pentaho.di] 2020/02/21 19:13:56 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:13:56,741 INFO  [org.pentaho.di] 2020/02/21 19:13:56 - PurRepository - Creating repository meta store interface
+2020-02-21 19:13:56,742 INFO  [org.pentaho.di] 2020/02/21 19:13:56 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:15:30,029 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:15:30,197 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - PurRepository - Creating repository meta store interface
+2020-02-21 19:15:30,198 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:15:30,264 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:15:30,335 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:15:30,362 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:15:30,524 INFO  [org.pentaho.di] 2020/02/21 19:15:30 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:15:57,092 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:15:57,205 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - PurRepository - Creating repository meta store interface
+2020-02-21 19:15:57,207 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:15:57,248 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:15:57,315 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:15:57,325 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:15:57,470 INFO  [org.pentaho.di] 2020/02/21 19:15:57 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:16:23,122 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:16:23,232 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - PurRepository - Creating repository meta store interface
+2020-02-21 19:16:23,233 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:16:23,269 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:16:23,335 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:16:23,349 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:16:23,491 INFO  [org.pentaho.di] 2020/02/21 19:16:23 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-02-21 19:16:36,433 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-21 19:16:36,573 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - PurRepository - Creating repository meta store interface
+2020-02-21 19:16:36,574 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - PurRepository - Connected to the enterprise repository
+2020-02-21 19:16:36,607 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-21 19:16:36,679 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:16:36,695 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-21 19:16:36,836 INFO  [org.pentaho.di] 2020/02/21 19:16:36 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)

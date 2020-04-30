@@ -1,0 +1,1804 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="25-02-2019 02:09:46 MSK" exportBy="admin" rootFolder="/home/" manifestVersion="2"/>
+    <ExportManifestEntity path="AntonZ">
+        <ExportManifestProperty>
+            <EntityMetaData name="AntonZ" createdDate="2018-04-13T16:03:16.530+03:00" isFolder="true" path="AntonZ" isHidden="false" isSchedulable="false" locale="en_US" title="AntonZ"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test">
+        <ExportManifestProperty>
+            <EntityMetaData name="1test" createdDate="2018-05-24T11:59:11.899+03:00" isFolder="true" path="AntonZ/1test" isHidden="false" isSchedulable="false" locale="en_US" title="1test"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/level">
+        <ExportManifestProperty>
+            <EntityMetaData name="level" createdDate="2018-12-11T15:10:34.395+03:00" isFolder="true" path="AntonZ/1test/level" isHidden="false" isSchedulable="false" locale="en_US" title="level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2018-12-11T15:12:42.933+03:00" isFolder="false" path="AntonZ/1test/level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2018-12-11T15:12:52.839+03:00" isFolder="false" path="AntonZ/1test/level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2018-12-11T15:13:01.683+03:00" isFolder="false" path="AntonZ/1test/level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/traffic">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic" createdDate="2018-05-24T11:59:24.943+03:00" isFolder="true" path="AntonZ/1test/traffic" isHidden="false" isSchedulable="false" locale="en_US" title="traffic"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/traffic/traffic.xml">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic.xml" createdDate="2018-05-24T11:59:25.013+03:00" isFolder="false" path="AntonZ/1test/traffic/traffic.xml" isHidden="false" isSchedulable="true" locale="en_US" title="traffic.xml"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/traffic/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2018-05-24T11:59:25.287+03:00" isFolder="false" path="AntonZ/1test/traffic/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/traffic/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2018-05-24T11:59:25.547+03:00" isFolder="false" path="AntonZ/1test/traffic/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/traffic/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2018-05-24T11:59:25.803+03:00" isFolder="false" path="AntonZ/1test/traffic/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2018-12-11T13:45:20.110+03:00" isFolder="false" path="AntonZ/1test/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2018-12-11T13:45:30.453+03:00" isFolder="false" path="AntonZ/1test/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/1test/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2018-12-11T13:45:38.800+03:00" isFolder="false" path="AntonZ/1test/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-attachments">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag-attachments" createdDate="2018-07-25T16:28:55.323+03:00" isFolder="true" path="AntonZ/bag-attachments" isHidden="false" isSchedulable="false" locale="en_US" title="bag-attachments"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-attachments/bag_attachments.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments.ktr" createdDate="2018-07-25T16:29:12.906+03:00" isFolder="false" path="AntonZ/bag-attachments/bag_attachments.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_attachments"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-attachments/bag_attachments.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments.prpt" createdDate="2018-07-25T18:35:00.588+03:00" isFolder="false" path="AntonZ/bag-attachments/bag_attachments.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Вложения в емкость 1.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-trace-test">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag-trace-test" createdDate="2018-07-25T13:19:12.406+03:00" isFolder="true" path="AntonZ/bag-trace-test" isHidden="false" isSchedulable="false" locale="en_US" title="bag-trace-test"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-trace-test/bag_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_info.ktr" createdDate="2018-07-25T13:22:15.409+03:00" isFolder="false" path="AntonZ/bag-trace-test/bag_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-trace-test/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2018-07-25T13:20:07.469+03:00" isFolder="false" path="AntonZ/bag-trace-test/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag-trace-test/tracing_bag.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracing_bag.prpt" createdDate="2018-07-25T13:19:45.465+03:00" isFolder="false" path="AntonZ/bag-trace-test/tracing_bag.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка по емкости 2.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag_trace">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_trace" createdDate="2018-06-13T19:11:31.567+03:00" isFolder="true" path="AntonZ/bag_trace" isHidden="false" isSchedulable="false" locale="en_US" title="bag_trace"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag_trace/bag_attachments.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments.ktr" createdDate="2018-06-14T15:11:08.062+03:00" isFolder="false" path="AntonZ/bag_trace/bag_attachments.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_attachments"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag_trace/bag_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_info.ktr" createdDate="2018-06-14T15:12:24.858+03:00" isFolder="false" path="AntonZ/bag_trace/bag_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag_trace/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2018-06-14T15:10:05.747+03:00" isFolder="false" path="AntonZ/bag_trace/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bag_trace/tracing_bag.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracing_bag.prpt" createdDate="2018-06-14T17:41:34.026+03:00" isFolder="false" path="AntonZ/bag_trace/tracing_bag.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка по емкости 2.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/balance_cde">
+        <ExportManifestProperty>
+            <EntityMetaData name="balance_cde" createdDate="2018-12-10T17:11:42.373+03:00" isFolder="true" path="AntonZ/balance_cde" isHidden="false" isSchedulable="false" locale="en_US" title="balance_cde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/balance_cde/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2019-01-24T17:57:22.174+03:00" isFolder="false" path="AntonZ/balance_cde/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/balance_cde/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2019-01-24T17:57:37.932+03:00" isFolder="false" path="AntonZ/balance_cde/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/balance_cde/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2019-01-24T17:57:52.753+03:00" isFolder="false" path="AntonZ/balance_cde/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus" createdDate="2018-06-01T13:31:27.243+03:00" isFolder="true" path="AntonZ/bonus" isHidden="false" isSchedulable="false" locale="en_US" title="bonus"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus/KPI в зоне ответственности ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cda" createdDate="2019-02-19T13:46:47.927+03:00" isFolder="false" path="AntonZ/bonus/KPI в зоне ответственности ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus/KPI в зоне ответственности ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cdfde" createdDate="2019-02-19T13:46:36.510+03:00" isFolder="false" path="AntonZ/bonus/KPI в зоне ответственности ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus/KPI в зоне ответственности ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.wcdf" createdDate="2019-02-19T13:46:25.619+03:00" isFolder="false" path="AntonZ/bonus/KPI в зоне ответственности ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus_history">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus_history" createdDate="2018-07-30T17:53:00.285+03:00" isFolder="true" path="AntonZ/bonus_history" isHidden="false" isSchedulable="false" locale="en_US" title="bonus_history"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС 2016.cda" createdDate="2018-07-30T20:07:31.266+03:00" isFolder="false" path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС 2016.cda"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС 2016.cdfde" createdDate="2018-07-30T20:07:32.804+03:00" isFolder="false" path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС 2016.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС 2016.wcdf" createdDate="2018-07-30T20:07:29.446+03:00" isFolder="false" path="AntonZ/bonus_history/KPI в зоне ответственности ОПС 2016.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС 2016"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-history">
+        <ExportManifestProperty>
+            <EntityMetaData name="kpi-history" createdDate="2018-07-20T18:49:28.656+03:00" isFolder="true" path="AntonZ/kpi-history" isHidden="false" isSchedulable="false" locale="en_US" title="kpi-history"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-history/report_kpi_list_rpo_2016.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_list_rpo_2016.prpt" createdDate="2018-07-31T13:23:27.003+03:00" isFolder="false" path="AntonZ/kpi-history/report_kpi_list_rpo_2016.prpt" isHidden="false" isSchedulable="true" locale="en_US" description="Список РПО (Общий КПИ) 2016" title="Список РПО (Общий КПИ) 2016"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-history/report_kpi_v4_2016.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_v4_2016.prpt" createdDate="2018-07-31T13:24:19.231+03:00" isFolder="false" path="AntonZ/kpi-history/report_kpi_v4_2016.prpt" isHidden="false" isSchedulable="true" locale="en_US" description="2016" title="Общий KPI-в4 2016"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-zone">
+        <ExportManifestProperty>
+            <EntityMetaData name="kpi-zone" createdDate="2018-07-13T18:38:57.575+03:00" isFolder="true" path="AntonZ/kpi-zone" isHidden="false" isSchedulable="false" locale="en_US" title="kpi-zone"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-zone/bonus_history">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus_history" createdDate="2018-07-13T18:57:28.490+03:00" isFolder="true" path="AntonZ/kpi-zone/bonus_history" isHidden="false" isSchedulable="false" locale="en_US" title="bonus_history"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cda" createdDate="2018-07-13T18:57:33.273+03:00" isFolder="false" path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cdfde" createdDate="2018-07-13T18:57:29.235+03:00" isFolder="false" path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.wcdf" createdDate="2018-07-13T18:57:36.851+03:00" isFolder="false" path="AntonZ/kpi-zone/bonus_history/KPI в зоне ответственности ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi_rpo_list">
+        <ExportManifestProperty>
+            <EntityMetaData name="kpi_rpo_list" createdDate="2018-07-23T19:20:37.962+03:00" isFolder="true" path="AntonZ/kpi_rpo_list" isHidden="false" isSchedulable="false" locale="en_US" title="kpi_rpo_list"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/kpi_rpo_list/report_kpi_list_rpo.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_list_rpo.prpt" createdDate="2018-07-23T19:20:53.467+03:00" isFolder="false" path="AntonZ/kpi_rpo_list/report_kpi_list_rpo.prpt" isHidden="false" isSchedulable="true" locale="en_US" description="Список РПО (Общий КПИ)" title="Список РПО (Общий КПИ)"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo" createdDate="2018-09-10T13:26:45.987+03:00" isFolder="true" path="AntonZ/mmpo" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО доставка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cda" createdDate="2018-09-10T13:27:33.626+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО доставка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО доставка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cdfde" createdDate="2018-09-10T13:27:44.075+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО доставка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО доставка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.wcdf" createdDate="2018-09-10T13:27:53.194+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО доставка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО обработка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cda" createdDate="2018-09-10T13:28:03.278+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО обработка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО обработка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cdfde" createdDate="2018-09-10T13:28:16.762+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО обработка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo/KPI ММПО обработка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.wcdf" createdDate="2018-09-10T13:28:30.888+03:00" isFolder="false" path="AntonZ/mmpo/KPI ММПО обработка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo_export" createdDate="2018-10-18T15:32:03.566+03:00" isFolder="true" path="AntonZ/mmpo_export" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo_export"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.cda" createdDate="2018-10-18T18:54:11.498+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.cdfde" createdDate="2018-10-18T18:54:11.082+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.wcdf" createdDate="2018-10-18T18:54:10.766+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорт форма1.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.cda" createdDate="2018-10-18T18:54:07.555+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.cdfde" createdDate="2018-10-18T18:54:10.413+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.wcdf" createdDate="2018-10-18T18:54:10.102+03:00" isFolder="false" path="AntonZ/mmpo_export/KPI ММПО экспорта форма 2.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo_export_copy" createdDate="2018-10-18T18:02:44.083+03:00" isFolder="true" path="AntonZ/mmpo_export_copy" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo_export_copy"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.cda" createdDate="2018-10-18T18:03:01.280+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.cdfde" createdDate="2018-10-18T18:03:03.762+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорт форма1.wcdf" createdDate="2018-10-18T18:03:04.197+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорт форма1.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорт форма1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.cda" createdDate="2018-10-18T18:50:45.964+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.cdfde" createdDate="2018-10-18T18:50:48.350+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО экспорта форма 2.wcdf" createdDate="2018-10-18T18:50:48.730+03:00" isFolder="false" path="AntonZ/mmpo_export_copy/KPI ММПО экспорта форма 2.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО экспорта форма 2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki" createdDate="2018-05-25T13:09:11.932+03:00" isFolder="true" path="AntonZ/ostatki" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki copy">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki copy" createdDate="2018-05-21T18:42:46.439+03:00" isFolder="true" path="AntonZ/ostatki copy" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki copy"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki copy/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2018-05-21T18:42:57.123+03:00" isFolder="false" path="AntonZ/ostatki copy/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki copy/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2018-05-21T18:42:57.518+03:00" isFolder="false" path="AntonZ/ostatki copy/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki copy/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2018-05-21T18:42:57.634+03:00" isFolder="false" path="AntonZ/ostatki copy/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2018-05-25T13:09:12.024+03:00" isFolder="false" path="AntonZ/ostatki/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2018-05-25T13:09:12.370+03:00" isFolder="false" path="AntonZ/ostatki/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2018-05-25T13:09:12.791+03:00" isFolder="false" path="AntonZ/ostatki/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_1">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki_1" createdDate="2018-04-13T16:04:04.928+03:00" isFolder="true" path="AntonZ/ostatki_1" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki_1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_1/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2018-04-13T16:04:13.147+03:00" isFolder="false" path="AntonZ/ostatki_1/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_1/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2018-04-13T16:04:20.021+03:00" isFolder="false" path="AntonZ/ostatki_1/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_1/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2018-04-13T16:04:20.795+03:00" isFolder="false" path="AntonZ/ostatki_1/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_2">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki_2" createdDate="2018-05-24T12:31:07.415+03:00" isFolder="true" path="AntonZ/ostatki_2" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki_2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_2/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2018-05-24T12:31:07.509+03:00" isFolder="false" path="AntonZ/ostatki_2/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_2/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2018-05-24T12:31:07.825+03:00" isFolder="false" path="AntonZ/ostatki_2/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_2/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2018-05-24T12:31:08.131+03:00" isFolder="false" path="AntonZ/ostatki_2/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_533">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki_533" createdDate="2019-01-28T18:47:12.188+03:00" isFolder="true" path="AntonZ/ostatki_533" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki_533"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_533/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2019-01-28T18:47:21.513+03:00" isFolder="false" path="AntonZ/ostatki_533/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_533/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2019-01-28T18:47:21.700+03:00" isFolder="false" path="AntonZ/ostatki_533/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_533/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2019-01-28T18:47:21.788+03:00" isFolder="false" path="AntonZ/ostatki_533/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/ostatki_759">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki_759" createdDate="2019-02-06T18:00:18.321+03:00" isFolder="true" path="AntonZ/ostatki_759" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki_759"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_2">
+        <ExportManifestProperty>
+            <EntityMetaData name="return_2" createdDate="2018-09-24T12:51:29.132+03:00" isFolder="true" path="AntonZ/return_2" isHidden="false" isSchedulable="false" locale="en_US" title="return_2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_2/rpo_return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_level" createdDate="2018-09-24T12:51:46.391+03:00" isFolder="true" path="AntonZ/return_2/rpo_return_level" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2018-09-24T12:51:46.461+03:00" isFolder="false" path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2018-09-24T12:51:46.680+03:00" isFolder="false" path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2018-09-24T12:51:46.883+03:00" isFolder="false" path="AntonZ/return_2/rpo_return_level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="return_level" createdDate="2018-10-29T14:14:28.771+03:00" isFolder="true" path="AntonZ/return_level" isHidden="false" isSchedulable="false" locale="en_US" title="return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_level/rpo_return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_level" createdDate="2018-10-29T14:16:37.343+03:00" isFolder="true" path="AntonZ/return_level/rpo_return_level" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2018-10-29T14:16:37.459+03:00" isFolder="false" path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2018-10-29T14:16:37.835+03:00" isFolder="false" path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2018-10-29T14:16:38.196+03:00" isFolder="false" path="AntonZ/return_level/rpo_return_level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_new_YEAR">
+        <ExportManifestProperty>
+            <EntityMetaData name="return_new_YEAR" createdDate="2019-01-09T18:49:56.996+03:00" isFolder="true" path="AntonZ/return_new_YEAR" isHidden="false" isSchedulable="false" locale="en_US" title="return_new_YEAR"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_new_YEAR/rpo_return">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return" createdDate="2019-01-09T18:50:56.319+03:00" isFolder="true" path="AntonZ/return_new_YEAR/rpo_return" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cda" createdDate="2019-01-09T18:50:56.642+03:00" isFolder="false" path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cdfde" createdDate="2019-01-09T18:50:58.524+03:00" isFolder="false" path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.wcdf" createdDate="2019-01-09T18:51:00.284+03:00" isFolder="false" path="AntonZ/return_new_YEAR/rpo_return/Возвраты посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/roughts">
+        <ExportManifestProperty>
+            <EntityMetaData name="roughts" createdDate="2019-01-15T14:21:28.380+03:00" isFolder="true" path="AntonZ/roughts" isHidden="false" isSchedulable="false" locale="en_US" title="roughts"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/roughts/report_routes.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_routes.prpt" createdDate="2019-01-15T14:21:48.092+03:00" isFolder="false" path="AntonZ/roughts/report_routes.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по маршрутам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_list">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_list" createdDate="2018-07-23T19:17:56.437+03:00" isFolder="true" path="AntonZ/rpo_list" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_list"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return" createdDate="2018-08-22T17:04:22.103+03:00" isFolder="true" path="AntonZ/rpo_return" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return/Возвраты посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cda" createdDate="2018-10-25T16:47:57.249+03:00" isFolder="false" path="AntonZ/rpo_return/Возвраты посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return/Возвраты посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cdfde" createdDate="2018-10-25T16:47:56.976+03:00" isFolder="false" path="AntonZ/rpo_return/Возвраты посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return/Возвраты посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.wcdf" createdDate="2018-10-25T16:47:56.766+03:00" isFolder="false" path="AntonZ/rpo_return/Возвраты посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return_3">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_3" createdDate="2018-10-07T13:56:19.260+03:00" isFolder="true" path="AntonZ/rpo_return_3" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_3"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return_3/rpo_return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_level" createdDate="2018-10-07T13:57:04.065+03:00" isFolder="true" path="AntonZ/rpo_return_3/rpo_return_level" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2018-10-07T13:57:04.147+03:00" isFolder="false" path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2018-10-07T13:57:04.469+03:00" isFolder="false" path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2018-10-07T13:57:04.813+03:00" isFolder="false" path="AntonZ/rpo_return_3/rpo_return_level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla">
+        <ExportManifestProperty>
+            <EntityMetaData name="sla" createdDate="2018-07-03T13:09:04.178+03:00" isFolder="true" path="AntonZ/sla" isHidden="false" isSchedulable="false" locale="en_US" title="sla"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla/Отчет по SLA для посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cda" createdDate="2018-07-12T15:59:23.840+03:00" isFolder="false" path="AntonZ/sla/Отчет по SLA для посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla/Отчет по SLA для посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cdfde" createdDate="2018-07-12T15:59:27.746+03:00" isFolder="false" path="AntonZ/sla/Отчет по SLA для посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla/Отчет по SLA для посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.wcdf" createdDate="2018-07-12T15:59:32.133+03:00" isFolder="false" path="AntonZ/sla/Отчет по SLA для посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy">
+        <ExportManifestProperty>
+            <EntityMetaData name="sla_copy" createdDate="2018-05-25T18:02:07.364+03:00" isFolder="true" path="AntonZ/sla_copy" isHidden="false" isSchedulable="false" locale="en_US" title="sla_copy"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/sla">
+        <ExportManifestProperty>
+            <EntityMetaData name="sla" createdDate="2018-07-03T19:03:46.548+03:00" isFolder="true" path="AntonZ/sla_copy/sla" isHidden="false" isSchedulable="false" locale="en_US" title="sla"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cda" createdDate="2018-07-03T19:03:47.113+03:00" isFolder="false" path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cdfde" createdDate="2018-07-03T19:03:50.396+03:00" isFolder="false" path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.wcdf" createdDate="2018-07-03T19:03:53.502+03:00" isFolder="false" path="AntonZ/sla_copy/sla/Отчет по SLA для посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cda" createdDate="2018-05-25T18:02:17.672+03:00" isFolder="false" path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cdfde" createdDate="2018-05-25T18:02:18.775+03:00" isFolder="false" path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.wcdf" createdDate="2018-05-25T18:02:18.967+03:00" isFolder="false" path="AntonZ/sla_copy/Отчет по SLA для посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sorting-balances">
+        <ExportManifestProperty>
+            <EntityMetaData name="sorting-balances" createdDate="2018-04-28T15:40:03.209+03:00" isFolder="true" path="AntonZ/sorting-balances" isHidden="false" isSchedulable="false" locale="en_US" title="sorting-balances"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sorting-balances/Остатки в цехах.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.cda" createdDate="2018-05-22T15:17:50.571+03:00" isFolder="false" path="AntonZ/sorting-balances/Остатки в цехах.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sorting-balances/Остатки в цехах.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.cdfde" createdDate="2018-05-22T15:18:20.793+03:00" isFolder="false" path="AntonZ/sorting-balances/Остатки в цехах.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/sorting-balances/Остатки в цехах.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.wcdf" createdDate="2018-05-22T15:18:29.641+03:00" isFolder="false" path="AntonZ/sorting-balances/Остатки в цехах.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic" createdDate="2018-05-14T19:03:35.700+03:00" isFolder="true" path="AntonZ/traffic" isHidden="false" isSchedulable="false" locale="en_US" title="traffic"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2018-10-25T19:13:01.230+03:00" isFolder="false" path="AntonZ/traffic/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2018-10-25T19:13:01.437+03:00" isFolder="false" path="AntonZ/traffic/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2018-10-25T19:13:01.702+03:00" isFolder="false" path="AntonZ/traffic/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic_copy">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic_copy" createdDate="2018-05-07T17:33:35.829+03:00" isFolder="true" path="AntonZ/traffic_copy" isHidden="false" isSchedulable="false" locale="en_US" title="traffic_copy"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic_copy/traffic.xml">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic.xml" createdDate="2018-05-07T17:34:03.470+03:00" isFolder="false" path="AntonZ/traffic_copy/traffic.xml" isHidden="false" isSchedulable="true" locale="en_US" title="traffic.xml"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic_copy/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2018-05-07T17:34:03.734+03:00" isFolder="false" path="AntonZ/traffic_copy/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic_copy/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2018-05-07T17:34:05.269+03:00" isFolder="false" path="AntonZ/traffic_copy/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/traffic_copy/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2018-05-07T17:34:05.493+03:00" isFolder="false" path="AntonZ/traffic_copy/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik">
+        <ExportManifestProperty>
+            <EntityMetaData name="trahik" createdDate="2018-07-16T11:51:16.394+03:00" isFolder="true" path="AntonZ/trahik" isHidden="false" isSchedulable="false" locale="en_US" title="trahik"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic" createdDate="2018-07-16T11:51:39.993+03:00" isFolder="true" path="AntonZ/trahik/traffic" isHidden="false" isSchedulable="false" locale="en_US" title="traffic"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2018-07-16T11:51:40.804+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2018-07-16T11:51:45.224+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2018-07-16T11:51:49.639+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику_tmp.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику_tmp.cda" createdDate="2018-07-17T14:05:52.709+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику_tmp.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику_tmp.cda"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику_tmp.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику_tmp.cdfde" createdDate="2018-07-17T14:05:51.178+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику_tmp.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику_tmp.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="AntonZ/trahik/traffic/Отчет по трафику_tmp.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику_tmp.wcdf" createdDate="2018-07-17T14:05:49.959+03:00" isFolder="false" path="AntonZ/trahik/traffic/Отчет по трафику_tmp.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику_tmp.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

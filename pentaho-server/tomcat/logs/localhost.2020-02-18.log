@@ -1,0 +1,25 @@
+18-Feb-2020 19:52:55.700 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+18-Feb-2020 19:52:55.862 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+18-Feb-2020 19:54:29.324 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+18-Feb-2020 19:54:30.792 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+18-Feb-2020 19:55:38.689 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.

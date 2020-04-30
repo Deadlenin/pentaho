@@ -1,0 +1,100 @@
+<Schema name="Retail transactions cube">
+    <Cube name="Retail transactions cube" enabled="true" cache="true" visible="true">
+        <Table name="retail_transactions_raw_cube_agg" schema="retail_kpi"/>
+        <Dimension name="Дата транзакции" visible="true" highCardinality="true">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все даты" hasAll="true">
+                <Level name="Год" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="int" type="Numeric" column="trans_year"/>
+                <Level name="Месяц" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="trans_month"/>
+                <Level name="День" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" type="String" column="trans_date"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Система источник" visible="true" highCardinality="false">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все системы источники" hasAll="true">
+                <Level name="Источник" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="sys_name"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Объект" visible="true" highCardinality="true">
+            <Hierarchy name="Индексы ОПС" visible="true" allLevelName="(Все)" allMemberName="Индексы ОПС" hasAll="true">
+                <Level name="Индекс ОПС" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" type="Numeric" column="ops"/>
+            </Hierarchy>
+            <Hierarchy name="Объекты типа Почтамт" visible="true" allLevelName="(Все)" allMemberName="Объекты типа Почтамт" hasAll="true">
+                <Level name="Почтамт" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="post_office"/>
+            </Hierarchy>
+            <Hierarchy name="Объекты типа УФПС" visible="true" allLevelName="(Все)" allMemberName="Объекты типа УФПС" hasAll="true">
+                <Level name="УФПС" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="ufps"/>
+            </Hierarchy>
+            <Hierarchy name="Объекты типа Макрорегион" visible="true" allLevelName="(Все)" allMemberName="Объекты типа Макрорегион" hasAll="true">
+                <Level name="Макрорегион" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="macroregion"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Терминал/окно" visible="true" highCardinality="false">
+            <Hierarchy name="Номер терминала" visible="true" allLevelName="(Все)" allMemberName="Все номера терминалов" hasAll="true">
+                <Level name="ID терминала/окна" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" type="Numeric" column="terminal_id"/>
+            </Hierarchy>
+            <Hierarchy name="Тип терминала" visible="true" allLevelName="(Все)" allMemberName="Все типы терминалов" hasAll="true">
+                <Level name="Тип" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" type="String" column="fiscal_terminal_name"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Услуги" visible="true" highCardinality="true">
+            <Hierarchy name="Наименование" visible="true" allLevelName="(Все)" allMemberName="Все услуги" hasAll="true">
+                <Level name="Имя услуги" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="service_name"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Статус транзакции" visible="true" highCardinality="false">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все статусы транзакций" hasAll="true">
+                <Level name="Статус" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="trans_status" nameColumn="trans_status"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ФИО оператора на кассе" visible="true" highCardinality="true">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все операторы" hasAll="true">
+                <Level name="ФИО оператора" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="operator_name"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Сущность ЕАС" visible="true" highCardinality="false">
+            <Hierarchy name="Наименование" visible="true" allLevelName="(Все)" allMemberName="Все сущности ЕАС" hasAll="true">
+                <Level name="Наименование сущности ЕАС" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="entity_name"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Оплата" visible="true" highCardinality="false">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все тип оплаты" hasAll="true">
+                <Level name="Тип оплаты на кассе" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="pay_type_id" nameColumn="pay_type_id"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Клиент" visible="true" highCardinality="false">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все типы клиента" hasAll="true">
+                <Level name="Тип клиента" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="client_type_id" nameColumn="client_type_id"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Направления" visible="true" highCardinality="false">
+            <Hierarchy visible="true" allLevelName="(Все)" allMemberName="Все направления" hasAll="true">
+                <Level name="Направление" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="direction_cf"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ККМ" visible="true" highCardinality="false">
+            <Hierarchy name="Признак" visible="true" allLevelName="(Все)" allMemberName="Все ККМ" hasAll="true">
+                <Level name="Признак ККМ" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="Object" type="String" column="fiscal_printer_flag" nameColumn="fiscal_printer_flag"/>
+            </Hierarchy>
+            <Hierarchy name="Наименование" visible="true" allLevelName="(Все)" allMemberName="Все ККМ" hasAll="true">
+                <Level name="Наименование ККМ" visible="true" hideMemberIf="Never" levelType="Regular" uniqueMembers="false" internalType="String" type="String" column="fiscal_printer_device_name_uniq"/>
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Транзакции" column="trans_cnt" aggregator="sum"/>
+        <Measure name="Сумма кассовой транзакции с учетом НДС, коп" column="trans_amount_kop" aggregator="sum"/>
+        <Measure name="Сумма прихода по кассовой транзакции с учетом НДС, коп" column="trans_amount_in_kop" aggregator="sum"/>
+        <Measure name="Сумма выплаты по кассовой транзакции с учетом НДС, коп" column="trans_amount_out_kop" aggregator="sum"/>
+        <Measure name="Сумма НДС, коп" column="tax_amount_kop" aggregator="sum"/>
+        <Measure name="Сумма кассовой транзакции с учетом НДС, руб" column="trans_amount_rub" aggregator="sum" formatString="#,###"/>
+        <Measure name="Сумма прихода по кассовой транзакции с учетом НДС, руб" column="trans_amount_in_rub" aggregator="sum" formatString="#,###"/>
+        <Measure name="Сумма выплаты по кассовой транзакции с учетом НДС, руб" column="trans_amount_out_rub" aggregator="sum" formatString="#,###"/>
+        <Measure name="Сумма НДС, руб" column="tax_amount_rub" aggregator="sum" formatString="#,###"/>
+        <Measure name="Суммарная длительность кассовой транзакции, сек" column="duration" aggregator="sum" visible="false"/>
+        <Measure name="Суммарная длительность чека, сек" column="cheque_duration" aggregator="sum" visible="false"/>
+        <CalculatedMember name="Средняя длительность кассовой транзакции, сек" dimension="Measures" formula="[Measures].[Суммарная длительность кассовой транзакции, сек]/[Measures].[Транзакции]">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,###.00"/>
+        </CalculatedMember>
+        <CalculatedMember name="Средняя длительность чека, сек" dimension="Measures" formula="[Measures].[Суммарная длительность чека, сек]/[Measures].[Транзакции]">
+            <CalculatedMemberProperty name="FORMAT_STRING" value="#,###.00"/>
+        </CalculatedMember>
+    </Cube>
+</Schema>

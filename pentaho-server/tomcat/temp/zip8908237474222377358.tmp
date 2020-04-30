@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="05-03-2020 04:51:00 MSK" exportBy="admin" rootFolder="/home/" manifestVersion="2"/>
+    <ExportManifestEntity path="Ext-A.Vorobyov">
+        <ExportManifestProperty>
+            <EntityMetaData name="Ext-A.Vorobyov" createdDate="2019-08-26T15:04:15.674+03:00" isFolder="true" path="Ext-A.Vorobyov" isHidden="false" isSchedulable="false" locale="en_US" title="Ext-A.Vorobyov"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <aces>
+                    <permissions>ALL</permissions>
+                    <recipient>Ext-A.Vorobyov</recipient>
+                    <recipientType>USER</recipientType>
+                </aces>
+                <entriesInheriting>false</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde">
+        <ExportManifestProperty>
+            <EntityMetaData name="balance_cde" createdDate="2020-01-29T13:41:03.704+03:00" isFolder="true" path="Ext-A.Vorobyov/balance_cde" isHidden="false" isSchedulable="false" locale="en_US" title="balance_cde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2020-02-18T12:06:00.435+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2020-02-18T12:06:14.177+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2020-02-18T12:06:16.290+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам_tmp.cda" createdDate="2020-03-05T16:40:54.396+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам_tmp.cda"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам_tmp.cdfde" createdDate="2020-03-05T16:40:52.562+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам_tmp.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам_tmp.wcdf" createdDate="2020-03-05T16:40:50.510+03:00" isFolder="false" path="Ext-A.Vorobyov/balance_cde/Отчет по остаткам_tmp.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам_tmp.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/dataStatisticsReport_v21.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="dataStatisticsReport_v21.prpt" createdDate="2019-10-11T11:40:23.758+03:00" isFolder="false" path="Ext-A.Vorobyov/dataStatisticsReport_v21.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Статистика передачи данных 2.1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_delivery">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo_kpi_delivery" createdDate="2019-08-26T15:36:38.640+03:00" isFolder="true" path="Ext-A.Vorobyov/mmpo_kpi_delivery" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo_kpi_delivery"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cda" createdDate="2019-08-26T15:36:56.272+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cdfde" createdDate="2019-08-26T15:37:06.163+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.wcdf" createdDate="2019-08-26T15:37:16.388+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_delivery/KPI ММПО доставка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_processing">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo_kpi_processing" createdDate="2019-08-26T15:36:48.150+03:00" isFolder="true" path="Ext-A.Vorobyov/mmpo_kpi_processing" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo_kpi_processing"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cda" createdDate="2019-08-27T12:07:37.967+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cdfde" createdDate="2019-08-26T15:37:58.983+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.wcdf" createdDate="2019-08-27T12:07:52.826+03:00" isFolder="false" path="Ext-A.Vorobyov/mmpo_kpi_processing/KPI ММПО обработка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>Ext-A.Vorobyov</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

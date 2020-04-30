@@ -1,0 +1,179 @@
+29-Nov-2018 14:06:12.142 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 14:06:12.361 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 14:09:37.710 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 14:09:40.447 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 14:11:16.253 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 16:04:58.581 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 16:04:59.014 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 16:14:33.897 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 16:14:36.198 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 16:16:13.891 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 16:47:43.924 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 16:47:44.183 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 16:49:10.770 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 16:49:12.863 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 16:50:23.579 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 16:50:59.567 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 16:52:33.851 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 16:52:36.231 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 16:53:49.920 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 17:04:48.245 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 17:04:48.463 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 17:06:46.627 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 17:06:48.645 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 17:07:52.744 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 17:15:19.171 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 17:15:19.453 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 17:16:11.238 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 17:16:13.397 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 17:17:46.878 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 17:33:51.477 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 17:33:51.760 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 17:34:49.416 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 17:34:51.885 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 17:36:17.712 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.
+29-Nov-2018 17:54:29.596 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log Closing Spring root WebApplicationContext
+29-Nov-2018 17:54:29.830 SEVERE [localhost-startStop-2] org.apache.catalina.core.StandardContext.listenerStop Exception sending context destroyed event to listener instance of class org.apache.felix.http.proxy.ProxyListener
+ java.lang.IllegalStateException: Invalid BundleContext.
+	at org.apache.felix.framework.BundleContextImpl.checkValidity(BundleContextImpl.java:514)
+	at org.apache.felix.framework.BundleContextImpl.ungetService(BundleContextImpl.java:473)
+	at org.osgi.util.tracker.ServiceTracker.removedService(ServiceTracker.java:456)
+	at org.apache.felix.http.proxy.ProxyListener$1.removedService(ProxyListener.java:146)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:956)
+	at org.osgi.util.tracker.ServiceTracker$Tracked.customizerRemoved(ServiceTracker.java:864)
+	at org.osgi.util.tracker.AbstractTracked.untrack(AbstractTracked.java:341)
+	at org.osgi.util.tracker.ServiceTracker.close(ServiceTracker.java:375)
+	at org.apache.felix.http.proxy.ProxyListener.contextDestroyed(ProxyListener.java:67)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:4900)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5537)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1424)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1413)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Nov-2018 17:55:19.209 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+29-Nov-2018 17:55:21.318 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+29-Nov-2018 17:56:28.852 SEVERE [localhost-startStop-1] org.apache.tomcat.util.descriptor.web.SecurityConstraint.findUncoveredHttpMethods For security constraints with URL pattern [/jsp/*] only the HTTP methods [POST GET] are covered. All other methods are uncovered.

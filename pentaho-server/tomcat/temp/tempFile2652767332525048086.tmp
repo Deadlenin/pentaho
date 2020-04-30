@@ -1,0 +1,370 @@
+<Schema name="sitcenter_incidents_mondrian_schema">
+  <Cube name="incidents" visible="true" cache="true" enabled="true">
+    <Table name="fact_incidents" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="status_code" highCardinality="false" name="Status" caption="&#1057;&#1090;&#1072;&#1090;&#1091;&#1089;">
+      <Hierarchy name="Status" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1089;&#1090;&#1072;&#1090;&#1091;&#1089;&#1099;" primaryKey="code" caption="&#1057;&#1090;&#1072;&#1090;&#1091;&#1089;">
+        <Table name="dim_status" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="status" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1090;&#1072;&#1090;&#1091;&#1089;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="assignee_id" highCardinality="false" name="Assignee" caption="&#1054;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;">
+      <Hierarchy name="Employee" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1089;&#1086;&#1090;&#1088;&#1091;&#1076;&#1085;&#1080;&#1082;&#1080;" primaryKey="id" caption="&#1057;&#1086;&#1090;&#1088;&#1091;&#1076;&#1085;&#1080;&#1082;">
+        <Table name="dim_employees" schema="public">
+        </Table>
+        <Level name="MR" visible="true" column="macroregion_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+        </Level>
+        <Level name="UFPS" visible="true" column="region_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+        </Level>
+        <Level name="PostOffice" visible="true" column="post_office_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;">
+        </Level>
+        <Level name="OPS" visible="true" column="post_object_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+        </Level>
+        <Level name="Name" visible="true" column="fullname" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1048;&#1084;&#1103;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Name" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1089;&#1086;&#1090;&#1088;&#1091;&#1076;&#1085;&#1080;&#1082;&#1080;" primaryKey="id">
+        <Table name="dim_employees" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="id" nameColumn="fullname" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="IfBlankName" caption="&#1048;&#1084;&#1103;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="type_code" highCardinality="false" name="IncidentType" caption="&#1058;&#1080;&#1087; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+      <Hierarchy name="IncidentType" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1090;&#1080;&#1087;&#1099; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;" primaryKey="code" caption="&#1058;&#1080;&#1087; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        <Table name="incidenttypes" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="description" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="cause_code" highCardinality="false" name="Cause" caption="&#1055;&#1088;&#1080;&#1095;&#1080;&#1085;&#1072;">
+      <Hierarchy name="Cause" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1087;&#1088;&#1080;&#1095;&#1080;&#1085;&#1099;" primaryKey="code" caption="&#1055;&#1088;&#1080;&#1095;&#1080;&#1085;&#1072;">
+        <Table name="dim_cause" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1088;&#1080;&#1095;&#1080;&#1085;&#1072;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="solution_code" highCardinality="false" name="Solution" caption="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">
+      <Hierarchy name="Solution" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1099; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;" primaryKey="code" caption="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">
+        <Table name="dim_solution" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="description" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="closed_datetime_id" highCardinality="false" name="ClosedTime" caption="&#1044;&#1072;&#1090;&#1072; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103;">
+      <Hierarchy name="Time" visible="true" hasAll="true" primaryKey="date_key" caption="&#1044;&#1072;&#1090;&#1072;">
+        <Table name="dim_date" schema="public">
+        </Table>
+        <Level name="Year" visible="true" column="date_year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="&#1043;&#1086;&#1076;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Quarter" visible="true" column="date_quarter" nameColumn="quarter_name" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never" caption="&#1050;&#1074;&#1072;&#1088;&#1090;&#1072;&#1083;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Month" visible="true" column="month_year" nameColumn="month_name" ordinalColumn="date_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="&#1052;&#1077;&#1089;&#1103;&#1094;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q].[yyyy-MMM]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Day" visible="true" column="date_key" nameColumn="full_date" ordinalColumn="date_key" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never" caption="&#1044;&#1077;&#1085;&#1100;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q].[yyyy-MMM].[yyyyMMdd]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="created_datetime_id" highCardinality="false" name="CreateTime" caption="&#1044;&#1072;&#1090;&#1072; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103;">
+      <Hierarchy name="Time" visible="true" hasAll="true" primaryKey="date_key" caption="&#1044;&#1072;&#1090;&#1072;">
+        <Table name="dim_date" schema="public">
+        </Table>
+        <Level name="Year" visible="true" column="date_year" type="Numeric" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="&#1043;&#1086;&#1076;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Quarter" visible="true" column="date_quarter" nameColumn="quarter_name" type="Numeric" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never" caption="&#1050;&#1074;&#1072;&#1088;&#1090;&#1072;&#1083;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Month" visible="true" column="month_year" nameColumn="month_name" ordinalColumn="date_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="&#1052;&#1077;&#1089;&#1103;&#1094;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q].[yyyy-MMM]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+        <Level name="Day" visible="true" column="date_key" nameColumn="full_date" ordinalColumn="date_key" type="Numeric" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never" caption="&#1044;&#1077;&#1085;&#1100;">
+          <Annotations>
+            <Annotation name="AnalyzerDateFormat">
+              <![CDATA[[yyyy].[q].[yyyy-MMM].[yyyyMMdd]]]>
+            </Annotation>
+          </Annotations>
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="priority_id" highCardinality="false" name="Priority" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;">
+      <Hierarchy name="Priority" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1087;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;&#1099;" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;">
+        <Table name="dim_priority" schema="public">
+        </Table>
+        <Level name="Value" visible="true" column="priority_value" type="Numeric" internalType="int" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="incident_object" highCardinality="false" name="OPSHierarchy" caption="&#1048;&#1077;&#1088;&#1072;&#1088;&#1093;&#1080;&#1103; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1086;&#1074;">
+      <Hierarchy name="Territory" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1054;&#1073;&#1098;&#1077;&#1082;&#1090;&#1099;">
+        <Table name="dim_fps" schema="public">
+        </Table>
+        <Level name="MR" visible="true" column="macroregion_code" nameColumn="macroregion_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+        </Level>
+        <Level name="UFPS" visible="true" column="ufps_index" nameColumn="ufps_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+        </Level>
+        <Level name="PostOffice" visible="true" column="post_office_index" nameColumn="post_office_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;">
+        </Level>
+        <Level name="OPS" visible="true" column="post_object_index" nameColumn="post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="incident_object" highCardinality="false" name="FPSS" caption="&#1054;&#1073;&#1100;&#1077;&#1082;&#1090;&#1099; &#1087;&#1086;&#1095;&#1090;&#1086;&#1074;&#1086;&#1081; &#1089;&#1074;&#1103;&#1079;&#1080;">
+      <Hierarchy name="MR" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1084;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;&#1099;" primaryKey="post_object_index" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+        <Table name="dim_fps" schema="public">
+        </Table>
+        <Level name="Macroregion" visible="true" column="macroregion_code" nameColumn="macroregion_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="UFPS" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1092;&#1080;&#1083;&#1080;&#1072;&#1083;&#1099;" primaryKey="post_object_index" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+        <Table name="dim_fps" schema="public">
+        </Table>
+        <Level name="UFPS" visible="true" column="ufps_index" nameColumn="ufps_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="PostOffice" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1087;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;&#1099;" primaryKey="post_object_index" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;">
+        <Table name="dim_fps" schema="public">
+        </Table>
+        <Level name="PostOffice" visible="true" column="post_office_index" nameColumn="post_office_index" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="OPS" visible="true" hasAll="true" allMemberCaption="&#1042;&#1089;&#1077; &#1054;&#1055;&#1057;-&#1099;" primaryKey="post_object_index" caption="&#1054;&#1055;&#1057;">
+        <Table name="dim_fps" schema="public">
+        </Table>
+        <Level name="OPS" visible="true" column="post_object_index" nameColumn="post_object_index" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="closedby_id" highCardinality="false" name="ClosedBy" caption="&#1050;&#1077;&#1084; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;">
+      <Hierarchy name="Employee" visible="true" hasAll="true" primaryKey="id" caption="&#1057;&#1086;&#1090;&#1088;&#1091;&#1076;&#1085;&#1080;&#1082;">
+        <Table name="dim_employees" schema="public">
+        </Table>
+        <Level name="MR" visible="true" column="macroregion_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+        </Level>
+        <Level name="UFPS" visible="true" column="region_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+        </Level>
+        <Level name="PostOffice" visible="true" column="post_office_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1087;&#1090;">
+        </Level>
+        <Level name="OPS" visible="true" column="post_object_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+        </Level>
+        <Level name="Name" visible="true" column="fullname" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1048;&#1084;&#1103;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Name" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_employees" schema="public">
+        </Table>
+        <Level name="Name" visible="true" column="id" nameColumn="fullname" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="IfBlankName" caption="&#1048;&#1084;&#1103;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id" highCardinality="false" name="IncidentDetails" caption="&#1044;&#1077;&#1090;&#1072;&#1083;&#1080; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+      <Hierarchy name="Id" visible="true" hasAll="true" primaryKey="id" caption="&#1053;&#1086;&#1084;&#1077;&#1088; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Id" visible="true" column="id" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1053;&#1086;&#1084;&#1077;&#1088; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Priority" visible="true" hasAll="true" primaryKey="id" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Priority" visible="true" column="priority" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Type" visible="true" hasAll="true" primaryKey="id" caption="&#1058;&#1080;&#1087; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Type" visible="true" column="type_code" nameColumn="type_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Status" visible="true" hasAll="true" primaryKey="id" caption="&#1057;&#1090;&#1072;&#1090;&#1091;&#1089; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Status" visible="true" column="status_code" nameColumn="status_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1090;&#1072;&#1090;&#1091;&#1089; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="CreatedDate" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="CreatedDate" visible="true" column="created_datetime" nameColumn="created_datetime_text" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1044;&#1072;&#1090;&#1072; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="CreatedBy" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="CreatedBy" visible="true" column="createdby_id" nameColumn="createdby_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1077;&#1084; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="ModifiedDate" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="ModifiedDate" visible="true" column="modified_datetime" nameColumn="modified_datetime_text" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1044;&#1072;&#1090;&#1072; &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="ModifiedBy" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="ModifiedBy" visible="true" column="modifiedby_id" nameColumn="modifiedby_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1077;&#1084; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Assignee" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Assignee" visible="true" column="assignee_id" nameColumn="assignee_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Cause" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Cause" visible="true" column="cause_code" nameColumn="cause_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1088;&#1080;&#1095;&#1080;&#1085;&#1072;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Solution" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="Solution" visible="true" column="solution_code" nameColumn="solution_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1056;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="ExecutedBy" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="ExecutedBy" visible="true" column="executedby_id" nameColumn="executedby_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1048;&#1089;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="ClosedDate" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="ClosedDate" visible="true" column="closed_datetime" nameColumn="closed_datetime_text" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1044;&#1072;&#1090;&#1072; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="ClosedBy" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="ClosedBy" visible="true" column="closedby_id" nameColumn="closedby_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1077;&#1084; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="IncidentTypeDescription" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="IncidentTypeDescription" visible="true" column="type_code" nameColumn="type_description" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1072;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="PostItemCount" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="PostItemCount" visible="true" column="postitems_count" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1073;&#1072;&#1088;-&#1082;&#1086;&#1076;&#1086;&#1074;">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="PostItemList" visible="true" hasAll="true" primaryKey="id">
+        <Table name="dim_incidents" schema="public">
+        </Table>
+        <Level name="PostItemsList" visible="true" column="postitems_list" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1087;&#1080;&#1089;&#1086;&#1082; &#1073;&#1072;&#1088;-&#1082;&#1086;&#1076;&#1086;&#1074;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Id" column="id" aggregator="distinct-count" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;" visible="true">
+    </Measure>
+    <Measure name="PostItemsCount" column="postitems_count" formatString="0" aggregator="sum" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1073;&#1072;&#1088;-&#1082;&#1086;&#1076;&#1086;&#1074;" visible="true">
+    </Measure>
+    <Measure name="Priorities" column="priority_id" formatString="0" aggregator="sum" caption="&#1055;&#1088;&#1080;&#1086;&#1088;&#1080;&#1090;&#1077;&#1090;" visible="true">
+    </Measure>
+    <Measure name="TakeDuration" column="take_work_minutes" formatString="0" aggregator="sum" caption="&#1042;&#1088;&#1077;&#1084;&#1103; &#1074;&#1079;&#1103;&#1090;&#1080;&#1103; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091;" visible="true">
+    </Measure>
+    <Measure name="ClosedDuration" column="close_work_minutes" formatString="0" aggregator="sum" caption="&#1042;&#1088;&#1077;&#1084;&#1103; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103;" visible="true">
+    </Measure>
+    <Measure name="TakenInTime" column="is_taken_in_time" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1077; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1074;&#1086;&#1074;&#1088;&#1077;&#1084;&#1103;" visible="true">
+    </Measure>
+    <Measure name="TakenLate" column="is_taken_late" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1077; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1089; &#1086;&#1087;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;&#1084;" visible="true">
+    </Measure>
+    <Measure name="IsTaken" column="is_taken" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1077; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091;" visible="true">
+    </Measure>
+    <Measure name="ClosedInTime" column="is_closed_in_time" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1074; &#1089;&#1088;&#1086;&#1082;" visible="true">
+    </Measure>
+    <Measure name="ClosedLate" column="is_closed_late" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1089; &#1086;&#1087;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;&#1084;" visible="true">
+    </Measure>
+    <Measure name="Closed" column="is_closed" formatString="0" aggregator="sum" caption="&#1047;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;" visible="true">
+    </Measure>
+    <Measure name="TimeToSolve" column="timetosolve" formatString="0" aggregator="sum" caption="&#1054;&#1073;&#1097;&#1077;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103; &#1074; &#1086;&#1090;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1086;&#1084; &#1089;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1080;" visible="true">
+    </Measure>
+    <Measure name="Reopen" column="reopencount" formatString="0" aggregator="sum" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1087;&#1077;&#1088;&#1077;&#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1080;&#1081;" visible="true">
+    </Measure>
+    <Measure name="DefferedCount" column="deffered" formatString="0" aggregator="sum" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1086;&#1090;&#1082;&#1083;&#1072;&#1076;&#1099;&#1074;&#1072;&#1085;&#1080;&#1081;" visible="true">
+    </Measure>
+    <Measure name="IsTakenNotClosed" column="is_diff_taken_closed" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1076;&#1088;&#1091;&#1075;&#1080;&#1084; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1086;&#1084;" visible="true">
+    </Measure>
+    <Measure name="Reassing" column="reassign" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1087;&#1077;&#1088;&#1077;&#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1085;&#1099;&#1077; &#1085;&#1072; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1072;" visible="true">
+    </Measure>
+    <Measure name="AutoClosed" column="autoclose" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;" visible="true">
+    </Measure>
+    <Measure name="ManuallyClosed" column="manualclose" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1086;&#1084;" visible="true">
+    </Measure>
+    <Measure name="ManuallyClosedInTime" column="manually_closed_in_time" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1086;&#1084; &#1074; &#1089;&#1088;&#1086;&#1082;" visible="true">
+    </Measure>
+    <Measure name="ManuallyClosedLate" column="manually_closed_late" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1086;&#1084; &#1089; &#1086;&#1087;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;&#1084;" visible="true">
+    </Measure>
+    <Measure name="NotClosedInProgress" column="taken_in_progress" formatString="0" aggregator="sum" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1077; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1080; &#1085;&#1077; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1077;" visible="true">
+    </Measure>
+    <Measure name="Deffered" column="in_deffered_status" formatString="0" aggregator="sum" caption="&#1054;&#1090;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1077; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;" visible="true">
+    </Measure>
+    <CalculatedMember name="New" formatString="0" caption="&#1053;&#1086;&#1074;&#1099;&#1077; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;" formula="SUM([Status].[&#1053;&#1086;&#1074;&#1099;&#1081;], [Measures].[Id])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="InProgress" formatString="0" caption="&#1048;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1077;" formula="Sum({[Status].[&#1042; &#1086;&#1078;&#1080;&#1076;&#1072;&#1085;&#1080;&#1080;], [Status].[&#1054;&#1090;&#1083;&#1086;&#1078;&#1077;&#1085;], [Status].[&#1069;&#1089;&#1082;&#1072;&#1083;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085; &#1085;&#1072; &#1088;&#1091;&#1082;&#1086;&#1074;&#1086;&#1076;&#1080;&#1090;&#1077;&#1083;&#1103;]} ,[Measures].[Id])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="PercentOperatorClosed" formatString="0.00" caption="% &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;, &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1086;&#1084;" formula="100*[Measures].[ManuallyClosed]/[Measures].[Id]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="PercentAutoClosed" formatString="0.00" caption="% &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;" formula="100*[Measures].[AutoClosed]/[Measures].[Id]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="ClosedInTimePercent" formatString="0.00" caption="% &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074; &#1074; &#1089;&#1088;&#1086;&#1082;" formula="Iif([Measures].[Closed] = 0, 0, 100*[Measures].[ClosedInTime]/[Measures].[Closed])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="ClosedLatePercent" formatString="0.00" caption="% &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074; &#1089; &#1086;&#1087;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;&#1084;" formula="Iif([Measures].[Closed] = 0, 0, 100*[Measures].[ClosedLate]/[Measures].[Closed])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="AllInicidents" formatString="0" caption="&#1057;&#1075;&#1077;&#1085;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077; &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1099;" formula="([Assignee.Name].[Name].CurrentMember.Parent,[Measures].[Id])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="AllIncidentsPercent" formatString="0.00" caption="% &#1074;&#1079;&#1103;&#1090;&#1099;&#1093; &#1082; &#1089;&#1075;&#1077;&#1085;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1084;" formula="100*[Measures].[IsTaken]/([Assignee.Name].[Name].CurrentMember.Parent,[Measures].[Id])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="TakenLatePercent" formatString="0.00" caption="% &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1093; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1089; &#1086;&#1087;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;&#1084; " formula="Iif([Measures].[IsTaken] = 0, 0, 100*[Measures].[TakenLate]/[Measures].[IsTaken])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="TakenInTimePercent" formatString="0.00" caption="% &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1093; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1074;&#1086;&#1074;&#1088;&#1077;&#1084;&#1103;" formula="Iif([Measures].[IsTaken] = 0, 0, 100*[Measures].[TakenInTime]/[Measures].[IsTaken])" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="ClosedIncidentsPercent" formatString="0.00" caption="% &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093;  &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;" formula="[Measures].[Closed]/[Measures].[Id]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="NotClosedInProgressPercent" formatString="0.00" caption="% &#1080;&#1085;&#1094;&#1080;&#1076;&#1077;&#1085;&#1090;&#1086;&#1074;, &#1074;&#1079;&#1103;&#1090;&#1099;&#1093; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1080; &#1085;&#1077; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099;&#1093;" formula="100*[Measures].[NotClosedInProgress]/[Measures].[Id]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+</Schema>

@@ -1,0 +1,347 @@
+<Schema name="RussianPost Traffic">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Type" visible="true" hasAll="true" primaryKey="code" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      <Table name="mailtype" schema="dicts">
+      </Table>
+      <Level name="Type" visible="true" table="mailtype" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Category" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="mailctg" schema="dicts">
+      </Table>
+      <Level name="Category" visible="true" table="mailctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PlaceFromType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+    <Hierarchy name="PlaceFromType" visible="true" hasAll="true" primaryKey="code" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="PlaceFromType" visible="true" table="place_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PlaceToType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+    <Hierarchy name="PlaceToType" visible="true" hasAll="true" primaryKey="code" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="PlaceToType" visible="true" table="place_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PayType" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+    <Hierarchy name="PayType" visible="true" hasAll="true" primaryKey="code" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+      <Table name="pay_type" schema="dicts">
+      </Table>
+      <Level name="PayType" visible="true" table="pay_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="SenderCtg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+    <Hierarchy name="SenderCtg" visible="true" hasAll="true" primaryKey="CODE" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      <Table name="sender_ctg" schema="dicts">
+      </Table>
+      <Level name="SenderCtg" visible="true" table="sender_ctg" column="NAME" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="DirectCtg" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="DirectCtg" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="direct_ctg" schema="dicts">
+      </Table>
+      <Level name="DirectCtg" visible="true" table="direct_ctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="FPS" caption="&#1060;&#1055;&#1057;">
+    <Hierarchy name="FPS" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1060;&#1055;&#1057;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps_index" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="INN">
+    <Hierarchy name="INN" visible="true" hasAll="true" primaryKey="inn" caption="&#1048;&#1053;&#1053;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="INN" visible="true" table="traffic_fact" column="inn" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1048;&#1053;&#1053;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="KPP">
+    <Hierarchy name="KPP" visible="true" hasAll="true" primaryKey="kpp" caption="&#1050;&#1055;&#1055;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="KPP" visible="true" table="traffic_fact" column="kpp" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1055;&#1055;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="adp_oper_date_time">
+    <Hierarchy name="adp_oper_date_time" visible="true" hasAll="true" allMemberName="All Periods" primaryKey="adp_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1092;&#1086;&#1088;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="Year" visible="true" column="adp_oper_date_time" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(year from cast(adp_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Quarter" visible="true" column="adp_oper_date_time" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(quarter from cast(adp_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="adp_oper_date_time" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(month from cast(adp_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Week" visible="true" column="adp_oper_date_time" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(week from cast(adp_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Day" visible="true" column="adp_oper_date_time" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(day from cast(adp_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="get_oper_date_time">
+    <Hierarchy name="get_oper_date_time" visible="true" hasAll="true" allMemberName="All Periods" primaryKey="get_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="Year" visible="true" column="get_oper_date_time" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(year from cast(get_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Quarter" visible="true" column="get_oper_date_time" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(quarter from cast(get_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="get_oper_date_time" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(month from cast(get_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Week" visible="true" column="get_oper_date_time" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(week from cast(get_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Day" visible="true" column="get_oper_date_time" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(day from cast(get_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="ret_oper_date_time">
+    <Hierarchy name="ret_oper_date_time" visible="true" hasAll="true" allMemberName="All Periods" primaryKey="ret_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="Year" visible="true" column="ret_oper_date_time" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(year from cast(ret_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Quarter" visible="true" column="ret_oper_date_time" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(quarter from cast(ret_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="ret_oper_date_time" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(month from cast(ret_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Week" visible="true" column="ret_oper_date_time" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(week from cast(ret_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Day" visible="true" column="ret_oper_date_time" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(day from cast(ret_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="delivery_oper_date_time">
+    <Hierarchy name="delivery_oper_date_time" visible="true" hasAll="true" allMemberName="All Periods" primaryKey="delivery_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="Year" visible="true" column="delivery_oper_date_time" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(year from cast(delivery_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Quarter" visible="true" column="delivery_oper_date_time" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(quarter from cast(delivery_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="delivery_oper_date_time" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(month from cast(delivery_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Week" visible="true" column="delivery_oper_date_time" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(week from cast(delivery_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Day" visible="true" column="delivery_oper_date_time" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(day from cast(delivery_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="first_oper_date_time">
+    <Hierarchy name="first_oper_date_time" visible="true" hasAll="true" allMemberName="All Periods" primaryKey="first_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1087;&#1077;&#1088;&#1074;&#1086;&#1081; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;">
+      <Table name="traffic_fact" schema="tracking">
+      </Table>
+      <Level name="Year" visible="true" column="first_oper_date_time" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(year from cast(first_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Quarter" visible="true" column="first_oper_date_time" type="String" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(quarter from cast(first_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Month" visible="true" column="first_oper_date_time" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(month from cast(first_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Week" visible="true" column="first_oper_date_time" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(week from cast(first_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+      <Level name="Day" visible="true" column="first_oper_date_time" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        <KeyExpression>
+          <SQL dialect="vertica">
+            <![CDATA[EXTRACT(day from cast(first_oper_date_time as date))]]>
+          </SQL>
+        </KeyExpression>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Traffic" visible="true" cache="true" enabled="true">
+    <Table name="traffic_fact" schema="tracking">
+    </Table>
+    <DimensionUsage source="Type" name="Type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_type_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Category" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PlaceFromType" name="PlaceFromType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;" visible="true" foreignKey="ops_from_type_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PlaceToType" name="PlaceToType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;" visible="true" foreignKey="ops_to_type_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PayType" name="PayType" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;" visible="true" foreignKey="pay_type" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="SenderCtg" name="SenderCtg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" visible="true" foreignKey="send_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="DirectCtg" name="DirectCtg" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;" visible="true" foreignKey="direct_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="FromFPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="ops_from_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="ToFPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="ops_to_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="INN" name="INN" caption="&#1048;&#1053;&#1053;" visible="true" foreignKey="inn" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="KPP" name="KPP" caption="&#1050;&#1055;&#1055;" visible="true" foreignKey="kpp" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="adp_oper_date_time" name="adp_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1092;&#1086;&#1088;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="get_oper_date_time" name="get_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ret_oper_date_time" name="ret_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;" visible="true" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="delivery_oper_date_time" name="delivery_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072;" visible="true" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="first_oper_date_time" name="first_oper_date_time" caption="&#1044;&#1072;&#1090;&#1072; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103; &#1087;&#1077;&#1088;&#1074;&#1086;&#1081; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;" visible="true" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Distinct BarCodes" column="bar_code" aggregator="distinct-count" caption="&#1064;&#1055;&#1048;" visible="true">
+    </Measure>
+    <Measure name="ForwardPrice" column="forward_price" aggregator="sum" caption="&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1087;&#1077;&#1088;&#1077;&#1089;&#1099;&#1083;&#1082;&#1080; (&#1082;&#1086;&#1087;.)" visible="false">
+    </Measure>
+    <Measure name="Price" column="price" aggregator="sum" caption="&#1054;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1072;&#1103; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; (&#1082;&#1086;&#1087;.)" visible="false">
+    </Measure>
+    <Measure name="TaxPrice" column="tax_price" aggregator="sum" caption="&#1058;&#1072;&#1088;&#1080;&#1092; &#1085;&#1072; &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1091;&#1102; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; (&#1082;&#1086;&#1087;.)" visible="false">
+    </Measure>
+    <Measure name="TotalMass" column="mass" aggregator="sum" caption="&#1057;&#1091;&#1084;&#1084;&#1072;&#1088;&#1085;&#1072;&#1103; &#1084;&#1072;&#1089;&#1089;&#1072; (&#1075;&#1088;.)" visible="false">
+    </Measure>
+    <Measure name="IndexCount" column="index_count" aggregator="sum" caption="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1091;&#1079;&#1083;&#1086;&#1074; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1080;" visible="true">
+    </Measure>
+    <CalculatedMember name="PriceRub" formatString="0#,#.00" caption="&#1054;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1072;&#1103; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; (&#1088;&#1091;&#1073;.)" formula="[Measures].[Price] / 100" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="ForwardPriceRub" formatString="0#,#.00" caption="&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1087;&#1077;&#1088;&#1077;&#1089;&#1099;&#1083;&#1082;&#1080; (&#1088;&#1091;&#1073;.)" formula="[Measures].[ForwardPrice] / 100" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="TaxPriceRub" formatString="0#,#.00" caption="&#1058;&#1072;&#1088;&#1080;&#1092; &#1085;&#1072; &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1091;&#1102; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; (&#1088;&#1091;&#1073;.)" formula="[Measures].[TaxPrice] / 100" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="TotalMassKg" formatString="0#,#.000" caption="&#1057;&#1091;&#1084;&#1084;&#1072;&#1088;&#1085;&#1072;&#1103; &#1084;&#1072;&#1089;&#1089;&#1072; (&#1082;&#1075;.)" formula="[Measures].[TotalMass] / 1000" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+</Schema>

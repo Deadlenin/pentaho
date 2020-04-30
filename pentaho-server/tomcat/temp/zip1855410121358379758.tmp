@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="26-07-2018 05:33:07 MSK" exportBy="admin" rootFolder="/home/reports/" manifestVersion="2"/>
+    <ExportManifestEntity path="bonus">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus" createdDate="2018-06-21T16:31:20.146+03:00" isFolder="true" path="bonus" isHidden="false" isSchedulable="false" locale="en_US" title="bonus"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="bonus/KPI в зоне ответственности ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cda" createdDate="2018-06-21T16:31:20.587+03:00" isFolder="false" path="bonus/KPI в зоне ответственности ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="bonus/KPI в зоне ответственности ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cdfde" createdDate="2018-06-21T16:31:22.900+03:00" isFolder="false" path="bonus/KPI в зоне ответственности ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="bonus/KPI в зоне ответственности ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.wcdf" createdDate="2018-06-21T16:31:25.557+03:00" isFolder="false" path="bonus/KPI в зоне ответственности ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

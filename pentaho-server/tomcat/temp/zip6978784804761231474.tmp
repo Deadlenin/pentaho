@@ -1,0 +1,1975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="soMacroRegionDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soUfpsDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soPostOfficeDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soOpsDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soBarCodesDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soReportDatesDc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="soDuplicatedUfpses" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="soMacroRegionDc" id="soMacroRegionDc" type="sql">
+      <Name>soMacroRegionDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="lastSc" name="lastSc" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="IntegerArray"/>
+         <Parameter default="barCodesList" name="barCodesList" type="String"/>
+         <Parameter default="barCodesListEmpty" name="barCodesListEmpty" type="String"/>
+         <Parameter default="stdProcPeriod" name="stdProcPeriod" type="String"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="reportDate" name="reportDate" type="String"/>
+         <Parameter default="createdAt" name="createdAt" type="String"/>
+         <Parameter default="weekOfYear" name="weekOfYear" type="String"/>
+         <Parameter default="excludeBarCodesList" name="excludeBarCodesList" type="String"/>
+         <Parameter default="excludeBarCodesListEmpty" name="excludeBarCodesListEmpty"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  to_macroregion as 'Макрорегион места вручения',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  ls_total as 'Итого покинуло СЦ',
+  ls_after_arrival as 'Выход из СЦ после обработки в ОПС',
+  arrived_in_time as 'Обработано вовремя (СО)',
+  arrived_not_in_time as 'Обработано не вовремя (Не СО)',
+  not_arrived_24h as 'Не обработано в ОПС до 24 часов',
+  not_arrived_72h as 'Не обработано в ОПС от 24 до 72 часов',
+  not_arrived_7d as 'Не обработано в ОПС от 4 до 7 дней',
+  not_arrived_after_7d as 'Не обработано в ОПС свыше 7 дней',
+  not_arrived_total as 'Итого не обработано в ОПС',
+  ret_del_not_arrived as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  not_processed_in_time as 'Не обработано в срок',
+  round(
+    arrived_in_time * 100 / denominator, 2
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+    arrived_not_in_time * 100 / denominator, 2
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+    ret_del_not_arrived * 100 / denominator, 2
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+    not_arrived_total * 100 / denominator, 2
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+    not_processed_in_time * 100 / denominator, 2
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+from (
+  select
+    to_macroregion,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  union all
+    select
+    to_macroregion,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_daily_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  ) t]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soUfpsDc" id="soUfpsDc" type="sql">
+      <Name>soUfpsDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="lastSc" name="lastSc" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="IntegerArray"/>
+         <Parameter default="barCodesList" name="barCodesList" type="String"/>
+         <Parameter default="barCodesListEmpty" name="barCodesListEmpty" type="String"/>
+         <Parameter default="stdProcPeriod" name="stdProcPeriod" type="Integer"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="reportDate" name="reportDate" type="String"/>
+         <Parameter default="createdAt" name="createdAt" type="String"/>
+         <Parameter default="weekOfYear" name="weekOfYear" type="String"/>
+         <Parameter default="excludeBarCodesList" name="excludeBarCodesList" type="String"/>
+         <Parameter default="excludeBarCodesListEmpty" name="excludeBarCodesListEmpty"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  to_macroregion as 'Макрорегион места вручения',
+  to_ufps as 'УФПС места вручения',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  ls_total as 'Итого покинуло СЦ',
+  ls_after_arrival as 'Выход из СЦ после обработки в ОПС',
+  arrived_in_time as 'Обработано вовремя (СО)',
+  arrived_not_in_time as 'Обработано не вовремя (Не СО)',
+  not_arrived_24h as 'Не обработано в ОПС до 24 часов',
+  not_arrived_72h as 'Не обработано в ОПС от 24 до 72 часов',
+  not_arrived_7d as 'Не обработано в ОПС от 4 до 7 дней',
+  not_arrived_after_7d as 'Не обработано в ОПС свыше 7 дней',
+  not_arrived_total as 'Итого не обработано в ОПС',
+  ret_del_not_arrived as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  not_processed_in_time as 'Не обработано в срок',
+  round(
+    arrived_in_time * 100 / denominator, 2
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+    arrived_not_in_time * 100 / denominator, 2
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+    ret_del_not_arrived * 100 / denominator, 2
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+    not_arrived_total * 100 / denominator, 2
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+    not_processed_in_time * 100 / denominator, 2
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+from (
+  select
+    to_macroregion,
+    to_ufps,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end      
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  union all
+    select
+    to_macroregion,
+    to_ufps,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end      
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_daily_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  ) t]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soPostOfficeDc" id="soPostOfficeDc" type="sql">
+      <Name>soPostOfficeDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="lastSc" name="lastSc" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="IntegerArray"/>
+         <Parameter default="barCodesList" name="barCodesList" type="String"/>
+         <Parameter default="barCodesListEmpty" name="barCodesListEmpty" type="String"/>
+         <Parameter default="stdProcPeriod" name="stdProcPeriod" type="Integer"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="reportDate" name="reportDate" type="String"/>
+         <Parameter default="createdAt" name="createdAt" type="String"/>
+         <Parameter default="weekOfYear" name="weekOfYear" type="String"/>
+         <Parameter default="excludeBarCodesList" name="excludeBarCodesList" type="String"/>
+         <Parameter default="excludeBarCodesListEmpty" name="excludeBarCodesListEmpty"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  to_macroregion as 'Макрорегион места вручения',
+  to_ufps as 'УФПС места вручения',
+  to_post_office as 'Почтамт',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  ls_total as 'Итого покинуло СЦ',
+  ls_after_arrival as 'Выход из СЦ после обработки в ОПС',
+  arrived_in_time as 'Обработано вовремя (СО)',
+  arrived_not_in_time as 'Обработано не вовремя (Не СО)',
+  not_arrived_24h as 'Не обработано в ОПС до 24 часов',
+  not_arrived_72h as 'Не обработано в ОПС от 24 до 72 часов',
+  not_arrived_7d as 'Не обработано в ОПС от 4 до 7 дней',
+  not_arrived_after_7d as 'Не обработано в ОПС свыше 7 дней',
+  not_arrived_total as 'Итого не обработано в ОПС',
+  ret_del_not_arrived as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  not_processed_in_time as 'Не обработано в срок',
+  round(
+    arrived_in_time * 100 / denominator, 2
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+    arrived_not_in_time * 100 / denominator, 2
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+    ret_del_not_arrived * 100 / denominator, 2
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+    not_arrived_total * 100 / denominator, 2
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+    not_processed_in_time * 100 / denominator, 2
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+from (
+  select
+    to_macroregion,
+    to_ufps,
+    to_post_office,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end      
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   to_post_office,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  union all
+   select
+    to_macroregion,
+    to_ufps,
+    to_post_office,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end      
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_daily_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   to_post_office,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  ) t]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soOpsDc" id="soOpsDc" type="sql">
+      <Name>soOpsDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ufps" name="ufps" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="lastSc" name="lastSc" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="IntegerArray"/>
+         <Parameter default="barCodesList" name="barCodesList" type="String"/>
+         <Parameter default="barCodesListEmpty" name="barCodesListEmpty" type="String"/>
+         <Parameter default="stdProcPeriod" name="stdProcPeriod" type="Integer"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="reportDate" name="reportDate" type="String"/>
+         <Parameter default="createdAt" name="createdAt" type="String"/>
+         <Parameter default="weekOfYear" name="weekOfYear" type="String"/>
+         <Parameter default="data_limit" name="data_limit" type="Integer"/>
+         <Parameter default="excludeBarCodesList" name="excludeBarCodesList" type="String"/>
+         <Parameter default="excludeBarCodesListEmpty" name="excludeBarCodesListEmpty"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  to_macroregion as 'Макрорегион места вручения',
+  to_ufps as 'УФПС места вручения',
+  to_post_office as 'Почтамт',
+  to_post_object_index as 'Индекс места вручения',
+  to_post_object as 'Наименование места вручения',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  ls_total as 'Итого покинуло СЦ',
+  ls_after_arrival as 'Выход из СЦ после обработки в ОПС',
+  arrived_in_time as 'Обработано вовремя (СО)',
+  arrived_not_in_time as 'Обработано не вовремя (Не СО)',
+  not_arrived_24h as 'Не обработано в ОПС до 24 часов',
+  not_arrived_72h as 'Не обработано в ОПС от 24 до 72 часов',
+  not_arrived_7d as 'Не обработано в ОПС от 4 до 7 дней',
+  not_arrived_after_7d as 'Не обработано в ОПС свыше 7 дней',
+  not_arrived_total as 'Итого не обработано в ОПС',
+  ret_del_not_arrived as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  not_processed_in_time as 'Не обработано в срок',
+  round(
+    arrived_in_time * 100 / denominator, 2
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+    arrived_not_in_time * 100 / denominator, 2
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+    ret_del_not_arrived * 100 / denominator, 2
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+    not_arrived_total * 100 / denominator, 2
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+    not_processed_in_time * 100 / denominator, 2
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+from (
+  select
+    to_macroregion,
+    to_ufps,
+    to_post_office,
+    to_post_object_index,
+    to_post_object,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   to_post_office,
+   to_post_object_index,
+   to_post_object,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  union all
+  select
+    to_macroregion,
+    to_ufps,
+    to_post_office,
+    to_post_object_index,
+    to_post_object,
+    business_type,
+    count(*) as ls_total,
+    sum(ls_after_arrival) as ls_after_arrival,
+    nullifzero(count(*) - sum(ls_after_arrival)) as denominator,
+    sum(
+      case when arrival_hours is not null and arrival_hours <= ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_in_time,
+    sum(
+      case when arrival_hours is not null and arrival_hours > ${stdProcPeriod} then 1 else 0 end
+    ) as arrived_not_in_time,
+    sum(ret_del_not_arrived) as ret_del_not_arrived,
+    sum(not_arrived_24h) as not_arrived_24h,
+    sum(not_arrived_72h) as not_arrived_72h,
+    sum(not_arrived_7d) as not_arrived_7d,
+    sum(not_arrived_after_7d) as not_arrived_after_7d,
+    sum(not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+    ) as not_arrived_total,
+    sum(
+      case
+        when arrival_hours is not null and arrival_hours > ${stdProcPeriod} 
+        then 1 
+        else 0 
+      end
+      + not_arrived_24h
+      + not_arrived_72h
+      + not_arrived_7d
+      + not_arrived_after_7d
+      + ret_del_not_arrived
+    ) as not_processed_in_time,
+    created_at
+  from execinterval_v20.exec_interval_daily_view v
+  where
+    (-1 in (${rpo_status}) 
+      or (
+        case
+          when rpo_status = 1 then
+            case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+          else rpo_status
+        end
+      ) in (${rpo_status})
+    )
+    and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+    and (${excludeBarCodesListEmpty} = 'empty' 
+      or bar_code not in (${excludeBarCodesList})
+    )
+    and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+    and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+    and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+    and ('-1' in (${fps_from})
+       or from_macroregion_dim in (${fps_from})
+       or from_ufps_dim in (${fps_from})
+       or from_post_office_dim in (${fps_from})
+       or from_post_object_dim in (${fps_from})
+    ) and ('-1' in (${fps_to})
+       or to_macroregion_dim in (${fps_to})
+       or to_ufps_dim in (${fps_to})
+       or to_post_office_dim in (${fps_to})
+       or to_post_object_dim in (${fps_to})
+    ) and (
+      (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+      and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+      between
+        case
+          when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ls_date_from}
+        end
+      and
+        case
+          when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ls_date_to}
+        end
+    ) and (
+    (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+      and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+      between
+        case
+          when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${adp_date_from}
+        end
+      and
+        case
+          when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${adp_date_to}
+        end
+    ) and (
+      (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+      and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+      between
+        case
+          when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${get_date_from}
+        end
+      and
+        case
+          when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${get_date_to}
+        end
+    ) and (
+      (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+      and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+      between
+        case
+          when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${delivery_date_from}
+        end
+      and
+        case
+          when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${delivery_date_to}
+        end
+    ) and (
+      (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+      and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+      or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+      between 
+        case
+          when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+            then '-INFINITY'
+          else ${ret_date_from}
+        end
+      and
+        case
+          when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+            then 'INFINITY'
+          else ${ret_date_to}
+        end
+    )
+    and (${business_type} = ''
+      or cast(${business_type} as varchar) is null 
+      or ${business_type} = business_type_code
+    )
+    and report_period = ${reportPeriod}
+    and report_date = ${reportDate}
+    and created_at = ${createdAt}
+  group by
+   to_macroregion,
+   to_ufps,
+   to_post_office,
+   to_post_object_index,
+   to_post_object,
+   business_type,
+   report_period,
+   report_date,
+   created_at
+  ) t1
+  limit ${data_limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soBarCodesDc" id="soBarCodesDc" type="sql">
+      <Name>soBarCodesDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ops" name="ops" type="String"/>
+         <Parameter default="days" name="days" type="String"/>
+         <Parameter default="ufps" name="ufps" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="data_limit" name="data_limit" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="lastSc" name="lastSc" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="IntegerArray"/>
+         <Parameter default="barCodesList" name="barCodesList" type="String"/>
+         <Parameter default="barCodesListEmpty" name="barCodesListEmpty" type="String"/>
+         <Parameter default="stdProcPeriod" name="stdProcPeriod" type="Integer"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="reportDate" name="reportDate" type="String"/>
+         <Parameter default="createdAt" name="createdAt" type="String"/>
+         <Parameter default="weekOfYear" name="weekOfYear" type="String"/>
+         <Parameter default="excludeBarCodesList" name="excludeBarCodesList" type="String"/>
+         <Parameter default="excludeBarCodesListEmpty" name="excludeBarCodesListEmpty"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  bar_code as 'ШПИ',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  rpo_type as 'Вид отправления',
+  to_macroregion as 'Макрорегион места вручения',
+  to_ufps as 'УФПС места вручения',
+  to_post_office as 'Почтамт',
+  to_post_object_index as 'Индекс места вручения',
+  to_post_object as 'Наименование места вручения',
+  last_sc_index as 'Индекс последнего СЦ',
+  last_sc_name as 'Наименование последнего СЦ',
+  case ${date_type}
+    when 'local' then ls_oper_date_time_local
+    else ls_oper_date_time
+  end as 'Дата и время выхода из СЦ',
+  case ${date_type}
+    when 'local' then adp_oper_date_time_local
+    else adp_oper_date_time
+  end as 'Дата "Прибыло в место вручения"/"Ожидает курьерской доставки"/"Прибыло в ЦВПП"',
+  case ${date_type}
+    when 'local' then delivery_oper_date_time_local
+    else delivery_oper_date_time
+  end as 'Дата вручения',
+  case ${date_type}
+    when 'local' then ret_oper_date_time_local
+    else ret_oper_date_time
+  end as 'Дата возврата',
+  case ${date_type}
+    when 'local' then get_oper_date_time_local
+    else get_oper_date_time
+  end as 'Дата приема',
+  nvl(status_dict.name, 'Не поддерживаемый ('||v.rpo_status||')') as 'Статус на дату расчета',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+  from execinterval_v20.exec_interval_view v
+  left join dicts.rpo_status status_dict on
+  status_dict.code = 
+  case
+    when v.rpo_status = 1 then
+      case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+    else v.rpo_status
+  end
+where
+  (-1 in (${rpo_status}) or status_dict.code in (${rpo_status}))
+  and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+  and (${excludeBarCodesListEmpty} = 'empty' 
+    or bar_code not in (${excludeBarCodesList})
+  )
+  and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+  and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+  and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+  and ('-1' in (${fps_from})
+     or from_macroregion_dim in (${fps_from})
+     or from_ufps_dim in (${fps_from})
+     or from_post_office_dim in (${fps_from})
+     or from_post_object_dim in (${fps_from})
+  ) and ('-1' in (${fps_to})
+     or to_macroregion_dim in (${fps_to})
+     or to_ufps_dim in (${fps_to})
+     or to_post_office_dim in (${fps_to})
+     or to_post_object_dim in (${fps_to})
+  ) and (
+    (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+    and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+    between
+      case
+        when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${ls_date_from}
+      end
+    and
+      case
+        when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${ls_date_to}
+      end
+  ) and (
+  (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+    and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+    between
+      case
+        when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${adp_date_from}
+      end
+    and
+      case
+        when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${adp_date_to}
+      end
+  ) and (
+    (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+    and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+    between
+      case
+        when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${get_date_from}
+      end
+    and
+      case
+        when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${get_date_to}
+      end
+  ) and (
+    (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+    and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+    between
+      case
+        when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${delivery_date_from}
+      end
+    and
+      case
+        when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${delivery_date_to}
+      end
+  ) and (
+    (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+    and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+    between 
+      case
+        when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${ret_date_from}
+      end
+    and
+      case
+        when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${ret_date_to}
+      end
+  )
+  and (${business_type} = ''
+    or cast(${business_type} as varchar) is null 
+    or ${business_type} = business_type_code
+  )
+  and report_period = ${reportPeriod}
+  and report_date = ${reportDate}
+  and created_at = ${createdAt}
+union all
+select /*+ SYNTACTIC_JOIN */
+  bar_code as 'ШПИ',
+  business_type as 'Тип бизнеса (письмо/посылка)',
+  rpo_type as 'Вид отправления',
+  to_macroregion as 'Макрорегион места вручения',
+  to_ufps as 'УФПС места вручения',
+  to_post_office as 'Почтамт',
+  to_post_object_index as 'Индекс места вручения',
+  to_post_object as 'Наименование места вручения',
+  last_sc_index as 'Индекс последнего СЦ',
+  last_sc_name as 'Наименование последнего СЦ',
+  case ${date_type}
+    when 'local' then ls_oper_date_time_local
+    else ls_oper_date_time
+  end as 'Дата и время выхода из СЦ',
+  case ${date_type}
+    when 'local' then adp_oper_date_time_local
+    else adp_oper_date_time
+  end as 'Дата "Прибыло в место вручения"/"Ожидает курьерской доставки"/"Прибыло в ЦВПП"',
+  case ${date_type}
+    when 'local' then delivery_oper_date_time_local
+    else delivery_oper_date_time
+  end as 'Дата вручения',
+  case ${date_type}
+    when 'local' then ret_oper_date_time_local
+    else ret_oper_date_time
+  end as 'Дата возврата',
+  case ${date_type}
+    when 'local' then get_oper_date_time_local
+    else get_oper_date_time
+  end as 'Дата приема',
+  nvl(status_dict.name, 'Не поддерживаемый ('||v.rpo_status||')') as 'Статус на дату расчета',
+  created_at as 'Дата создания отчета',
+  cast(${weekOfYear} as varchar) as'Год/Календарная неделя(месяц) выхода из СЦ'
+  from execinterval_v20.exec_interval_daily_view v
+  left join dicts.rpo_status status_dict on
+  status_dict.code = 
+  case
+    when v.rpo_status = 1 then
+      case when arrival_hours <= ${stdProcPeriod} then 1 else 2 end
+    else v.rpo_status
+  end
+where
+  (-1 in (${rpo_status}) or status_dict.code in (${rpo_status}))
+  and (${barCodesListEmpty} = 'empty' or bar_code in (${barCodesList}))
+  and (${excludeBarCodesListEmpty} = 'empty' 
+    or bar_code not in (${excludeBarCodesList})
+  )
+  and ('-1' in (${mail_type}) or rpo_type_dim in (${mail_type}))
+  and ('-1' in (${mail_ctg}) or rpo_category_dim in (${mail_ctg}))
+  and ('-1' in (${lastSc}) or last_sc_dim in (${lastSc}))
+  and ('-1' in (${fps_from})
+     or from_macroregion_dim in (${fps_from})
+     or from_ufps_dim in (${fps_from})
+     or from_post_office_dim in (${fps_from})
+     or from_post_object_dim in (${fps_from})
+  ) and ('-1' in (${fps_to})
+     or to_macroregion_dim in (${fps_to})
+     or to_ufps_dim in (${fps_to})
+     or to_post_office_dim in (${fps_to})
+     or to_post_object_dim in (${fps_to})
+  ) and (
+    (${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null)
+    and (${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then ls_oper_date_local else ls_oper_date end
+    between
+      case
+        when ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${ls_date_from}
+      end
+    and
+      case
+        when ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${ls_date_to}
+      end
+  ) and (
+  (${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null)
+    and (${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then adp_oper_date_local else adp_oper_date end
+    between
+      case
+        when ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${adp_date_from}
+      end
+    and
+      case
+        when ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${adp_date_to}
+      end
+  ) and (
+    (${get_date_from} = '' or cast(${get_date_from} as varchar) is null)
+    and (${get_date_to} = '' or cast(${get_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then get_oper_date_local else get_oper_date end
+    between
+      case
+        when ${get_date_from} = '' or cast(${get_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${get_date_from}
+      end
+    and
+      case
+        when ${get_date_to} = '' or cast(${get_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${get_date_to}
+      end
+  ) and (
+    (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null)
+    and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then delivery_oper_date_local else delivery_oper_date end  
+    between
+      case
+        when ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${delivery_date_from}
+      end
+    and
+      case
+        when ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${delivery_date_to}
+      end
+  ) and (
+    (${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null)
+    and (${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null)
+    or case ${date_type} when 'local' then ret_oper_date_local else ret_oper_date end
+    between 
+      case
+        when ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null
+          then '-INFINITY'
+        else ${ret_date_from}
+      end
+    and
+      case
+        when ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null
+          then 'INFINITY'
+        else ${ret_date_to}
+      end
+  )
+  and (${business_type} = ''
+    or cast(${business_type} as varchar) is null 
+    or ${business_type} = business_type_code
+  )
+  and report_period = ${reportPeriod}
+  and report_date = ${reportDate}
+  and created_at = ${createdAt}
+limit ${data_limit};]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soReportDatesDc" id="soReportDatesDc" type="sql">
+      <Name>soReportDatesDc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select report_period, report_date, created_at, formatted_report_date from (
+  select
+    report_period, report_date, created_at, formatted_report_date
+  from execinterval_v20.exec_interval_dates
+  union
+  select
+    report_period, report_date, created_at, '-'
+  from execinterval_v20.exec_interval_dates_daily
+) dates
+order by 
+  report_period, 
+  report_date, 
+  created_at 
+desc;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="soDuplicatedUfpses" id="soDuplicatedUfpses"
+               type="sql">
+      <Name>soDuplicatedUfpses</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select ufps_no_index from  (
+  select distinct macroregion, ufps_no_index from dicts.dim_fps
+) t
+group by ufps_no_index
+having count(*) > 1;]]></Query>
+   </DataAccess>
+</CDADescriptor>

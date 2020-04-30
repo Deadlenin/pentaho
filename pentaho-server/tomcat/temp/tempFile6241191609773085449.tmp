@@ -1,0 +1,126 @@
+<Schema name="russian_post_traffic">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Type" visible="true" hasAll="true" primaryKey="code" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      <Table name="mailtype" schema="dicts">
+      </Table>
+      <Level name="Type" visible="true" table="mailtype" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Category" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="mailctg" schema="dicts">
+      </Table>
+      <Level name="Category" visible="true" table="mailctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Rank" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Rank" visible="true" hasAll="true" primaryKey="code" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1056;&#1055;&#1054;">
+      <Table name="mail_rank" schema="dicts">
+      </Table>
+      <Level name="Rank" visible="true" table="mail_rank" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="SenderCtg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+    <Hierarchy name="SenderCtg" visible="true" hasAll="true" primaryKey="CODE" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      <Table name="sender_ctg" schema="dicts">
+      </Table>
+      <Level name="SenderCtg" visible="true" table="sender_ctg" column="NAME" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PopCategoryFrom" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+    <Hierarchy name="PopCategoryFrom" visible="true" hasAll="true" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+      <Table name="population_category" schema="dicts">
+      </Table>
+      <Level name="PopCategoryFrom" visible="true" column="id" nameColumn="name" ordinalColumn="id" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PopCategoryTo" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="PopCategoryTo" visible="true" hasAll="true" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="population_category" schema="dicts">
+      </Table>
+      <Level name="PopCategoryTo" visible="true" column="id" nameColumn="name" ordinalColumn="id" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PlaceFromType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+    <Hierarchy name="PlaceFromType" visible="true" hasAll="true" primaryKey="name" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="PlaceFromType" visible="true" table="place_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PlaceToType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+    <Hierarchy name="PlaceToType" visible="true" hasAll="true" primaryKey="name" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="PlaceToType" visible="true" table="place_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PayType" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+    <Hierarchy name="PayType" visible="true" hasAll="true" primaryKey="code" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+      <Table name="pay_type" schema="dicts">
+      </Table>
+      <Level name="PayType" visible="true" table="pay_type" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="DirectCtg" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="DirectCtg" visible="true" hasAll="true" primaryKey="code" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="direct_ctg" schema="dicts">
+      </Table>
+      <Level name="DirectCtg" visible="true" table="direct_ctg" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="FPS" caption="&#1060;&#1055;&#1057;">
+    <Hierarchy name="FPS" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1060;&#1055;&#1057;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps_index" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Traffic" visible="true" cache="true" enabled="true">
+    <Table name="traffic_cube" schema="tracking">
+    </Table>
+    <DimensionUsage source="Type" name="Type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_type_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Category" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Rank" name="Rank" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_rank_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PlaceFromType" name="PlaceFromType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1086;&#1090;&#1082;&#1091;&#1076;&#1072;" visible="true" foreignKey="src_place_type_name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PlaceToType" name="PlaceToType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1082;&#1091;&#1076;&#1072;" visible="true" foreignKey="dest_place_type_name" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="SenderCtg" name="SenderCtg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" visible="true" foreignKey="send_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PayType" name="PayType" caption="&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099;" visible="true" foreignKey="pay_type" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="DirectCtg" name="DirectCtg" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;" visible="true" foreignKey="direct_ctg_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="FromFPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="ops_from_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="ToFPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="ops_to_code" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PopCategoryFrom" name="PopCategoryFrom" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" foreignKey="population_category_from" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PopCategoryTo" name="PopCategoryTo" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1087;&#1091;&#1085;&#1082;&#1090;&#1086;&#1074; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="population_category_to" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="FPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="ops_code" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="New Measure 0" column="accepting_year" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,26 @@
+<Schema name="gkh_mondrian_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="fps" caption="&#1052;&#1077;&#1089;&#1090;&#1086;&#32;&#1087;&#1088;&#1080;&#1077;&#1084;&#1072;&#32;&#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;">
+    <Hierarchy name="fps" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1052;&#1077;&#1089;&#1090;&#1086;&#32;&#1087;&#1088;&#1080;&#1077;&#1084;&#1072;&#32;&#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;">
+      <Table name="dim_fps" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps" visible="true" table="dim_fps" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1059;&#1060;&#1055;&#1057;">
+      </Level>
+      <Level name="post_office" visible="true" table="dim_fps" column="post_office" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1090;">
+      </Level>
+      <Level name="place" visible="true" table="dim_fps" column="place" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1053;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1081; &#1087;&#1091;&#1085;&#1082;&#1090;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="gkh_data_mart" visible="true" cache="true" enabled="true">
+    <Table name="gkh_data_mart" schema="tracking">
+    </Table>
+    <DimensionUsage source="fps" name="fps" caption="&#1052;&#1077;&#1089;&#1090;&#1086;&#32;&#1087;&#1088;&#1080;&#1077;&#1084;&#1072;&#32;&#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;" visible="true" foreignKey="index_to" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="value_sum" column="value" aggregator="sum" caption="value_sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,22 @@
+<Schema name="dim_fps_active_operation_mondrian_schema">
+  <Dimension name="fps">
+    <Hierarchy hasAll="true">
+      <Table name="dim_fps" schema="dicts"/>
+      <Level name="macroregion" uniqueMembers="true" column="macroregion" type="String">
+      </Level>
+      <Level name="ufps" uniqueMembers="true" column="ufps" type="String">
+      </Level>
+      <Level name="post_office" uniqueMembers="true" column="post_office" type="String">
+      </Level>
+      <Level name="post_object" uniqueMembers="true" column="post_object" type="String">
+      </Level>
+      <Level name="post_object_index" uniqueMembers="true" column="post_object_index" type="Numeric">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="dim_fps_active_operation_mondrian_schema">
+    <Table name="dim_fps" schema="dicts"/>
+    <DimensionUsage name="fps" source="fps"/>
+    <Measure name="Post object index" column="post_object_index" aggregator="count"/>
+  </Cube>
+</Schema>

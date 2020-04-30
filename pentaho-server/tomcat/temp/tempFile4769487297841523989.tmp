@@ -1,0 +1,486 @@
+<Schema name="Traffic cube 525">
+  <Cube name="Traffic" visible="true" cache="true" enabled="true">
+    <Table name="traffic_cube" schema="tracking">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="&#1044;&#1072;&#1090;&#1072; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1103;&#1094;&#1099; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="accepting_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1052;&#1077;&#1089;&#1103;&#1094;" visible="true" column="accepting_month" nameColumn="accepting_month_name" ordinalColumn="accepting_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="accepting_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1080; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="accepting_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1103;" visible="true" column="accepting_week_name" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="accepting_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="&#1044;&#1072;&#1090;&#1072; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1103;&#1094;&#1099; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="delivery_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1052;&#1077;&#1089;&#1103;&#1094;" visible="true" column="delivery_month" nameColumn="delivery_month_name" ordinalColumn="delivery_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="delivery_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1080; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="delivery_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1103;" visible="true" column="delivery_week_name" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="delivery_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="&#1044;&#1072;&#1090;&#1072; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1103;&#1094;&#1099; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="place_of_delivery_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1052;&#1077;&#1089;&#1103;&#1094;" visible="true" column="place_of_delivery_month" nameColumn="place_of_delivery_month_name" ordinalColumn="place_of_delivery_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="place_of_delivery_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1080; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="place_of_delivery_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1103;" visible="true" column="place_of_delivery_week_name" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="place_of_delivery_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" highCardinality="false" name="&#1044;&#1072;&#1090;&#1072; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1103;&#1094;&#1099; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="return_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1052;&#1077;&#1089;&#1103;&#1094;" visible="true" column="return_month" nameColumn="return_month_name" ordinalColumn="return_month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="return_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1080; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1076;&#1072;&#1090;&#1099;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1043;&#1086;&#1076;" visible="true" column="return_year" type="String" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1053;&#1077;&#1076;&#1077;&#1083;&#1103;" visible="true" column="return_week_name" type="String" uniqueMembers="false" levelType="TimeWeeks" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1044;&#1077;&#1085;&#1100;" visible="true" column="return_date" type="String" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;" description="&#1044;&#1083;&#1103; &#1087;&#1088;&#1103;&#1084;&#1086;&#1075;&#1086; &#1085;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; - &#1084;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; &#34;&#1055;&#1088;&#1080;&#1077;&#1084;&#34;. &#1044;&#1083;&#1103; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1086;&#1074; - &#1084;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; &#34;&#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#34;.">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1054;&#1055;&#1057;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="src_macroregion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="src_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="src_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1054;&#1055;&#1057;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="dest_macroregion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="dest_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="dest_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1054;&#1055;&#1057; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" description="&#1047;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; index_from &#1080;&#1079; &#1079;&#1086;&#1083;&#1086;&#1090;&#1099;&#1093; &#1079;&#1072;&#1087;&#1080;&#1089;&#1077;&#1081;">
+      <Hierarchy name="&#1054;&#1055;&#1057; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1054;&#1055;&#1057;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="from_macroregion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="from_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="from_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1054;&#1055;&#1057; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" description="&#1047;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; index_to &#1080;&#1079; &#1079;&#1086;&#1083;&#1086;&#1090;&#1099;&#1093; &#1079;&#1072;&#1087;&#1080;&#1089;&#1077;&#1081;">
+      <Hierarchy name="&#1054;&#1055;&#1057; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1054;&#1055;&#1057;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="to_macroregion" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="to_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="to_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" description="&#1058;&#1072;&#1084; &#1075;&#1076;&#1077; &#1073;&#1099;&#1083;&#1072; &#1087;&#1088;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1072; &#34;&#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1077; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;&#34;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1103; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1084;&#1077;&#1089;&#1090;&#1072; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="pod_macroregion" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="pod_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="pod_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" description="&#1058;&#1072;&#1084; &#1075;&#1076;&#1077; &#1073;&#1099;&#1083;&#1072; &#1087;&#1088;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1072; &#34;&#1087;&#1088;&#1080;&#1073;&#1099;&#1090;&#1080;&#1077; &#1074; &#1084;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;&#34;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1084;&#1077;&#1089;&#1090;&#1072; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="delivery_macroregion" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="delivery_ufps" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="delivery_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1101;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#1072;" description="&#1058;&#1072;&#1084; &#1075;&#1076;&#1077; &#1073;&#1099;&#1083;&#1072; &#1087;&#1088;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1072; &#34;&#1069;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#34;">
+      <Hierarchy name="&#1052;&#1077;&#1089;&#1090;&#1086; &#1101;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1084;&#1077;&#1089;&#1090;&#1072; &#1101;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#1072;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;" visible="true" column="export_macroregion" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1059;&#1060;&#1055;&#1057;" visible="true" column="export_ufps" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="&#1054;&#1055;&#1057;" visible="true" column="export_post_object" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1058;&#1080;&#1087; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1058;&#1080;&#1087; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1090;&#1080;&#1087;&#1099; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1058;&#1080;&#1087; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" column="mail_type_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1082;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" column="mail_ctg_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1053;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;">
+      <Hierarchy name="&#1053;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1085;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1053;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;" visible="true" column="direct_ctg_name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      <Hierarchy name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1082;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" visible="true" column="send_ctg_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1048;&#1053;&#1053;">
+      <Hierarchy name="&#1048;&#1053;&#1053;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1048;&#1053;&#1053;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1048;&#1053;&#1053;" visible="true" column="inn" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="&#1050;&#1055;&#1055;">
+      <Hierarchy name="&#1050;&#1055;&#1055;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1050;&#1055;&#1055;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1050;&#1055;&#1055;" visible="true" column="kpp" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;">
+      <Hierarchy name="&#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;" visible="true" hasAll="true" allMemberName="&#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="&#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;" visible="true" column="is_return" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;">
+      <Hierarchy name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1090;&#1080;&#1087;&#1099; &#1085;&#1072;&#1089;. &#1087;&#1091;&#1085;&#1082;&#1090;. &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080;" visible="true" column="src_place_type_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1090;&#1080;&#1087;&#1099; &#1085;&#1072;&#1089; &#1087;&#1091;&#1085;&#1082;&#1090; &#1085;&#1072;&#1079;&#1085;." allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" column="dest_place_type_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1089;&#1090;&#1088;&#1072;&#1085;&#1099; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" visible="true" column="country_from_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1089;&#1090;&#1088;&#1072;&#1085;&#1099; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1057;&#1090;&#1088;&#1072;&#1085;&#1072; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" column="country_to_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1057;&#1076;&#1072;&#1095;&#1072; &#1095;&#1077;&#1088;&#1077;&#1079; &#1051;&#1050;">
+      <Hierarchy name="&#1057;&#1076;&#1072;&#1095;&#1072; &#1095;&#1077;&#1088;&#1077;&#1079; &#1051;&#1050;" visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="&#1057;&#1076;&#1072;&#1095;&#1072; &#1095;&#1077;&#1088;&#1077;&#1079; &#1051;&#1050;" visible="true" column="id_assigned_in_private_office" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;" visible="true" column="pm_simple_notice" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1079;&#1072;&#1082;&#1072;&#1079;&#1085;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1079;&#1072;&#1082;&#1072;&#1079;&#1085;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;" visible="true" column="pm_registered_notice" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1086;&#1087;&#1080;&#1089;&#1100;&#1102;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1086;&#1087;&#1080;&#1089;&#1100;&#1102;" visible="true" column="pm_with_inventory" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1054;&#1089;&#1090;&#1086;&#1088;&#1086;&#1078;&#1085;&#1086; (&#1061;&#1088;&#1091;&#1087;&#1082;&#1072;&#1103;)">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1054;&#1089;&#1090;&#1086;&#1088;&#1086;&#1078;&#1085;&#1086; (&#1061;&#1088;&#1091;&#1087;&#1082;&#1072;&#1103;)" visible="true" column="pm_fragile" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1058;&#1103;&#1078;&#1077;&#1083;&#1086;&#1074;&#1077;&#1089;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1058;&#1103;&#1078;&#1077;&#1083;&#1086;&#1074;&#1077;&#1089;&#1085;&#1072;&#1103;" visible="true" column="pm_heavyweight" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1050;&#1088;&#1091;&#1087;&#1085;&#1086;&#1075;&#1072;&#1073;&#1072;&#1088;&#1080;&#1090;&#1085;&#1072;&#1103; (&#1043;&#1088;&#1086;&#1084;&#1086;&#1079;&#1076;&#1082;&#1072;&#1103;)">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1050;&#1088;&#1091;&#1087;&#1085;&#1086;&#1075;&#1072;&#1073;&#1072;&#1088;&#1080;&#1090;&#1085;&#1072;&#1103; (&#1043;&#1088;&#1086;&#1084;&#1086;&#1079;&#1076;&#1082;&#1072;&#1103;)" visible="true" column="pm_bulky" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1086;&#1081; (&#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1085;&#1072;&#1088;&#1086;&#1095;&#1085;&#1099;&#1084;)">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1086;&#1081; (&#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1085;&#1072;&#1088;&#1086;&#1095;&#1085;&#1099;&#1084;)" visible="true" column="pm_special_messenger" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042;&#1088;&#1091;&#1095;&#1080;&#1090;&#1100; &#1074; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1088;&#1091;&#1082;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042;&#1088;&#1091;&#1095;&#1080;&#1090;&#1100; &#1074; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1088;&#1091;&#1082;&#1080;" visible="true" column="pm_to_hands" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1084;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1084;&#1080;" visible="true" column="pm_with_documents" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1090;&#1086;&#1074;&#1072;&#1088;&#1072;&#1084;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1090;&#1086;&#1074;&#1072;&#1088;&#1072;&#1084;&#1080;" visible="true" column="pm_with_goods" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1091; &#1085;&#1077; &#1087;&#1086;&#1076;&#1083;&#1077;&#1078;&#1080;&#1090;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1091; &#1085;&#1077; &#1087;&#1086;&#1076;&#1083;&#1077;&#1078;&#1080;&#1090;" visible="true" column="pm_unreturnable" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103;" visible="true" column="pm_non_standard" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1055;&#1088;&#1080;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1055;&#1088;&#1080;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1085;&#1072;&#1103;" visible="true" column="pm_frontier" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1047;&#1072;&#1089;&#1090;&#1088;&#1072;&#1093;&#1086;&#1074;&#1072;&#1085;&#1086;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1047;&#1072;&#1089;&#1090;&#1088;&#1072;&#1093;&#1086;&#1074;&#1072;&#1085;&#1086;" visible="true" column="pm_insured" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1101;&#1083;&#1077;&#1082;&#1090;&#1088;&#1086;&#1085;&#1085;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1101;&#1083;&#1077;&#1082;&#1090;&#1088;&#1086;&#1085;&#1085;&#1099;&#1084; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;" visible="true" column="pm_electronic_notice" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1050;&#1091;&#1088;&#1100;&#1077;&#1088; &#1073;&#1080;&#1079;&#1085;&#1077;&#1089;-&#1101;&#1082;&#1089;&#1087;&#1088;&#1077;&#1089;&#1089;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1050;&#1091;&#1088;&#1100;&#1077;&#1088; &#1073;&#1080;&#1079;&#1085;&#1077;&#1089;-&#1101;&#1082;&#1089;&#1087;&#1088;&#1077;&#1089;&#1089;" visible="true" column="pm_business_express" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103; &#1076;&#1086; 10 &#1082;&#1075;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103; &#1076;&#1086; 10 &#1082;&#1075;" visible="true" column="pm_non_standard_under_10" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103; &#1076;&#1086; 20 &#1082;&#1075;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1072;&#1103; &#1076;&#1086; 20 &#1082;&#1075;" visible="true" column="pm_non_standard_under_20" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1085;&#1072;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1086;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1085;&#1072;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1086;&#1084;" visible="true" column="pm_cash_on_delivery" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1043;&#1072;&#1088;&#1072;&#1085;&#1090;&#1080;&#1103; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1043;&#1072;&#1088;&#1072;&#1085;&#1090;&#1080;&#1103; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080;" visible="true" column="pm_guarantee_of_safety" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1047;&#1072;&#1074;&#1077;&#1088;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1087;&#1072;&#1082;&#1077;&#1090;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1047;&#1072;&#1074;&#1077;&#1088;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1087;&#1072;&#1082;&#1077;&#1090;" visible="true" column="pm_assurance_package" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1082;&#1091;&#1088;&#1100;&#1077;&#1088;&#1086;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1082;&#1091;&#1088;&#1100;&#1077;&#1088;&#1086;&#1084;" visible="true" column="pm_courier_delivery" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1082;&#1086;&#1084;&#1087;&#1083;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1082;&#1086;&#1084;&#1087;&#1083;&#1077;&#1082;&#1090;&#1085;&#1086;&#1089;&#1090;&#1080;" visible="true" column="pm_check_completeness" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1075;&#1072;&#1073;&#1072;&#1088;&#1080;&#1090;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1053;&#1077;&#1075;&#1072;&#1073;&#1072;&#1088;&#1080;&#1090;&#1085;&#1072;&#1103;" visible="true" column="pm_oversized" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042; &#1091;&#1087;&#1072;&#1082;&#1086;&#1074;&#1082;&#1077; &#1055;&#1086;&#1095;&#1090;&#1099; &#1056;&#1086;&#1089;&#1089;&#1080;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042; &#1091;&#1087;&#1072;&#1082;&#1086;&#1074;&#1082;&#1077; &#1055;&#1086;&#1095;&#1090;&#1099; &#1056;&#1086;&#1089;&#1089;&#1080;&#1080;" visible="true" column="pm_rupost_packaging" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1087;&#1086; &#1079;&#1074;&#1086;&#1085;&#1082;&#1091;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1087;&#1086; &#1079;&#1074;&#1086;&#1085;&#1082;&#1091;" visible="true" column="pm_delivery_by_call" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1062;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; &#1074;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1062;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100; &#1074;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;" visible="true" column="pm_valuable_content" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1086;&#1081; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1086;&#1081;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1057; &#1086;&#1073;&#1088;&#1072;&#1090;&#1085;&#1086;&#1081; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1086;&#1081;" visible="true" column="pm_with_return_delivery" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042; &#1087;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1095;&#1077;&#1085;&#1085;&#1086;&#1084; &#1087;&#1072;&#1082;&#1077;&#1090;&#1077;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1090;&#1084;&#1077;&#1090;&#1082;&#1072;] &#1042; &#1087;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1095;&#1077;&#1085;&#1085;&#1086;&#1084; &#1087;&#1072;&#1082;&#1077;&#1090;&#1077;" visible="true" column="pm_prepaid_package" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1053;&#1072;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1053;&#1072;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103;" visible="true" column="pt_cash" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1041;&#1077;&#1079;&#1085;&#1072;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1041;&#1077;&#1079;&#1085;&#1072;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103;" visible="true" column="pt_cashless" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1041;&#1077;&#1089;&#1087;&#1083;&#1072;&#1090;&#1085;&#1086;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1041;&#1077;&#1089;&#1087;&#1083;&#1072;&#1090;&#1085;&#1086;" visible="true" column="pt_free" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1055;&#1083;&#1072;&#1089;&#1090;&#1080;&#1082;&#1086;&#1074;&#1072;&#1103; &#1082;&#1072;&#1088;&#1090;&#1072;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1055;&#1083;&#1072;&#1089;&#1090;&#1080;&#1082;&#1086;&#1074;&#1072;&#1103; &#1082;&#1072;&#1088;&#1090;&#1072;" visible="true" column="pt_by_card" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1052;&#1072;&#1088;&#1082;&#1072;&#1084;&#1080;" description="&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1079;&#1085;&#1072;&#1082;&#1080; &#1087;&#1086;&#1095;&#1090;&#1086;&#1074;&#1086;&#1081; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1084;&#1072;&#1088;&#1082;&#1072;&#1084;&#1080;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1052;&#1072;&#1088;&#1082;&#1072;&#1084;&#1080;" visible="true" column="pt_stamps" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1079;&#1085;&#1072;&#1082;&#1080; &#1087;&#1086;&#1095;&#1090;&#1086;&#1074;&#1086;&#1081; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1084;&#1072;&#1088;&#1082;&#1072;&#1084;&#1080; ">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1055;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1090;&#1072;" description="&#1055;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1090;&#1072; (&#1072;&#1074;&#1072;&#1085;&#1089;&#1086;&#1074;&#1099;&#1081; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;)">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1055;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1090;&#1072;" visible="true" column="pt_prepaid" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="&#1055;&#1088;&#1077;&#1076;&#1086;&#1087;&#1083;&#1072;&#1090;&#1072; (&#1072;&#1074;&#1072;&#1085;&#1089;&#1086;&#1074;&#1099;&#1081; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;)">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1084;&#1077;&#1078;&#1076;&#1091;&#1085;&#1072;&#1088;&#1086;&#1076;&#1085;&#1086;&#1084;&#1091; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1091;" description="&#1054;&#1087;&#1083;&#1072;&#1095;&#1077;&#1085;&#1086; &#1084;&#1077;&#1078;&#1076;&#1091;&#1085;&#1072;&#1088;&#1086;&#1076;&#1085;&#1086;&#1084;&#1091; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1091;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1052;&#1077;&#1078;&#1076;&#1091;&#1085;&#1072;&#1088;&#1086;&#1076;&#1085;&#1086;&#1084;&#1091; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1091;" visible="true" column="pt_paid_to_international_operator" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="&#1054;&#1087;&#1083;&#1072;&#1095;&#1077;&#1085;&#1086; &#1084;&#1077;&#1078;&#1076;&#1091;&#1085;&#1072;&#1088;&#1086;&#1076;&#1085;&#1086;&#1084;&#1091; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1091;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1054;&#1087;&#1083;&#1072;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1077;&#1084;">
+      <Hierarchy visible="true" hasAll="true" allMemberName="true || false" allLevelName="&#1042;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099;&#1077;">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1054;&#1087;&#1083;&#1072;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1077;&#1084;" visible="true" column="pt_paid_by_recipient" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1060;&#1088;&#1072;&#1085;&#1082;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;" description="&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1079;&#1085;&#1072;&#1082;&#1080; &#1087;&#1086;&#1095;&#1090;&#1086;&#1074;&#1086;&#1081; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1092;&#1088;&#1072;&#1085;&#1082;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;">
+      <Hierarchy visible="true" hasAll="true">
+        <Level name="[&#1054;&#1087;&#1083;&#1072;&#1090;&#1072;] &#1060;&#1088;&#1072;&#1085;&#1082;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;" visible="true" column="pt_franking" type="Boolean" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1079;&#1085;&#1072;&#1082;&#1080; &#1087;&#1086;&#1095;&#1090;&#1086;&#1074;&#1086;&#1081; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1092;&#1088;&#1072;&#1085;&#1082;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; ">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+      <Hierarchy name="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" hasAll="true" allMemberName="&#1042;&#1089;&#1077; &#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090;&#1099; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" allLevelName="(&#1042;&#1089;&#1077;)">
+        <Level name="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;" visible="true" column="get_attr_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="&#1052;&#1072;&#1089;&#1089;&#1072;" aggregator="sum" description="&#1082;&#1075;">
+      <MeasureExpression>
+        <SQL dialect="generic">
+          <![CDATA[mass/1000]]>
+        </SQL>
+      </MeasureExpression>
+    </Measure>
+    <Measure name="&#1054;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1072;&#1103; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100;" aggregator="sum" description="&#1088;&#1091;&#1073;">
+      <MeasureExpression>
+        <SQL dialect="generic">
+          <![CDATA[price/100]]>
+        </SQL>
+      </MeasureExpression>
+    </Measure>
+    <Measure name="&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1087;&#1077;&#1088;&#1077;&#1089;&#1099;&#1083;&#1082;&#1080;" aggregator="sum" description="&#1088;&#1091;&#1073;">
+      <MeasureExpression>
+        <SQL dialect="generic">
+          <![CDATA[forward_price/100]]>
+        </SQL>
+      </MeasureExpression>
+    </Measure>
+    <Measure name="&#1058;&#1072;&#1088;&#1080;&#1092; &#1085;&#1072; &#1086;&#1073;&#1098;&#1103;&#1074;&#1083;&#1077;&#1085;&#1085;&#1091;&#1102; &#1094;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1100;" aggregator="sum" description="&#1088;&#1091;&#1073;">
+      <MeasureExpression>
+        <SQL dialect="generic">
+          <![CDATA[tax_price/100]]>
+        </SQL>
+      </MeasureExpression>
+    </Measure>
+    <Measure name="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1091;&#1079;&#1083;&#1086;&#1074; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1080;" column="index_count" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;" column="bar_code" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

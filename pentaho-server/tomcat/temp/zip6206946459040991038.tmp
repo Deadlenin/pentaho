@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="25-02-2019 02:12:46 MSK" exportBy="admin" rootFolder="/home/" manifestVersion="2"/>
+    <ExportManifestEntity path="reports">
+        <ExportManifestProperty>
+            <EntityMetaData name="reports" createdDate="2017-11-01T13:40:03.424+03:00" isFolder="true" path="reports" isHidden="false" isSchedulable="false" locale="en_US" title="reports"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bag_attachments">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments" createdDate="2018-10-05T11:24:20.917+03:00" isFolder="true" path="reports/bag_attachments" isHidden="false" isSchedulable="false" locale="en_US" title="bag_attachments"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bag_attachments/bag_attachments.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments.ktr" createdDate="2018-10-05T13:30:21.308+03:00" isFolder="false" path="reports/bag_attachments/bag_attachments.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_attachments"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bag_attachments/bag_attachments.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_attachments.prpt" createdDate="2018-10-05T13:30:43.033+03:00" isFolder="false" path="reports/bag_attachments/bag_attachments.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Вложения в емкость 1.1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus" createdDate="2018-08-23T12:33:53.995+03:00" isFolder="true" path="reports/bonus" isHidden="false" isSchedulable="false" locale="en_US" title="bonus"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus/KPI в зоне ответственности ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cda" createdDate="2019-01-21T16:53:43.819+03:00" isFolder="false" path="reports/bonus/KPI в зоне ответственности ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus/KPI в зоне ответственности ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cdfde" createdDate="2019-01-21T16:54:03.816+03:00" isFolder="false" path="reports/bonus/KPI в зоне ответственности ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus/KPI в зоне ответственности ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.wcdf" createdDate="2019-01-21T16:54:18.277+03:00" isFolder="false" path="reports/bonus/KPI в зоне ответственности ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus_history">
+        <ExportManifestProperty>
+            <EntityMetaData name="bonus_history" createdDate="2018-07-25T15:00:04.424+03:00" isFolder="true" path="reports/bonus_history" isHidden="false" isSchedulable="false" locale="en_US" title="bonus_history"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus_history/KPI в зоне ответственности ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cda" createdDate="2018-07-25T15:00:05.168+03:00" isFolder="false" path="reports/bonus_history/KPI в зоне ответственности ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus_history/KPI в зоне ответственности ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.cdfde" createdDate="2018-07-25T15:00:10.512+03:00" isFolder="false" path="reports/bonus_history/KPI в зоне ответственности ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/bonus_history/KPI в зоне ответственности ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI в зоне ответственности ОПС.wcdf" createdDate="2018-07-25T15:00:14.762+03:00" isFolder="false" path="reports/bonus_history/KPI в зоне ответственности ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI в зоне ответственности ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cheque">
+        <ExportManifestProperty>
+            <EntityMetaData name="cheque" createdDate="2017-12-05T09:10:45.276+03:00" isFolder="true" path="reports/cheque" isHidden="false" isSchedulable="false" locale="en_US" title="cheque"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cheque/Отчет по кассовым чекам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по кассовым чекам.cda" createdDate="2017-12-05T09:11:48.353+03:00" isFolder="false" path="reports/cheque/Отчет по кассовым чекам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по кассовым чекам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cheque/Отчет по кассовым чекам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по кассовым чекам.cdfde" createdDate="2017-12-05T09:11:40.371+03:00" isFolder="false" path="reports/cheque/Отчет по кассовым чекам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по кассовым чекам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cheque/Отчет по кассовым чекам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по кассовым чекам.wcdf" createdDate="2017-12-05T09:11:31.758+03:00" isFolder="false" path="reports/cheque/Отчет по кассовым чекам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по кассовым чекам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cvpp">
+        <ExportManifestProperty>
+            <EntityMetaData name="cvpp" createdDate="2017-11-01T13:40:03.747+03:00" isFolder="true" path="reports/cvpp" isHidden="false" isSchedulable="false" locale="en_US" title="cvpp"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ЦВПП и ОПС плюс.cda" createdDate="2018-05-31T08:51:59.708+03:00" isFolder="false" path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ЦВПП и ОПС плюс"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ЦВПП и ОПС плюс.cdfde" createdDate="2018-05-31T08:51:49.063+03:00" isFolder="false" path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ЦВПП и ОПС плюс.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ЦВПП и ОПС плюс.wcdf" createdDate="2018-05-31T08:51:38.137+03:00" isFolder="false" path="reports/cvpp/Отчет по ЦВПП и ОПС плюс.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ЦВПП и ОПС плюс.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval">
+        <ExportManifestProperty>
+            <EntityMetaData name="exec_interval" createdDate="2017-11-01T13:40:03.957+03:00" isFolder="true" path="reports/exec_interval" isHidden="false" isSchedulable="false" locale="en_US" title="exec_interval"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval/Отчет о сроках оформления в ОПС.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет о сроках оформления в ОПС.cda" createdDate="2017-11-01T13:40:03.973+03:00" isFolder="false" path="reports/exec_interval/Отчет о сроках оформления в ОПС.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет о сроках оформления в ОПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval/Отчет о сроках оформления в ОПС.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет о сроках оформления в ОПС.cdfde" createdDate="2017-11-01T13:40:04.043+03:00" isFolder="false" path="reports/exec_interval/Отчет о сроках оформления в ОПС.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет о сроках оформления в ОПС.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval/Отчет о сроках оформления в ОПС.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет о сроках оформления в ОПС.wcdf" createdDate="2017-11-01T13:40:04.115+03:00" isFolder="false" path="reports/exec_interval/Отчет о сроках оформления в ОПС.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет о сроках оформления в ОПС.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval2.0">
+        <ExportManifestProperty>
+            <EntityMetaData name="exec_interval2.0" createdDate="2017-11-01T13:40:04.143+03:00" isFolder="true" path="reports/exec_interval2.0" isHidden="false" isSchedulable="false" locale="en_US" title="exec_interval2.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval2.0/СО РПО.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="СО РПО.cda" createdDate="2018-05-30T12:11:41.173+03:00" isFolder="false" path="reports/exec_interval2.0/СО РПО.cda" isHidden="false" isSchedulable="true" locale="en_US" title="СО РПО"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval2.0/СО РПО.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="СО РПО.cdfde" createdDate="2018-05-30T12:11:51.342+03:00" isFolder="false" path="reports/exec_interval2.0/СО РПО.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="СО РПО.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/exec_interval2.0/СО РПО.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="СО РПО.wcdf" createdDate="2018-05-30T12:12:00.943+03:00" isFolder="false" path="reports/exec_interval2.0/СО РПО.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="СО РПО.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast">
+        <ExportManifestProperty>
+            <EntityMetaData name="forecast" createdDate="2017-11-01T13:40:04.342+03:00" isFolder="true" path="reports/forecast" isHidden="false" isSchedulable="false" locale="en_US" title="forecast"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/next_days_forecast_for_existing_rpo">
+        <ExportManifestProperty>
+            <EntityMetaData name="next_days_forecast_for_existing_rpo" createdDate="2017-12-26T12:56:28.607+03:00" isFolder="true" path="reports/forecast/next_days_forecast_for_existing_rpo" isHidden="false" isSchedulable="false" locale="en_US" title="next_days_forecast_for_existing_rpo"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений существующих РПО.cda" createdDate="2017-12-26T12:57:20.451+03:00" isFolder="false" path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений существующих РПО"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений существующих РПО.cdfde" createdDate="2017-12-26T12:57:38.735+03:00" isFolder="false" path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений существующих РПО.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений существующих РПО.wcdf" createdDate="2017-12-26T12:57:49.381+03:00" isFolder="false" path="reports/forecast/next_days_forecast_for_existing_rpo/Прогноз поступлений существующих РПО.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений существующих РПО.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/Прогноз поступлений на 7 дней.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений на 7 дней.cda" createdDate="2017-11-01T13:40:04.359+03:00" isFolder="false" path="reports/forecast/Прогноз поступлений на 7 дней.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений на 7 дней"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/Прогноз поступлений на 7 дней.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений на 7 дней.cdfde" createdDate="2017-11-01T13:40:04.438+03:00" isFolder="false" path="reports/forecast/Прогноз поступлений на 7 дней.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений на 7 дней.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/forecast/Прогноз поступлений на 7 дней.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Прогноз поступлений на 7 дней.wcdf" createdDate="2017-11-01T13:40:04.520+03:00" isFolder="false" path="reports/forecast/Прогноз поступлений на 7 дней.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Прогноз поступлений на 7 дней.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/generalized_deal">
+        <ExportManifestProperty>
+            <EntityMetaData name="generalized_deal" createdDate="2017-11-01T13:40:04.559+03:00" isFolder="true" path="reports/generalized_deal" isHidden="false" isSchedulable="false" locale="en_US" title="generalized_deal"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/generalized_deal/Укрупненная сделка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.cda" createdDate="2018-07-05T19:26:32.487+03:00" isFolder="false" path="reports/generalized_deal/Укрупненная сделка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/generalized_deal/Укрупненная сделка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.cdfde" createdDate="2018-07-05T19:26:47.310+03:00" isFolder="false" path="reports/generalized_deal/Укрупненная сделка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/generalized_deal/Укрупненная сделка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.wcdf" createdDate="2018-07-05T19:27:02.153+03:00" isFolder="false" path="reports/generalized_deal/Укрупненная сделка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/gkh">
+        <ExportManifestProperty>
+            <EntityMetaData name="gkh" createdDate="2017-11-01T13:40:04.745+03:00" isFolder="true" path="reports/gkh" isHidden="false" isSchedulable="false" locale="en_US" title="gkh"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/gkh/Отчет по ГИС ЖКХ.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ГИС ЖКХ.cda" createdDate="2017-11-14T19:49:35.413+03:00" isFolder="false" path="reports/gkh/Отчет по ГИС ЖКХ.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ГИС ЖКХ"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/gkh/Отчет по ГИС ЖКХ.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ГИС ЖКХ.cdfde" createdDate="2017-11-14T19:49:43.339+03:00" isFolder="false" path="reports/gkh/Отчет по ГИС ЖКХ.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ГИС ЖКХ.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/gkh/Отчет по ГИС ЖКХ.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по ГИС ЖКХ.wcdf" createdDate="2017-11-14T19:49:51.942+03:00" isFolder="false" path="reports/gkh/Отчет по ГИС ЖКХ.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по ГИС ЖКХ.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi">
+        <ExportManifestProperty>
+            <EntityMetaData name="kpi" createdDate="2017-11-01T13:40:04.967+03:00" isFolder="true" path="reports/kpi" isHidden="false" isSchedulable="false" locale="en_US" title="kpi"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi/prod_report_kpi_multi.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="prod_report_kpi_multi.prpt" createdDate="2018-09-03T14:38:44.343+03:00" isFolder="false" path="reports/kpi/prod_report_kpi_multi.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="KPI 7.1 Прод Мультивыбор в УФПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi/report_kpi_multi.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_multi.prpt" createdDate="2018-02-22T09:37:33.347+03:00" isFolder="false" path="reports/kpi/report_kpi_multi.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Общий KPI 7.1Мультивыбор в УФПС"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi/report_kpi_v7.1.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_v7.1.prpt" createdDate="2018-11-07T14:15:13.127+03:00" isFolder="false" path="reports/kpi/report_kpi_v7.1.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="report_kpi_v7.1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi/report_kpi_v7.3.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="report_kpi_v7.3.prpt" createdDate="2018-12-27T11:30:51.114+03:00" isFolder="false" path="reports/kpi/report_kpi_v7.3.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="report_kpi_v7.3"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/kpi/Мультивыбор.Препрод.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="Мультивыбор.Препрод.prpt" createdDate="2018-12-27T14:21:33.136+03:00" isFolder="false" path="reports/kpi/Мультивыбор.Препрод.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Мультивыбор.Препрод"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/large_deal_614">
+        <ExportManifestProperty>
+            <EntityMetaData name="large_deal_614" createdDate="2019-02-15T13:47:18.657+03:00" isFolder="true" path="reports/large_deal_614" isHidden="false" isSchedulable="false" locale="en_US" title="large_deal_614"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/large_deal_614/Укрупненная сделка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.cda" createdDate="2019-02-15T13:47:44.701+03:00" isFolder="false" path="reports/large_deal_614/Укрупненная сделка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/large_deal_614/Укрупненная сделка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.cdfde" createdDate="2019-02-15T13:47:54.870+03:00" isFolder="false" path="reports/large_deal_614/Укрупненная сделка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/large_deal_614/Укрупненная сделка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Укрупненная сделка.wcdf" createdDate="2019-02-15T13:48:04.697+03:00" isFolder="false" path="reports/large_deal_614/Укрупненная сделка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Укрупненная сделка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi">
+        <ExportManifestProperty>
+            <EntityMetaData name="mmpo_kpi" createdDate="2019-01-15T01:00:10.935+03:00" isFolder="true" path="reports/mmpo_kpi" isHidden="false" isSchedulable="false" locale="en_US" title="mmpo_kpi"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО доставка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cda" createdDate="2019-01-15T01:00:34.243+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО доставка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО доставка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.cdfde" createdDate="2019-01-15T01:00:45.558+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО доставка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО доставка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО доставка.wcdf" createdDate="2019-01-15T01:00:55.670+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО доставка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО доставка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО обработка.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cda" createdDate="2019-01-15T01:01:05.881+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО обработка.cda" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО обработка.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.cdfde" createdDate="2019-01-15T01:01:20.205+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО обработка.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/mmpo_kpi/KPI ММПО обработка.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="KPI ММПО обработка.wcdf" createdDate="2019-01-15T01:01:30.117+03:00" isFolder="false" path="reports/mmpo_kpi/KPI ММПО обработка.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="KPI ММПО обработка.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/monitoring">
+        <ExportManifestProperty>
+            <EntityMetaData name="monitoring" createdDate="2017-11-01T13:40:05.123+03:00" isFolder="true" path="reports/monitoring" isHidden="false" isSchedulable="false" locale="en_US" title="monitoring"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/monitoring/dataStatisticsReport_v21.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="dataStatisticsReport_v21.prpt" createdDate="2017-11-01T13:40:05.330+03:00" isFolder="false" path="reports/monitoring/dataStatisticsReport_v21.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Статистика передачи данных 2.1"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/monitoring/dataStatisticsSilentObjectsReport.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="dataStatisticsSilentObjectsReport.prpt" createdDate="2017-11-01T13:40:05.172+03:00" isFolder="false" path="reports/monitoring/dataStatisticsSilentObjectsReport.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Контроль передачи данных"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/ostatki">
+        <ExportManifestProperty>
+            <EntityMetaData name="ostatki" createdDate="2018-10-21T18:10:40.020+03:00" isFolder="true" path="reports/ostatki" isHidden="false" isSchedulable="false" locale="en_US" title="ostatki"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/ostatki/Отчет по остаткам.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cda" createdDate="2019-02-06T16:39:25.388+03:00" isFolder="false" path="reports/ostatki/Отчет по остаткам.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/ostatki/Отчет по остаткам.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.cdfde" createdDate="2019-02-06T16:39:39.209+03:00" isFolder="false" path="reports/ostatki/Отчет по остаткам.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/ostatki/Отчет по остаткам.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по остаткам.wcdf" createdDate="2019-02-06T16:39:52.457+03:00" isFolder="false" path="reports/ostatki/Отчет по остаткам.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по остаткам.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return" createdDate="2018-11-14T13:48:49.976+03:00" isFolder="true" path="reports/rpo_return" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return/Возвраты посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cda" createdDate="2019-02-22T14:15:16.743+03:00" isFolder="false" path="reports/rpo_return/Возвраты посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return/Возвраты посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.cdfde" createdDate="2019-02-22T14:15:32.882+03:00" isFolder="false" path="reports/rpo_return/Возвраты посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return/Возвраты посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Возвраты посылочной почты.wcdf" createdDate="2019-02-22T14:15:53.651+03:00" isFolder="false" path="reports/rpo_return/Возвраты посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Возвраты посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_level" createdDate="2018-11-14T10:48:50.755+03:00" isFolder="true" path="reports/rpo_return_level" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return_level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2019-02-22T14:16:19.277+03:00" isFolder="false" path="reports/rpo_return_level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return_level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2019-02-22T14:16:32.933+03:00" isFolder="false" path="reports/rpo_return_level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/rpo_return_level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2019-02-22T14:16:47.781+03:00" isFolder="false" path="reports/rpo_return_level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sla">
+        <ExportManifestProperty>
+            <EntityMetaData name="sla" createdDate="2018-08-31T11:21:56.820+03:00" isFolder="true" path="reports/sla" isHidden="false" isSchedulable="false" locale="en_US" title="sla"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sla/Отчет по SLA для посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cda" createdDate="2018-08-31T11:21:56.870+03:00" isFolder="false" path="reports/sla/Отчет по SLA для посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sla/Отчет по SLA для посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cdfde" createdDate="2018-08-31T11:21:57.084+03:00" isFolder="false" path="reports/sla/Отчет по SLA для посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sla/Отчет по SLA для посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.wcdf" createdDate="2018-08-31T11:21:57.262+03:00" isFolder="false" path="reports/sla/Отчет по SLA для посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances">
+        <ExportManifestProperty>
+            <EntityMetaData name="sorting_balances" createdDate="2017-11-01T13:40:06.056+03:00" isFolder="true" path="reports/sorting_balances" isHidden="false" isSchedulable="false" locale="en_US" title="sorting_balances"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances/SortingBalances.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="SortingBalances.cda" createdDate="2017-11-01T13:40:06.072+03:00" isFolder="false" path="reports/sorting_balances/SortingBalances.cda" isHidden="false" isSchedulable="true" locale="en_US" title="SortingBalances"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances/SortingBalances.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="SortingBalances.cdfde" createdDate="2017-11-01T13:40:06.159+03:00" isFolder="false" path="reports/sorting_balances/SortingBalances.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="SortingBalances.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances/SortingBalances.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="SortingBalances.wcdf" createdDate="2017-11-01T13:40:06.240+03:00" isFolder="false" path="reports/sorting_balances/SortingBalances.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="SortingBalances.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances_v2">
+        <ExportManifestProperty>
+            <EntityMetaData name="sorting_balances_v2" createdDate="2018-04-13T14:00:52.850+03:00" isFolder="true" path="reports/sorting_balances_v2" isHidden="false" isSchedulable="false" locale="en_US" title="sorting_balances_v2"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances_v2/Остатки в цехах.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.cda" createdDate="2018-05-23T17:50:41.180+03:00" isFolder="false" path="reports/sorting_balances_v2/Остатки в цехах.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances_v2/Остатки в цехах.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.cdfde" createdDate="2018-05-23T17:50:56.648+03:00" isFolder="false" path="reports/sorting_balances_v2/Остатки в цехах.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/sorting_balances_v2/Остатки в цехах.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Остатки в цехах.wcdf" createdDate="2018-05-23T17:51:08.355+03:00" isFolder="false" path="reports/sorting_balances_v2/Остатки в цехах.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Остатки в цехах.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace">
+        <ExportManifestProperty>
+            <EntityMetaData name="trace" createdDate="2017-11-01T13:40:06.280+03:00" isFolder="true" path="reports/trace" isHidden="false" isSchedulable="false" locale="en_US" title="trace"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2017-11-11T21:30:45.779+03:00" isFolder="false" path="reports/trace/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace/rpo_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_info.ktr" createdDate="2017-11-11T21:30:31.003+03:00" isFolder="false" path="reports/trace/rpo_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="rpo_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace/tracingRPO.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracingRPO.prpt" createdDate="2017-11-01T13:40:07.344+03:00" isFolder="false" path="reports/trace/tracingRPO.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассровка РПО 2.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags">
+        <ExportManifestProperty>
+            <EntityMetaData name="trace_bags" createdDate="2017-11-13T19:18:57.789+03:00" isFolder="true" path="reports/trace_bags" isHidden="false" isSchedulable="false" locale="en_US" title="trace_bags"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags/bag_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_info.ktr" createdDate="2017-11-13T19:19:09.543+03:00" isFolder="false" path="reports/trace_bags/bag_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2017-11-13T19:26:43.156+03:00" isFolder="false" path="reports/trace_bags/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags/tracing_bag.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracing_bag.prpt" createdDate="2017-11-13T19:26:58.618+03:00" isFolder="false" path="reports/trace_bags/tracing_bag.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка по емкости 2.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags_v3">
+        <ExportManifestProperty>
+            <EntityMetaData name="trace_bags_v3" createdDate="2018-09-13T18:52:10.590+03:00" isFolder="true" path="reports/trace_bags_v3" isHidden="false" isSchedulable="false" locale="en_US" title="trace_bags_v3"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags_v3/bag_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="bag_info.ktr" createdDate="2018-09-13T18:55:29.717+03:00" isFolder="false" path="reports/trace_bags_v3/bag_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="bag_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags_v3/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2018-09-13T18:55:51.955+03:00" isFolder="false" path="reports/trace_bags_v3/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_bags_v3/tracing_bag.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracing_bag.prpt" createdDate="2018-09-13T18:54:19.869+03:00" isFolder="false" path="reports/trace_bags_v3/tracing_bag.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка по емкости 3.0 beta"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3">
+        <ExportManifestProperty>
+            <EntityMetaData name="trace_v3" createdDate="2018-01-28T22:39:23.618+03:00" isFolder="true" path="reports/trace_v3" isHidden="false" isSchedulable="false" locale="en_US" title="trace_v3"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/links.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="links.ktr" createdDate="2018-08-17T18:54:04.058+03:00" isFolder="false" path="reports/trace_v3/links.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="links"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/operations.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="operations.ktr" createdDate="2018-08-17T18:54:23.341+03:00" isFolder="false" path="reports/trace_v3/operations.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="operations"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/rpo_attrs.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_attrs.ktr" createdDate="2018-08-17T18:54:53.086+03:00" isFolder="false" path="reports/trace_v3/rpo_attrs.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="rpo_attrs"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/rpo_attrs_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_attrs_info.ktr" createdDate="2018-08-17T18:55:17.519+03:00" isFolder="false" path="reports/trace_v3/rpo_attrs_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="rpo_attrs_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/rpo_info.ktr">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_info.ktr" createdDate="2018-08-17T18:55:47.872+03:00" isFolder="false" path="reports/trace_v3/rpo_info.ktr" isHidden="true" isSchedulable="true" locale="en_US" title="rpo_info"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/tracingRPO.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracingRPO.prpt" createdDate="2018-08-17T18:58:08.846+03:00" isFolder="false" path="reports/trace_v3/tracingRPO.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка РПО 3.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/tracingRPOAttributes.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracingRPOAttributes.prpt" createdDate="2018-08-17T17:32:19.585+03:00" isFolder="false" path="reports/trace_v3/tracingRPOAttributes.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка РПО 3.0: Атрибуты РПО"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/trace_v3/tracingRPOLinks.prpt">
+        <ExportManifestProperty>
+            <EntityMetaData name="tracingRPOLinks.prpt" createdDate="2018-08-17T17:32:27.985+03:00" isFolder="false" path="reports/trace_v3/tracingRPOLinks.prpt" isHidden="false" isSchedulable="true" locale="en_US" title="Трассировка РПО 3.0: Связи"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic" createdDate="2018-12-17T10:45:34.487+03:00" isFolder="true" path="reports/traffic" isHidden="false" isSchedulable="false" locale="en_US" title="traffic"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic 1.0">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic 1.0" createdDate="2017-12-07T16:36:18.048+03:00" isFolder="true" path="reports/traffic 1.0" isHidden="false" isSchedulable="false" locale="en_US" title="traffic 1.0"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <aces>
+                    <permissions>READ</permissions>
+                    <recipient>R00-DC_Parcels</recipient>
+                    <recipientType>ROLE</recipientType>
+                </aces>
+                <entriesInheriting>false</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic 1.0/traffic.xml">
+        <ExportManifestProperty>
+            <EntityMetaData name="traffic.xml" createdDate="2017-12-07T16:36:18.086+03:00" isFolder="false" path="reports/traffic 1.0/traffic.xml" isHidden="false" isSchedulable="true" locale="en_US" title="traffic.xml"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic 1.0/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2017-12-07T16:36:18.192+03:00" isFolder="false" path="reports/traffic 1.0/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic 1.0/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2017-12-07T16:36:18.280+03:00" isFolder="false" path="reports/traffic 1.0/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic 1.0/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2017-12-07T16:36:18.359+03:00" isFolder="false" path="reports/traffic 1.0/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic/Отчет по трафику.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cda" createdDate="2018-12-17T10:45:34.530+03:00" isFolder="false" path="reports/traffic/Отчет по трафику.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic/Отчет по трафику.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.cdfde" createdDate="2018-12-17T10:45:34.677+03:00" isFolder="false" path="reports/traffic/Отчет по трафику.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="reports/traffic/Отчет по трафику.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по трафику.wcdf" createdDate="2018-12-17T10:45:34.845+03:00" isFolder="false" path="reports/traffic/Отчет по трафику.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по трафику.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

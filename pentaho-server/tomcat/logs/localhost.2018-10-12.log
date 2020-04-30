@@ -1,0 +1,2190 @@
+12-Oct-2018 12:51:22.419 SEVERE [http-apr-8080-exec-15] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:51:22.419 SEVERE [http-apr-8080-exec-16] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:51:22.419 SEVERE [http-apr-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:51:55.864 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:51:56.568 SEVERE [http-apr-8080-exec-19] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:51:56.614 SEVERE [http-apr-8080-exec-16] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:07.856 SEVERE [http-apr-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:08.517 SEVERE [http-apr-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:08.593 SEVERE [http-apr-8080-exec-28] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:38.895 SEVERE [http-apr-8080-exec-15] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:39.345 SEVERE [http-apr-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:52:39.421 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:53:34.655 SEVERE [http-apr-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:53:35.048 SEVERE [http-apr-8080-exec-16] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:53:35.060 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:21.133 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:21.473 SEVERE [http-apr-8080-exec-28] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:21.518 SEVERE [http-apr-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:27.339 SEVERE [http-apr-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:27.895 SEVERE [http-apr-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:27.922 SEVERE [http-apr-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:51.423 SEVERE [http-apr-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:51.845 SEVERE [http-apr-8080-exec-28] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:51.915 SEVERE [http-apr-8080-exec-19] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:54:59.883 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:55:00.269 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:55:00.348 SEVERE [http-apr-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:58:52.086 SEVERE [http-apr-8080-exec-26] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([AcceptMonth].[AcceptMonth].Hierarchy.DefaultMember, [AcceptMonth].[AcceptMonth])'
+  set membersSet as '[AcceptMonth].[AcceptMonth].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [AcceptMonth].[AcceptMonth].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[AcceptMonth].[AcceptMonth]]; sql=[select "AcceptMonthAlias"."acc_month" as "c0" from (SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC) as "AcceptMonthAlias" group by "AcceptMonthAlias"."acc_month" order by CASE WHEN "AcceptMonthAlias"."acc_month" IS NULL THEN 1 ELSE 0 END, "AcceptMonthAlias"."acc_month" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:58:52.472 SEVERE [http-apr-8080-exec-29] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Cvpp].[Cvpp].Hierarchy.DefaultMember, [Cvpp].[Cvpp])'
+  set membersSet as '[Cvpp].[Cvpp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Cvpp].[Cvpp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Cvpp].[Cvpp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Cvpp].[Cvpp]]; sql=[select "CvppAlias"."name" as "c0", "CvppAlias"."name" as "c1" from (SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag) as "CvppAlias" group by "CvppAlias"."name" order by CASE WHEN "CvppAlias"."name" IS NULL THEN 1 ELSE 0 END, "CvppAlias"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+
+12-Oct-2018 12:58:52.490 SEVERE [http-apr-8080-exec-32] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [PluginDispatchServlet] in context with path [/pentaho] threw exception
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLSyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.executeSimpleProtocol(Unknown Source)
+	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeNoParams(Unknown Source)
+	at com.vertica.jdbc.common.SStatement.executeQuery(Unknown Source)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at org.apache.commons.dbcp.DelegatingStatement.executeQuery(DelegatingStatement.java:208)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:201)
+	... 39 more
+Caused by: com.vertica.support.exceptions.SyntaxErrorException: [Vertica][VJDBC](4568) ERROR: Relation "tracking.rpo_return_fact_ag" does not exist
+	... 47 more
+

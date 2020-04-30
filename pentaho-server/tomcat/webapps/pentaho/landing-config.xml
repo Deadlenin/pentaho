@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<landing-url
+        loader-text="Пожалуйста подождите..."
+        btn-text ="Обновить"
+        base-url="http://localhost:81"
+        path="/dc-jobstatus/status/oozie"http://reports.pochta.ru/dc-jobstatus/
+>
+
+</landing-url>

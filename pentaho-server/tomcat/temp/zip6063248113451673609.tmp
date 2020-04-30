@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="gkh_base_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="gkh_base_drill_payment_recipient_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="gkh_short_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="gkh_trans_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="gkh_base_ds" id="gkh_base_ds" type="sql">
+      <Name>gkh_base_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="payment_recipient_inn" name="payment_recipient_inn" type="String"/>
+         <Parameter default="order_id" name="order_id" type="String"/>
+         <Parameter default="order_unified_acc_num" name="order_unified_acc_num" type="String"/>
+         <Parameter default="account_number" name="account_number" type="String"/>
+         <Parameter default="recipient_inn" name="recipient_inn" type="String"/>
+         <Parameter default="order_amount_rub_from" name="order_amount_rub_from" type="String"/>
+         <Parameter default="order_amount_rub_to" name="order_amount_rub_to" type="String"/>
+         <Parameter default="order_month" name="order_month" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="order_date_from" name="order_date_from" type="String"/>
+         <Parameter default="order_date_to" name="order_date_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  nvl(system_accept_id, 'N/A')      as "Система",
+  nvl(fps.macroregion, 'N/A')       as "Макрорегион",
+  nvl(fps.ufps, 'N/A')              as "УФПС",
+  nvl(fps.post_office, 'N/A')       as "Почтамт",
+  nvl(post_office_zip, 'N/A')       as "Индекс ОПС",
+  households_number                 as "Кол-во домохозяйств в зоне обслуживания ОПС, ед.",
+  nvl(payment_recipient_inn, 'N/A') as "Контрагент (ИНН)",
+  nvl(online, 'N/A')                as "Режим работы ОПС",
+  accept_count                      as "Кол-во принятых платежей, шт.",
+  accept_sum                        as "Объем принятых платежей, руб.",
+  return_count                      as "Кол-во возвращенных платежей, шт.",
+  return_sum                        as "Объем возвращенных платежей, руб."
+from (
+  select
+    system_accept_id,
+    post_office_zip,
+    payment_recipient_inn,
+    case
+      when online then 'онлайн'
+      when not online then 'офлайн'
+    end online,
+    sum(case when status_type = 'RESULT' then 1 end) accept_count,
+    sum(case when status_type = 'RESULT' then order_amount_rub end) accept_sum,
+    sum(case when status_type = 'REJECT' then 1 end) return_count,
+    sum(case when status_type = 'REJECT' then order_amount_rub end) return_sum
+  from tracking.gkh_data_mart
+  left join dicts.dim_fps fps on fps.post_object_index::varchar = post_office_zip
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || '].[' || fps.post_object || ']' in (${fps}))
+    and (${order_date_from} = '' or ${order_date_from}::varchar is null or order_date >= ${order_date_from})
+      and (${order_date_to} = '' or ${order_date_to}::varchar is null or order_date <= ${order_date_to})
+    and ('' in (${payment_recipient_inn}) or 'payment_recipient_inn' in (${payment_recipient_inn}) or payment_recipient_inn in (${payment_recipient_inn}))
+    and ('' in (${order_id}) or 'order_id' in (${order_id}) or order_id in (${order_id}))
+    and ('' in (${order_unified_acc_num}) or 'order_unified_acc_num' in (${order_unified_acc_num}) or order_unified_acc_num in (${order_unified_acc_num}))
+    and ('' in (${account_number}) or 'account_number' in (${account_number}) or account_number in (${account_number}))
+    and ('' in (${recipient_inn}) or 'recipient_inn' in (${recipient_inn}) or recipient_inn in (${recipient_inn}))
+    and (${order_amount_rub_from} = '' or ${order_amount_rub_from}::varchar is null or order_amount_rub >= nullif(${order_amount_rub_from}, ''))
+      and (${order_amount_rub_to} = '' or ${order_amount_rub_to}::varchar is null or order_amount_rub <= nullif(${order_amount_rub_to}, ''))
+    and ('' in (${order_month}) or 'order_month' in (${order_month}) or order_month in (${order_month}))
+  group by system_accept_id, post_office_zip, payment_recipient_inn, online
+) gkh
+left join dicts.dim_fps fps       on fps.post_object_index::varchar = post_office_zip
+left join dicts.fps_passport pass on pass.post_object_index::varchar = post_office_zip
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="gkh_base_drill_payment_recipient_ds"
+               id="gkh_base_drill_payment_recipient_ds"
+               type="sql">
+      <Name>gkh_base_drill_payment_recipient_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="selected_payment_recipient_inn" name="selected_payment_recipient_inn"
+                    type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  nvl(payment_recipient_inn, 'N/A')  as "ИНН",
+  nvl(payment_recipient_kpp, 'N/A')  as "КПП",
+  nvl(payment_recipient_name, 'N/A') as "Наименование"
+from tracking.gkh_payment_recipient
+where payment_recipient_inn = ${selected_payment_recipient_inn}
+order by payment_recipient_kpp, payment_recipient_name]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="gkh_short_ds" id="gkh_short_ds" type="sql">
+      <Name>gkh_short_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="payment_recipient_inn" name="payment_recipient_inn" type="String"/>
+         <Parameter default="order_id" name="order_id" type="String"/>
+         <Parameter default="order_unified_acc_num" name="order_unified_acc_num" type="String"/>
+         <Parameter default="account_number" name="account_number" type="String"/>
+         <Parameter default="recipient_inn" name="recipient_inn" type="String"/>
+         <Parameter default="order_amount_rub_from" name="order_amount_rub_from" type="String"/>
+         <Parameter default="order_amount_rub_to" name="order_amount_rub_to" type="String"/>
+         <Parameter default="order_month" name="order_month" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="order_date_from" name="order_date_from" type="String"/>
+         <Parameter default="order_date_to" name="order_date_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  nvl(fps.macroregion, 'N/A')     as "Макрорегион",
+  nvl(fps.ufps, 'N/A')            as "УФПС",
+  nvl(post_office_zip, 'N/A')     as "Индекс ОПС",
+  ok.place_oktmo                  as "ОКТМО",
+  nvl(ok.region_center, 'N/A')    as "Муниципальный район",
+  nvl(ok.place, 'N/A')            as "Населенный пункт",
+  payment_amount_rub              as "Сумма платежей, руб.",
+  payment_amount_kop              as "Сумма платежей, коп.",
+  payment_count                   as "Кол-во платежей, шт."
+from (
+  select
+    post_office_zip,
+    count(1) payment_count,
+    sum(order_amount_rub) payment_amount_rub,
+    sum(order_amount_kop) payment_amount_kop
+  from tracking.gkh_data_mart
+  left join dicts.dim_fps fps on fps.post_object_index::varchar = post_office_zip
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || '].[' || fps.post_object || ']' in (${fps}))
+    and (${order_date_from} = '' or ${order_date_from}::varchar is null or order_date >= ${order_date_from})
+      and (${order_date_to} = '' or ${order_date_to}::varchar is null or order_date <= ${order_date_to})
+    and ('' in (${payment_recipient_inn}) or 'payment_recipient_inn' in (${payment_recipient_inn}) or payment_recipient_inn in (${payment_recipient_inn}))
+    and ('' in (${order_id}) or 'order_id' in (${order_id}) or order_id in (${order_id}))
+    and ('' in (${order_unified_acc_num}) or 'order_unified_acc_num' in (${order_unified_acc_num}) or order_unified_acc_num in (${order_unified_acc_num}))
+    and ('' in (${account_number}) or 'account_number' in (${account_number}) or account_number in (${account_number}))
+    and ('' in (${recipient_inn}) or 'recipient_inn' in (${recipient_inn}) or recipient_inn in (${recipient_inn}))
+    and (${order_amount_rub_from} = '' or ${order_amount_rub_from}::varchar is null or order_amount_rub >= nullif(${order_amount_rub_from}, ''))
+      and (${order_amount_rub_to} = '' or ${order_amount_rub_to}::varchar is null or order_amount_rub <= nullif(${order_amount_rub_to}, ''))
+    and ('' in (${order_month}) or 'order_month' in (${order_month}) or order_month in (${order_month}))
+  group by post_office_zip
+) gkh
+left join dicts.oktmo_centers ok on ok.post_object_index::varchar = post_office_zip
+left join dicts.dim_fps fps      on fps.post_object_index::varchar = post_office_zip
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="gkh_trans_ds" id="gkh_trans_ds" type="sql">
+      <Name>gkh_trans_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="payment_recipient_inn" name="payment_recipient_inn" type="String"/>
+         <Parameter default="order_id" name="order_id" type="String"/>
+         <Parameter default="order_unified_acc_num" name="order_unified_acc_num" type="String"/>
+         <Parameter default="account_number" name="account_number" type="String"/>
+         <Parameter default="recipient_inn" name="recipient_inn" type="String"/>
+         <Parameter default="order_amount_rub_from" name="order_amount_rub_from" type="String"/>
+         <Parameter default="order_amount_rub_to" name="order_amount_rub_to" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="order_month" name="order_month" type="String"/>
+         <Parameter default="order_date_from" name="order_date_from" type="String"/>
+         <Parameter default="order_date_to" name="order_date_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  nvl(system_accept_id, 'N/A')          as "Система",
+  nvl(fps.macroregion, 'N/A')           as "Макрорегион",
+  nvl(fps.ufps, 'N/A')                  as "УФПС",
+  nvl(fps.post_office, 'N/A')           as "Почтамт",
+  nvl(post_office_zip, 'N/A')           as "Индекс ОПС",
+  oktmo.place_oktmo                     as "ОКТМО",
+  nvl(oktmo.region_center, 'N/A')       as "Наименование муниципального образования",
+  nvl(oktmo.place, 'N/A')               as "Наименование населенного пункта",
+  nvl(order_month, 'N/A')               as "Период оплаты",
+  nvl(receipt_payment_date, 'N/A')      as "Дата принятия платежа в ОПС",
+  nvl(receipt_payment_time, 'N/A')      as "Время принятия платежа в ОПС",
+  nvl(order_id, 'N/A')                  as "Идентификатор распоряжения",
+  nvl(operator, 'N/A')                  as "ФИО оператора",
+  nvl(order_unified_acc_num, 'N/A')     as "Идентификатор Единого лицевого счета (ГИС)",
+  nvl(service_id, 'N/A')                as "Идентификатор ЖКУ",
+  nvl(order_payment_doc_id, 'N/A')      as "Идентификатор платежного документа (ГИС)",
+  nvl(account_number, 'N/A')            as "Номер лицевого счета, присвоенный исполнителем ЖКУ",
+  nvl(consumer_address, 'N/A')          as "Адрес помещения, в отношении которого внесена плата",
+  nvl(payment_recipient_inn, 'N/A')     as "ИНН получателя платежа",
+  nvl(payment_recipient_kpp, 'N/A')     as "КПП получателя платежа",
+  nvl(payment_banc_bik, 'N/A')          as "БИК банка получателя платежа",
+  nvl(payment_corr_bank_acc, 'N/A')     as "Корр. счет банка получателя платежа",
+  nvl(payment_operating_acc_num, 'N/A') as "Расчетный счет получателя платежа",
+  nvl(recipient_name, 'N/A')            as "Наименование исполнителя ЖКУ",
+  nvl(recipient_inn, 'N/A')             as "ИНН исполнителя ЖКУ",
+  nvl(recipient_legal_kpp, 'N/A')       as "КПП исполнителя ЖКУ",
+  order_amount_rub                      as "Сумма платежа в рублях",
+  order_amount_kop                      as "Сумма платежа в копейках",
+  nvl(order_num, 'N/A')                 as "Номер операции в системе",
+  case
+    when online then 'онлайн'
+    when not online then 'офлайн'
+  end                                   as "Режим работы ОПС",
+  nvl(status_type, 'N/A')               as "Статус платежа, по результатам отправки в ГИС"
+from tracking.gkh_data_mart
+left join dicts.dim_fps fps         on fps.post_object_index::varchar = post_office_zip
+left join dicts.oktmo_centers oktmo on oktmo.post_object_index::varchar = post_office_zip
+where
+  ('' in (${fps}) or 'fps' in (${fps})
+    or '[fps].[' || fps.macroregion || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.place || '].[' || fps.post_object || ']' in (${fps}))
+  and (${order_date_from} = '' or ${order_date_from}::varchar is null or order_date >= ${order_date_from})
+    and (${order_date_to} = '' or ${order_date_to}::varchar is null or order_date <= ${order_date_to})
+  and ('' in (${payment_recipient_inn}) or 'payment_recipient_inn' in (${payment_recipient_inn}) or payment_recipient_inn in (${payment_recipient_inn}))
+  and ('' in (${order_id}) or 'order_id' in (${order_id}) or order_id in (${order_id}))
+  and ('' in (${order_unified_acc_num}) or 'order_unified_acc_num' in (${order_unified_acc_num}) or order_unified_acc_num in (${order_unified_acc_num}))
+  and ('' in (${account_number}) or 'account_number' in (${account_number}) or account_number in (${account_number}))
+  and ('' in (${recipient_inn}) or 'recipient_inn' in (${recipient_inn}) or recipient_inn in (${recipient_inn}))
+  and (${order_amount_rub_from} = '' or ${order_amount_rub_from}::varchar is null or order_amount_rub >= nullif(${order_amount_rub_from}, ''))
+    and (${order_amount_rub_to} = '' or ${order_amount_rub_to}::varchar is null or order_amount_rub <= nullif(${order_amount_rub_to}, ''))
+  and ('' in (${order_month}) or 'order_month' in (${order_month}) or order_month in (${order_month}))
+limit ${limit}]]></Query>
+   </DataAccess>
+</CDADescriptor>

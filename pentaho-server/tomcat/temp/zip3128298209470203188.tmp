@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="large_deal_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="large_deal_details_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="large_deal_details_rpo_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="post_object_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="large_deal_ds" id="large_deal_ds" type="sql">
+      <Name>large_deal_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="post_object_type" name="post_object_type" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="time_from" name="time_from" type="String"/>
+         <Parameter default="time_to" name="time_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    dim_fps_post_object                                                   AS "Объект",
+	index_oper_border                                                     AS "Индекс объекта",
+	sum(CASE WHEN ld_oper_type = 1 and entity_type = 1 THEN 1 ELSE 0 END) AS "Прием: количество (только РПО)",
+	sum(CASE WHEN ld_oper_type = 1 THEN conditional_value ELSE 0 END)     AS "Прием: объем в УО (принято * коэф)",
+	sum(CASE WHEN ld_oper_type = 2 and entity_type = 1 THEN 1 ELSE 0 END) AS "Обработка: количество (только РПО)",
+	sum(CASE WHEN ld_oper_type = 2 THEN conditional_value ELSE 0 END)     AS "Обработка: объем в УО (обработано * коэф)",
+	sum(CASE WHEN ld_oper_type = 3 and entity_type = 1 THEN 1 ELSE 0 END) AS "Отправка: количество (только РПО)",
+	sum(CASE WHEN ld_oper_type = 3 THEN conditional_value ELSE 0 END)     AS "Отправка: объем в УО (отправлено * коэф)",
+	sum(conditional_value)                                                AS "Итого (Объем в УО)"
+from ddobrovolsky.large_deal_part ld
+where (${date_from} = '' or cast(${date_from} as varchar) is null or (oper_date >= ${date_from} AND oper_date_hour >= (${date_from} || ' ' || ${time_from})))
+	and (${date_to} = '' or cast(${date_to} as varchar) is null or (oper_date <= ${date_to} AND oper_date_hour < (${date_to} || ' ' || ${time_to})))
+	and ('' in (${fps}) or 'fps' in (${fps})
+		or ('[fps].[N/A]' in (${fps}) AND index_oper_border = 'N/A')
+		or '[fps].[' || dim_fps_macroregion || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || '].[' || dim_fps_post_office || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || '].[' || dim_fps_post_office || '].[' || dim_fps_post_object || ']' in (${fps}))
+	and ('' in (${post_object_type}) OR 'post_object_type' in (${post_object_type}) OR fps_post_object_type::varchar in (${post_object_type}))
+	and not (('' in (${fps_from}) or 'fps_from' in (${fps_from})) and ('' in (${fps_to}) or 'fps_to' in (${fps_to})) and ('' in (${mail_type}) or 'mail_type' in (${mail_type})) and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg})))
+	and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+	  or ('[fps].[N/A]' in (${fps_from}) AND index_from = 'N/A')
+		or '[fps].[' || dim_fps_from_macroregion || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || '].[' || dim_fps_from_post_object || ']' in (${fps_from}))
+	and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+	  or ('[fps].[N/A]' in (${fps_to}) AND index_to = 'N/A')
+		or '[fps].[' || dim_fps_to_macroregion || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || '].[' || dim_fps_to_post_object || ']' in (${fps_to}))
+	and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+	    or '[mail_type].[' || mt_group || ']' in (${mail_type})
+	    or '[mail_type].[' || mt_group || '].[' || mt_name || ']' in (${mail_type}))
+	and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg})
+		or '[mail_ctg].[' || mc_name || ']' in (${mail_ctg}))
+group by index_oper_border, dim_fps_post_object
+union all
+select
+	dim_fps_post_object   AS "Объект",
+	index_oper_border     AS "Индекс объекта",
+	sum(accepting_count)  AS "Прием: количество (только РПО)",
+	sum(accepting_cv)     AS "Прием: объем в УО (принято * коэф)",
+	sum(processing_count) AS "Обработка: количество (только РПО)",
+	sum(processing_cv)    AS "Обработка: объем в УО (обработано * коэф)",
+	sum(sending_count)    AS "Отправка: количество (только РПО)",
+	sum(sending_cv)       AS "Отправка: объем в УО (отправлено * коэф)",
+	sum(total_cv)         AS "Итого (Объем в УО)"
+from ddobrovolsky.large_deal_aggregated_part ld
+where (${date_from} = '' or cast(${date_from} as varchar) is null or (oper_date >= ${date_from} AND oper_date_time_local >= (${date_from} || ' ' || ${time_from})))
+	and (${date_to} = '' or cast(${date_to} as varchar) is null or (oper_date <= ${date_to} AND oper_date_time_local < (${date_to} || ' ' || ${time_to})))
+	and ('' in (${fps}) or 'fps' in (${fps})
+	  or ('[fps].[N/A]' in (${fps}) AND index_oper_border = 'N/A')
+		or '[fps].[' || dim_fps_macroregion || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || '].[' || dim_fps_post_office || ']' in (${fps})
+		or '[fps].[' || dim_fps_macroregion || '].[' || dim_fps_ufps || '].[' || dim_fps_post_office || '].[' || dim_fps_post_object || ']' in (${fps}))
+	and ('' in (${post_object_type}) OR 'post_object_type' in (${post_object_type}) OR fps_post_object_type in (${post_object_type}))
+	and (('' in (${fps_from}) or 'fps_from' in (${fps_from})) and ('' in (${fps_to}) or 'fps_to' in (${fps_to})) and ('' in (${mail_type}) or 'mail_type' in (${mail_type})) and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg})))
+group by index_oper_border, dim_fps_post_object]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="large_deal_details_ds" id="large_deal_details_ds"
+               type="sql">
+      <Name>large_deal_details_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="post_office_index" name="post_office_index" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="time_from" name="time_from" type="String"/>
+         <Parameter default="time_to" name="time_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    CASE entity_type WHEN 1 THEN 'РПО' WHEN 2 THEN 'НПО' END AS "Тип ПО",
+	type AS "Вид ПО",
+	ctg AS "Категория",
+	dc_name AS "Характер пересылки",
+	sum(CASE WHEN ld_oper_type = 1 THEN (CASE WHEN entity_type = 1 THEN 1 ELSE units_number END) ELSE 0 END) AS "Прием - кол-во отправлений",
+	sum(CASE WHEN ld_oper_type = 1 THEN conditional_value ELSE 0 END) AS "Прием - кол-во УО",
+	sum(CASE WHEN ld_oper_type = 2 THEN (CASE WHEN entity_type = 1 THEN 1 ELSE units_number END) ELSE 0 END) AS "Обработка - кол-во отправлений",
+	sum(CASE WHEN ld_oper_type = 2 THEN conditional_value ELSE 0 END) AS "Обработка - кол-во УО",
+	sum(CASE WHEN ld_oper_type = 3 THEN (CASE WHEN entity_type = 1 THEN 1 ELSE units_number END) ELSE 0 END) AS "Отправка - кол-во отправлений",
+	sum(CASE WHEN ld_oper_type = 3 THEN conditional_value ELSE 0 END) AS "Отправка - кол-во УО"
+from (
+	select
+		entity_type,
+		CASE entity_type WHEN 1 THEN mt_name WHEN 2 THEN 'Отправления (' || bt_name || ')' END as type,
+		CASE entity_type WHEN 1 THEN mc_name WHEN 2 THEN NULL END as ctg,
+		dc_name,
+		ld_oper_type,
+		conditional_value,
+		units_number
+	from ddobrovolsky.large_deal_part ld
+	where (${date_from} = '' or cast(${date_from} as varchar) is null or (oper_date >= ${date_from} AND oper_date_hour >= (${date_from} || ' ' || ${time_from})))
+		and (${date_to} = '' or cast(${date_to} as varchar) is null or (oper_date <= ${date_to} AND oper_date_hour < (${date_to} || ' ' || ${time_to})))
+		and index_oper_border = ${post_office_index}
+		and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+		  or ('[fps].[N/A]' in (${fps_from}) AND index_from = 'N/A')
+			or '[fps].[' || dim_fps_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || ']' in (${fps_from})
+			or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || '].[' || dim_fps_from_post_object || ']' in (${fps_from}))
+		and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+		  or ('[fps].[N/A]' in (${fps_to}) AND index_to = 'N/A')
+			or '[fps].[' || dim_fps_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || ']' in (${fps_to})
+			or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || '].[' || dim_fps_to_post_object || ']' in (${fps_to}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			 or '[mail_type].[' || mt_group || ']' in (${mail_type})
+			 or '[mail_type].[' || mt_group || '].[' || mt_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg})
+			 or '[mail_ctg].[' || mc_name || ']' in (${mail_ctg}))
+) t
+group by entity_type, type, ctg, dc_name]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="large_deal_details_rpo_ds"
+               id="large_deal_details_rpo_ds"
+               type="sql">
+      <Name>large_deal_details_rpo_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="post_office_index" name="post_office_index" type="String"/>
+         <Parameter default="selected_entity_type" name="selected_entity_type" type="String"/>
+         <Parameter default="selected_type_name" name="selected_type_name" type="String"/>
+         <Parameter default="selected_ctg_name" name="selected_ctg_name" type="String"/>
+         <Parameter default="selected_ld_oper_type" name="selected_ld_oper_type" type="String"/>
+         <Parameter default="selected_direct_ctg_name" name="selected_direct_ctg_name"
+                    type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="time_from" name="time_from" type="String"/>
+         <Parameter default="time_to" name="time_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    CASE ${selected_ld_oper_type} 
+		WHEN 'accepting' THEN 'Прием'
+		WHEN 'processing' THEN 'Обработка'
+		WHEN 'sending' THEN 'Отправка'
+	END AS "Тип операции",
+	bar_code AS "ШИ/ШПИ",
+	CASE entity_type 
+		WHEN 1 THEN 'РПО'
+		WHEN 2 THEN 'НПО'
+	END AS "Тип ПО",
+	CASE entity_type 
+		WHEN 1 THEN nvl(mt_name, mail_type::varchar)
+		WHEN 2 THEN bt_name
+	END AS "Вид ПО",
+	CASE entity_type 
+		WHEN 1 THEN mc_name
+		WHEN 2 THEN NULL
+	END AS "Категория",
+	dc_name AS "Характер пересылки",
+	conditional_value AS "УО",
+	CASE entity_type 
+		WHEN 1 THEN NULL
+		WHEN 2 THEN weight
+	END AS "Вес (для НПО)",
+	index_from "Откуда (индекс)",
+	index_to "Куда (индекс)"
+from ddobrovolsky.large_deal_part ld
+where (${date_from} = '' or cast(${date_from} as varchar) is null or (oper_date >= ${date_from} AND oper_date_hour >= (${date_from} || ' ' || ${time_from})))
+	and (${date_to} = '' or cast(${date_to} as varchar) is null or (oper_date <= ${date_to} AND oper_date_hour < (${date_to} || ' ' || ${time_to})))
+	and index_oper_border = ${post_office_index}
+	and ((${selected_entity_type} = 'РПО' and entity_type = 1) or (${selected_entity_type} = 'НПО' and entity_type = 2))
+	and ((${selected_entity_type} = 'РПО' and (mt_name = ${selected_type_name} or (mt_name is null and ${selected_type_name} = ''))) or
+	     (${selected_entity_type} = 'НПО' and (bt_name = ${selected_type_name} or (bt_name is null and ${selected_type_name} = ''))))
+	and ((${selected_entity_type} = 'РПО' and (mc_name = ${selected_ctg_name} or (mc_name is null and ${selected_ctg_name} = ''))) or
+	     (${selected_entity_type} = 'НПО'))
+	and (dc_name = ${selected_direct_ctg_name} or (dc_name is null and ${selected_direct_ctg_name} = ''))
+	and ((${selected_ld_oper_type} = 'accepting' and ld_oper_type = 1) or (${selected_ld_oper_type} = 'processing' and ld_oper_type = 2) or (${selected_ld_oper_type} = 'sending' and ld_oper_type = 3))
+	and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+	  or ('[fps].[N/A]' in (${fps_from}) AND index_from = 'N/A')
+		or '[fps].[' || dim_fps_from_macroregion || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from_macroregion || '].[' || dim_fps_from_ufps || '].[' || dim_fps_from_post_office || '].[' || dim_fps_from_post_object || ']' in (${fps_from}))
+	and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+	  or ('[fps].[N/A]' in (${fps_to}) AND index_to = 'N/A')
+		or '[fps].[' || dim_fps_to_macroregion || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to_macroregion || '].[' || dim_fps_to_ufps || '].[' || dim_fps_to_post_office || '].[' || dim_fps_to_post_object || ']' in (${fps_to}))
+	and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+	    or '[mail_type].[' || mt_group || ']' in (${mail_type})
+	    or '[mail_type].[' || mt_group || '].[' || mt_name || ']' in (${mail_type}))
+	and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg})
+		or '[mail_ctg].[' || mc_name || ']' in (${mail_ctg}))]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="post_object_type_ds" id="post_object_type_ds"
+               type="sql">
+      <Name>post_object_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 3 "value", 'ОПС' as name from dicts.dual
+union all
+select 4 "value", 'Почтамт' as name from dicts.dual]]></Query>
+   </DataAccess>
+</CDADescriptor>

@@ -1,0 +1,1635 @@
+2020/02/18 13:28:02 - 2020/02/18 13:28:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 13:28:30 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 13:33:38 - 2020/02/18 13:33:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 13:33:38 - 2020/02/18 13:29:16 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 13:33:38 - 2020/02/18 13:28:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Creating repository meta store interface
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Creating repository meta store interface
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Creating repository meta store interface
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Creating repository meta store interface
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Connected to the enterprise repository
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Connected to the enterprise repository
+2020/02/18 13:33:38 - Repository was cached for user: admin
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Connected to the enterprise repository
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - PurRepository - Connected to the enterprise repository
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Carte - Installing timer to purge stale objects after 240 minutes.
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Carte - Installing timer to purge stale objects after 240 minutes.
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Insert / Update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 13:33:38 - 2020/02/18 13:33:38 - Insert / Update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 13:33:55 - Repository was cached for user: admin
+2020/02/18 13:33:55 - Repository was cached for user: admin
+2020/02/18 13:34:05 - 2020/02/18 13:34:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 13:34:05 - 2020/02/18 13:34:05 - PurRepository - Creating repository meta store interface
+2020/02/18 13:34:05 - 2020/02/18 13:34:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 13:34:05 - 2020/02/18 13:34:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 13:34:35 - 2020/02/18 13:34:35 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 13:34:52 - 2020/02/18 13:34:36 - Insert / Update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:05:01 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 14:05:01 - 2020/02/18 14:05:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:05:01 - 2020/02/18 14:05:01 - PurRepository - Creating repository meta store interface
+2020/02/18 14:05:01 - 2020/02/18 14:05:01 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:05:01 - Repository was cached for user: admin
+2020/02/18 14:05:12 - 2020/02/18 14:05:12 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:05:12 - 2020/02/18 14:05:12 - PurRepository - Creating repository meta store interface
+2020/02/18 14:05:12 - 2020/02/18 14:05:12 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:05:12 - Repository was cached for user: admin
+2020/02/18 14:05:12 - 2020/02/18 14:05:12 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:05:40 - 2020/02/18 14:05:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:05:40 - 2020/02/18 14:05:40 - PurRepository - Creating repository meta store interface
+2020/02/18 14:05:40 - 2020/02/18 14:05:40 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:05:40 - 2020/02/18 14:05:40 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:06:48 - 2020/02/18 14:06:48 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:06:48 - 2020/02/18 14:06:48 - PurRepository - Creating repository meta store interface
+2020/02/18 14:06:48 - 2020/02/18 14:06:48 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:06:48 - 2020/02/18 14:06:48 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - PurRepository - Creating repository meta store interface
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:07:46 - 2020/02/18 14:07:46 - Insert / Update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:09:26 - 2020/02/18 14:09:26 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:09:26 - 2020/02/18 14:09:26 - PurRepository - Creating repository meta store interface
+2020/02/18 14:09:26 - 2020/02/18 14:09:26 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:09:26 - 2020/02/18 14:09:26 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:09:47 - 2020/02/18 14:09:47 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:09:47 - 2020/02/18 14:09:47 - PurRepository - Creating repository meta store interface
+2020/02/18 14:09:47 - 2020/02/18 14:09:47 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:09:47 - 2020/02/18 14:09:47 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:18:25 - 2020/02/18 14:18:25 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:20:15 - 2020/02/18 14:20:15 - PurRepository - Creating repository meta store interface
+2020/02/18 14:20:15 - 2020/02/18 14:20:15 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:20:15 - 2020/02/18 14:20:15 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:21:14 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 14:21:14 - 2020/02/18 14:21:14 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:21:14 - 2020/02/18 14:21:14 - PurRepository - Creating repository meta store interface
+2020/02/18 14:21:14 - 2020/02/18 14:21:14 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:21:14 - Repository was cached for user: admin
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - PurRepository - Creating repository meta store interface
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:22:16 - Repository was cached for user: admin
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:22:16 - 2020/02/18 14:22:16 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - PurRepository - Creating repository meta store interface
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:22:33 - 2020/02/18 14:22:33 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:23:42 - 2020/02/18 14:23:42 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:23:42 - 2020/02/18 14:23:42 - PurRepository - Creating repository meta store interface
+2020/02/18 14:23:42 - 2020/02/18 14:23:42 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:23:42 - 2020/02/18 14:23:42 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:23:52 - 2020/02/18 14:23:52 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:23:52 - 2020/02/18 14:23:52 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 14:36:33 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 14:36:33 - 2020/02/18 14:36:33 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:36:34 - 2020/02/18 14:36:34 - PurRepository - Creating repository meta store interface
+2020/02/18 14:36:34 - 2020/02/18 14:36:34 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:36:34 - Repository was cached for user: admin
+2020/02/18 14:38:35 - 2020/02/18 14:38:35 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - PurRepository - Creating repository meta store interface
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:38:36 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - PurRepository - Creating repository meta store interface
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 14:38:36 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 14:38:36 - insert_update.0 - 
+2020/02/18 14:38:36 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:38:36 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:38:36 - insert_update.0 - 
+2020/02/18 14:38:36 - insert_update.0 - 
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:38:36 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:38:36 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 14:38:36 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:38:36 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:38:36 - insert_update.0 - 
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 14:38:36 - insert_update.0 - 	... 2 more
+2020/02/18 14:38:36 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 14:38:36 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 14:38:36 - insert_update.0 - 	... 7 more
+2020/02/18 14:38:36 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:38:36 - insert_update.0 - 	... 16 more
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:38:36 - 2020/02/18 14:38:36 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:40:39 - 2020/02/18 14:40:39 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - PurRepository - Creating repository meta store interface
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 14:40:54 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 14:40:54 - insert_update.0 - 
+2020/02/18 14:40:54 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:40:54 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:40:54 - insert_update.0 - 
+2020/02/18 14:40:54 - insert_update.0 - 
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:40:54 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:40:54 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 14:40:54 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:40:54 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:40:54 - insert_update.0 - 
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 14:40:54 - insert_update.0 - 	... 2 more
+2020/02/18 14:40:54 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 14:40:54 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 14:40:54 - insert_update.0 - 	... 7 more
+2020/02/18 14:40:54 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:40:54 - insert_update.0 - 	... 16 more
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:40:54 - 2020/02/18 14:40:54 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:43:30 - 2020/02/18 14:43:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:43:42 - 2020/02/18 14:43:42 - PurRepository - Creating repository meta store interface
+2020/02/18 14:43:42 - 2020/02/18 14:43:42 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:43:42 - 2020/02/18 14:43:42 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:43:42 - 2020/02/18 14:43:42 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 14:43:43 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 14:43:43 - insert_update.0 - 
+2020/02/18 14:43:43 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:43:43 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:43:43 - insert_update.0 - 
+2020/02/18 14:43:43 - insert_update.0 - 
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:43:43 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:43:43 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 14:43:43 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:43:43 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:43:43 - insert_update.0 - 
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 14:43:43 - insert_update.0 - 	... 2 more
+2020/02/18 14:43:43 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 14:43:43 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 14:43:43 - insert_update.0 - 	... 7 more
+2020/02/18 14:43:43 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:43:43 - insert_update.0 - 	... 16 more
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:43:43 - 2020/02/18 14:43:43 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:45:05 - 2020/02/18 14:45:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:45:05 - 2020/02/18 14:45:05 - PurRepository - Creating repository meta store interface
+2020/02/18 14:45:05 - 2020/02/18 14:45:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:45:05 - 2020/02/18 14:45:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:45:15 - 2020/02/18 14:45:15 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 14:45:17 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 14:45:17 - insert_update.0 - 
+2020/02/18 14:45:17 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:45:17 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:45:17 - insert_update.0 - 
+2020/02/18 14:45:17 - insert_update.0 - 
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:45:17 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:45:17 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 14:45:17 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:45:17 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:45:17 - insert_update.0 - 
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 14:45:17 - insert_update.0 - 	... 2 more
+2020/02/18 14:45:17 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 14:45:17 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 14:45:17 - insert_update.0 - 	... 7 more
+2020/02/18 14:45:17 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:45:17 - insert_update.0 - 	... 16 more
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:45:17 - 2020/02/18 14:45:17 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - PurRepository - Creating repository meta store interface
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - set_variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 14:47:09 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 14:47:09 - insert_update.0 - 
+2020/02/18 14:47:09 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:47:09 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:47:09 - insert_update.0 - 
+2020/02/18 14:47:09 - insert_update.0 - 
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:47:09 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:47:09 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 14:47:09 - insert_update.0 - Error inserting/updating row
+2020/02/18 14:47:09 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:47:09 - insert_update.0 - 
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 14:47:09 - insert_update.0 - 	... 2 more
+2020/02/18 14:47:09 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 14:47:09 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 14:47:09 - insert_update.0 - 	... 7 more
+2020/02/18 14:47:09 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 14:47:09 - insert_update.0 - 	... 16 more
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:47:09 - 2020/02/18 14:47:09 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:54:46 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 14:54:46 - 2020/02/18 14:54:46 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:54:46 - 2020/02/18 14:54:46 - PurRepository - Creating repository meta store interface
+2020/02/18 14:54:46 - 2020/02/18 14:54:46 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:54:46 - Repository was cached for user: admin
+2020/02/18 14:55:45 - 2020/02/18 14:55:45 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:55:45 - 2020/02/18 14:55:45 - PurRepository - Creating repository meta store interface
+2020/02/18 14:55:45 - 2020/02/18 14:55:45 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:55:46 - Repository was cached for user: admin
+2020/02/18 14:55:46 - 2020/02/18 14:55:46 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2020/02/18 14:56:06 - variable.0 - There was no variable name specified for value [2020-10-12]
+2020/02/18 14:56:06 - variable.0 - 
+2020/02/18 14:56:06 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.setValue(SetVariable.java:135)
+2020/02/18 14:56:06 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.processRow(SetVariable.java:71)
+2020/02/18 14:56:06 - variable.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:56:06 - variable.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - variable.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:56:06 - 2020/02/18 14:56:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:57:09 - 2020/02/18 14:57:09 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:57:10 - 2020/02/18 14:57:10 - PurRepository - Creating repository meta store interface
+2020/02/18 14:57:10 - 2020/02/18 14:57:10 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:57:10 - 2020/02/18 14:57:10 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2020/02/18 14:57:20 - variable.0 - There was no variable name specified for value [2020-10-12]
+2020/02/18 14:57:20 - variable.0 - 
+2020/02/18 14:57:20 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.setValue(SetVariable.java:135)
+2020/02/18 14:57:20 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.processRow(SetVariable.java:71)
+2020/02/18 14:57:20 - variable.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:57:20 - variable.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - variable.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:57:20 - 2020/02/18 14:57:20 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:57:59 - 2020/02/18 14:57:59 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 14:57:59 - 2020/02/18 14:57:59 - PurRepository - Creating repository meta store interface
+2020/02/18 14:57:59 - 2020/02/18 14:57:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 14:57:59 - 2020/02/18 14:57:59 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2020/02/18 14:58:19 - variable.0 - There was no variable name specified for value [2020-10-12]
+2020/02/18 14:58:19 - variable.0 - 
+2020/02/18 14:58:19 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.setValue(SetVariable.java:135)
+2020/02/18 14:58:19 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.processRow(SetVariable.java:71)
+2020/02/18 14:58:19 - variable.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 14:58:19 - variable.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - variable.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - insert_test - Transformation is killing the other steps!
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 14:58:19 - 2020/02/18 14:58:19 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:01:40 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:01:40 - 2020/02/18 15:01:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:01:40 - 2020/02/18 15:01:40 - PurRepository - Creating repository meta store interface
+2020/02/18 15:01:40 - 2020/02/18 15:01:40 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:01:40 - Repository was cached for user: admin
+2020/02/18 15:01:51 - 2020/02/18 15:01:51 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:01:51 - 2020/02/18 15:01:51 - PurRepository - Creating repository meta store interface
+2020/02/18 15:01:51 - 2020/02/18 15:01:51 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:01:51 - Repository was cached for user: admin
+2020/02/18 15:01:52 - 2020/02/18 15:01:52 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2020/02/18 15:02:02 - variable.0 - There was no variable name specified for value [2020-10-12]
+2020/02/18 15:02:02 - variable.0 - 
+2020/02/18 15:02:02 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.setValue(SetVariable.java:135)
+2020/02/18 15:02:02 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.processRow(SetVariable.java:71)
+2020/02/18 15:02:02 - variable.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 15:02:02 - variable.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - variable.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - insert_test - Transformation is killing the other steps!
+2020/02/18 15:02:02 - 2020/02/18 15:02:02 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:02:32 - 2020/02/18 15:02:32 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:02:32 - 2020/02/18 15:02:32 - PurRepository - Creating repository meta store interface
+2020/02/18 15:02:32 - 2020/02/18 15:02:32 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:02:32 - 2020/02/18 15:02:32 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:02:42 - 2020/02/18 15:02:42 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2020/02/18 15:03:20 - variable.0 - There was no variable name specified for value [2020-10-12]
+2020/02/18 15:03:20 - variable.0 - 
+2020/02/18 15:03:20 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.setValue(SetVariable.java:135)
+2020/02/18 15:03:20 - variable.0 - 	at org.pentaho.di.trans.steps.setvariable.SetVariable.processRow(SetVariable.java:71)
+2020/02/18 15:03:20 - variable.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 15:03:20 - variable.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - variable.0 - Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - insert_test - Transformation is killing the other steps!
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:03:20 - 2020/02/18 15:03:20 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:06:04 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:06:04 - 2020/02/18 15:06:04 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:06:14 - 2020/02/18 15:06:14 - PurRepository - Creating repository meta store interface
+2020/02/18 15:06:14 - 2020/02/18 15:06:14 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:06:14 - Repository was cached for user: admin
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - PurRepository - Creating repository meta store interface
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:06:21 - Repository was cached for user: admin
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - Set variable ${comment_owner} to value [alex]
+2020/02/18 15:06:21 - 2020/02/18 15:06:21 - variable.0 - Finished after 0 rows.
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - PurRepository - Creating repository meta store interface
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - Set variable ${comment_owner} to value [alex]
+2020/02/18 15:07:12 - 2020/02/18 15:07:12 - variable.0 - Finished after 0 rows.
+2020/02/18 15:08:51 - 2020/02/18 15:08:51 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - PurRepository - Creating repository meta store interface
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - Set variable ${comment_owner} to value [alex]
+2020/02/18 15:09:00 - 2020/02/18 15:09:00 - variable.0 - Finished after 0 rows.
+2020/02/18 15:11:54 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:11:54 - 2020/02/18 15:11:54 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:11:54 - 2020/02/18 15:11:54 - PurRepository - Creating repository meta store interface
+2020/02/18 15:11:54 - 2020/02/18 15:11:54 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:11:55 - Repository was cached for user: admin
+2020/02/18 15:12:35 - 2020/02/18 15:12:35 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - PurRepository - Creating repository meta store interface
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:12:36 - Repository was cached for user: admin
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Set variable ${comment_owner} to value [alex]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Set variable ${date_time} to value [2020-02-18]
+2020/02/18 15:12:36 - 2020/02/18 15:12:36 - variable.0 - Finished after 0 rows.
+2020/02/18 15:22:59 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:22:59 - 2020/02/18 15:22:59 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:22:59 - 2020/02/18 15:22:59 - PurRepository - Creating repository meta store interface
+2020/02/18 15:22:59 - 2020/02/18 15:22:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:22:59 - Repository was cached for user: admin
+2020/02/18 15:24:05 - 2020/02/18 15:24:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:24:05 - 2020/02/18 15:24:05 - PurRepository - Creating repository meta store interface
+2020/02/18 15:24:05 - 2020/02/18 15:24:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:24:05 - Repository was cached for user: admin
+2020/02/18 15:24:05 - 2020/02/18 15:24:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 15:24:06 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 15:24:06 - insert_update.0 - 
+2020/02/18 15:24:06 - insert_update.0 - Error inserting/updating row
+2020/02/18 15:24:06 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:24:06 - insert_update.0 - 
+2020/02/18 15:24:06 - insert_update.0 - 
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 15:24:06 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 15:24:06 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 15:24:06 - insert_update.0 - Error inserting/updating row
+2020/02/18 15:24:06 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:24:06 - insert_update.0 - 
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 15:24:06 - insert_update.0 - 	... 2 more
+2020/02/18 15:24:06 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 15:24:06 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 15:24:06 - insert_update.0 - 	... 7 more
+2020/02/18 15:24:06 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:24:06 - insert_update.0 - 	... 16 more
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_test - Transformation is killing the other steps!
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:24:06 - 2020/02/18 15:24:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:26:33 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:26:33 - 2020/02/18 15:26:33 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:26:33 - 2020/02/18 15:26:33 - PurRepository - Creating repository meta store interface
+2020/02/18 15:26:33 - 2020/02/18 15:26:33 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:26:34 - Repository was cached for user: admin
+2020/02/18 15:27:15 - 2020/02/18 15:27:15 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:27:15 - 2020/02/18 15:27:15 - PurRepository - Creating repository meta store interface
+2020/02/18 15:27:15 - 2020/02/18 15:27:15 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:27:15 - Repository was cached for user: admin
+2020/02/18 15:27:15 - 2020/02/18 15:27:15 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:27:25 - 2020/02/18 15:27:25 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 15:27:26 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 15:27:26 - insert_update.0 - 
+2020/02/18 15:27:26 - insert_update.0 - Error inserting/updating row
+2020/02/18 15:27:26 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:27:26 - insert_update.0 - 
+2020/02/18 15:27:26 - insert_update.0 - 
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 15:27:26 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 15:27:26 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 15:27:26 - insert_update.0 - Error inserting/updating row
+2020/02/18 15:27:26 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:27:26 - insert_update.0 - 
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 15:27:26 - insert_update.0 - 	... 2 more
+2020/02/18 15:27:26 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 15:27:26 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 15:27:26 - insert_update.0 - 	... 7 more
+2020/02/18 15:27:26 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 15:27:26 - insert_update.0 - 	... 16 more
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_test - Transformation is killing the other steps!
+2020/02/18 15:27:26 - 2020/02/18 15:27:26 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 15:30:32 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:30:32 - 2020/02/18 15:30:32 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:30:32 - 2020/02/18 15:30:32 - PurRepository - Creating repository meta store interface
+2020/02/18 15:30:32 - 2020/02/18 15:30:32 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:30:32 - Repository was cached for user: admin
+2020/02/18 15:30:39 - 2020/02/18 15:30:39 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:30:39 - 2020/02/18 15:30:39 - PurRepository - Creating repository meta store interface
+2020/02/18 15:30:39 - 2020/02/18 15:30:39 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:30:39 - Repository was cached for user: admin
+2020/02/18 15:30:40 - 2020/02/18 15:30:40 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:30:40 - 2020/02/18 15:30:40 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:30:40 - 2020/02/18 15:30:40 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 15:31:01 - 2020/02/18 15:31:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:31:02 - 2020/02/18 15:31:02 - PurRepository - Creating repository meta store interface
+2020/02/18 15:31:02 - 2020/02/18 15:31:02 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:31:02 - 2020/02/18 15:31:02 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:31:02 - 2020/02/18 15:31:02 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:31:02 - 2020/02/18 15:31:02 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:32:18 - 2020/02/18 15:32:18 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:32:18 - 2020/02/18 15:32:18 - PurRepository - Creating repository meta store interface
+2020/02/18 15:32:18 - 2020/02/18 15:32:18 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:32:18 - 2020/02/18 15:32:18 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:34:16 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 15:34:16 - 2020/02/18 15:34:16 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:34:24 - 2020/02/18 15:34:24 - PurRepository - Creating repository meta store interface
+2020/02/18 15:34:24 - 2020/02/18 15:34:24 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:34:24 - Repository was cached for user: admin
+2020/02/18 15:35:11 - 2020/02/18 15:35:11 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 15:35:11 - 2020/02/18 15:35:11 - PurRepository - Creating repository meta store interface
+2020/02/18 15:35:11 - 2020/02/18 15:35:11 - PurRepository - Connected to the enterprise repository
+2020/02/18 15:35:11 - Repository was cached for user: admin
+2020/02/18 15:35:11 - 2020/02/18 15:35:11 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - We didn't receive a row while setting the default values.
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Set variable ${record_comment_id} to value [1]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Set variable ${action_param} to value [act]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Set variable ${result_param} to value [res]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Set variable ${comment_owner} to value [alex]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Set variable ${date_time} to value [2020-02-18]
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - variable.0 - Finished after 0 rows.
+2020/02/18 15:35:12 - 2020/02/18 15:35:12 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 16:24:46 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 16:24:46 - 2020/02/18 16:24:46 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:24:46 - 2020/02/18 16:24:46 - PurRepository - Creating repository meta store interface
+2020/02/18 16:24:46 - 2020/02/18 16:24:46 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:24:47 - Repository was cached for user: admin
+2020/02/18 16:26:05 - 2020/02/18 16:26:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:26:05 - 2020/02/18 16:26:05 - PurRepository - Creating repository meta store interface
+2020/02/18 16:26:05 - 2020/02/18 16:26:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:26:05 - Repository was cached for user: admin
+2020/02/18 16:26:05 - 2020/02/18 16:26:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - variable2.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - variable2.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleValueException: 
+2020/02/18 16:26:06 - variable2.0 - res String(20) : couldn't convert string [${result_param}] to a date using format [yyyy/MM/dd HH:mm:ss.SSS] on offset location 0
+2020/02/18 16:26:06 - variable2.0 - ${result_param}
+2020/02/18 16:26:06 - variable2.0 - 
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:923)
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.getDate(ValueMetaBase.java:2264)
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertData(ValueMetaBase.java:3787)
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.trans.steps.getvariable.GetVariable.processRow(GetVariable.java:109)
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 16:26:06 - variable2.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 16:26:06 - variable2.0 - Caused by: java.text.ParseException: ${result_param}
+2020/02/18 16:26:06 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:914)
+2020/02/18 16:26:06 - variable2.0 - 	... 5 more
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - variable2.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - insert_test - Transformation is killing the other steps!
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:26:06 - 2020/02/18 16:26:06 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:28:22 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 16:28:22 - 2020/02/18 16:28:22 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:28:38 - 2020/02/18 16:28:38 - PurRepository - Creating repository meta store interface
+2020/02/18 16:28:38 - 2020/02/18 16:28:38 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:28:39 - Repository was cached for user: admin
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - PurRepository - Creating repository meta store interface
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:28:56 - Repository was cached for user: admin
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - variable2.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - variable2.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleValueException: 
+2020/02/18 16:28:56 - variable2.0 - date_time String(20) : couldn't convert string [${date_time}] to a date using format [yyyy-MM-dd] on offset location 0
+2020/02/18 16:28:56 - variable2.0 - ${date_time}
+2020/02/18 16:28:56 - variable2.0 - 
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:923)
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.getDate(ValueMetaBase.java:2264)
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertData(ValueMetaBase.java:3787)
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.trans.steps.getvariable.GetVariable.processRow(GetVariable.java:109)
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 16:28:56 - variable2.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 16:28:56 - variable2.0 - Caused by: java.text.ParseException: ${date_time}
+2020/02/18 16:28:56 - variable2.0 - 	at org.pentaho.di.core.row.value.ValueMetaBase.convertStringToDate(ValueMetaBase.java:914)
+2020/02/18 16:28:56 - variable2.0 - 	... 5 more
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - variable2.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - insert_test - Transformation is killing the other steps!
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:28:56 - 2020/02/18 16:28:56 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:31:25 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 16:31:25 - 2020/02/18 16:31:25 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:31:26 - 2020/02/18 16:31:26 - PurRepository - Creating repository meta store interface
+2020/02/18 16:31:26 - 2020/02/18 16:31:26 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:31:26 - Repository was cached for user: admin
+2020/02/18 16:31:36 - 2020/02/18 16:31:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:31:36 - 2020/02/18 16:31:36 - PurRepository - Creating repository meta store interface
+2020/02/18 16:31:36 - 2020/02/18 16:31:36 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:31:36 - Repository was cached for user: admin
+2020/02/18 16:31:36 - 2020/02/18 16:31:36 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:31:36 - 2020/02/18 16:31:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 16:31:37 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 16:31:37 - insert_update.0 - 
+2020/02/18 16:31:37 - insert_update.0 - Error inserting/updating row
+2020/02/18 16:31:37 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:31:37 - insert_update.0 - 
+2020/02/18 16:31:37 - insert_update.0 - 
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 16:31:37 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 16:31:37 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 16:31:37 - insert_update.0 - Error inserting/updating row
+2020/02/18 16:31:37 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:31:37 - insert_update.0 - 
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 16:31:37 - insert_update.0 - 	... 2 more
+2020/02/18 16:31:37 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 16:31:37 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 16:31:37 - insert_update.0 - 	... 7 more
+2020/02/18 16:31:37 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:31:37 - insert_update.0 - 	... 16 more
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_test - Transformation is killing the other steps!
+2020/02/18 16:31:37 - 2020/02/18 16:31:37 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:31:52 - 2020/02/18 16:31:52 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:31:59 - 2020/02/18 16:31:59 - PurRepository - Creating repository meta store interface
+2020/02/18 16:31:59 - 2020/02/18 16:31:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:31:59 - 2020/02/18 16:31:59 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Unexpected error
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_update.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleStepException: 
+2020/02/18 16:32:00 - insert_update.0 - Error in step, asking everyone to stop because of:
+2020/02/18 16:32:00 - insert_update.0 - 
+2020/02/18 16:32:00 - insert_update.0 - Error inserting/updating row
+2020/02/18 16:32:00 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:32:00 - insert_update.0 - 
+2020/02/18 16:32:00 - insert_update.0 - 
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:313)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+2020/02/18 16:32:00 - insert_update.0 - 	at java.lang.Thread.run(Thread.java:748)
+2020/02/18 16:32:00 - insert_update.0 - Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+2020/02/18 16:32:00 - insert_update.0 - Error inserting/updating row
+2020/02/18 16:32:00 - insert_update.0 - [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:32:00 - insert_update.0 - 
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1321)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1245)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1233)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1221)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.lookupValues(InsertUpdate.java:114)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.trans.steps.insertupdate.InsertUpdate.processRow(InsertUpdate.java:299)
+2020/02/18 16:32:00 - insert_update.0 - 	... 2 more
+2020/02/18 16:32:00 - insert_update.0 - Caused by: java.sql.SQLDataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.fetchChunk(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.dataengine.VResultSet.initialize(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.readExecuteResponse(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.handleExecuteResponse(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.dataengine.VQueryExecutor.execute(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeWithParams(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at com.vertica.jdbc.common.SPreparedStatement.executeUpdate(Unknown Source)
+2020/02/18 16:32:00 - insert_update.0 - 	at org.pentaho.di.core.database.Database.insertRow(Database.java:1288)
+2020/02/18 16:32:00 - insert_update.0 - 	... 7 more
+2020/02/18 16:32:00 - insert_update.0 - Caused by: com.vertica.support.exceptions.DataException: [Vertica][VJDBC](4800) ERROR: String of 20 octets is too long for type Varchar(6)
+2020/02/18 16:32:00 - insert_update.0 - 	... 16 more
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=0, U=0, E=1)
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_test - Transformation detected one or more steps with errors.
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_test - Transformation is killing the other steps!
+2020/02/18 16:32:00 - 2020/02/18 16:32:00 - insert_test - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Errors detected!
+2020/02/18 16:35:37 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 16:35:37 - 2020/02/18 16:35:37 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:35:53 - 2020/02/18 16:35:53 - PurRepository - Creating repository meta store interface
+2020/02/18 16:35:53 - 2020/02/18 16:35:53 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:35:54 - Repository was cached for user: admin
+2020/02/18 16:36:01 - 2020/02/18 16:36:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:36:01 - 2020/02/18 16:36:01 - PurRepository - Creating repository meta store interface
+2020/02/18 16:36:01 - 2020/02/18 16:36:01 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:36:01 - Repository was cached for user: admin
+2020/02/18 16:36:01 - 2020/02/18 16:36:01 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:36:21 - 2020/02/18 16:36:21 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:36:22 - 2020/02/18 16:36:22 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 16:47:42 - 2020/02/18 16:47:42 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:47:42 - 2020/02/18 16:47:42 - PurRepository - Creating repository meta store interface
+2020/02/18 16:47:42 - 2020/02/18 16:47:42 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:47:42 - 2020/02/18 16:47:42 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:47:52 - 2020/02/18 16:47:52 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:47:52 - 2020/02/18 16:47:52 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:56:21 - 2020/02/18 16:56:21 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 16:56:21 - 2020/02/18 16:56:21 - PurRepository - Creating repository meta store interface
+2020/02/18 16:56:21 - 2020/02/18 16:56:21 - PurRepository - Connected to the enterprise repository
+2020/02/18 16:56:21 - 2020/02/18 16:56:21 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 16:56:31 - 2020/02/18 16:56:31 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 16:56:31 - 2020/02/18 16:56:31 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:04:41 - 2020/02/18 17:04:41 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:04:41 - 2020/02/18 17:04:41 - PurRepository - Creating repository meta store interface
+2020/02/18 17:04:41 - 2020/02/18 17:04:41 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:04:41 - 2020/02/18 17:04:41 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:05:01 - 2020/02/18 17:05:01 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:05:01 - 2020/02/18 17:05:01 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:05:14 - 2020/02/18 17:05:14 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:05:15 - 2020/02/18 17:05:15 - PurRepository - Creating repository meta store interface
+2020/02/18 17:05:15 - 2020/02/18 17:05:15 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:05:15 - 2020/02/18 17:05:15 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:05:15 - 2020/02/18 17:05:15 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:05:15 - 2020/02/18 17:05:15 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:06:17 - 2020/02/18 17:06:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:06:17 - 2020/02/18 17:06:17 - PurRepository - Creating repository meta store interface
+2020/02/18 17:06:17 - 2020/02/18 17:06:17 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:06:17 - 2020/02/18 17:06:17 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:06:37 - 2020/02/18 17:06:37 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:06:38 - 2020/02/18 17:06:38 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 17:09:50 - 2020/02/18 17:09:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:09:50 - 2020/02/18 17:09:50 - PurRepository - Creating repository meta store interface
+2020/02/18 17:09:50 - 2020/02/18 17:09:50 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:09:50 - 2020/02/18 17:09:50 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:10:02 - 2020/02/18 17:10:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:10:02 - 2020/02/18 17:10:02 - PurRepository - Creating repository meta store interface
+2020/02/18 17:10:02 - 2020/02/18 17:10:02 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:10:02 - 2020/02/18 17:10:02 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:10:43 - 2020/02/18 17:10:43 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:10:43 - 2020/02/18 17:10:43 - PurRepository - Creating repository meta store interface
+2020/02/18 17:10:43 - 2020/02/18 17:10:43 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:10:43 - 2020/02/18 17:10:43 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:10:44 - 2020/02/18 17:10:44 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:10:44 - 2020/02/18 17:10:44 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:10:52 - 2020/02/18 17:10:52 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 17:10:53 - 2020/02/18 17:10:53 - PurRepository - Creating repository meta store interface
+2020/02/18 17:10:53 - 2020/02/18 17:10:53 - PurRepository - Connected to the enterprise repository
+2020/02/18 17:10:53 - 2020/02/18 17:10:53 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 17:11:13 - 2020/02/18 17:11:13 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:11:13 - 2020/02/18 17:11:13 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 17:33:39 - 2020/02/18 17:33:39 - Carte - Cleaned up transformation insert_test with id 839e83ae-19fe-4466-934c-a032b5bb5708 from Tue Feb 18 13:33:38 MSK 2020, diff=240
+2020/02/18 17:33:39 - 2020/02/18 17:33:39 - Carte - Cleaned up transformation insert_test with id 1ed1835e-8ff4-4746-81eb-e78cf75b9659 from Tue Feb 18 13:33:38 MSK 2020, diff=240
+2020/02/18 17:34:19 - 2020/02/18 17:34:19 - Carte - Cleaned up transformation insert_test with id 4cf718e8-13a9-420d-865a-275a75eac8fa from Tue Feb 18 13:34:05 MSK 2020, diff=240
+2020/02/18 18:07:56 - 2020/02/18 18:07:56 - Carte - Cleaned up transformation insert_test with id 55a83344-308c-4eec-9c0a-95ee956ff1b2 from Tue Feb 18 14:07:46 MSK 2020, diff=240
+2020/02/18 18:07:58 - 2020/02/18 18:07:58 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:07:58 - 2020/02/18 18:07:58 - PurRepository - Creating repository meta store interface
+2020/02/18 18:07:59 - 2020/02/18 18:07:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:07:59 - 2020/02/18 18:07:59 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:07:59 - 2020/02/18 18:07:59 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:07:59 - 2020/02/18 18:07:59 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - PurRepository - Creating repository meta store interface
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:08:48 - 2020/02/18 18:08:48 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:12:39 - 2020/02/18 18:12:39 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:13:31 - 2020/02/18 18:13:31 - PurRepository - Creating repository meta store interface
+2020/02/18 18:13:31 - 2020/02/18 18:13:31 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:13:32 - 2020/02/18 18:13:32 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:13:52 - 2020/02/18 18:13:52 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:13:52 - 2020/02/18 18:13:52 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:14:30 - 2020/02/18 18:14:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:14:31 - 2020/02/18 18:14:31 - PurRepository - Creating repository meta store interface
+2020/02/18 18:14:31 - 2020/02/18 18:14:31 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:14:31 - 2020/02/18 18:14:31 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:14:31 - 2020/02/18 18:14:31 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:14:31 - 2020/02/18 18:14:31 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:14:59 - 2020/02/18 18:14:59 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:14:59 - 2020/02/18 18:14:59 - PurRepository - Creating repository meta store interface
+2020/02/18 18:14:59 - 2020/02/18 18:14:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:14:59 - 2020/02/18 18:14:59 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:15:19 - 2020/02/18 18:15:19 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:15:19 - 2020/02/18 18:15:19 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:21:53 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 18:21:53 - 2020/02/18 18:21:53 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:21:53 - 2020/02/18 18:21:53 - PurRepository - Creating repository meta store interface
+2020/02/18 18:21:53 - 2020/02/18 18:21:53 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:21:53 - Repository was cached for user: admin
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - PurRepository - Creating repository meta store interface
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:22:40 - Repository was cached for user: admin
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:22:40 - 2020/02/18 18:22:40 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:27:35 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 18:27:35 - 2020/02/18 18:27:35 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:27:51 - 2020/02/18 18:27:51 - PurRepository - Creating repository meta store interface
+2020/02/18 18:27:51 - 2020/02/18 18:27:51 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:27:52 - Repository was cached for user: admin
+2020/02/18 18:28:11 - 2020/02/18 18:28:11 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:28:11 - 2020/02/18 18:28:11 - PurRepository - Creating repository meta store interface
+2020/02/18 18:28:11 - 2020/02/18 18:28:11 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:28:11 - Repository was cached for user: admin
+2020/02/18 18:28:11 - 2020/02/18 18:28:11 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:28:32 - 2020/02/18 18:28:32 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:28:32 - 2020/02/18 18:28:32 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - PurRepository - Creating repository meta store interface
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:28:52 - 2020/02/18 18:28:52 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:32:10 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 18:32:10 - 2020/02/18 18:32:10 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:32:17 - 2020/02/18 18:32:17 - PurRepository - Creating repository meta store interface
+2020/02/18 18:32:17 - 2020/02/18 18:32:17 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:32:18 - Repository was cached for user: admin
+2020/02/18 18:33:37 - 2020/02/18 18:33:37 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:33:45 - 2020/02/18 18:33:45 - PurRepository - Creating repository meta store interface
+2020/02/18 18:33:45 - 2020/02/18 18:33:45 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:33:45 - Repository was cached for user: admin
+2020/02/18 18:33:45 - 2020/02/18 18:33:45 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:33:45 - 2020/02/18 18:33:45 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:33:45 - 2020/02/18 18:33:45 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:35:17 - Repository was cached for user: admin
+2020/02/18 18:35:17 - Repository was cached for user: admin
+2020/02/18 18:35:43 - 2020/02/18 18:35:43 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:35:43 - 2020/02/18 18:35:43 - PurRepository - Creating repository meta store interface
+2020/02/18 18:35:43 - 2020/02/18 18:35:43 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:35:43 - Repository was cached for user: admin
+2020/02/18 18:35:43 - 2020/02/18 18:35:43 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:35:53 - 2020/02/18 18:35:53 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:35:53 - 2020/02/18 18:35:53 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - PurRepository - Creating repository meta store interface
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:36:05 - 2020/02/18 18:36:05 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:41:21 - 2020/02/18 18:41:21 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:41:21 - 2020/02/18 18:41:21 - PurRepository - Creating repository meta store interface
+2020/02/18 18:41:21 - 2020/02/18 18:41:21 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:41:22 - 2020/02/18 18:41:22 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:41:32 - 2020/02/18 18:41:32 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:41:32 - 2020/02/18 18:41:32 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - PurRepository - Creating repository meta store interface
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:42:03 - 2020/02/18 18:42:03 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:46:16 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 18:46:16 - 2020/02/18 18:46:16 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:46:26 - 2020/02/18 18:46:26 - PurRepository - Creating repository meta store interface
+2020/02/18 18:46:26 - 2020/02/18 18:46:26 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:46:26 - Repository was cached for user: admin
+2020/02/18 18:46:58 - 2020/02/18 18:46:58 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:46:59 - 2020/02/18 18:46:59 - PurRepository - Creating repository meta store interface
+2020/02/18 18:46:59 - 2020/02/18 18:46:59 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:46:59 - Repository was cached for user: admin
+2020/02/18 18:46:59 - 2020/02/18 18:46:59 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:46:59 - 2020/02/18 18:46:59 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:46:59 - 2020/02/18 18:46:59 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - PurRepository - Creating repository meta store interface
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:48:24 - 2020/02/18 18:48:24 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - PurRepository - Creating repository meta store interface
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:48:37 - 2020/02/18 18:48:37 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:49:04 - 2020/02/18 18:49:04 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 18:49:05 - 2020/02/18 18:49:05 - PurRepository - Creating repository meta store interface
+2020/02/18 18:49:05 - 2020/02/18 18:49:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 18:49:05 - 2020/02/18 18:49:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 18:49:15 - 2020/02/18 18:49:15 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:49:15 - 2020/02/18 18:49:15 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:05 - 2020/02/18 18:54:05 - listPlugins - Dispatching started for transformation [listPlugins]
+2020/02/18 18:54:05 - 2020/02/18 18:54:05 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:54:09 - 2020/02/18 18:54:09 - Get plugin folders.0 - Finished processing (I=0, O=0, R=0, W=41, U=0, E=0)
+2020/02/18 18:54:09 - 2020/02/18 18:54:09 - Select values.0 - Finished processing (I=0, O=0, R=41, W=41, U=0, E=0)
+2020/02/18 18:54:09 - 2020/02/18 18:54:09 - Sort folders.0 - Finished processing (I=0, O=0, R=41, W=41, U=0, E=0)
+2020/02/18 18:54:09 - 2020/02/18 18:54:09 - Get plugin filenames.0 - Finished processing (I=0, O=0, R=0, W=18, U=0, E=0)
+2020/02/18 18:54:09 - 2020/02/18 18:54:09 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get File Content.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Remove Lines.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get ID.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Content Generator.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - remove aux 3.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - cpk plugins.0 - Finished processing (I=0, O=0, R=18, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Sort xml files.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Merge Join.0 - Finished processing (I=0, O=0, R=42, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Cpk Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Plugin Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Plugin Description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - LOG1 2.0 - 
+2020/02/18 18:54:10 - LOG1 2.0 - ------------> Linenr 1------------------------------
+2020/02/18 18:54:10 - LOG1 2.0 - filename = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl\plugin.xml
+2020/02/18 18:54:10 - LOG1 2.0 - short_filename = plugin.xml
+2020/02/18 18:54:10 - LOG1 2.0 - path = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl
+2020/02/18 18:54:10 - LOG1 2.0 - type = file
+2020/02/18 18:54:10 - LOG1 2.0 - exists = Y
+2020/02/18 18:54:10 - LOG1 2.0 - ishidden = N
+2020/02/18 18:54:10 - LOG1 2.0 - isreadable = Y
+2020/02/18 18:54:10 - LOG1 2.0 - iswriteable = Y
+2020/02/18 18:54:10 - LOG1 2.0 - lastmodifiedtime = 2017/05/16 18:34:14.000
+2020/02/18 18:54:10 - LOG1 2.0 - size = 1395
+2020/02/18 18:54:10 - LOG1 2.0 - extension = xml
+2020/02/18 18:54:10 - LOG1 2.0 - uri = file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/plugin.xml
+2020/02/18 18:54:10 - LOG1 2.0 - rooturi = file:///C:/
+2020/02/18 18:54:10 - LOG1 2.0 - pluginId = sparkl
+2020/02/18 18:54:10 - LOG1 2.0 - plugin_content_generator = pt.webdetails.cpk.CpkContentGenerator
+2020/02/18 18:54:10 - LOG1 2.0 - allowed = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl
+2020/02/18 18:54:10 - LOG1 2.0 - plugin_name = Sparkl
+2020/02/18 18:54:10 - LOG1 2.0 - plugin_description = Create and explore pentaho plugins.
+2020/02/18 18:54:10 - LOG1 2.0 - author_name = null
+2020/02/18 18:54:10 - LOG1 2.0 - author_email = null
+2020/02/18 18:54:10 - LOG1 2.0 - company_name = null
+2020/02/18 18:54:10 - LOG1 2.0 - company_url = null
+2020/02/18 18:54:10 - LOG1 2.0 - creation_date = null
+2020/02/18 18:54:10 - LOG1 2.0 - version = null
+2020/02/18 18:54:10 - LOG1 2.0 - CPK_version = 5
+2020/02/18 18:54:10 - LOG1 2.0 - dashboard_style = null
+2020/02/18 18:54:10 - LOG1 2.0 - 
+2020/02/18 18:54:10 - LOG1 2.0 - ====================
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Author Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Author Email.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Company Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Company Url.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Creation Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get CPK Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Get Dashboard Style.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - remove auxiliary fields.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Detect empty stream.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Clean fields.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - LOG1 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - Sort by pluginId.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:54:10 - 2020/02/18 18:54:10 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:48 - 2020/02/18 18:55:48 - listPlugins - Dispatching started for transformation [listPlugins]
+2020/02/18 18:55:48 - 2020/02/18 18:55:48 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get plugin folders.0 - Finished processing (I=0, O=0, R=0, W=41, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Select values.0 - Finished processing (I=0, O=0, R=41, W=41, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Sort folders.0 - Finished processing (I=0, O=0, R=41, W=41, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get plugin filenames.0 - Finished processing (I=0, O=0, R=0, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get File Content.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Remove Lines.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get ID.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Content Generator.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - remove aux 3.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - cpk plugins.0 - Finished processing (I=0, O=0, R=18, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Sort xml files.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - LOG1 2.0 - 
+2020/02/18 18:55:52 - LOG1 2.0 - ------------> Linenr 1------------------------------
+2020/02/18 18:55:52 - LOG1 2.0 - filename = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl\plugin.xml
+2020/02/18 18:55:52 - LOG1 2.0 - short_filename = plugin.xml
+2020/02/18 18:55:52 - LOG1 2.0 - path = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl
+2020/02/18 18:55:52 - LOG1 2.0 - type = file
+2020/02/18 18:55:52 - LOG1 2.0 - exists = Y
+2020/02/18 18:55:52 - LOG1 2.0 - ishidden = N
+2020/02/18 18:55:52 - LOG1 2.0 - isreadable = Y
+2020/02/18 18:55:52 - LOG1 2.0 - iswriteable = Y
+2020/02/18 18:55:52 - LOG1 2.0 - lastmodifiedtime = 2017/05/16 18:34:14.000
+2020/02/18 18:55:52 - LOG1 2.0 - size = 1395
+2020/02/18 18:55:52 - LOG1 2.0 - extension = xml
+2020/02/18 18:55:52 - LOG1 2.0 - uri = file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/plugin.xml
+2020/02/18 18:55:52 - LOG1 2.0 - rooturi = file:///C:/
+2020/02/18 18:55:52 - LOG1 2.0 - pluginId = sparkl
+2020/02/18 18:55:52 - LOG1 2.0 - plugin_content_generator = pt.webdetails.cpk.CpkContentGenerator
+2020/02/18 18:55:52 - LOG1 2.0 - allowed = C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\sparkl
+2020/02/18 18:55:52 - LOG1 2.0 - plugin_name = Sparkl
+2020/02/18 18:55:52 - LOG1 2.0 - plugin_description = Create and explore pentaho plugins.
+2020/02/18 18:55:52 - LOG1 2.0 - author_name = null
+2020/02/18 18:55:52 - LOG1 2.0 - author_email = null
+2020/02/18 18:55:52 - LOG1 2.0 - company_name = null
+2020/02/18 18:55:52 - LOG1 2.0 - company_url = null
+2020/02/18 18:55:52 - LOG1 2.0 - creation_date = null
+2020/02/18 18:55:52 - LOG1 2.0 - version = null
+2020/02/18 18:55:52 - LOG1 2.0 - CPK_version = 5
+2020/02/18 18:55:52 - LOG1 2.0 - dashboard_style = null
+2020/02/18 18:55:52 - LOG1 2.0 - 
+2020/02/18 18:55:52 - LOG1 2.0 - ====================
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Merge Join.0 - Finished processing (I=0, O=0, R=42, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Cpk Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Plugin Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Plugin Description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Author Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Author Email.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Company Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Company Url.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Creation Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get CPK Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Get Dashboard Style.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - remove auxiliary fields.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Detect empty stream.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Clean fields.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - LOG1 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - Sort by pluginId.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:55:52 - 2020/02/18 18:55:52 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - getPluginMetadata - Dispatching started for transformation [getPluginMetadata]
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get ${cpk_filename}.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Cpk Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Plugin Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Plugin Description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Author Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Author Email.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Company Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Company Url.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Creation Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get CPK Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Get Dashboard Style.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - remove auxiliary fields.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - Detect empty stream.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:06 - 2020/02/18 18:56:06 - getUnavailableIds - Dispatching started for transformation [getUnavailableIds]
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - Get plugin names.0 - Finished processing (I=0, O=0, R=0, W=18, U=0, E=0)
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - Get /system names.0 - Finished processing (I=0, O=0, R=0, W=86, U=0, E=0)
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - Select /system names.0 - Finished processing (I=0, O=0, R=86, W=86, U=0, E=0)
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - cpk_filename.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - Sort by filename.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:10 - 2020/02/18 18:56:10 - Add type 2.0 - Finished processing (I=0, O=0, R=86, W=86, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get File Content.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Remove Lines.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get ID.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - remove aux 3.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Select plugin names.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Add type.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Sort rows.0 - Finished processing (I=0, O=0, R=104, W=104, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - reserved is not empty?.0 - Finished processing (I=0, O=0, R=104, W=92, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - OUTPUT.0 - Finished processing (I=0, O=0, R=92, W=92, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - listTemplates - Dispatching started for transformation [listTemplates]
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Data Grid.0 - Finished processing (I=0, O=0, R=0, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get plugin dir.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Compose path.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get File Names.0 - Finished processing (I=0, O=0, R=2, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - exclude CPK private files.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Switch / Case.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get kjb Content.0 - Optimization level set to 9.
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get ktr content.0 - Optimization level set to 9.
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get kjb Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - remove aux.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get wcdf content.0 - Optimization level set to 9.
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get ktr content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Remove Lines 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get wcdf content.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get description 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - remove aux 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Remove Lines 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get description 2 2.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - remove aux 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Empty Description.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Get Filter.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - Filter rows.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - select fields.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:11 - 2020/02/18 18:56:11 - OUTPUT.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - listTemplates - Dispatching started for transformation [listTemplates]
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Data Grid.0 - Finished processing (I=0, O=0, R=0, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get plugin dir.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get wcdf content.0 - Optimization level set to 9.
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get kjb Content.0 - Optimization level set to 9.
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Compose path.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get ktr content.0 - Optimization level set to 9.
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - exclude CPK private files.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get File Names.0 - Finished processing (I=0, O=0, R=2, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Switch / Case.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get kjb Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get wcdf content.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Remove Lines 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get description 2 2.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get ktr content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - remove aux 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - remove aux.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Remove Lines 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get description 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - remove aux 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Empty Description.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Get Filter.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - Filter rows.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - select fields.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:56:17 - 2020/02/18 18:56:17 - OUTPUT.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - listTemplates - Dispatching started for transformation [listTemplates]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Start of job execution
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [Set variables]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [Plugin ID not null?]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [Is valid plugin id?]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [${pluginDir} exists?]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [Plugin Name not null?]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - createPlugin - Starting entry [updateMetadata]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Data Grid.0 - Finished processing (I=0, O=0, R=0, W=2, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get plugin dir.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Compose path.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get File Names.0 - Finished processing (I=0, O=0, R=2, W=4, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - exclude CPK private files.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Switch / Case.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - updateMetadata - Starting entry [Simple evaluation]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - updateMetadata - Starting entry [getAndCombineMetadata]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - getAndCombineMetadata - Loading transformation from XML file [file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/endpoints/kettle/admin/_getAndCombineMetadata.ktr]
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get kjb Content.0 - Optimization level set to 9.
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get kjb Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:11 - 2020/02/18 18:57:11 - Get ktr content.0 - Optimization level set to 9.
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - getAndCombineMetadata - Using legacy execution engine
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get ktr content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _getAndCombineMetadata - Dispatching started for transformation [_getAndCombineMetadata]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get wcdf content.0 - Optimization level set to 9.
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - remove aux.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Remove Lines 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get description 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get wcdf content.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - remove aux 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Remove Lines 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get description 2 2.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - remove aux 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Empty Description.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get Filter.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Filter rows.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - select fields.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - OUTPUT.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get parameters.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get ${cpk_filename}.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - null values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Detect empty stream.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - dummy.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - 1 row.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Setting environment variables...
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable CPK_version to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable plugin_description to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable plugin_name to value [InsertTest]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable author_email to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable author_name to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable company_name to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable company_url to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable creation_date to value [2020-02-18]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable version to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Set variable dashboard_style to value []
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - join.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - new values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - select new values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Finished after 1 rows.
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - updateMetadata - Starting entry [_loadStub]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _loadStub - Starting entry [Create Staging Folder]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _loadStub - Starting entry [Set Unique Location]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Unique Location - Loading transformation from XML file [file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/endpoints/kettle/admin/_setUniqueLocation.ktr]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set Unique Location - Using legacy execution engine
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _setUniqueLocation - Dispatching started for transformation [_setUniqueLocation]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Generate Unique ID.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set zipName.0 - Setting environment variables...
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set zipName.0 - Set variable unique_location to value [/C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system//tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Add to base dir.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set zipName.0 - Finished after 1 rows.
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Set zipName.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - _loadStub - Starting entry [Copy Stub Files]
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Copy Stub Files - Starting ...
+2020/02/18 18:57:12 - 2020/02/18 18:57:12 - Copy Stub Files - Processing row source File/folder source : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${stubFolder}] ... destination file/folder : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${unique_location}]... wildcard : [null]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Starting entry [_configPluginFiles]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _configPluginFiles - Loading transformation from XML file [file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/endpoints/kettle/admin/_configPluginFiles.ktr]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _configPluginFiles - Using legacy execution engine
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _configPluginFiles - Dispatching started for transformation [_configPluginFiles]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Get File Names.0 - Finished processing (I=0, O=0, R=0, W=26, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Get Filter Regex.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Filter files.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Remove filter tags from filename.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Delete filtered files.0 - Finished processing (I=0, O=0, R=8, W=8, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Rename filter tagged files.0 - Finished processing (I=0, O=0, R=18, W=18, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Get Tokenized Files.0 - Finished processing (I=0, O=0, R=18, W=11, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Remove token tags from filename.0 - Finished processing (I=0, O=0, R=11, W=11, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Rename tokenized files.0 - Finished processing (I=0, O=0, R=11, W=11, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/README.md
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/build.properties
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/build.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/cpk.spring.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/ivy.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/plugin.spring.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/plugin.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/resources/lang/messages.properties
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/resources/styles/cpk.html
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/settings.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/tmp/sparkl/staging/53c3a0ee-5267-11ea-85ca-9d3ca91ddb0e/version.xml
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file input.0 - Finished processing (I=299, O=0, R=11, W=299, U=11, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Replace in string.0 - Finished processing (I=0, O=0, R=299, W=299, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Block until Text file input finishes.0 - Finished processing (I=0, O=0, R=299, W=299, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Text file output.0 - Finished processing (I=0, O=299, R=299, W=299, U=0, E=0)
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Starting entry [Copy Files]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Copy Files - Starting ...
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Copy Files - Processing row source File/folder source : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${unique_location}] ... destination file/folder : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${instalationFolder}]... wildcard : [null]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Starting entry [Delete Unique Folder]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Starting entry [Delete filenames from result]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - Delete filenames from result - 11 file(s) found from result filenames
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Starting entry [Success]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Success] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Delete filenames from result] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Delete Unique Folder] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Copy Files] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [_configPluginFiles] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Copy Stub Files] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Set Unique Location] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - _loadStub - Finished job entry [Create Staging Folder] (result=[true])
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - updateMetadata - Starting entry [setPluginMetadata]
+2020/02/18 18:57:13 - 2020/02/18 18:57:13 - setPluginMetadata - Loading transformation from XML file [file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/endpoints/kettle/admin/setPluginMetadata.ktr]
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - setPluginMetadata - Using legacy execution engine
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - setPluginMetadata - Dispatching started for transformation [setPluginMetadata]
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - setPluginMetadata (subtransf.) - Dispatching started for transformation [setPluginMetadata (subtransf.)]
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - Get parameters.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - read cpk.xml as a text file.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/insertTest/cpk.xml
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - read cpk.xml as a text file.0 - Finished processing (I=28, O=0, R=0, W=28, U=1, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - row info init/end.0 - Finished processing (I=0, O=0, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - info_start.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - info init/end.0 - Finished processing (I=0, O=0, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - info_end.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - < cpk_end.0 - Finished processing (I=0, O=0, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - last line.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - < info_init.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - > info_end.0 - Finished processing (I=0, O=0, R=5, W=0, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - lines before.0 - Finished processing (I=0, O=0, R=22, W=22, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - input.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - Row Normaliser.0 - Finished processing (I=0, O=0, R=1, W=10, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - null_value.0 - Finished processing (I=0, O=0, R=10, W=10, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - field not null.0 - Finished processing (I=0, O=0, R=10, W=2, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - xml elements.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - formatted_field.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - Append streams.0 - Finished processing (I=0, O=0, R=23, W=23, U=0, E=0)
+2020/02/18 18:57:14 - 2020/02/18 18:57:14 - Append streams 2.0 - Finished processing (I=0, O=0, R=25, W=25, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Append streams 3.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Append streams 4.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Append streams 5.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Block this step until steps finish.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - update cpk.xml.0 - Finished processing (I=0, O=27, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - setPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateMetadata - Finished job entry [setPluginMetadata] (result=[true])
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateMetadata - Finished job entry [_loadStub] (result=[true])
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateMetadata - Finished job entry [getAndCombineMetadata] (result=[true])
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateMetadata - Finished job entry [Simple evaluation] (result=[true])
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - createPlugin - Starting entry [updateLibs]
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateLibs - Starting entry [Plugin ID not null?]
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateLibs - Starting entry [Checks if ${pluginDir} exist]
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateLibs - Starting entry [Delete old libs]
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Delete old libs - File [/C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system//insertTest/lib] already deleted or did not exist.
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - updateLibs - Starting entry [Copy jar files]
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Copy jar files - Starting ...
+2020/02/18 18:57:15 - 2020/02/18 18:57:15 - Copy jar files - Processing row source File/folder source : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${cpk.lib.dir}] ... destination file/folder : [file:///c:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/tomcat/bin/${pluginDir}/lib]... wildcard : [.*\.jar]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - updateLibs - Starting entry [_setLibsVersion]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - _setLibsVersion - Loading transformation from XML file [file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/sparkl/endpoints/kettle/admin/_setLibsVersion.ktr]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - _setLibsVersion - Using legacy execution engine
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - _setLibsVersion - Dispatching started for transformation [_setLibsVersion]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - setPluginMetadata (subtransf.) - Dispatching started for transformation [setPluginMetadata (subtransf.)]
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - src cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - src exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - read cpk.xml as a text file.0 - Opening file: file:///C:/Pentaho_src/pentaho-server71CleanWithDataSource/pentaho-server/pentaho-solutions/system/insertTest/cpk.xml
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - read cpk.xml as a text file.0 - Finished processing (I=27, O=0, R=0, W=27, U=1, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - row info init/end.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - info init/end.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Cpk Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Plugin Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - info_start.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Plugin Description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Author Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Author Email.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Company Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Company Url.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Creation Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - info_end.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get CPK Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - < cpk_end.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - last line.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - < info_init.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get Dashboard Style.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - > info_end.0 - Finished processing (I=0, O=0, R=4, W=0, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - lines before.0 - Finished processing (I=0, O=0, R=22, W=22, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - remove auxiliary fields.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Detect empty stream.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Remove old CPK version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Get CPK version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - remove aux 3.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - input.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - Row Normaliser.0 - Finished processing (I=0, O=0, R=1, W=10, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - null_value.0 - Finished processing (I=0, O=0, R=10, W=10, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - field not null.0 - Finished processing (I=0, O=0, R=10, W=3, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - xml elements.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2020/02/18 18:57:16 - 2020/02/18 18:57:16 - formatted_field.0 - Finished processing (I=0, O=0, R=3, W=3, U=0, E=0)
+2020/02/18 18:57:17 - 2020/02/18 18:57:17 - Append streams.0 - Finished processing (I=0, O=0, R=23, W=23, U=0, E=0)
+2020/02/18 18:57:17 - 2020/02/18 18:57:17 - Append streams 2.0 - Finished processing (I=0, O=0, R=26, W=26, U=0, E=0)
+2020/02/18 18:57:17 - 2020/02/18 18:57:17 - Append streams 3.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:17 - 2020/02/18 18:57:17 - Append streams 4.0 - Finished processing (I=0, O=0, R=27, W=27, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Append streams 5.0 - Finished processing (I=0, O=0, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Block this step until steps finish.0 - Finished processing (I=0, O=0, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - update cpk.xml.0 - Finished processing (I=0, O=28, R=28, W=28, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - setPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - updateLibs - Finished job entry [_setLibsVersion] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - updateLibs - Finished job entry [Copy jar files] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - updateLibs - Finished job entry [Delete old libs] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - updateLibs - Finished job entry [Checks if ${pluginDir} exist] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - updateLibs - Finished job entry [Plugin ID not null?] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Starting entry [OUTPUT]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [OUTPUT] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [updateLibs] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [updateMetadata] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [Plugin Name not null?] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [${pluginDir} exists?] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [Is valid plugin id?] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [Plugin ID not null?] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Finished job entry [Set variables] (result=[true])
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - createPlugin - Job execution finished
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - getPluginMetadata - Dispatching started for transformation [getPluginMetadata]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get ${cpk_filename}.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - null values.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Detect empty stream.0 - Finished processing (I=0, O=0, R=0, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - dummy.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - 1 row.0 - Finished processing (I=0, O=0, R=2, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - getPluginMetadata - Dispatching started for transformation [getPluginMetadata]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - _getPluginMetadata - Dispatching started for transformation [_getPluginMetadata]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get ${cpk_filename}.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - INPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - cpk.xml exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - exist?.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get File Content.0 - Optimization level set to 9.
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get File Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Cpk Info.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Plugin Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Plugin Description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Author Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Author Email.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Company Name.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Company Url.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Creation Date.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get CPK Version.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Get Dashboard Style.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - remove auxiliary fields.0 - Finished processing (I=0, O=0, R=1, W=2, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - Detect empty stream.0 - Finished processing (I=0, O=0, R=1, W=0, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - remove cpk_filename.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - getPluginMetadata.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - OUTPUT.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - listElements - Dispatching started for transformation [listElements]
+2020/02/18 18:57:18 - 2020/02/18 18:57:18 - _getElementLocations - Dispatching started for transformation [_getElementLocations]
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Get Variables.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Modified Java Script Value 2.0 - Optimization level set to 9.
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Modified Java Script Value 2 2.0 - Optimization level set to 9.
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Modified Java Script Value 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Split field to rows.0 - Finished processing (I=0, O=0, R=1, W=6, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Modified Java Script Value 2 2.0 - Finished processing (I=0, O=0, R=6, W=6, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Select values.0 - Finished processing (I=0, O=0, R=6, W=6, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - OUTPUT.0 - Finished processing (I=0, O=0, R=6, W=6, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - _getElementLocations.0 - Finished processing (I=0, O=0, R=0, W=6, U=0, E=0)
+2020/02/18 18:57:19 - 2020/02/18 18:57:19 - Get File Names.0 - Finished processing (I=0, O=0, R=6, W=0, U=0, E=0)
+2020/02/18 18:57:33 - 2020/02/18 18:57:33 - listTemplates - Dispatching started for transformation [listTemplates]
+2020/02/18 18:57:33 - 2020/02/18 18:57:33 - Data Grid.0 - Finished processing (I=0, O=0, R=0, W=2, U=0, E=0)
+2020/02/18 18:57:33 - 2020/02/18 18:57:33 - Get plugin dir.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get wcdf content.0 - Optimization level set to 9.
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Compose path.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get File Names.0 - Finished processing (I=0, O=0, R=2, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get ktr content.0 - Optimization level set to 9.
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - exclude CPK private files.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Remove Lines 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get wcdf content.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get ktr content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Switch / Case.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get kjb Content.0 - Optimization level set to 9.
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get description 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Remove Lines 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - remove aux 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get kjb Content.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - remove aux 3.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get description 2 2.0 - Finished processing (I=0, O=0, R=2, W=2, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Remove Lines.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get description.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - remove aux.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Empty Description.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Get Filter.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - Filter rows.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - select fields.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 18:57:34 - 2020/02/18 18:57:34 - OUTPUT.0 - Finished processing (I=0, O=0, R=4, W=4, U=0, E=0)
+2020/02/18 19:14:10 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 19:14:10 - 2020/02/18 19:14:10 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:14:10 - 2020/02/18 19:14:10 - PurRepository - Creating repository meta store interface
+2020/02/18 19:14:10 - 2020/02/18 19:14:10 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:14:11 - Repository was cached for user: admin
+2020/02/18 19:14:41 - 2020/02/18 19:14:41 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:14:41 - 2020/02/18 19:14:41 - PurRepository - Creating repository meta store interface
+2020/02/18 19:14:41 - 2020/02/18 19:14:41 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:14:41 - Repository was cached for user: admin
+2020/02/18 19:14:41 - 2020/02/18 19:14:41 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:15:01 - 2020/02/18 19:15:01 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:15:01 - 2020/02/18 19:15:01 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:19:28 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 19:19:28 - 2020/02/18 19:19:28 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:19:28 - 2020/02/18 19:19:28 - PurRepository - Creating repository meta store interface
+2020/02/18 19:19:28 - 2020/02/18 19:19:28 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:19:29 - Repository was cached for user: admin
+2020/02/18 19:20:13 - 2020/02/18 19:20:13 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:20:16 - 2020/02/18 19:20:16 - PurRepository - Creating repository meta store interface
+2020/02/18 19:20:16 - 2020/02/18 19:20:16 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:20:16 - Repository was cached for user: admin
+2020/02/18 19:20:16 - 2020/02/18 19:20:16 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:20:36 - 2020/02/18 19:20:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:20:37 - 2020/02/18 19:20:37 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:29:34 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 19:29:34 - 2020/02/18 19:29:34 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:29:34 - 2020/02/18 19:29:34 - PurRepository - Creating repository meta store interface
+2020/02/18 19:29:34 - 2020/02/18 19:29:34 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:29:34 - Repository was cached for user: admin
+2020/02/18 19:29:49 - 2020/02/18 19:29:49 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:29:49 - 2020/02/18 19:29:49 - PurRepository - Creating repository meta store interface
+2020/02/18 19:29:49 - 2020/02/18 19:29:49 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:29:49 - Repository was cached for user: admin
+2020/02/18 19:29:49 - 2020/02/18 19:29:49 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:29:59 - 2020/02/18 19:29:59 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:30:17 - 2020/02/18 19:29:59 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:30:31 - 2020/02/18 19:30:31 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:30:31 - 2020/02/18 19:30:31 - PurRepository - Creating repository meta store interface
+2020/02/18 19:30:31 - 2020/02/18 19:30:31 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:30:31 - 2020/02/18 19:30:31 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:30:51 - 2020/02/18 19:30:51 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:30:51 - 2020/02/18 19:30:51 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:34:31 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 19:34:31 - 2020/02/18 19:34:31 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:34:32 - 2020/02/18 19:34:32 - PurRepository - Creating repository meta store interface
+2020/02/18 19:34:32 - 2020/02/18 19:34:32 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:34:32 - Repository was cached for user: admin
+2020/02/18 19:35:09 - 2020/02/18 19:35:09 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:35:10 - 2020/02/18 19:35:10 - PurRepository - Creating repository meta store interface
+2020/02/18 19:35:10 - 2020/02/18 19:35:10 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:35:10 - Repository was cached for user: admin
+2020/02/18 19:35:10 - 2020/02/18 19:35:10 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:35:10 - 2020/02/18 19:35:10 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:35:10 - 2020/02/18 19:35:10 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:37:52 - 2020/02/18 19:37:52 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:37:52 - 2020/02/18 19:37:52 - PurRepository - Creating repository meta store interface
+2020/02/18 19:37:53 - 2020/02/18 19:37:53 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:37:53 - 2020/02/18 19:37:53 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:37:53 - 2020/02/18 19:37:53 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:37:53 - 2020/02/18 19:37:53 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - PurRepository - Creating repository meta store interface
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:38:08 - 2020/02/18 19:38:08 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:42:28 - Repository not cached for user: admin. Creating new Repository.
+2020/02/18 19:42:28 - 2020/02/18 19:42:28 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:42:28 - 2020/02/18 19:42:28 - PurRepository - Creating repository meta store interface
+2020/02/18 19:42:28 - 2020/02/18 19:42:28 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:42:28 - Repository was cached for user: admin
+2020/02/18 19:43:05 - 2020/02/18 19:43:05 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:43:05 - 2020/02/18 19:43:05 - PurRepository - Creating repository meta store interface
+2020/02/18 19:43:05 - 2020/02/18 19:43:05 - PurRepository - Connected to the enterprise repository
+2020/02/18 19:43:05 - Repository was cached for user: admin
+2020/02/18 19:43:05 - 2020/02/18 19:43:05 - insert_test - Dispatching started for transformation [insert_test]
+2020/02/18 19:43:15 - 2020/02/18 19:43:15 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020/02/18 19:43:16 - 2020/02/18 19:43:16 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020/02/18 19:43:29 - 2020/02/18 19:43:29 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020/02/18 19:43:29 - 2020/02/18 19:43:29 - PurRepository - Creating repository meta store interface
+2020/02/18 19:43:29 - 2020/02/18 19:43:29 - PurRepository - Connected to the enterprise repository

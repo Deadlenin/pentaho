@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="main_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="rpo_list_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="main_ds" id="main_ds" type="sql">
+      <Name>main_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    actual.forecast_date as 'День составления прогноза', 
+	dim_fps.post_object as 'Объект',
+	actual.index_oper as 'Индекс',
+	mt.name as 'Вид отправлений',
+	actual.d1 as 'План: в День прогноза +1д', 
+	actual.d2 as 'План: в День прогноза +2д', 
+	actual.d3 as 'План: в День прогноза +3д', 
+	'д1: ' || prev_1.d1 || ', д2: ' ||  prev_1.d2 || ', д3: ' || prev_1.d3 as 'Прогноз составленный 1 день назад',
+	'д1: ' || prev_2.d1 || ', д2: ' ||  prev_2.d2 || ', д3: ' || prev_2.d3 as 'Прогноз составленный 2 дня назад',
+	'д1: ' || prev_3.d1 || ', д2: ' ||  prev_3.d2 || ', д3: ' || prev_3.d3 as 'Прогноз составленный 3 дня назад',
+	'д1: ' || prev_4.d1 || ', д2: ' ||  prev_4.d2 || ', д3: ' || prev_4.d3 as 'Прогноз составленный 4 дня назад',
+	'д1: ' || prev_5.d1 || ', д2: ' ||  prev_5.d2 || ', д3: ' || prev_5.d3 as 'Прогноз составленный 5 дней назад'
+from tracking.next_days_forecast_for_existing_rpo actual
+left join dicts.dim_fps_structure dim_fps on actual.index_oper = dim_fps.post_object_index
+left join dicts.mail_type_groups mt on actual.mail_type = mt.code
+left join tracking.next_days_forecast_for_existing_rpo prev_1 on actual.index_oper = prev_1.index_oper and actual.mail_type = prev_1.mail_type and prev_1.forecast_date = LEFT(TO_CHAR(TIMESTAMPADD(DAY, -1, TO_DATE(actual.forecast_date, 'yyyy-MM-dd'))), 10)
+left join tracking.next_days_forecast_for_existing_rpo prev_2 on actual.index_oper = prev_2.index_oper and actual.mail_type = prev_2.mail_type and prev_2.forecast_date = LEFT(TO_CHAR(TIMESTAMPADD(DAY, -2, TO_DATE(actual.forecast_date, 'yyyy-MM-dd'))), 10)
+left join tracking.next_days_forecast_for_existing_rpo prev_3 on actual.index_oper = prev_3.index_oper and actual.mail_type = prev_3.mail_type and prev_3.forecast_date = LEFT(TO_CHAR(TIMESTAMPADD(DAY, -3, TO_DATE(actual.forecast_date, 'yyyy-MM-dd'))), 10)
+left join tracking.next_days_forecast_for_existing_rpo prev_4 on actual.index_oper = prev_4.index_oper and actual.mail_type = prev_4.mail_type and prev_4.forecast_date = LEFT(TO_CHAR(TIMESTAMPADD(DAY, -4, TO_DATE(actual.forecast_date, 'yyyy-MM-dd'))), 10)
+left join tracking.next_days_forecast_for_existing_rpo prev_5 on actual.index_oper = prev_5.index_oper and actual.mail_type = prev_5.mail_type and prev_5.forecast_date = LEFT(TO_CHAR(TIMESTAMPADD(DAY, -5, TO_DATE(actual.forecast_date, 'yyyy-MM-dd'))), 10)
+where actual.forecast_date = (select max(forecast_date) from tracking.next_days_forecast_for_existing_rpo)
+	and ('' in (${fps}) or 'fps' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_office || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_office || '].[' || dim_fps.post_object || ']' in (${fps}))
+	and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+		or '[mail_type].[' || mt.group || ']' in (${mail_type})
+		or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="rpo_list_ds" id="rpo_list_ds" type="sql">
+      <Name>rpo_list_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="selected_index_oper" name="selected_index_oper" type="String"/>
+         <Parameter default="selected_mail_type" name="selected_mail_type" type="String"/>
+         <Parameter default="day_number" name="day_number" type="String"/>
+         <Parameter default="forecast_date" name="forecast_date" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    bar_code, 
+	mt.name as 'Вид отправлений', 
+	index_oper as 'Индекс', 
+	oper_date_time_local as 'Время поступления', 
+	index_from as 'Откуда (индекс)', 
+	index_to as 'Куда (индекс)'
+from tracking.rpo_tracing_forecast f
+left join dicts.mail_type_groups mt on f.mail_type = mt.code
+where 
+	index_oper = ${selected_index_oper} 
+	and (mt.name = ${selected_mail_type} or (mt.name is null and ${selected_mail_type} = ''))
+	and oper_type = 8
+	and LEFT(oper_date_time_local, 10) = LEFT(TO_CHAR(TIMESTAMPADD(DAY, ${day_number}, TO_DATE(${forecast_date}, 'yyyy-MM-dd'))), 10)]]></Query>
+   </DataAccess>
+</CDADescriptor>

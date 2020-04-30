@@ -1,0 +1,430 @@
+2018-06-14 13:19:01,512 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2018-06-14 13:19:02,044 INFO  [org.pentaho.di] 2018/06/14 13:19:01 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2018-06-14 13:19:05,908 INFO  [org.pentaho.di] 2018/06/14 13:19:05 - PurRepository - Creating repository meta store interface
+2018-06-14 13:19:06,423 INFO  [org.pentaho.di] 2018/06/14 13:19:06 - PurRepository - Connected to the enterprise repository
+2018-06-14 13:19:12,110 ERROR [pt.webdetails.cpf.utils.PluginIOUtils] Error writing output
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:396)
+	at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:344)
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:421)
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:409)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:97)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:90)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.write(OnCommittedResponseWrapper.java:632)
+	at org.apache.commons.io.IOUtils.write(IOUtils.java:1249)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOut(PluginIOUtils.java:31)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOutAndFlush(PluginIOUtils.java:56)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:105)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: APR error: -730053
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:292)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:245)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.flushBuffer(InternalAprOutputBuffer.java:214)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.addToBB(InternalAprOutputBuffer.java:175)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.access$000(InternalAprOutputBuffer.java:41)
+	at org.apache.coyote.http11.InternalAprOutputBuffer$SocketOutputBuffer.doWrite(InternalAprOutputBuffer.java:350)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:118)
+	at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:256)
+	at org.apache.coyote.Response.doWrite(Response.java:491)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:391)
+	... 93 more
+2018-06-14 13:19:12,252 ERROR [pt.webdetails.cpf.utils.PluginIOUtils] Error writing output
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:356)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:320)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:110)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.flush(OnCommittedResponseWrapper.java:513)
+	at pt.webdetails.cpf.utils.PluginIOUtils.flush(PluginIOUtils.java:73)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOutAndFlush(PluginIOUtils.java:57)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:105)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: APR error: -730053
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:292)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:245)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.flushBuffer(InternalAprOutputBuffer.java:214)
+	at org.apache.coyote.http11.AbstractOutputBuffer.flush(AbstractOutputBuffer.java:305)
+	at org.apache.coyote.http11.AbstractHttp11Processor.action(AbstractHttp11Processor.java:792)
+	at org.apache.coyote.Response.action(Response.java:177)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:352)
+	... 89 more
+2018-06-14 13:19:17,423 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:19:24,245 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:19:28,333 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:19:28,520 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:19:31,102 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:20:57,836 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:21:02,021 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:21:54,676 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:21:58,961 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:23:21,116 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2018-06-14 13:23:21,126 INFO  [org.pentaho.di] 2018/06/14 13:23:21 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2018-06-14 13:23:21,471 INFO  [org.pentaho.di] 2018/06/14 13:23:21 - PurRepository - Creating repository meta store interface
+2018-06-14 13:23:21,472 INFO  [org.pentaho.di] 2018/06/14 13:23:21 - PurRepository - Connected to the enterprise repository
+2018-06-14 13:23:22,482 ERROR [pt.webdetails.cda.bigexporter.notification.Emailer] Email.ERROR_0011_SEND_FAILED - admin@russianpost.ru
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1961)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:654)
+	at javax.mail.Service.connect(Service.java:317)
+	at javax.mail.Service.connect(Service.java:176)
+	at javax.mail.Service.connect(Service.java:125)
+	at javax.mail.Transport.send0(Transport.java:194)
+	at javax.mail.Transport.send(Transport.java:124)
+	at pt.webdetails.cda.bigexporter.notification.Emailer.send(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendEmail(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendSuccessEmail(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.completeWithSuccess(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.continueProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.access$1000(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$3.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:321)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:237)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1927)
+	... 21 more
+2018-06-14 13:23:23,479 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:25:09,288 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:25:09,683 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:25:09,836 INFO  [org.pentaho.di] 2018/06/14 13:25:09 - operations - Dispatching started for transformation [operations]
+2018-06-14 13:25:12,702 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing UserDefinedJavaClass:
+2018-06-14 13:25:12,711 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2018/06/14 13:25:12 - Find_Bag_Creation_Date(6Months_rule).0 - null
+2018-06-14 13:25:12,846 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [Find_Bag_Creation_Date(6Months_rule)]
+2018-06-14 13:25:12,910 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - own_number_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : An error occurred, processing will be stopped: 
+2018/06/14 13:25:12 - own_number_input.0 - Error occurred while trying to connect to the database
+2018/06/14 13:25:12 - own_number_input.0 - 
+2018/06/14 13:25:12 - own_number_input.0 - Error connecting to database: (using class org.apache.hive.jdbc.HiveDriver)
+2018/06/14 13:25:12 - own_number_input.0 - No suitable driver found for jdbc:hive2://10.2.63.4:10016/default
+2018-06-14 13:25:12,962 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - bag_trace_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : A database error occurred, stopping everything: 
+2018/06/14 13:25:12 - bag_trace_input.0 - Error occurred while trying to connect to the database
+2018/06/14 13:25:12 - bag_trace_input.0 - 
+2018/06/14 13:25:12 - bag_trace_input.0 - Error connecting to database: (using class org.apache.hive.jdbc.HiveDriver)
+2018/06/14 13:25:12 - bag_trace_input.0 - No suitable driver found for jdbc:hive2://10.2.63.4:10016/default
+2018-06-14 13:25:12,963 ERROR [org.pentaho.di] 2018/06/14 13:25:12 - bag_trace_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [bag_trace_input]
+2018-06-14 13:25:13,341 ERROR [org.pentaho.di] 2018/06/14 13:25:13 - own_number_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [own_number_input]
+2018-06-14 13:25:13,345 ERROR [org.pentaho.di] 2018/06/14 13:25:13 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [own_number_input.0] failed to initialize!
+2018-06-14 13:25:13,351 ERROR [org.pentaho.di] 2018/06/14 13:25:13 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [bag_trace_input.0] failed to initialize!
+2018-06-14 13:25:13,355 ERROR [org.pentaho.di] 2018/06/14 13:25:13 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [Find_Bag_Creation_Date(6Months_rule).0] failed to initialize!
+2018-06-14 13:25:13,355 INFO  [org.pentaho.di] 2018/06/14 13:25:13 - own_number_input.0 - Finished reading query, closing connection.
+2018-06-14 13:25:13,408 ERROR [org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor] 1668063864: Report processing failed.
+org.pentaho.reporting.engine.classic.core.ReportDataFactoryException: Caught Kettle Exception: Check your configuration
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.KettleDataFactory.queryData(KettleDataFactory.java:100)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:172)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryInternal(CachingDataFactory.java:408)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryStatic(CachingDataFactory.java:151)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:168)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryData(CompoundDataFactory.java:67)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQueryData(DefaultFlowController.java:251)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQuery(DefaultFlowController.java:188)
+	at org.pentaho.reporting.engine.classic.core.states.process.ProcessState.initializeForMasterReport(ProcessState.java:318)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.prepareReportProcessing(AbstractReportProcessor.java:442)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.processReport(AbstractReportProcessor.java:1433)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.produceCacheablePages(CachingPageableHTMLOutput.java:279)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.regenerateCache(CachingPageableHTMLOutput.java:245)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.generate(CachingPageableHTMLOutput.java:171)
+	at org.pentaho.reporting.platform.plugin.SimpleReportingComponent.execute(SimpleReportingComponent.java:942)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:102)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:40)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+We failed to initialize at least one step.  Execution can not begin!
+
+
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1157)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.prepareTransformation(AbstractKettleTransformationProducer.java:284)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.performQueryOnTransformation(AbstractKettleTransformationProducer.java:248)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.performQuery(AbstractKettleTransformationProducer.java:231)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.KettleDataFactory.queryData(KettleDataFactory.java:96)
+	... 26 more
+2018-06-14 13:25:56,990 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2018-06-14 13:25:57,291 INFO  [org.pentaho.di] 2018/06/14 13:25:57 - operations - Dispatching started for transformation [operations]
+2018-06-14 13:25:58,384 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing UserDefinedJavaClass:
+2018-06-14 13:25:58,384 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : org.pentaho.di.core.exception.KettleException: 
+2018/06/14 13:25:58 - Find_Bag_Creation_Date(6Months_rule).0 - null
+2018-06-14 13:25:58,404 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - bag_trace_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : A database error occurred, stopping everything: 
+2018/06/14 13:25:58 - bag_trace_input.0 - Error occurred while trying to connect to the database
+2018/06/14 13:25:58 - bag_trace_input.0 - 
+2018/06/14 13:25:58 - bag_trace_input.0 - Error connecting to database: (using class org.apache.hive.jdbc.HiveDriver)
+2018/06/14 13:25:58 - bag_trace_input.0 - No suitable driver found for jdbc:hive2://10.2.63.4:10016/default
+2018-06-14 13:25:58,405 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - bag_trace_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [bag_trace_input]
+2018-06-14 13:25:58,410 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - own_number_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : An error occurred, processing will be stopped: 
+2018/06/14 13:25:58 - own_number_input.0 - Error occurred while trying to connect to the database
+2018/06/14 13:25:58 - own_number_input.0 - 
+2018/06/14 13:25:58 - own_number_input.0 - Error connecting to database: (using class org.apache.hive.jdbc.HiveDriver)
+2018/06/14 13:25:58 - own_number_input.0 - No suitable driver found for jdbc:hive2://10.2.63.4:10016/default
+2018-06-14 13:25:58,427 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - Find_Bag_Creation_Date(6Months_rule).0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [Find_Bag_Creation_Date(6Months_rule)]
+2018-06-14 13:25:58,697 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - own_number_input.0 - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Error initializing step [own_number_input]
+2018-06-14 13:25:58,706 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [own_number_input.0] failed to initialize!
+2018-06-14 13:25:58,706 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [bag_trace_input.0] failed to initialize!
+2018-06-14 13:25:58,706 ERROR [org.pentaho.di] 2018/06/14 13:25:58 - operations - ERROR (version 7.1.0.0-12, build 1 from 2017-05-16 17.18.02 by buildguy) : Step [Find_Bag_Creation_Date(6Months_rule).0] failed to initialize!
+2018-06-14 13:25:58,707 INFO  [org.pentaho.di] 2018/06/14 13:25:58 - own_number_input.0 - Finished reading query, closing connection.
+2018-06-14 13:25:58,728 ERROR [org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor] 2079539891: Report processing failed.
+org.pentaho.reporting.engine.classic.core.ReportDataFactoryException: Caught Kettle Exception: Check your configuration
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.KettleDataFactory.queryData(KettleDataFactory.java:100)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:172)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryInternal(CachingDataFactory.java:408)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryStatic(CachingDataFactory.java:151)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:168)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryData(CompoundDataFactory.java:67)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQueryData(DefaultFlowController.java:251)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQuery(DefaultFlowController.java:188)
+	at org.pentaho.reporting.engine.classic.core.states.process.ProcessState.initializeForMasterReport(ProcessState.java:318)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.prepareReportProcessing(AbstractReportProcessor.java:442)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.processReport(AbstractReportProcessor.java:1433)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.produceCacheablePages(CachingPageableHTMLOutput.java:279)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.regenerateCache(CachingPageableHTMLOutput.java:245)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.generate(CachingPageableHTMLOutput.java:171)
+	at org.pentaho.reporting.platform.plugin.SimpleReportingComponent.execute(SimpleReportingComponent.java:942)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:102)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:40)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+We failed to initialize at least one step.  Execution can not begin!
+
+
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1157)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.prepareTransformation(AbstractKettleTransformationProducer.java:284)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.performQueryOnTransformation(AbstractKettleTransformationProducer.java:248)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.AbstractKettleTransformationProducer.performQuery(AbstractKettleTransformationProducer.java:231)
+	at org.pentaho.reporting.engine.classic.extensions.datasources.kettle.KettleDataFactory.queryData(KettleDataFactory.java:96)
+	... 26 more
+2018-06-14 19:44:43,806 ERROR [pt.webdetails.cda.bigexporter.notification.Emailer] Email.ERROR_0011_SEND_FAILED - admin@russianpost.ru
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1961)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:654)
+	at javax.mail.Service.connect(Service.java:317)
+	at javax.mail.Service.connect(Service.java:176)
+	at javax.mail.Service.connect(Service.java:125)
+	at javax.mail.Transport.send0(Transport.java:194)
+	at javax.mail.Transport.send(Transport.java:124)
+	at pt.webdetails.cda.bigexporter.notification.Emailer.send(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendEmail(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendSuccessEmail(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.completeWithSuccess(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.continueProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.access$1000(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$3.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:321)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:237)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1927)
+	... 21 more

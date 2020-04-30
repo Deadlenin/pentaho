@@ -1,0 +1,24 @@
+<Schema name="cheque_mondrian_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="fps" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;">
+    <Hierarchy name="fps" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1059;&#1060;&#1055;&#1057;">
+      </Level>
+      <Level name="post_office" visible="true" table="dim_fps_structure" column="post_office" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1090;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="cheque_data_mart" visible="true" cache="true" enabled="true">
+    <Table name="cheque_data_mart" schema="tracking">
+    </Table>
+    <DimensionUsage source="fps" name="fps" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072;" visible="true" foreignKey="post_office_zip" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="value_sum" column="order_amount_kop" aggregator="sum" caption="value_sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

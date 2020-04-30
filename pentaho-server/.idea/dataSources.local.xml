@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="vertica_ds" uuid="4d982067-3076-45dd-ac0a-8718c38cccd3">
+      <database-info product="Vertica Database" version="09.00.0100" jdbc-version="4.0" driver-name="vertica.jar" driver-version="09.02.0000" dbms="VERTICA" exact-version="9.0.100" exact-driver-version="9.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>dbadmin</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+  </component>
+</project>

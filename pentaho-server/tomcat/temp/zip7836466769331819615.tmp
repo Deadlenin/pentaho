@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="ops_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="rpo_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="fraud_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="all_rpo_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="ops_dc" id="ops_dc" type="sql">
+      <Name>ops_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="place_of_delivery_date_from" name="place_of_delivery_date_from"
+                    type="String"/>
+         <Parameter default="place_of_delivery_date_to" name="place_of_delivery_date_to"
+                    type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="planned_return_date_from" name="planned_return_date_from"
+                    type="String"/>
+         <Parameter default="planned_return_date_to" name="planned_return_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="report_mode" name="report_mode" type="Integer"/>
+         <Parameter default="fraud_enable" name="fraud_enable" type="String"/>
+         <Parameter default="fraud_total_count" name="fraud_total_count" type="Integer"/>
+         <Parameter default="fraud_pay_count" name="fraud_pay_count" type="Integer"/>
+         <Parameter default="is_unloading" name="is_unloading" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH base_query AS (
+    SELECT
+      fact.main_index,
+      fps_index_macroregion macroregion,
+      fps_index_ufps ufps,
+      fps_index_post_object ops,
+      cvpp_info AS cvppinfo_dim,
+      CASE WHEN fact.status_correct = 0 THEN 1 ELSE 0 END AS delivery,
+      CASE WHEN fact.status_correct = 1 THEN 1 ELSE 0 END AS waiting_for_delivery,
+      CASE WHEN fact.status_correct = 2 THEN 1 ELSE 0 END AS return_before,
+      CASE WHEN fact.status_correct = 3 THEN 1 ELSE 0 END AS return_after,
+      CASE WHEN fact.status_correct = 4 THEN 1 ELSE 0 END AS return_in_time,
+      CASE WHEN fact.status_correct = 5 THEN 1 ELSE 0 END AS missed_return_information,
+
+      CASE WHEN fact.status_correct = 6 THEN 1 ELSE 0 END AS return_refuse,
+      CASE WHEN fact.status_correct = 7 THEN 1 ELSE 0 END AS return_other,
+      CASE WHEN fact.status_correct = 8 THEN 1 ELSE 0 END AS return_demand,
+      CASE WHEN fact.status_correct = 9 THEN 1 ELSE 0 END AS return_other2,
+
+      CASE WHEN fact.status_correct = 10 THEN 1 ELSE 0 END AS absence_delivery_status,
+      CASE WHEN fact.status_correct = 11 THEN 1 ELSE 0 END AS absence_info,
+      CASE WHEN fact.status_correct = 12 THEN 1 ELSE 0 END AS return_without_status,
+      fact.fraud_key
+    FROM
+      (SELECT
+         fact.*,
+         fps_index.macroregion fps_index_macroregion,
+         fps_index.ufps fps_index_ufps,
+         fps_index.post_object fps_index_post_object
+       FROM tracking.rpo_return_fact fact
+         LEFT OUTER JOIN dicts.dim_fps_structure fps_index ON fact.main_index = fps_index.post_object_index
+       WHERE
+         (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR
+          fact.accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') AND
+         (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR
+          fact.accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00') AND
+
+         (${delivery_date_from} = '' OR ${delivery_date_from} :: VARCHAR IS NULL OR
+          fact.delivery_date_time_local >= ${delivery_date_from} || ' 00:00:00') AND
+         (${delivery_date_to} = '' OR ${delivery_date_to} :: VARCHAR IS NULL OR
+          fact.delivery_date_time_local <= ${delivery_date_to} || ' 24:00:00') AND
+
+         (${place_of_delivery_date_from} = '' OR ${place_of_delivery_date_from} :: VARCHAR IS NULL OR
+          fact.place_of_delivery_date_time_local >= ${place_of_delivery_date_from} || ' 00:00:00') AND
+         (${place_of_delivery_date_to} = '' OR ${place_of_delivery_date_to} :: VARCHAR IS NULL OR
+          fact.place_of_delivery_date_time_local <= ${place_of_delivery_date_to} || ' 24:00:00') AND
+
+         (${return_date_from} = '' OR ${return_date_from} :: VARCHAR IS NULL OR
+          fact.return_date_time_local >= ${return_date_from} || ' 00:00:00') AND
+         (${return_date_to} = '' OR ${return_date_to} :: VARCHAR IS NULL OR
+          fact.return_date_time_local <= ${return_date_to} || ' 24:00:00') AND
+
+         (${planned_return_date_from} = '' OR ${planned_return_date_from} :: VARCHAR IS NULL OR
+          fact.planned_ret_oper_date >= ${planned_return_date_from}) AND
+         (${planned_return_date_to} = '' OR ${planned_return_date_to} :: VARCHAR IS NULL OR
+          fact.planned_ret_oper_date <= ${planned_return_date_to}) AND
+
+         ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || ']' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || ']' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || '].[' || fps_index.post_object || ']' IN (${fps_to}))
+
+      ) fact
+      LEFT OUTER JOIN dicts.dim_fps_structure fps_from ON fact.index_from = fps_from.post_object_index
+      LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON fact.main_index = (oktmo_to.post_object_index :: VARCHAR)
+      LEFT OUTER JOIN dicts.population_category pop_cat_to ON pop_cat_to.id = oktmo_to.population_category
+      LEFT OUTER JOIN dicts.place_type place_type_to ON oktmo_to.place_type = place_type_to.code
+      LEFT OUTER JOIN dicts.mailtype mt ON mt.code = fact.mail_type
+      LEFT OUTER JOIN dicts.mailctg mc ON mc.code = fact.mail_ctg
+      LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = fact.direct_ctg
+      LEFT OUTER JOIN dicts.oper_type_attr ret_attr ON ret_attr.oper_attr = fact.return_attr AND ret_attr.oper_type = 3
+      LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = fact.send_ctg
+      LEFT OUTER JOIN dicts.mail_rank mr ON mr.code = fact.mail_rank
+    WHERE
+      ((${bar_code} = '' AND ${bar_code_range} = '') OR (${bar_code} :: VARCHAR IS NULL AND ${bar_code_range} :: VARCHAR IS NULL) OR
+       regexp_like(UPPER(fact.bar_code), '(^' || REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^') || '$)') OR
+       (split_part(${bar_code_range}, ';', 1) <> '' AND split_part(${bar_code_range}, ';', 2) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+            split_part(${bar_code_range}, ';', 2))) OR
+       (split_part(${bar_code_range}, ';', 3) <> '' AND split_part(${bar_code_range}, ';', 4) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+            split_part(${bar_code_range}, ';', 4))) OR
+       (split_part(${bar_code_range}, ';', 5) <> '' AND split_part(${bar_code_range}, ';', 6) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+            split_part(${bar_code_range}, ';', 6))) OR
+       (split_part(${bar_code_range}, ';', 7) <> '' AND split_part(${bar_code_range}, ';', 8) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+            split_part(${bar_code_range}, ';', 8))) OR
+       (split_part(${bar_code_range}, ';', 9) <> '' AND split_part(${bar_code_range}, ';', 10) <> ''
+        AND LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+           split_part(${bar_code_range}, ';', 10)))
+      ) AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' IN (${fps_from})) AND
+      (${inn} = '' OR ${inn} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+      (${kpp} = '' OR ${kpp} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.kpp), '(^' || REPLACE(REPLACE(UPPER(${kpp}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+
+      (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR
+       fact.accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') AND
+      (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR
+       fact.accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00') AND
+
+      (${delivery_date_from} = '' OR ${delivery_date_from} :: VARCHAR IS NULL OR
+       fact.delivery_date_time_local >= ${delivery_date_from} || ' 00:00:00') AND
+      (${delivery_date_to} = '' OR ${delivery_date_to} :: VARCHAR IS NULL OR
+       fact.delivery_date_time_local <= ${delivery_date_to} || ' 24:00:00') AND
+
+      (${place_of_delivery_date_from} = '' OR ${place_of_delivery_date_from} :: VARCHAR IS NULL OR
+       fact.place_of_delivery_date_time_local >= ${place_of_delivery_date_from} || ' 00:00:00') AND
+      (${place_of_delivery_date_to} = '' OR ${place_of_delivery_date_to} :: VARCHAR IS NULL OR
+       fact.place_of_delivery_date_time_local <= ${place_of_delivery_date_to} || ' 24:00:00') AND
+
+      (${return_date_from} = '' OR ${return_date_from} :: VARCHAR IS NULL OR
+       fact.return_date_time_local >= ${return_date_from} || ' 00:00:00') AND
+      (${return_date_to} = '' OR ${return_date_to} :: VARCHAR IS NULL OR
+       fact.return_date_time_local <= ${return_date_to} || ' 24:00:00') AND
+
+      (${planned_return_date_from} = '' OR ${planned_return_date_from} :: VARCHAR IS NULL OR
+       fact.planned_ret_oper_date >= ${planned_return_date_from}) AND
+      (${planned_return_date_to} = '' OR ${planned_return_date_to} :: VARCHAR IS NULL OR
+       fact.planned_ret_oper_date <= ${planned_return_date_to}) AND
+
+      ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR
+       '[Type].[' || mt.name || ']' IN (${mail_type})) AND
+      ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR
+       '[Category].[' || mc.name || ']' IN (${mail_category})) AND
+      ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR
+       '[DirectCtg].[' || dc.name || ']' IN (${direct_category})) AND
+
+      ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR
+       '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg})) AND
+      ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR
+       '[MailRank].[' || mr.name || ']' IN (${mail_rank})) AND
+
+      ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR
+       '[PlaceType].[' || place_type_to.name || ']' IN (${place_to_type})) AND
+      ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR
+       '[ReturnType].[' || ret_attr.name || ']' IN (${return_attribute})) AND
+
+      ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR
+       fact.status_correct :: VARCHAR IN (${rpo_status})) 
+       
+       AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || pop_cat_to.name || ']' IN (${pop_cat}))
+),
+with_fraud_query as (
+    select * from base_query s WHERE
+    ${fraud_enable} :: VARCHAR IS NULL OR ${fraud_enable} IN ('0', 'fraud_enable') OR (
+      ${fraud_enable} = '1' AND (
+        s.fraud_key IS NULL OR s.fraud_key NOT IN (
+          SELECT fraud_key
+          FROM base_query fr
+          WHERE fraud_key IS NOT NULL
+          GROUP BY fraud_key
+          HAVING count(*) >= ${fraud_total_count} AND SUM(delivery) / count(*) < (${fraud_pay_count} / 100))
+      )
+    )
+)
+SELECT
+  case when ${is_unloading} :: varchar is null then
+    'ИТОГО' else 'ӤТОГО' end               "Макрорегион",
+  ''                                       "УФПС",
+  ''                                       "ОПС",
+  ''                                       "Индекс",
+  ''                                       "Признак ЦВПП",
+  count(*)                                 "Количество отправлений, принятых за период",
+  sum(delivery)                            "Вручено адресату",
+  sum(waiting_for_delivery)                "Ожидает вручения",
+  sum(return_before)                       "Возврат раньше срока",
+  sum(return_after)                        "Возврат позже срока",
+  sum(return_in_time)                      "Возврат вовремя",
+  sum(missed_return_information)           "Отсутствует оформление возврата по истечению срока хранения",
+  sum(return_refuse)                       "Возврат по причине отказа",
+  sum(return_other)                        "Иные возвраты",
+  sum(return_demand)                       "По требованию отправителя",
+  sum(return_other2)                       "Прочие возвраты",
+  sum(absence_delivery_status)             "Отсутствие статусов по отправлению",
+  sum(absence_info)                        "Нет информации о выбытии возврата",
+  sum(return_without_status)               "Возврат без оформления статусов",
+
+  (sum(return_before) + sum(return_after) + sum(return_in_time) + sum(absence_info) + sum(return_without_status)) / NVL(NULLIFZERO(count(*)), 1) * 100
+                                                      "% возвратов (фактически)",
+  (sum(return_before)) / NVL(NULLIFZERO(count(*)), 1) * 100    "% возвращены ранее окончания срока хранения",
+  (sum(return_after)) / NVL(NULLIFZERO(count(*)), 1) * 100     "% возвращены после окончания срока хранения",
+  (sum(return_in_time)) / NVL(NULLIFZERO(count(*)), 1) * 100   "% возвращены вовремя",
+  (sum(return_refuse)) / NVL(NULLIFZERO(count(*)), 1) * 100    "% возвращены в следствии отказа адресата",
+  (sum(return_other)) / NVL(NULLIFZERO(count(*)), 1) * 100     "% иные возвраты",
+  (sum(return_demand)) / NVL(NULLIFZERO(count(*)), 1) * 100    "% по требованию отправителя",
+  (sum(return_other2)) / NVL(NULLIFZERO(count(*)), 1) * 100    "% прочие возвраты",
+  (sum(return_without_status)) / NVL(NULLIFZERO(count(*)), 1) * 100  "% возвращены без оформления статусов",
+  (sum(missed_return_information) + sum(absence_delivery_status) + sum(absence_info)) / NVL(NULLIFZERO(count(*)), 1) * 100
+                                            "% нет информации по статусам",
+  (1 - (sum(waiting_for_delivery) + sum(delivery)) / NVL(NULLIFZERO(count(*)), 1))  * 100
+                                            "% возвраты итого"
+FROM with_fraud_query
+UNION ALL
+select /* opsdc3 */
+  nvl(macroregion :: VARCHAR, ' ')                    "Макрорегион",
+  nvl(ufps :: VARCHAR, ' ')                           "УФПС",
+  case when ${report_mode} = 1
+    then '#' else nvl(ops, ' ') end                   "ОПС",
+  case when ${report_mode} = 1
+    then '#' else nvl(main_index, ' ') end            "Индекс",
+  cvppinfo_dim                             "Признак ЦВПП",
+  count(*)                                 "Количество отправлений, принятых за период",
+  sum(delivery)                            "Вручено адресату",
+  sum(waiting_for_delivery)                "Ожидает вручения",
+  sum(return_before)                       "Возврат раньше срока",
+  sum(return_after)                        "Возврат позже срока",
+  sum(return_in_time)                      "Возврат вовремя",
+  sum(missed_return_information)           "Отсутствует оформление возврата по истечению срока хранения",
+  sum(return_refuse)                       "Возврат по причине отказа",
+  sum(return_other)                        "Иные возвраты",
+  sum(return_demand)                       "По требованию отправителя",
+  sum(return_other2)                       "Прочие возвраты",
+  sum(absence_delivery_status)             "Отсутствие статусов по отправлению",
+  sum(absence_info)                        "Нет информации о выбытии возврата",
+  sum(return_without_status)               "Возврат без оформления статусов",
+
+  (sum(return_before) + sum(return_after) + sum(return_in_time) + sum(absence_info) + sum(return_without_status)) / count(*) * 100
+                                           "% возвратов (фактически)",
+  (sum(return_before)) / count(*) * 100    "% возвращены ранее окончания срока хранения",
+  (sum(return_after)) / count(*) * 100     "% возвращены после окончания срока хранения",
+  (sum(return_in_time)) / count(*) * 100   "% возвращены вовремя",
+  (sum(return_refuse)) / count(*) * 100    "% возвращены в следствии отказа адресата",
+  (sum(return_other)) / count(*) * 100     "% иные возвраты",
+  (sum(return_demand)) / count(*) * 100    "% по требованию отправителя",
+  (sum(return_other2)) / count(*) * 100    "% прочие возвраты",
+  (sum(return_without_status)) / count(*) * 100  "% возвращены без оформления статусов",
+  (sum(missed_return_information) + sum(absence_delivery_status) + sum(absence_info)) / count(*) * 100
+                                           "% нет информации по статусам",
+  (1 - (sum(waiting_for_delivery) + sum(delivery)) / count(*))  * 100
+                                           "% возвраты итого"
+from with_fraud_query
+GROUP by "Макрорегион", "УФПС", "ОПС", "Индекс", "Признак ЦВПП"
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="rpo_dc" id="rpo_dc" type="sql">
+      <Name>rpo_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="place_of_delivery_date_from" name="place_of_delivery_date_from"
+                    type="String"/>
+         <Parameter default="place_of_delivery_date_to" name="place_of_delivery_date_to"
+                    type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="planned_return_date_from" name="planned_return_date_from"
+                    type="String"/>
+         <Parameter default="planned_return_date_to" name="planned_return_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="dd_macroregion" name="dd_macroregion" type="String"/>
+         <Parameter default="dd_ufps" name="dd_ufps" type="String"/>
+         <Parameter default="dd_ops" name="dd_ops" type="String"/>
+         <Parameter default="dd_main_index" name="dd_main_index" type="String"/>
+         <Parameter default="dd_cvpp_info" name="dd_cvpp_info" type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+         <Parameter default="fraud_enable" name="fraud_enable" type="String"/>
+         <Parameter default="fraud_total_count" name="fraud_total_count" type="Integer"/>
+         <Parameter default="fraud_pay_count" name="fraud_pay_count" type="Integer"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH base_query AS (
+    SELECT
+      fact.bar_code,
+      fact.accept_oper_date_time_local,
+      fact.inn,
+      mt.name mt_name,
+      fps_from.place fps_from_place,
+      fact.index_from,
+      fps_index_macroregion,
+      fps_index_ufps,
+      oktmo_to.place oktmo_to_place,
+      fact.main_index,
+      fact.recv_address,
+      fact.rcpn,
+      fact.recv_phone,
+      fact.place_of_delivery_date_time_local,
+      fact.delivery_date_time_local,
+      cvpp_info AS cvppinfo_dim,
+      fact.mass,
+      fact.return_date_time_local,
+      ret_attr.name ret_attr_name,
+
+      CASE WHEN fact.status_correct = 0 THEN 1 ELSE 0 END AS delivery,
+      CASE WHEN fact.status_correct = 1 THEN 1 ELSE 0 END AS waiting_for_delivery,
+      CASE WHEN fact.status_correct = 2 THEN 1 ELSE 0 END AS return_before,
+      CASE WHEN fact.status_correct = 3 THEN 1 ELSE 0 END AS return_after,
+      CASE WHEN fact.status_correct = 4 THEN 1 ELSE 0 END AS return_in_time,
+      CASE WHEN fact.status_correct = 5 THEN 1 ELSE 0 END AS missed_return_information,
+
+      CASE WHEN fact.status_correct = 6 THEN 1 ELSE 0 END AS return_refuse,
+      CASE WHEN fact.status_correct = 7 THEN 1 ELSE 0 END AS return_other,
+      CASE WHEN fact.status_correct = 8 THEN 1 ELSE 0 END AS return_demand,
+      CASE WHEN fact.status_correct = 9 THEN 1 ELSE 0 END AS return_other2,
+
+      CASE WHEN fact.status_correct = 10 THEN 1 ELSE 0 END AS absence_delivery_status,
+      CASE WHEN fact.status_correct = 11 THEN 1 ELSE 0 END AS absence_info,
+      CASE WHEN fact.status_correct = 12 THEN 1 ELSE 0 END AS return_without_status,
+      fact.fraud_key
+    FROM
+      (SELECT
+         fact.*,
+         fps_index.macroregion fps_index_macroregion,
+         fps_index.ufps fps_index_ufps
+       FROM tracking.rpo_return_fact fact
+         LEFT OUTER JOIN dicts.dim_fps_structure fps_index ON fact.main_index = fps_index.post_object_index
+       WHERE
+          (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR
+           fact.accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') AND
+          (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR
+           fact.accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00') AND
+
+          (${delivery_date_from} = '' OR ${delivery_date_from} :: VARCHAR IS NULL OR
+           fact.delivery_date_time_local >= ${delivery_date_from} || ' 00:00:00') AND
+          (${delivery_date_to} = '' OR ${delivery_date_to} :: VARCHAR IS NULL OR
+           fact.delivery_date_time_local <= ${delivery_date_to} || ' 24:00:00') AND
+
+          (${place_of_delivery_date_from} = '' OR ${place_of_delivery_date_from} :: VARCHAR IS NULL OR
+           fact.place_of_delivery_date_time_local >= ${place_of_delivery_date_from} || ' 00:00:00') AND
+          (${place_of_delivery_date_to} = '' OR ${place_of_delivery_date_to} :: VARCHAR IS NULL OR
+           fact.place_of_delivery_date_time_local <= ${place_of_delivery_date_to} || ' 24:00:00') AND
+
+          (${return_date_from} = '' OR ${return_date_from} :: VARCHAR IS NULL OR
+           fact.return_date_time_local >= ${return_date_from} || ' 00:00:00') AND
+          (${return_date_to} = '' OR ${return_date_to} :: VARCHAR IS NULL OR
+           fact.return_date_time_local <= ${return_date_to} || ' 24:00:00') AND
+
+          (${planned_return_date_from} = '' OR ${planned_return_date_from} :: VARCHAR IS NULL OR
+           fact.planned_ret_oper_date >= ${planned_return_date_from}) AND
+          (${planned_return_date_to} = '' OR ${planned_return_date_to} :: VARCHAR IS NULL OR
+           fact.planned_ret_oper_date <= ${planned_return_date_to}) AND
+
+          (${dd_macroregion} :: VARCHAR = fps_index.macroregion :: VARCHAR OR
+           (' ' IN (${dd_macroregion} :: VARCHAR) AND fps_index.macroregion IS NULL)) AND
+          (${dd_ufps} :: VARCHAR = fps_index.ufps :: VARCHAR OR
+           (' ' IN (${dd_ufps} :: VARCHAR) AND fps_index.ufps IS NULL)) AND
+
+          (${dd_ops} :: VARCHAR = '#' OR ${dd_ops} :: VARCHAR = fps_index.post_object :: VARCHAR OR
+           (' ' IN (${dd_ops} :: VARCHAR) AND fps_index.post_object IS NULL)) AND
+          (${dd_main_index} :: VARCHAR = '#' OR ${dd_main_index} :: VARCHAR = fact.main_index OR
+           (' ' IN (${dd_main_index} :: VARCHAR) AND fact.main_index IS NULL)) AND
+          (cvpp_info = ${dd_cvpp_info} :: VARCHAR ) AND
+
+          ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+           '[FPS].[' || fps_index.macroregion || ']' IN (${fps_to}) OR
+           '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || ']' IN (${fps_to}) OR
+           '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || '].[' || fps_index.post_object || ']' IN (${fps_to}))
+
+      ) fact
+      LEFT OUTER JOIN dicts.dim_fps_structure fps_from ON fact.index_from = fps_from.post_object_index
+      LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON fact.main_index = (oktmo_to.post_object_index :: VARCHAR)
+      LEFT OUTER JOIN dicts.population_category pop_cat_to ON pop_cat_to.id = oktmo_to.population_category
+      LEFT OUTER JOIN dicts.place_type place_type_to ON oktmo_to.place_type = place_type_to.code
+      LEFT OUTER JOIN dicts.mailtype mt ON mt.code = fact.mail_type
+      LEFT OUTER JOIN dicts.mailctg mc ON mc.code = fact.mail_ctg
+      LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = fact.direct_ctg
+      LEFT OUTER JOIN dicts.oper_type_attr ret_attr ON ret_attr.oper_attr = fact.return_attr AND ret_attr.oper_type = 3
+      LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = fact.send_ctg
+      LEFT OUTER JOIN dicts.mail_rank mr ON mr.code = fact.mail_rank
+
+    WHERE
+      ((${bar_code} = '' AND ${bar_code_range} = '') OR (${bar_code} :: VARCHAR IS NULL AND ${bar_code_range} :: VARCHAR IS NULL) OR
+       regexp_like(UPPER(fact.bar_code), '(^' || REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^') || '$)') OR
+       (split_part(${bar_code_range}, ';', 1) <> '' AND split_part(${bar_code_range}, ';', 2) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+            split_part(${bar_code_range}, ';', 2))) OR
+       (split_part(${bar_code_range}, ';', 3) <> '' AND split_part(${bar_code_range}, ';', 4) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+            split_part(${bar_code_range}, ';', 4))) OR
+       (split_part(${bar_code_range}, ';', 5) <> '' AND split_part(${bar_code_range}, ';', 6) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+            split_part(${bar_code_range}, ';', 6))) OR
+       (split_part(${bar_code_range}, ';', 7) <> '' AND split_part(${bar_code_range}, ';', 8) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+            split_part(${bar_code_range}, ';', 8))) OR
+       (split_part(${bar_code_range}, ';', 9) <> '' AND split_part(${bar_code_range}, ';', 10) <> ''
+        AND LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+           split_part(${bar_code_range}, ';', 10)))
+      ) AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' IN (${fps_from})) AND
+      (${inn} = '' OR ${inn} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+      (${kpp} = '' OR ${kpp} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.kpp), '(^' || REPLACE(REPLACE(UPPER(${kpp}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+
+      ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR
+       '[Type].[' || mt.name || ']' IN (${mail_type})) AND
+      ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR
+       '[Category].[' || mc.name || ']' IN (${mail_category})) AND
+      ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR
+       '[DirectCtg].[' || dc.name || ']' IN (${direct_category})) AND
+
+      ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR
+       '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg})) AND
+      ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR
+       '[MailRank].[' || mr.name || ']' IN (${mail_rank})) AND
+
+      ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR
+       '[PlaceType].[' || place_type_to.name || ']' IN (${place_to_type})) AND
+      ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR
+       '[ReturnType].[' || ret_attr.name || ']' IN (${return_attribute}))  AND
+
+      ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR
+       fact.status_correct :: VARCHAR IN (${rpo_status})) 
+       
+       AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || pop_cat_to.name || ']' IN (${pop_cat}))
+),
+with_fraud_query as (
+  select * from base_query s WHERE
+    ${fraud_enable} :: VARCHAR IS NULL OR ${fraud_enable} IN ('0', 'fraud_enable') OR (
+      ${fraud_enable} = '1' AND (
+        s.fraud_key IS NULL OR s.fraud_key NOT IN (
+          SELECT fraud_key
+          FROM base_query fr
+          WHERE fraud_key IS NOT NULL
+          GROUP BY fraud_key
+          HAVING count(*) >= ${fraud_total_count} AND SUM(delivery) / count(*) < (${fraud_pay_count} / 100))
+      )
+    )
+)
+SELECT /* rpocd */
+  fact.bar_code                                  "РПО",
+  fact.accept_oper_date_time_local :: DATE       "Дата приема РПО",
+  nvl(inn, '–')                                  "Клиент",
+  nvl(mt_name, '–')                              "Услуга",
+  fps_from_place                                 "Город отправления",
+  fact.index_from                                "Индекс отправителя",
+  nvl(fps_index_macroregion, '–')                "МРЦ вручения",
+  nvl(fps_index_ufps, '–')                       "УФПС вручения",
+  oktmo_to_place                                 "Город доставки",
+  fact.main_index                                "Индекс получателя",
+  cvppinfo_dim                                   "Признак ЦВПП",
+  fact.recv_address                              "Адрес доставки",
+  fact.rcpn                                      "Получатель",
+  fact.recv_phone                                "Телефон получателя",
+  fact.place_of_delivery_date_time_local :: DATE "Прибыло в место вручения",
+  CASE WHEN delivery = 1 THEN fact.delivery_date_time_local :: DATE :: VARCHAR ELSE
+    'Нет вручения адресату'
+  END                                            "Вручение",
+  (nvl(fact.mass, 0) / 1000)                     "Физический вес, кг",
+
+  CASE WHEN fact.delivery = 1 OR fact.waiting_for_delivery = 1 THEN 'Нет возврата' ELSE
+    CASE WHEN fact.missed_return_information = 1 THEN 'Отсутствие оформление возврата по истечении срока хранения' ELSE
+      CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+        CASE WHEN fact.return_date_time_local IS NULL THEN 'Возврат без оформления статусов' ELSE
+          fact.return_date_time_local :: DATE :: VARCHAR END END END END
+                                                 "Фактическая дата оформления возврата",
+
+  CASE WHEN fact.delivery = 1 OR fact.waiting_for_delivery = 1 OR fact.missed_return_information = 1
+    THEN 'Нет возврата' ELSE
+      CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+        nvl(fact.ret_attr_name, 'Прочие возвраты')
+      END END                                    "Причина возврата",
+
+  CASE WHEN fact.delivery = 1 THEN 'Вручено адресату' ELSE
+    CASE WHEN fact.waiting_for_delivery = 1 THEN 'Ожидает вручения' ELSE
+    CASE WHEN fact.return_before = 1 THEN 'Возврат раньше срока' ELSE
+    CASE WHEN fact.return_after = 1 THEN 'Возврат позже срока' ELSE
+    CASE WHEN fact.return_in_time = 1 THEN 'Возврат вовремя' ELSE
+    CASE WHEN fact.missed_return_information = 1 THEN 'Отсутствует оформление возврата по истечению срока хранения' ELSE
+    CASE WHEN fact.return_refuse = 1 THEN 'Возврат по причине отказа' ELSE
+    CASE WHEN fact.return_other = 1 THEN 'Иные возвраты' ELSE
+    CASE WHEN fact.return_demand = 1 THEN 'По требованию отправителя' ELSE
+    CASE WHEN fact.return_other2 = 1 THEN 'Прочие возвраты' ELSE
+    CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+    CASE WHEN fact.absence_info = 1 THEN 'Нет информации о выбытии возврата' ELSE
+    CASE WHEN fact.return_without_status = 1 THEN 'Возврат без оформления статусов'
+  end end end end end end end end end end end end end "Статус Возврата"
+FROM with_fraud_query fact
+limit ${limit}
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="fraud_dc" id="fraud_dc" type="sql">
+      <Name>fraud_dc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="place_of_delivery_date_from" name="place_of_delivery_date_from"
+                    type="String"/>
+         <Parameter default="place_of_delivery_date_to" name="place_of_delivery_date_to"
+                    type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="planned_return_date_from" name="planned_return_date_from"
+                    type="String"/>
+         <Parameter default="planned_return_date_to" name="planned_return_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="dd_macroregion" name="dd_macroregion" type="String"/>
+         <Parameter default="dd_ufps" name="dd_ufps" type="String"/>
+         <Parameter default="dd_ops" name="dd_ops" type="String"/>
+         <Parameter default="dd_main_index" name="dd_main_index" type="String"/>
+         <Parameter default="dd_cvpp_info" name="dd_cvpp_info" type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+         <Parameter default="fraud_enable" name="fraud_enable" type="Integer"/>
+         <Parameter default="fraud_total_count" name="fraud_total_count" type="Integer"/>
+         <Parameter default="fraud_pay_count" name="fraud_pay_count" type="Integer"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH base_query AS (
+    SELECT
+      inn,
+      recv_phone,
+      rcpn,
+      place_of_delivery_index,
+
+      CASE WHEN fact.delivery_date_time_local IS NOT NULL AND
+                (fact.delivery_attr NOT IN (2, 4, 7, 9) OR fact.delivery_attr IS NULL) AND
+                fact.return_date_time_local IS NULL
+      THEN 1 ELSE 0 END AS delivery
+    FROM
+      tracking.rpo_return_fact fact
+      LEFT OUTER JOIN dicts.dim_fps_structure fps_from ON fact.index_from = fps_from.post_object_index
+      LEFT OUTER JOIN dicts.dim_fps_structure fps_index ON fact.main_index = fps_index.post_object_index
+      LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON fact.main_index = (oktmo_to.post_object_index :: VARCHAR)
+      LEFT OUTER JOIN dicts.population_category pop_cat_to ON pop_cat_to.id = oktmo_to.population_category
+      LEFT OUTER JOIN dicts.place_type place_type_to ON oktmo_to.place_type = place_type_to.code
+      LEFT OUTER JOIN dicts.mailtype mt ON mt.code = fact.mail_type
+      LEFT OUTER JOIN dicts.mailctg mc ON mc.code = fact.mail_ctg
+      LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = fact.direct_ctg
+      LEFT OUTER JOIN dicts.oper_type_attr ret_attr ON ret_attr.oper_attr = fact.return_attr AND ret_attr.oper_type = 3
+      LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = fact.send_ctg
+      LEFT OUTER JOIN dicts.mail_rank mr ON mr.code = fact.mail_rank
+    WHERE
+      ((${bar_code} = '' AND ${bar_code_range} = '') OR (${bar_code} :: VARCHAR IS NULL AND ${bar_code_range} :: VARCHAR IS NULL) OR
+       regexp_like(UPPER(fact.bar_code), '(^' || REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^') || '$)') OR
+       (split_part(${bar_code_range}, ';', 1) <> '' AND split_part(${bar_code_range}, ';', 2) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+            split_part(${bar_code_range}, ';', 2))) OR
+       (split_part(${bar_code_range}, ';', 3) <> '' AND split_part(${bar_code_range}, ';', 4) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+            split_part(${bar_code_range}, ';', 4))) OR
+       (split_part(${bar_code_range}, ';', 5) <> '' AND split_part(${bar_code_range}, ';', 6) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+            split_part(${bar_code_range}, ';', 6))) OR
+       (split_part(${bar_code_range}, ';', 7) <> '' AND split_part(${bar_code_range}, ';', 8) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+            split_part(${bar_code_range}, ';', 8))) OR
+       (split_part(${bar_code_range}, ';', 9) <> '' AND split_part(${bar_code_range}, ';', 10) <> ''
+        AND LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+           split_part(${bar_code_range}, ';', 10)))
+      ) AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' IN (${fps_from})) AND
+      (${inn} = '' OR ${inn} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+      (${kpp} = '' OR ${kpp} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.kpp), '(^' || REPLACE(REPLACE(UPPER(${kpp}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+
+      (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR
+       fact.accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') AND
+      (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR
+       fact.accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00') AND
+
+      (${delivery_date_from} = '' OR ${delivery_date_from} :: VARCHAR IS NULL OR
+       fact.delivery_date_time_local >= ${delivery_date_from} || ' 00:00:00') AND
+      (${delivery_date_to} = '' OR ${delivery_date_to} :: VARCHAR IS NULL OR
+       fact.delivery_date_time_local <= ${delivery_date_to} || ' 24:00:00') AND
+
+      (${place_of_delivery_date_from} = '' OR ${place_of_delivery_date_from} :: VARCHAR IS NULL OR
+       fact.place_of_delivery_date_time_local >= ${place_of_delivery_date_from} || ' 00:00:00') AND
+      (${place_of_delivery_date_to} = '' OR ${place_of_delivery_date_to} :: VARCHAR IS NULL OR
+       fact.place_of_delivery_date_time_local <= ${place_of_delivery_date_to} || ' 24:00:00') AND
+
+      (${return_date_from} = '' OR ${return_date_from} :: VARCHAR IS NULL OR
+       fact.return_date_time_local >= ${return_date_from} || ' 00:00:00') AND
+      (${return_date_to} = '' OR ${return_date_to} :: VARCHAR IS NULL OR
+       fact.return_date_time_local <= ${return_date_to} || ' 24:00:00') AND
+
+      (${planned_return_date_from} = '' OR ${planned_return_date_from} :: VARCHAR IS NULL OR
+       fact.planned_ret_oper_date >= ${planned_return_date_from}) AND
+      (${planned_return_date_to} = '' OR ${planned_return_date_to} :: VARCHAR IS NULL OR
+       fact.planned_ret_oper_date <= ${planned_return_date_to}) AND
+
+      ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR
+       '[Type].[' || mt.name || ']' IN (${mail_type})) AND
+      ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR
+       '[Category].[' || mc.name || ']' IN (${mail_category})) AND
+      ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR
+       '[DirectCtg].[' || dc.name || ']' IN (${direct_category})) AND
+
+      ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR
+       '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg})) AND
+      ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR
+       '[MailRank].[' || mr.name || ']' IN (${mail_rank})) AND
+
+      ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+       '[FPS].[' || fps_index.macroregion || ']' IN (${fps_to}) OR
+       '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || ']' IN (${fps_to}) OR
+       '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || '].[' || fps_index.post_object || ']' IN (${fps_to})) AND
+
+      ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR
+       '[PlaceType].[' || place_type_to.name || ']' IN (${place_to_type})) AND
+      ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR
+       '[ReturnType].[' || ret_attr.name || ']' IN (${return_attribute})) AND
+
+      ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR
+       fact.status_correct :: VARCHAR IN (${rpo_status})) 
+       
+    AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || pop_cat_to.name || ']' IN (${pop_cat}))   
+    AND fact.fraud_key IS NOT NULL
+)
+  select
+    inn "ИНН",
+    phone "Телефон получателя",
+    fio "ФИО получателя",
+    oktmo || ' ' || NVL(ok.place, '') "Место назначения",
+    c "Количество адресованных РПО",
+    delivery "Количество выкупленных РПО",
+    delivery_per "Процент выкупленных РПО"
+  from (
+    select
+      inn,
+      phone,
+      fio,
+      oktmo,
+      COUNT(*) c,
+      SUM(delivery) delivery,
+      ROUND(SUM(delivery)/COUNT(*), 4) * 100 delivery_per
+    from (
+      select
+        inn,
+        case when recv_phone is null then '-' else recv_phone end phone,
+        case when recv_phone is null then rcpn else '-' end fio,
+        case when recv_phone is null then ok.oktmo :: VARCHAR else '-' end oktmo,
+        delivery
+
+      from base_query s
+        LEFT JOIN dicts.fps_structure ok ON ok.post_object_index :: VARCHAR = s.place_of_delivery_index
+    ) s
+    GROUP BY inn, phone, fio, oktmo
+    HAVING count(*) >= ${fraud_total_count} AND SUM(delivery)/COUNT(*) < ${fraud_pay_count} / 100
+  ) fact
+  LEFT JOIN (
+    SELECT place_oktmo, max(DISTINCT place) place
+    FROM dicts.oktmo_centers
+    GROUP BY place_oktmo
+  ) ok ON fact.oktmo <> '-' AND ok.place_oktmo :: VARCHAR = fact.oktmo
+  LIMIT ${limit}
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="all_rpo_dc" id="all_rpo_dc" type="sql">
+      <Name>all_rpo_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="place_of_delivery_date_from" name="place_of_delivery_date_from"
+                    type="String"/>
+         <Parameter default="place_of_delivery_date_to" name="place_of_delivery_date_to"
+                    type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+         <Parameter default="fraud_enable" name="fraud_enable" type="String"/>
+         <Parameter default="fraud_total_count" name="fraud_total_count" type="Integer"/>
+         <Parameter default="fraud_pay_count" name="fraud_pay_count" type="Integer"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+         <Parameter default="planned_return_date_from" name="planned_return_date_from"
+                    type="String"/>
+         <Parameter default="planned_return_date_to" name="planned_return_date_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH base_query AS (
+    SELECT
+      fact.bar_code,
+      fact.accept_oper_date_time_local,
+      fact.inn,
+      mt.name mt_name,
+      fps_from.place fps_from_place,
+      fact.index_from,
+      fps_index_macroregion,
+      fps_index_ufps,
+      oktmo_to.place oktmo_to_place,
+      fact.main_index,
+      fact.recv_address,
+      fact.rcpn,
+      fact.recv_phone,
+      fact.place_of_delivery_date_time_local,
+      fact.delivery_date_time_local,
+      cvpp_info AS cvppinfo_dim,
+      fact.mass,
+      fact.return_date_time_local,
+      ret_attr.name ret_attr_name,
+
+      CASE WHEN fact.status_correct = 0 THEN 1 ELSE 0 END AS delivery,
+      CASE WHEN fact.status_correct = 1 THEN 1 ELSE 0 END AS waiting_for_delivery,
+      CASE WHEN fact.status_correct = 2 THEN 1 ELSE 0 END AS return_before,
+      CASE WHEN fact.status_correct = 3 THEN 1 ELSE 0 END AS return_after,
+      CASE WHEN fact.status_correct = 4 THEN 1 ELSE 0 END AS return_in_time,
+      CASE WHEN fact.status_correct = 5 THEN 1 ELSE 0 END AS missed_return_information,
+
+      CASE WHEN fact.status_correct = 6 THEN 1 ELSE 0 END AS return_refuse,
+      CASE WHEN fact.status_correct = 7 THEN 1 ELSE 0 END AS return_other,
+      CASE WHEN fact.status_correct = 8 THEN 1 ELSE 0 END AS return_demand,
+      CASE WHEN fact.status_correct = 9 THEN 1 ELSE 0 END AS return_other2,
+
+      CASE WHEN fact.status_correct = 10 THEN 1 ELSE 0 END AS absence_delivery_status,
+      CASE WHEN fact.status_correct = 11 THEN 1 ELSE 0 END AS absence_info,
+      CASE WHEN fact.status_correct = 12 THEN 1 ELSE 0 END AS return_without_status,
+      fact.fraud_key
+    FROM
+      (SELECT
+         fact.*,
+         fps_index.macroregion fps_index_macroregion,
+         fps_index.ufps fps_index_ufps
+       FROM tracking.rpo_return_fact fact
+         LEFT OUTER JOIN dicts.dim_fps_structure fps_index ON fact.main_index = fps_index.post_object_index
+       WHERE
+         (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR
+          fact.accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') AND
+         (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR
+          fact.accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00') AND
+
+         (${delivery_date_from} = '' OR ${delivery_date_from} :: VARCHAR IS NULL OR
+          fact.delivery_date_time_local >= ${delivery_date_from} || ' 00:00:00') AND
+         (${delivery_date_to} = '' OR ${delivery_date_to} :: VARCHAR IS NULL OR
+          fact.delivery_date_time_local <= ${delivery_date_to} || ' 24:00:00') AND
+
+         (${place_of_delivery_date_from} = '' OR ${place_of_delivery_date_from} :: VARCHAR IS NULL OR
+          fact.place_of_delivery_date_time_local >= ${place_of_delivery_date_from} || ' 00:00:00') AND
+         (${place_of_delivery_date_to} = '' OR ${place_of_delivery_date_to} :: VARCHAR IS NULL OR
+          fact.place_of_delivery_date_time_local <= ${place_of_delivery_date_to} || ' 24:00:00') AND
+
+         (${return_date_from} = '' OR ${return_date_from} :: VARCHAR IS NULL OR
+          fact.return_date_time_local >= ${return_date_from} || ' 00:00:00') AND
+         (${return_date_to} = '' OR ${return_date_to} :: VARCHAR IS NULL OR
+          fact.return_date_time_local <= ${return_date_to} || ' 24:00:00') AND
+
+         (${planned_return_date_from} = '' OR ${planned_return_date_from} :: VARCHAR IS NULL OR
+          fact.planned_ret_oper_date >= ${planned_return_date_from}) AND
+         (${planned_return_date_to} = '' OR ${planned_return_date_to} :: VARCHAR IS NULL OR
+          fact.planned_ret_oper_date <= ${planned_return_date_to}) AND
+
+         ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || ']' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || ']' IN (${fps_to}) OR
+          '[FPS].[' || fps_index.macroregion || '].[' || fps_index.ufps || '].[' || fps_index.post_object || ']' IN (${fps_to}))
+
+      ) fact
+      LEFT OUTER JOIN dicts.dim_fps_structure fps_from ON fact.index_from = fps_from.post_object_index
+      LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON fact.main_index = (oktmo_to.post_object_index :: VARCHAR)
+      LEFT OUTER JOIN dicts.population_category pop_cat_to ON pop_cat_to.id = oktmo_to.population_category
+      LEFT OUTER JOIN dicts.place_type place_type_to ON oktmo_to.place_type = place_type_to.code
+      LEFT OUTER JOIN dicts.mailtype mt ON mt.code = fact.mail_type
+      LEFT OUTER JOIN dicts.mailctg mc ON mc.code = fact.mail_ctg
+      LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = fact.direct_ctg
+      LEFT OUTER JOIN dicts.oper_type_attr ret_attr ON ret_attr.oper_attr = fact.return_attr AND ret_attr.oper_type = 3
+      LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = fact.send_ctg
+      LEFT OUTER JOIN dicts.mail_rank mr ON mr.code = fact.mail_rank
+
+    WHERE
+      ((${bar_code} = '' AND ${bar_code_range} = '') OR (${bar_code} :: VARCHAR IS NULL AND ${bar_code_range} :: VARCHAR IS NULL) OR
+       regexp_like(UPPER(fact.bar_code), '(^' || REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^') || '$)') OR
+       (split_part(${bar_code_range}, ';', 1) <> '' AND split_part(${bar_code_range}, ';', 2) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+            split_part(${bar_code_range}, ';', 2))) OR
+       (split_part(${bar_code_range}, ';', 3) <> '' AND split_part(${bar_code_range}, ';', 4) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+            split_part(${bar_code_range}, ';', 4))) OR
+       (split_part(${bar_code_range}, ';', 5) <> '' AND split_part(${bar_code_range}, ';', 6) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+            split_part(${bar_code_range}, ';', 6))) OR
+       (split_part(${bar_code_range}, ';', 7) <> '' AND split_part(${bar_code_range}, ';', 8) <> '' AND
+        LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+            split_part(${bar_code_range}, ';', 8))) OR
+       (split_part(${bar_code_range}, ';', 9) <> '' AND split_part(${bar_code_range}, ';', 10) <> ''
+        AND LOWER(fact.bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+           split_part(${bar_code_range}, ';', 10)))
+      ) AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' IN (${fps_from}) OR
+       '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' IN (${fps_from})) AND
+      (${inn} = '' OR ${inn} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+      (${kpp} = '' OR ${kpp} :: varchar IS NULL OR
+       regexp_like(UPPER(fact.kpp), '(^' || REPLACE(REPLACE(UPPER(${kpp}), '%', '.*'), ';', '$)|(^') || '$)')) AND
+
+      ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR
+       '[Type].[' || mt.name || ']' IN (${mail_type})) AND
+      ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR
+       '[Category].[' || mc.name || ']' IN (${mail_category})) AND
+      ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR
+       '[DirectCtg].[' || dc.name || ']' IN (${direct_category})) AND
+
+      ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR
+       '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg})) AND
+      ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR
+       '[MailRank].[' || mr.name || ']' IN (${mail_rank})) AND
+
+      ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR
+       '[PlaceType].[' || place_type_to.name || ']' IN (${place_to_type})) AND
+      ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR
+       '[ReturnType].[' || ret_attr.name || ']' IN (${return_attribute}))  AND
+
+      ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR
+       fact.status_correct :: VARCHAR IN (${rpo_status})) 
+       
+      AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || pop_cat_to.name || ']' IN (${pop_cat})) 
+),
+    with_fraud_query as (
+      select * from base_query s WHERE
+        ${fraud_enable} :: VARCHAR IS NULL OR ${fraud_enable} IN ('0', 'fraud_enable') OR (
+          ${fraud_enable} = '1' AND (
+            s.fraud_key IS NULL OR s.fraud_key NOT IN (
+              SELECT fraud_key
+              FROM base_query fr
+              WHERE fraud_key IS NOT NULL
+              GROUP BY fraud_key
+              HAVING count(*) >= ${fraud_total_count} AND SUM(delivery) / count(*) < (${fraud_pay_count} / 100))
+          )
+        )
+  )
+SELECT /* rpocd */
+  fact.bar_code                                  "РПО",
+  fact.accept_oper_date_time_local :: DATE       "Дата приема РПО",
+  nvl(inn, '–')                                  "Клиент",
+  nvl(mt_name, '–')                              "Услуга",
+  fps_from_place                                 "Город отправления",
+  fact.index_from                                "Индекс отправителя",
+  nvl(fps_index_macroregion, '–')                "МРЦ вручения",
+  nvl(fps_index_ufps, '–')                       "УФПС вручения",
+  oktmo_to_place                                 "Город доставки",
+  fact.main_index                                "Индекс получателя",
+  cvppinfo_dim                                   "Признак ЦВПП",
+  fact.recv_address                              "Адрес доставки",
+  fact.rcpn                                      "Получатель",
+  fact.recv_phone                                "Телефон получателя",
+  fact.place_of_delivery_date_time_local :: DATE "Прибыло в место вручения",
+  CASE WHEN delivery = 1 THEN fact.delivery_date_time_local :: DATE :: VARCHAR ELSE
+    'Нет вручения адресату'
+  END                                            "Вручение",
+  (nvl(fact.mass, 0) / 1000)                     "Физический вес, кг",
+
+  CASE WHEN fact.delivery = 1 OR fact.waiting_for_delivery = 1 THEN 'Нет возврата' ELSE
+    CASE WHEN fact.missed_return_information = 1 THEN 'Отсутствие оформление возврата по истечении срока хранения' ELSE
+      CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+        CASE WHEN fact.return_date_time_local IS NULL THEN 'Возврат без оформления статусов' ELSE
+          fact.return_date_time_local :: DATE :: VARCHAR END END END END
+                                                 "Фактическая дата оформления возврата",
+
+  CASE WHEN fact.delivery = 1 OR fact.waiting_for_delivery = 1 OR fact.missed_return_information = 1
+    THEN 'Нет возврата' ELSE
+    CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+      nvl(fact.ret_attr_name, 'Прочие возвраты')
+    END END                                    "Причина возврата",
+
+  CASE WHEN fact.delivery = 1 THEN 'Вручено адресату' ELSE
+    CASE WHEN fact.waiting_for_delivery = 1 THEN 'Ожидает вручения' ELSE
+      CASE WHEN fact.return_before = 1 THEN 'Возврат раньше срока' ELSE
+        CASE WHEN fact.return_after = 1 THEN 'Возврат позже срока' ELSE
+          CASE WHEN fact.return_in_time = 1 THEN 'Возврат вовремя' ELSE
+            CASE WHEN fact.missed_return_information = 1 THEN 'Отсутствует оформление возврата по истечению срока хранения' ELSE
+              CASE WHEN fact.return_refuse = 1 THEN 'Возврат по причине отказа' ELSE
+                CASE WHEN fact.return_other = 1 THEN 'Иные возвраты' ELSE
+                  CASE WHEN fact.return_demand = 1 THEN 'По требованию отправителя' ELSE
+                    CASE WHEN fact.return_other2 = 1 THEN 'Прочие возвраты' ELSE
+                      CASE WHEN fact.absence_delivery_status = 1 THEN 'Отсутствие статусов по отправлению' ELSE
+                        CASE WHEN fact.absence_info = 1 THEN 'Нет информации о выбытии возврата' ELSE
+                          CASE WHEN fact.return_without_status = 1 THEN 'Возврат без оформления статусов'
+                          end end end end end end end end end end end end end "Статус Возврата"
+FROM with_fraud_query fact
+limit 1000000
+;]]></Query>
+   </DataAccess>
+</CDADescriptor>

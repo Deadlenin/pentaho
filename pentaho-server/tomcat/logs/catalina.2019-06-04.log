@@ -1,0 +1,171 @@
+04-Jun-2019 13:00:23.975 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:03:31.257 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:04:34.646 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:11:39.398 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:13:37.692 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:14:20.270 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:18:39.603 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:20:04.123 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:24:38.830 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:30:17.012 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:36:04.139 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 13:44:52.623 SEVERE [http-apr-8080-exec-5] com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest The response of the WebApplicationException cannot be utilized as the response is already committed. Re-throwing to the HTTP container
+ javax.ws.rs.WebApplicationException: javax.xml.bind.MarshalException
+ - with linked exception:
+[javax.xml.stream.XMLStreamException: org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053]
+	at com.sun.jersey.core.provider.jaxb.AbstractRootElementProvider.writeTo(AbstractRootElementProvider.java:159)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.xml.bind.MarshalException
+ - with linked exception:
+[javax.xml.stream.XMLStreamException: org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053]
+	at com.sun.xml.bind.v2.runtime.MarshallerImpl.write(MarshallerImpl.java:327)
+	at com.sun.xml.bind.v2.runtime.MarshallerImpl.marshal(MarshallerImpl.java:177)
+	at com.sun.jersey.json.impl.BaseJSONMarshaller.marshallToJSON(BaseJSONMarshaller.java:106)
+	at com.sun.jersey.json.impl.provider.entity.JSONRootElementProvider.writeTo(JSONRootElementProvider.java:168)
+	at com.sun.jersey.core.provider.jaxb.AbstractRootElementProvider.writeTo(AbstractRootElementProvider.java:157)
+	... 77 more
+Caused by: javax.xml.stream.XMLStreamException: org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at com.sun.jersey.json.impl.writer.JsonXmlStreamWriter.writeStartElement(JsonXmlStreamWriter.java:402)
+	at com.sun.xml.bind.v2.runtime.output.XMLStreamWriterOutput.beginStartTag(XMLStreamWriterOutput.java:118)
+	at com.sun.xml.bind.v2.runtime.output.XmlOutputAbstractImpl.beginStartTag(XmlOutputAbstractImpl.java:102)
+	at com.sun.xml.bind.v2.runtime.output.NamespaceContextImpl$Element.startElement(NamespaceContextImpl.java:496)
+	at com.sun.xml.bind.v2.runtime.XMLSerializer.endNamespaceDecls(XMLSerializer.java:291)
+	at com.sun.xml.bind.v2.runtime.XMLSerializer.childAsXsiType(XMLSerializer.java:687)
+	at com.sun.xml.bind.v2.runtime.property.ArrayElementNodeProperty.serializeItem(ArrayElementNodeProperty.java:69)
+	at com.sun.xml.bind.v2.runtime.property.ArrayElementProperty.serializeListBody(ArrayElementProperty.java:172)
+	at com.sun.xml.bind.v2.runtime.property.ArrayERProperty.serializeBody(ArrayERProperty.java:159)
+	at com.sun.xml.bind.v2.runtime.ClassBeanInfoImpl.serializeBody(ClassBeanInfoImpl.java:344)
+	at com.sun.xml.bind.v2.runtime.XMLSerializer.childAsSoleContent(XMLSerializer.java:597)
+	at com.sun.xml.bind.v2.runtime.ClassBeanInfoImpl.serializeRoot(ClassBeanInfoImpl.java:328)
+	at com.sun.xml.bind.v2.runtime.XMLSerializer.childAsRoot(XMLSerializer.java:498)
+	at com.sun.xml.bind.v2.runtime.MarshallerImpl.write(MarshallerImpl.java:320)
+	... 81 more
+Caused by: org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:396)
+	at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:315)
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:421)
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:409)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:97)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.write(OnCommittedResponseWrapper.java:638)
+	at com.sun.jersey.spi.container.servlet.WebComponent$Writer.write(WebComponent.java:300)
+	at com.sun.jersey.spi.container.ContainerResponse$CommittingOutputStream.write(ContainerResponse.java:135)
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)
+	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:282)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:125)
+	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:135)
+	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:220)
+	at java.io.Writer.write(Writer.java:157)
+	at com.sun.jersey.json.impl.writer.JsonXmlStreamWriter$WriterAdapter.write(JsonXmlStreamWriter.java:82)
+	at com.sun.jersey.json.impl.writer.JsonXmlStreamWriter.writeStartElement(JsonXmlStreamWriter.java:397)
+	... 94 more
+Caused by: java.io.IOException: APR error: -730053
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:292)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:245)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.flushBuffer(InternalAprOutputBuffer.java:214)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.addToBB(InternalAprOutputBuffer.java:175)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.access$000(InternalAprOutputBuffer.java:41)
+	at org.apache.coyote.http11.InternalAprOutputBuffer$SocketOutputBuffer.doWrite(InternalAprOutputBuffer.java:350)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:118)
+	at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:256)
+	at org.apache.coyote.Response.doWrite(Response.java:491)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:391)
+	... 109 more
+
+04-Jun-2019 14:18:19.592 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 14:22:57.892 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 14:40:58.683 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 14:48:17.633 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 14:53:46.643 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 15:11:24.793 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 16:31:34.285 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 16:33:47.352 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 16:35:07.969 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 16:46:32.710 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 16:58:51.670 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:00:37.770 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:03:15.935 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:15:41.495 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:17:45.279 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:41:46.837 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:42:50.748 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 17:45:12.028 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 18:05:37.562 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 18:09:22.864 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 18:32:47.346 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+04-Jun-2019 18:33:44.986 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received

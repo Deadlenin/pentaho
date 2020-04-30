@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="traffic_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="traffic_bar_code_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="way_type_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="place_type_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="traffic_dc" id="traffic_dc" type="sql">
+      <Name>traffic_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="start_date" name="start_date" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="from_type" name="from_type" type="Integer"/>
+         <Parameter default="to_type" name="to_type" type="Integer"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="ops_from_type" name="ops_from_type" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="weight_from" name="weight_from" type="String"/>
+         <Parameter default="weight_to" name="weight_to" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="price_from" name="price_from" type="String"/>
+         <Parameter default="price_to" name="price_to" type="String"/>
+         <Parameter default="way_type" name="way_type" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT /* tr_main */
+  CASE
+  WHEN ${from_type} = 1
+    THEN ''
+  WHEN ${from_type} = 2
+    THEN ''
+  WHEN ${from_type} = 3
+    THEN fps_from.post_object_index
+  END                                  "Индекс откуда",
+  CASE
+  WHEN ${from_type} = 1
+    THEN fps_from.macroregion
+  WHEN ${from_type} = 2
+    THEN fps_from.ufps
+  WHEN ${from_type} = 3
+    THEN fps_from.post_object_no_index
+  END                                  "Откуда",
+  ot_from.name                         "Тип н. п. откуда",
+  CASE
+  WHEN ${to_type} = 1
+    THEN ''
+  WHEN ${to_type} = 2
+    THEN ''
+  WHEN ${to_type} = 3
+    THEN fps_to.post_object_index
+  END                                  "Индекс куда",
+  CASE
+  WHEN ${to_type} = 1
+    THEN fps_to.macroregion
+  WHEN ${to_type} = 2
+    THEN fps_to.ufps
+  WHEN ${to_type} = 3
+    THEN fps_to.post_object_no_index
+  END                                  "Куда",
+  ot_to.name                           "Тип н. п. куда",
+  count(*)                             "Количество",
+  (sum(forward_price) / 100) :: MONEY  "Стоимость пересылки (руб.)",
+  (SUM(price) / 100) :: MONEY          "Размер объявленной ценности (руб.)",
+  (SUM(tax_price) / 100) :: MONEY      "Тариф на объявленную ценность (руб.)",
+  (SUM(mass) / 1000) :: NUMERIC(37, 3) "Суммарная масса (кг.)",
+  SUM(index_count)                     "Количество узлов обработки"
+FROM tracking.traffic_fact tr
+  JOIN dicts.dim_fps_structure fps_to ON tr.ops_to_code = fps_to.post_object_index
+  JOIN dicts.dim_fps_structure fps_from ON tr.ops_from_code = fps_from.post_object_index
+  LEFT OUTER JOIN dicts.mailtype mt ON tr.mail_type_code = mt.code
+  LEFT OUTER JOIN dicts.mailctg mc ON tr.mail_ctg_code = mc.code
+  LEFT OUTER JOIN dicts.oktmo_centers oktmo_from ON oktmo_from.post_object_index = tr.ops_from_code
+  LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON oktmo_to.post_object_index =
+                                                  COALESCE(tr.ops_to_code, case when tr.is_return then tr.index_to else tr.index_from end)
+
+  LEFT OUTER JOIN dicts.place_type ot_from ON oktmo_from.place_type = ot_from.code
+  LEFT OUTER JOIN dicts.place_type ot_to ON oktmo_to.place_type = ot_to.code
+  LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = tr.send_ctg_code
+  LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = tr.direct_ctg_code
+  LEFT OUTER JOIN dicts.pay_type pt ON pt.code = tr.pay_type
+WHERE ('' IN (${pay_type}) OR 'pay_type' IN (${pay_type}) OR '[PayType].[' || pt.name || ']' IN (${pay_type}))
+      AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR '[Type].[' || mt.name || ']' IN (${mail_type}))
+      AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR '[Category].[' || mc.name || ']' IN (${mail_ctg}))
+      AND ('' IN (${ops_from_type}) OR 'ops_from_type' IN (${ops_from_type})
+           OR '[PlaceFromType].[' || ot_from.name || ']' IN (${ops_from_type}))
+      AND ('' IN (${ops_to_type}) OR 'ops_to_type' IN (${ops_to_type})
+           OR '[PlaceToType].[' || ot_to.name || ']' IN (${ops_to_type}))
+      AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg})
+           OR '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg}))
+      AND ('' IN (${direct_ctg}) OR 'direct_ctg' IN (${direct_ctg})
+           OR '[DirectCtg].[' || dc.name || ']' IN (${direct_ctg}))
+      AND ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+           OR '[FPS].[' || fps_from.macroregion || ']' IN (${fps_from})
+           OR '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' IN (${fps_from})
+           OR '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' IN (${fps_from}))
+      AND ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+           OR '[FPS].[' || fps_to.macroregion || ']' IN (${fps_to})
+           OR '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || ']' IN (${fps_to})
+           OR '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || '].[' || fps_to.post_object || ']' IN (${fps_to}))
+      AND (${delivery_date_from} = ''
+           OR cast(${delivery_date_from} AS VARCHAR) IS NULL
+           OR delivery_oper_date_time >= ${delivery_date_from})
+      AND (${delivery_date_to} = ''
+           OR cast(${delivery_date_to} AS VARCHAR) IS NULL
+           OR delivery_oper_date_time <= ${delivery_date_to})
+
+      AND (${get_date_from} = ''
+           OR cast(${get_date_from} AS VARCHAR) IS NULL
+           OR get_oper_date_time >= ${get_date_from})
+      AND (${get_date_to} = ''
+           OR cast(${get_date_to} AS VARCHAR) IS NULL
+           OR get_oper_date_time <= ${get_date_to})
+
+      AND (${ret_date_from} = ''
+           OR cast(${ret_date_from} AS VARCHAR) IS NULL
+           OR ret_oper_date_time >= ${ret_date_from})
+      AND (${ret_date_to} = ''
+           OR cast(${ret_date_to} AS VARCHAR) IS NULL
+           OR ret_oper_date_time <= ${ret_date_to})
+
+      AND (${adp_date_from} = ''
+           OR cast(${adp_date_from} AS VARCHAR) IS NULL
+           OR place_of_delivery_oper_date_time >= ${adp_date_from})
+      AND (${adp_date_to} = ''
+           OR cast(${adp_date_to} AS VARCHAR) IS NULL
+           OR place_of_delivery_oper_date_time <= ${adp_date_to})
+
+      AND (${inn} = ''
+           OR cast(${inn} AS VARCHAR) IS NULL
+           OR inn LIKE '%' || ${inn} || '%')
+      AND (${kpp} = ''
+           OR cast(${kpp} AS VARCHAR) IS NULL
+           OR kpp LIKE '%' || ${kpp} || '%')
+
+      AND ((${bar_code_like} || ${bar_code_range}) = ''
+           OR (cast(${bar_code_like} AS VARCHAR) IS NULL
+               AND cast(${bar_code_range} AS VARCHAR) IS NULL)
+           OR (split_part(${bar_code_like}, ';', 1) <> ''
+               AND LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 1)))
+           OR (split_part(${bar_code_like}, ';', 2) <> ''
+               AND LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 2)))
+           OR (split_part(${bar_code_like}, ';', 3) <> ''
+               AND LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 3)))
+           OR (split_part(${bar_code_like}, ';', 4) <> ''
+               AND LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 4)))
+           OR (split_part(${bar_code_like}, ';', 5) <> ''
+               AND LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 5)))
+
+           OR (split_part(${bar_code_range}, ';', 1) <> ''
+               AND split_part(${bar_code_range}, ';', 2) <> ''
+               AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+    split_part(${bar_code_range}, ';', 2)))
+           OR (split_part(${bar_code_range}, ';', 3) <> ''
+               AND split_part(${bar_code_range}, ';', 4) <> ''
+               AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+    split_part(${bar_code_range}, ';', 4)))
+           OR (split_part(${bar_code_range}, ';', 5) <> ''
+               AND split_part(${bar_code_range}, ';', 6) <> ''
+               AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+    split_part(${bar_code_range}, ';', 6)))
+           OR (split_part(${bar_code_range}, ';', 7) <> ''
+               AND split_part(${bar_code_range}, ';', 8) <> ''
+               AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+    split_part(${bar_code_range}, ';', 8)))
+           OR (split_part(${bar_code_range}, ';', 9) <> ''
+               AND split_part(${bar_code_range}, ';', 10) <> ''
+               AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+    split_part(${bar_code_range}, ';', 10)))) AND
+      (nvl(mass :: FLOAT, 0) BETWEEN replace(${weight_from}, ',', '.') :: FLOAT * 1000 AND replace(${weight_to}, ',', '.') :: FLOAT * 1000) AND
+      (nvl(price :: FLOAT, 0) BETWEEN replace(${price_from}, ',', '.') :: FLOAT * 100 AND replace(${price_to}, ',', '.') :: FLOAT * 100) AND
+      (${way_type} = -1
+           OR (CASE
+               WHEN ${way_type} = 0
+                 THEN FALSE
+               ELSE TRUE
+               END) = is_return)
+GROUP BY 1,
+  2,
+  3,
+  4,
+  5,
+  6
+ORDER BY COUNT(*) DESC
+LIMIT 200000;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="traffic_bar_code_dc" id="traffic_bar_code_dc"
+               type="sql">
+      <Name>traffic_bar_code_dc</Name>
+      <Cache duration="60" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="start_date" name="start_date" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="from_type" name="from_type" type="Integer"/>
+         <Parameter default="to_type" name="to_type" type="Integer"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="from" name="from" type="String"/>
+         <Parameter default="to" name="to" type="String"/>
+         <Parameter default="ops_from_type" name="ops_from_type" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="weight_from" name="weight_from" type="String"/>
+         <Parameter default="weight_to" name="weight_to" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="price_from" name="price_from" type="String"/>
+         <Parameter default="price_to" name="price_to" type="String"/>
+         <Parameter default="way_type" name="way_type" type="Integer"/>
+         <Parameter default="ops_to_type_drill_down" name="ops_to_type_drill_down" type="String"/>
+         <Parameter default="ops_from_type_drill_down" name="ops_from_type_drill_down"
+                    type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT /* tr_dd4 */
+  bar_code                               "ШИ отправления",
+  CASE
+  WHEN is_return = TRUE
+    THEN 'Возвратное'
+  WHEN is_return = FALSE
+    THEN 'Прямое'
+  END                                    "Направление",
+  get_oper_date_time                     "Дата и время приёма",
+  ret_oper_date_time                     "Дата и время возврата",
+  delivery_oper_date_time                "Дата и время вручения",
+  fps_from_post_object_index             "Индекс откуда",
+  fps_from_post_object                   "Место откуда",
+  ot_from.name                           "Тип н. п. откуда",
+  fps_from_ufps                          "УФПС откуда",
+  fps_from_macroregion                   "Макрорегион откуда",
+
+  fps_to_post_object_index               "Индекс куда",
+  fps_to_post_object                     "Место куда",
+  ot_to.name                             "Тип н. п. куда",
+  fps_to_ufps                            "УФПС куда",
+  fps_to_macroregion                     "Макрорегион куда",
+
+  fps_delivery.post_object_index         "Индекс места вручения",
+  fps_delivery.post_object               "Место вручения",
+  fps_delivery.ufps                      "УФПС места вручения",
+  fps_delivery.macroregion               "Макрорегион места вручения",
+
+  mt.name                                "Тип отправления",
+  mc.name                                "Категория отправления",
+  (nvl(forward_price, 0) / 100) :: MONEY "Стоимость пересылки (руб.)",
+  (nvl(price, 0) / 100) :: MONEY         "Размер объявленной ценности (руб.)",
+  (nvl(tax_price, 0) / 100) :: MONEY     "Тариф на объявленную ценность (руб.)",
+  (nvl(mass, 0) / 1000)                  "Масса (кг.)",
+  index_count                            "Количество узлов обработки",
+  inn                                    "ИНН",
+  kpp                                    "КПП",
+  sndr                                   "Наименование клиента"
+FROM
+  (
+    SELECT tr.*,
+      fps_from.macroregion fps_from_macroregion, fps_from.ufps fps_from_ufps, fps_from.post_object fps_from_post_object, fps_from.post_object_index fps_from_post_object_index,
+      fps_to.macroregion fps_to_macroregion, fps_to.ufps fps_to_ufps, fps_to.post_object fps_to_post_object, fps_to.post_object_index fps_to_post_object_index
+    FROM tracking.traffic_fact tr
+      JOIN dicts.dim_fps_structure fps_from ON tr.ops_from_code = fps_from.post_object_index
+      JOIN dicts.dim_fps_structure fps_to ON tr.ops_to_code = fps_to.post_object_index
+    WHERE
+        ((${from_type} = 1 AND fps_from.macroregion = ${from}) OR
+         (${from_type} = 2 AND fps_from.ufps = ${from}) OR
+         (${from_type} = 3 AND fps_from.post_object = ${from})) 
+          AND
+        ((${to_type} = 1 AND fps_to.macroregion = ${to}) OR 
+         (${to_type} = 2 AND fps_to.ufps = ${to}) OR
+         (${to_type} = 3 AND fps_to.post_object = ${to}))
+  ) tr
+  LEFT OUTER JOIN dicts.mailtype mt ON tr.mail_type_code = mt.code
+  LEFT OUTER JOIN dicts.mailctg mc ON tr.mail_ctg_code = mc.code
+  LEFT OUTER JOIN dicts.oktmo_centers oktmo_from ON oktmo_from.post_object_index = tr.ops_from_code
+  LEFT OUTER JOIN dicts.oktmo_centers oktmo_to ON oktmo_to.post_object_index =
+                                                    COALESCE(tr.ops_to_code, case when tr.is_return then tr.index_to else tr.index_from end)
+
+  LEFT OUTER JOIN dicts.place_type ot_from ON oktmo_from.place_type = ot_from.code
+  LEFT OUTER JOIN dicts.place_type ot_to ON oktmo_to.place_type = ot_to.code
+  LEFT OUTER JOIN dicts.sender_ctg sc ON sc.code = tr.send_ctg_code
+  LEFT OUTER JOIN dicts.direct_ctg dc ON dc.code = tr.direct_ctg_code
+  LEFT OUTER JOIN dicts.pay_type pt ON pt.code = tr.pay_type
+  LEFT OUTER JOIN dicts.dim_fps_structure fps_delivery ON tr.ops_place_of_delivery_code = fps_delivery.post_object_index
+WHERE
+  ('' IN (${pay_type}) OR 'pay_type' IN (${pay_type}) OR
+   '[PayType].[' || pt.name || ']' IN (${pay_type})) AND
+  ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR
+   '[Type].[' || mt.name || ']' IN (${mail_type})) AND
+  ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR
+   '[Category].[' || mc.name || ']' IN (${mail_ctg})) AND
+  (((cast(${ops_from_type_drill_down} AS VARCHAR) = '' OR cast(${ops_from_type_drill_down} AS VARCHAR) IS NULL)
+    AND ot_from.name IS NULL)
+   OR ot_from.name = ${ops_from_type_drill_down})
+  AND
+  (((cast(${ops_to_type_drill_down} AS VARCHAR) = '' OR cast(${ops_to_type_drill_down} AS VARCHAR) IS NULL) AND ot_to.name IS NULL)
+   OR ot_to.name = ${ops_to_type_drill_down})
+  AND
+  ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR
+   '[SenderCtg].[' || sc.name || ']' IN (${sender_ctg})) AND
+  ('' IN (${direct_ctg}) OR 'direct_ctg' IN (${direct_ctg}) OR
+   '[DirectCtg].[' || dc.name || ']' IN (${direct_ctg})) AND (
+    '' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+    '[FPS].[' || fps_from_macroregion || ']' IN (${fps_from}) OR
+    '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || ']' IN (${fps_from}) OR
+    '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || '].[' || fps_from_post_object ||
+    ']' IN (${fps_from})) AND ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+                               '[FPS].[' || fps_to_macroregion || ']' IN (${fps_to}) OR
+                               '[FPS].[' || fps_to_macroregion || '].[' || fps_to_ufps || ']' IN
+                               (${fps_to}) OR
+                               '[FPS].[' || fps_to_macroregion || '].[' || fps_to_ufps || '].[' ||
+                               fps_to_post_object || ']' IN (${fps_to})) AND
+  (${delivery_date_from} = '' OR cast(${delivery_date_from} AS VARCHAR) IS NULL OR
+   delivery_oper_date_time >= ${delivery_date_from}) AND
+  (${delivery_date_to} = '' OR cast(${delivery_date_to} AS VARCHAR) IS NULL OR
+   delivery_oper_date_time <= ${delivery_date_to}) AND
+
+  (${get_date_from} = '' OR cast(${get_date_from} AS VARCHAR) IS NULL OR
+   get_oper_date_time >= ${get_date_from}) AND
+  (${get_date_to} = '' OR cast(${get_date_to} AS VARCHAR) IS NULL OR
+   get_oper_date_time <= ${get_date_to}) AND
+
+  (${ret_date_from} = '' OR cast(${ret_date_from} AS VARCHAR) IS NULL OR
+   ret_oper_date_time >= ${ret_date_from}) AND
+  (${ret_date_to} = '' OR cast(${ret_date_to} AS VARCHAR) IS NULL OR
+   ret_oper_date_time <= ${ret_date_to}) AND
+
+  (${adp_date_from} = '' OR cast(${adp_date_from} AS VARCHAR) IS NULL OR
+   place_of_delivery_oper_date_time >= ${adp_date_from}) AND
+  (${adp_date_to} = '' OR cast(${adp_date_to} AS VARCHAR) IS NULL OR
+   place_of_delivery_oper_date_time <= ${adp_date_to}) AND
+
+  (${inn} = '' OR cast(${inn} AS VARCHAR) IS NULL OR inn LIKE '%' || ${inn} || '%') AND
+  (${kpp} = '' OR cast(${kpp} AS VARCHAR) IS NULL OR kpp LIKE '%' || ${kpp} || '%') AND (
+    (${bar_code_like} || ${bar_code_range}) = '' OR
+    (cast(${bar_code_like} AS VARCHAR) IS NULL AND cast(${bar_code_range} AS VARCHAR) IS NULL) OR
+    (split_part(${bar_code_like}, ';', 1) <> '' AND
+     LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 1))) OR
+    (split_part(${bar_code_like}, ';', 2) <> '' AND
+     LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 2))) OR
+    (split_part(${bar_code_like}, ';', 3) <> '' AND
+     LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 3))) OR
+    (split_part(${bar_code_like}, ';', 4) <> '' AND
+     LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 4))) OR
+    (split_part(${bar_code_like}, ';', 5) <> '' AND
+     LOWER(bar_code) LIKE LOWER(split_part(${bar_code_like}, ';', 5))) OR
+    (split_part(${bar_code_range}, ';', 1) <> '' AND split_part(${bar_code_range}, ';', 2) <> '' AND
+     LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+         split_part(${bar_code_range}, ';', 2))) OR
+    (split_part(${bar_code_range}, ';', 3) <> '' AND split_part(${bar_code_range}, ';', 4) <> '' AND
+     LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+         split_part(${bar_code_range}, ';', 4))) OR
+    (split_part(${bar_code_range}, ';', 5) <> '' AND split_part(${bar_code_range}, ';', 6) <> '' AND
+     LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+         split_part(${bar_code_range}, ';', 6))) OR
+    (split_part(${bar_code_range}, ';', 7) <> '' AND split_part(${bar_code_range}, ';', 8) <> '' AND
+     LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+         split_part(${bar_code_range}, ';', 8))) OR
+    (split_part(${bar_code_range}, ';', 9) <> '' AND split_part(${bar_code_range}, ';', 10) <> ''
+     AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+        split_part(${bar_code_range}, ';', 10))))
+  AND
+  (nvl(mass :: FLOAT, 0) BETWEEN replace(${weight_from}, ',', '.') :: FLOAT * 1000 AND replace(${weight_to}, ',', '.') :: FLOAT * 1000) AND
+  (nvl(price :: FLOAT, 0) BETWEEN replace(${price_from}, ',', '.') :: FLOAT * 100 AND replace(${price_to}, ',', '.') :: FLOAT * 100) AND
+  (${way_type} = -1 OR (CASE WHEN ${way_type} = 0
+                              THEN FALSE
+                              ELSE TRUE
+                              END) = is_return)
+LIMIT ${limit};]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="way_type_dc" id="way_type_dc" type="sql">
+      <Name>way_type_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 'all', 'все' from dual
+
+union all
+select 'true', 'возвратные' from dual
+
+union all
+select 'false', 'прямые' from dual]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="place_type_dc" id="place_type_dc" type="sql">
+      <Name>place_type_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code, name from dicts.fps_type order by code]]></Query>
+   </DataAccess>
+</CDADescriptor>

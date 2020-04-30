@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="next_days_forecast_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="next_days_forecast_ds" id="next_days_forecast_ds"
+               type="sql">
+      <Name>next_days_forecast_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+  forecast_date as 'День составления прогноза', 
+  dim_fps.post_object as 'Объект',
+  index as 'Индекс', 
+  mt.name as 'Вид отправлений', 
+  prev_d7 as 'Факт: в День прогноза -6д',
+  prev_d6 as 'Факт: в День прогноза -5д',
+  prev_d5 as 'Факт: в День прогноза -4д',
+  prev_d4 as 'Факт: в День прогноза -3д',
+  prev_d3 as 'Факт: в День прогноза -2д',
+  prev_d2 as 'Факт: в День прогноза -1д',
+  prev_d1 as 'Факт: в День составления прогноза',
+  forecast_d1 as 'План: в День прогноза +1д', 
+  forecast_d2 as 'План: в День прогноза +2д', 
+  forecast_d3 as 'План: в День прогноза +3д', 
+  forecast_d4 as 'План: в День прогноза +4д', 
+  forecast_d5 as 'План: в День прогноза +5д', 
+  forecast_d6 as 'План: в День прогноза +6д', 
+  forecast_d7 as 'План: в День прогноза +7д'
+from tracking.next_days_forecast ndf
+left join dicts.dim_fps_structure dim_fps on ndf.index = dim_fps.post_object_index
+left join dicts.mail_type_groups mt on ndf.mail_type = mt.code
+where
+('' in (${fps}) or 'fps' in (${fps})
+        	or '[fps].[' || dim_fps.macroregion || ']' in (${fps})
+			or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || ']' in (${fps})
+			or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_object || ']' in (${fps}))
+and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mt.group || ']' in (${mail_type})
+			or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+order by index, mail_type]]></Query>
+   </DataAccess>
+</CDADescriptor>

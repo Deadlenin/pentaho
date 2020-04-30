@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="sla_statuses_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_statuses_summary_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_statuses_by_accepting_date_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_statuses_by_accepting_date_summary_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_statuses_rpo_list_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_statuses_rpo_list_by_accepting_date_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_arrival_day_distribution_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_arrival_day_distribution_rpo_list_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_arrival_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_delivery_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_balance_return_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_avg_arrival_term_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sla_arrival_in_specific_term_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="direct_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="place_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="population_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="sla_statuses_ds" id="sla_statuses_ds" type="sql">
+      <Name>sla_statuses_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  index_to_ufps_full "УФПС назначения",
+  index_to_macroregion_full "Макрорегион назначения",
+  index_to_type_name_full "Тип населенного пункта назначения",
+  index_from_ufps_full "УФПС приема",
+  index_from_macroregion_full "Макрорегион приема",
+  delivery_term "К/с",
+  total "Количество отправлений, принятых за период",
+  incorrect_accepting "Некорректный прием",
+  arrived_without_registration "Прибыло без сканирования",
+  arrived_in_ks "Доставка: В к/с",
+  in_way_in_time_left_last_sc "Доставка: Отправления в пути без опоздания: Покинуло последний СЦ",
+  in_way_in_time_on_highway "Доставка: Отправления в пути без опоздания: В пути на магистрали",
+  in_way_not_in_time_on_highway "Доставка: Отправления в пути с опозданием: В пути на магистрали",
+  in_way_not_in_time_on_highway_because_of_holiday "Доставка: Отпр. в пути с опозд.: В пути на магистрали из-за вых. в ОПС",
+  in_way_not_in_time_left_last_sc "Доставка: Отправления в пути с опозданием: Покинуло последний СЦ",
+  in_ops_not_in_time_delayed_in_ops "Доставка: Отправления в ОПС с опозданием: З-н в ОПС",
+  in_ops_not_in_time_delayed_on_highway "Доставка: Отправления в ОПС с опозданием: Задержан на магистрали",
+  in_ops_not_in_time_delayed_on_highway_because_of_holiday "Доставка: Отпр. в ОПС с опозд.: З-н на маг-ли. из-за вых. в ОПС",
+  delivery_within_7_days "Вручение: Вручено в течение 7 дней с момента доставки",
+  delivery_after_7_days "Вручение: Вручено дольше 7 дней с момента доставки",
+  delivery_without_arrival "Вручение: Вручено без статуса 'Прибыло в место вручения'",
+  delivery_total "Вручение: Итого вручено",
+  delivered_in_another_index "Из них вручено на другом индексе",
+  balance_not_delivered_within_7_days "Остатки: Прибыло в место вручения, не вручено в течение 7 дней",
+  balance_not_delivered_after_7_days "Остатки: Прибыло в место вручения, не вручено свыше 7 дней",
+  balance_not_delivered_total "Остатки: Итого ожидает вручения адресату",
+  return_correct "Возвраты: Корректные возвраты по параметру 'Истек срок хранения'",
+  return_incorrect "Возвраты: Некорректные возвраты по параметру 'Истек срок хранения'",
+  return_without_arrival "Возвраты: Возвращено без статуса 'Прибыло в место вручения'",
+  return_other "Возвраты: Прочие возвраты",
+  return_total "Возвраты: Итого возвратов",
+  return_delivered_to_sender "Возвраты: Вручено отправителю",
+  ratio_arrived_in_ks "% доставлено в к/с",
+  ratio_arrived_not_in_ks "% доставлено не в к/с",
+  ratio_in_way_in_time "% в пути без опоздания",
+  ratio_in_way_not_in_time "% в пути с опозданием",
+  ratio_arrival_not_in_time "% доставлено с опозданием",
+  ratio_delivery "% вручено",
+  ratio_balance_in_ops "% на остатках в ОПС",
+  ratio_return "% возвратов",
+  ratio_delivered_to_sender "% вручено отправителю",
+  ratio_error "% возможна ошибка",
+  arrival_day_perc "День доставки 95%"
+from (
+    select t.*,
+		floor(arrived_in_ks / total * 100) ratio_arrived_in_ks,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc + in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrived_not_in_ks,
+		floor((in_way_in_time_on_highway + in_way_in_time_left_last_sc) / total * 100) ratio_in_way_in_time,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc) / total * 100) ratio_in_way_not_in_time,
+		floor((in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrival_not_in_time,
+		floor(delivery_total / total * 100) ratio_delivery,
+		floor(balance_not_delivered_total / total * 100) ratio_balance_in_ops,
+		floor(return_total / total * 100) ratio_return,
+		floor(return_delivered_to_sender / total * 100) ratio_delivered_to_sender,
+		floor(has_error / total * 100) ratio_error
+	from (
+		select 
+			index_to_ufps_full,
+			index_to_macroregion_full,
+			index_to_type_name_full,
+			index_from_ufps_full,
+			index_from_macroregion_full,
+			delivery_term, 
+			count(*) total,
+			sum(CASE WHEN incorrect_accepting THEN 1 ELSE 0 END) incorrect_accepting,
+			sum(CASE WHEN arrived_without_registration THEN 1 ELSE 0 END) arrived_without_registration,
+			sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) arrived_in_ks,
+			sum(CASE WHEN in_way_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_in_time_left_last_sc,
+			sum(CASE WHEN in_way_in_time_on_highway THEN 1 ELSE 0 END) in_way_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway THEN 1 ELSE 0 END) in_way_not_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_way_not_in_time_on_highway_because_of_holiday,
+			sum(CASE WHEN in_way_not_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_not_in_time_left_last_sc,
+			sum(CASE WHEN in_ops_not_in_time_delayed_in_ops THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_in_ops,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway_because_of_holiday,
+			sum(CASE WHEN delivery_within_7_days THEN 1 ELSE 0 END) delivery_within_7_days,
+			sum(CASE WHEN delivery_after_7_days THEN 1 ELSE 0 END) delivery_after_7_days,
+			sum(CASE WHEN delivery_without_arrival THEN 1 ELSE 0 END) delivery_without_arrival,
+			sum(CASE WHEN delivery_without_arrival or delivery_within_7_days or delivery_after_7_days THEN 1 ELSE 0 END) delivery_total,
+			sum(CASE WHEN delivered_in_another_index THEN 1 ELSE 0 END) delivered_in_another_index,
+			sum(CASE WHEN balance_not_delivered_within_7_days THEN 1 ELSE 0 END) balance_not_delivered_within_7_days,
+			sum(CASE WHEN balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_after_7_days,
+			sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_total,
+			sum(CASE WHEN return_correct THEN 1 ELSE 0 END) return_correct,
+			sum(CASE WHEN return_incorrect THEN 1 ELSE 0 END) return_incorrect,
+			sum(CASE WHEN return_without_arrival THEN 1 ELSE 0 END) return_without_arrival,
+			sum(CASE WHEN return_other THEN 1 ELSE 0 END) return_other,
+			sum(CASE WHEN return_correct or return_incorrect or return_without_arrival or return_other THEN 1 ELSE 0 END) return_total,
+			sum(CASE WHEN return_delivered_to_sender THEN 1 ELSE 0 END) return_delivered_to_sender,
+			sum(CASE WHEN error THEN 1 ELSE 0 END) has_error,
+			CASE WHEN count(arrival_day) / count(*) >= 0.95 THEN floor(APPROXIMATE_PERCENTILE(arrival_day USING PARAMETERS percentile=0.95))::varchar ELSE 'Не достигнуто' END as arrival_day_perc
+		from tracking.sla sla
+		where
+    	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+		and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+		group by
+			index_to_ufps_full,
+			index_to_macroregion_full,
+			index_to_type_name_full, 
+			index_from_ufps_full,
+			index_from_macroregion_full,
+			delivery_term
+	) t
+	limit 100000
+) t2]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_statuses_summary_ds"
+               id="sla_statuses_summary_ds"
+               type="sql">
+      <Name>sla_statuses_summary_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  'Итого' As 'Итого',
+  total "Количество отправлений, принятых за период",
+  incorrect_accepting "Некорректный прием",
+  arrived_without_registration "Прибыло без сканирования",
+  arrived_in_ks "Доставка: В к/с",
+  in_way_in_time_left_last_sc "Доставка: Отправления в пути без опоздания: Покинуло последний СЦ",
+  in_way_in_time_on_highway "Доставка: Отправления в пути без опоздания: В пути на магистрали",
+  in_way_not_in_time_on_highway "Доставка: Отправления в пути с опозданием: В пути на магистрали",
+  in_way_not_in_time_on_highway_because_of_holiday "Доставка: Отпр. в пути с опозд.: В пути на магистрали из-за вых. в ОПС",
+  in_way_not_in_time_left_last_sc "Доставка: Отправления в пути с опозданием: Покинуло последний СЦ",
+  in_ops_not_in_time_delayed_in_ops "Доставка: Отправления в ОПС с опозданием: З-н в ОПС",
+  in_ops_not_in_time_delayed_on_highway "Доставка: Отправления в ОПС с опозданием: Задержан на магистрали",
+  in_ops_not_in_time_delayed_on_highway_because_of_holiday "Доставка: Отпр. в ОПС с опозд.: З-н на маг-ли. из-за вых. в ОПС",
+  delivery_within_7_days "Вручение: Вручено в течение 7 дней с момента доставки",
+  delivery_after_7_days "Вручение: Вручено дольше 7 дней с момента доставки",
+  delivery_without_arrival "Вручение: Вручено без статуса 'Прибыло в место вручения'",
+  delivery_total "Вручение: Итого вручено",
+  delivered_in_another_index "Из них вручено на другом индексе",
+  balance_not_delivered_within_7_days "Остатки: Прибыло в место вручения, не вручено в течение 7 дней",
+  balance_not_delivered_after_7_days "Остатки: Прибыло в место вручения, не вручено свыше 7 дней",
+  balance_not_delivered_total "Остатки: Итого ожидает вручения адресату",
+  return_correct "Возвраты: Корректные возвраты по параметру 'Истек срок хранения'",
+  return_incorrect "Возвраты: Некорректные возвраты по параметру 'Истек срок хранения'",
+  return_without_arrival "Возвраты: Возвращено без статуса 'Прибыло в место вручения'",
+  return_other "Возвраты: Прочие возвраты",
+  return_total "Возвраты: Итого возвратов",
+  return_delivered_to_sender "Возвраты: Вручено отправителю",
+  ratio_arrived_in_ks || '%' as "% доставлено в к/с",
+  ratio_arrived_not_in_ks || '%' as "% доставлено не в к/с",
+  ratio_in_way_in_time || '%' as "% в пути без опоздания",
+  ratio_in_way_not_in_time || '%' as "% в пути с опозданием",
+  ratio_arrival_not_in_time || '%' as "% доставлено с опозданием",
+  ratio_delivery || '%' as "% вручено",
+  ratio_balance_in_ops || '%' as "% на остатках в ОПС",
+  ratio_return || '%' as "% возвратов",
+  ratio_delivered_to_sender || '%' as "% вручено отправителю",
+  ratio_error || '%' as "% возможна ошибка",
+  arrival_day_perc "День доставки 95%"
+from (
+    select t.*,
+		floor(arrived_in_ks / total * 100) ratio_arrived_in_ks,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc + in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrived_not_in_ks,
+		floor((in_way_in_time_on_highway + in_way_in_time_left_last_sc) / total * 100) ratio_in_way_in_time,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc) / total * 100) ratio_in_way_not_in_time,
+		floor((in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrival_not_in_time,
+		floor(delivery_total / total * 100) ratio_delivery,
+		floor(balance_not_delivered_total / total * 100) ratio_balance_in_ops,
+		floor(return_total / total * 100) ratio_return,
+		floor(return_delivered_to_sender / total * 100) ratio_delivered_to_sender,
+		floor(has_error / total * 100) ratio_error
+	from (
+		select
+			NULLIFZERO(count(*)) total,
+			sum(CASE WHEN incorrect_accepting THEN 1 ELSE 0 END) incorrect_accepting,
+			sum(CASE WHEN arrived_without_registration THEN 1 ELSE 0 END) arrived_without_registration,
+			sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) arrived_in_ks,
+			sum(CASE WHEN in_way_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_in_time_left_last_sc,
+			sum(CASE WHEN in_way_in_time_on_highway THEN 1 ELSE 0 END) in_way_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway THEN 1 ELSE 0 END) in_way_not_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_way_not_in_time_on_highway_because_of_holiday,
+			sum(CASE WHEN in_way_not_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_not_in_time_left_last_sc,
+			sum(CASE WHEN in_ops_not_in_time_delayed_in_ops THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_in_ops,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway_because_of_holiday,
+			sum(CASE WHEN delivery_within_7_days THEN 1 ELSE 0 END) delivery_within_7_days,
+			sum(CASE WHEN delivery_after_7_days THEN 1 ELSE 0 END) delivery_after_7_days,
+			sum(CASE WHEN delivery_without_arrival THEN 1 ELSE 0 END) delivery_without_arrival,
+			sum(CASE WHEN delivery_without_arrival or delivery_within_7_days or delivery_after_7_days THEN 1 ELSE 0 END) delivery_total,
+			sum(CASE WHEN delivered_in_another_index THEN 1 ELSE 0 END) delivered_in_another_index,
+			sum(CASE WHEN balance_not_delivered_within_7_days THEN 1 ELSE 0 END) balance_not_delivered_within_7_days,
+			sum(CASE WHEN balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_after_7_days,
+			sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_total,
+			sum(CASE WHEN return_correct THEN 1 ELSE 0 END) return_correct,
+			sum(CASE WHEN return_incorrect THEN 1 ELSE 0 END) return_incorrect,
+			sum(CASE WHEN return_without_arrival THEN 1 ELSE 0 END) return_without_arrival,
+			sum(CASE WHEN return_other THEN 1 ELSE 0 END) return_other,
+			sum(CASE WHEN return_correct or return_incorrect or return_without_arrival or return_other THEN 1 ELSE 0 END) return_total,
+			sum(CASE WHEN return_delivered_to_sender THEN 1 ELSE 0 END) return_delivered_to_sender,
+			sum(CASE WHEN error THEN 1 ELSE 0 END) has_error,
+			CASE WHEN count(*) = 0 THEN NULL WHEN count(arrival_day) / count(*) >= 0.95 THEN floor(APPROXIMATE_PERCENTILE(arrival_day USING PARAMETERS percentile=0.95))::varchar ELSE 'Не достигнуто' END as arrival_day_perc
+		from tracking.sla sla
+		where
+    	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	) t
+) t2
+where total <> 0]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_statuses_by_accepting_date_ds"
+               id="sla_statuses_by_accepting_date_ds"
+               type="sql">
+      <Name>sla_statuses_by_accepting_date_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+ accepting_date_time "Дата",
+ index_to_ufps_full "УФПС назначения",
+ index_to_macroregion_full "Макрорегион назначения",
+ index_to_type_name_full "Тип населенного пункта назначения",
+ index_from_ufps_full "УФПС приема",
+ index_from_macroregion_full "Макрорегион приема",
+ delivery_term "К/с",
+ total "Количество отправлений, принятых за период",
+ incorrect_accepting "Некорректный прием",
+ arrived_without_registration "Прибыло без сканирования",
+ arrived_in_ks "Доставка: В к/с",
+ in_way_in_time_left_last_sc "Доставка: Отправления в пути без опоздания: Покинуло последний СЦ",
+ in_way_in_time_on_highway "Доставка: Отправления в пути без опоздания: В пути на магистрали",
+ in_way_not_in_time_on_highway "Доставка: Отправления в пути с опозданием: В пути на магистрали",
+ in_way_not_in_time_on_highway_because_of_holiday "Доставка: Отпр. в пути с опозд.: В пути на магистрали из-за вых. в ОПС",
+ in_way_not_in_time_left_last_sc "Доставка: Отправления в пути с опозданием: Покинуло последний СЦ",
+ in_ops_not_in_time_delayed_in_ops "Доставка: Отправления в ОПС с опозданием: Задержан в ОПС",
+ in_ops_not_in_time_delayed_on_highway "Доставка: Отправления в ОПС с опозданием: Задержан на магистрали",
+ in_ops_not_in_time_delayed_on_highway_because_of_holiday "Доставка: Отпр. в ОПС с опозд.: З-н на маг-ли. из-за вых. в ОПС",
+ delivery_within_7_days "Вручение: Вручено в течение 7 дней с момента доставки",
+ delivery_after_7_days "Вручение: Вручено дольше 7 дней с момента доставки",
+ delivery_without_arrival "Вручение: Вручено без статуса 'Прибыло в место вручения'",
+ delivery_total "Вручение: Итого вручено",
+ delivered_in_another_index "Из них вручено на другом индексе",
+ balance_not_delivered_within_7_days "Остатки: Прибыло в место вручения, не вручено в течение 7 дней",
+ balance_not_delivered_after_7_days "Остатки: Прибыло в место вручения, не вручено свыше 7 дней",
+ balance_not_delivered_total "Остатки: Итого ожидает вручения адресату",
+ return_correct "Возвраты: Корректные возвраты по параметру 'Истек срок хранения'",
+ return_incorrect "Возвраты: Некорректные возвраты по параметру 'Истек срок хранения'",
+ return_without_arrival "Возвраты: Возвращено без статуса 'Прибыло в место вручения'",
+ return_other "Возвраты: Прочие возвраты",
+ return_total "Возвраты: Итого возвратов",
+ return_delivered_to_sender "Возвраты: Вручено отправителю",
+ ratio_arrived_in_ks "% доставлено в к/с",
+ ratio_arrived_not_in_ks "% доставлено не в к/с",
+ ratio_in_way_in_time "% в пути без опоздания",
+ ratio_in_way_not_in_time "% в пути с опозданием",
+ ratio_arrival_not_in_time "% доставлено с опозданием",
+ ratio_delivery "% вручено",
+ ratio_balance_in_ops "% на остатках в ОПС",
+ ratio_return "% возвратов",
+ ratio_delivered_to_sender "% вручено отправителю",
+ ratio_error "% возможна ошибка",
+ arrival_day_perc "День доставки 95%"
+from (
+    select t.*,
+		floor(arrived_in_ks / total * 100) ratio_arrived_in_ks,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc + in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrived_not_in_ks,
+		floor((in_way_in_time_on_highway + in_way_in_time_left_last_sc) / total * 100) ratio_in_way_in_time,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc) / total * 100) ratio_in_way_not_in_time,
+		floor((in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrival_not_in_time,
+		floor(delivery_total / total * 100) ratio_delivery,
+		floor(balance_not_delivered_total / total * 100) ratio_balance_in_ops,
+		floor(return_total / total * 100) ratio_return,
+		floor(return_delivered_to_sender / total * 100) ratio_delivered_to_sender,
+    floor(has_error / total * 100) ratio_error
+	from (
+		select 
+			substr(accepting_date_time, 1, 10) accepting_date_time, 
+			index_to_ufps_full,
+			index_to_macroregion_full,
+			index_to_type_name_full,
+			index_from_ufps_full,
+			index_from_macroregion_full,
+			delivery_term, 
+			count(*) total,
+			sum(CASE WHEN incorrect_accepting THEN 1 ELSE 0 END) incorrect_accepting,
+			sum(CASE WHEN arrived_without_registration THEN 1 ELSE 0 END) arrived_without_registration,
+			sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) arrived_in_ks,
+			sum(CASE WHEN in_way_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_in_time_left_last_sc,
+			sum(CASE WHEN in_way_in_time_on_highway THEN 1 ELSE 0 END) in_way_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway THEN 1 ELSE 0 END) in_way_not_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_way_not_in_time_on_highway_because_of_holiday,
+			sum(CASE WHEN in_way_not_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_not_in_time_left_last_sc,
+			sum(CASE WHEN in_ops_not_in_time_delayed_in_ops THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_in_ops,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway_because_of_holiday,
+			sum(CASE WHEN delivery_within_7_days THEN 1 ELSE 0 END) delivery_within_7_days,
+			sum(CASE WHEN delivery_after_7_days THEN 1 ELSE 0 END) delivery_after_7_days,
+			sum(CASE WHEN delivery_without_arrival THEN 1 ELSE 0 END) delivery_without_arrival,
+			sum(CASE WHEN delivery_without_arrival or delivery_within_7_days or delivery_after_7_days THEN 1 ELSE 0 END) delivery_total,
+			sum(CASE WHEN delivered_in_another_index THEN 1 ELSE 0 END) delivered_in_another_index,
+			sum(CASE WHEN balance_not_delivered_within_7_days THEN 1 ELSE 0 END) balance_not_delivered_within_7_days,
+			sum(CASE WHEN balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_after_7_days,
+			sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_total,
+			sum(CASE WHEN return_correct THEN 1 ELSE 0 END) return_correct,
+			sum(CASE WHEN return_incorrect THEN 1 ELSE 0 END) return_incorrect,
+			sum(CASE WHEN return_without_arrival THEN 1 ELSE 0 END) return_without_arrival,
+			sum(CASE WHEN return_other THEN 1 ELSE 0 END) return_other,
+			sum(CASE WHEN return_correct or return_incorrect or return_without_arrival or return_other THEN 1 ELSE 0 END) return_total,
+			sum(CASE WHEN return_delivered_to_sender THEN 1 ELSE 0 END) return_delivered_to_sender,
+            sum(CASE WHEN error THEN 1 ELSE 0 END) has_error,
+			CASE WHEN count(arrival_day) / count(*) >= 0.95 THEN floor(APPROXIMATE_PERCENTILE(arrival_day USING PARAMETERS percentile=0.95))::varchar ELSE 'Не достигнуто' END as arrival_day_perc
+		from tracking.sla sla
+		where
+    	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+    	and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+		group by
+			index_to_ufps_full,
+			index_to_macroregion_full,
+			index_to_type_name_full,
+			index_from_ufps_full,
+			index_from_macroregion_full,
+			delivery_term,
+			substr(accepting_date_time, 1, 10)
+	) t
+	limit 100000
+) t2]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_statuses_by_accepting_date_summary_ds"
+               id="sla_statuses_by_accepting_date_summary_ds"
+               type="sql">
+      <Name>sla_statuses_by_accepting_date_summary_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+ 'Итого' As 'Итого',
+ total "Количество отправлений, принятых за период",
+ incorrect_accepting "Некорректный прием",
+ arrived_without_registration "Прибыло без сканирования",
+ arrived_in_ks "Доставка: В к/с",
+ in_way_in_time_left_last_sc "Доставка: Отправления в пути без опоздания: Покинуло последний СЦ",
+ in_way_in_time_on_highway "Доставка: Отправления в пути без опоздания: В пути на магистрали",
+ in_way_not_in_time_on_highway "Доставка: Отправления в пути с опозданием: В пути на магистрали",
+ in_way_not_in_time_on_highway_because_of_holiday "Доставка: Отпр. в пути с опозд.: В пути на магистрали из-за вых. в ОПС",
+ in_way_not_in_time_left_last_sc "Доставка: Отправления в пути с опозданием: Покинуло последний СЦ",
+ in_ops_not_in_time_delayed_in_ops "Доставка: Отправления в ОПС с опозданием: Задержан в ОПС",
+ in_ops_not_in_time_delayed_on_highway "Доставка: Отправления в ОПС с опозданием: Задержан на магистрали",
+ in_ops_not_in_time_delayed_on_highway_because_of_holiday "Доставка: Отпр. в ОПС с опозд.: З-н на маг-ли. из-за вых. в ОПС",
+ delivery_within_7_days "Вручение: Вручено в течение 7 дней с момента доставки",
+ delivery_after_7_days "Вручение: Вручено дольше 7 дней с момента доставки",
+ delivery_without_arrival "Вручение: Вручено без статуса 'Прибыло в место вручения'",
+ delivery_total "Вручение: Итого вручено",
+ delivered_in_another_index "Из них вручено на другом индексе",
+ balance_not_delivered_within_7_days "Остатки: Прибыло в место вручения, не вручено в течение 7 дней",
+ balance_not_delivered_after_7_days "Остатки: Прибыло в место вручения, не вручено свыше 7 дней",
+ balance_not_delivered_total "Остатки: Итого ожидает вручения адресату",
+ return_correct "Возвраты: Корректные возвраты по параметру 'Истек срок хранения'",
+ return_incorrect "Возвраты: Некорректные возвраты по параметру 'Истек срок хранения'",
+ return_without_arrival "Возвраты: Возвращено без статуса 'Прибыло в место вручения'",
+ return_other "Возвраты: Прочие возвраты",
+ return_total "Возвраты: Итого возвратов",
+ return_delivered_to_sender "Возвраты: Вручено отправителю",
+ ratio_arrived_in_ks || '%' as "% доставлено в к/с",
+ ratio_arrived_not_in_ks || '%' as "% доставлено не в к/с",
+ ratio_in_way_in_time || '%' as "% в пути без опоздания",
+ ratio_in_way_not_in_time || '%' as "% в пути с опозданием",
+ ratio_arrival_not_in_time || '%' as "% доставлено с опозданием",
+ ratio_delivery || '%' as "% вручено",
+ ratio_balance_in_ops || '%' as "% на остатках в ОПС",
+ ratio_return || '%' as "% возвратов",
+ ratio_delivered_to_sender || '%' as "% вручено отправителю",
+ ratio_error || '%' as "% возможна ошибка",
+ arrival_day_perc "День доставки 95%"
+from (
+    select t.*,
+		floor(arrived_in_ks / total * 100) ratio_arrived_in_ks,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc + in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrived_not_in_ks,
+		floor((in_way_in_time_on_highway + in_way_in_time_left_last_sc) / total * 100) ratio_in_way_in_time,
+		floor((in_way_not_in_time_on_highway + in_way_not_in_time_on_highway_because_of_holiday + in_way_not_in_time_left_last_sc) / total * 100) ratio_in_way_not_in_time,
+		floor((in_ops_not_in_time_delayed_in_ops + in_ops_not_in_time_delayed_on_highway + in_ops_not_in_time_delayed_on_highway_because_of_holiday) / total * 100) ratio_arrival_not_in_time,
+		floor(delivery_total / total * 100) ratio_delivery,
+		floor(balance_not_delivered_total / total * 100) ratio_balance_in_ops,
+		floor(return_total / total * 100) ratio_return,
+		floor(return_delivered_to_sender / total * 100) ratio_delivered_to_sender,
+    floor(has_error / total * 100) ratio_error
+	from (
+		select 
+			NULLIFZERO(count(*)) total,
+			sum(CASE WHEN incorrect_accepting THEN 1 ELSE 0 END) incorrect_accepting,
+			sum(CASE WHEN arrived_without_registration THEN 1 ELSE 0 END) arrived_without_registration,
+			sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) arrived_in_ks,
+			sum(CASE WHEN in_way_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_in_time_left_last_sc,
+			sum(CASE WHEN in_way_in_time_on_highway THEN 1 ELSE 0 END) in_way_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway THEN 1 ELSE 0 END) in_way_not_in_time_on_highway,
+			sum(CASE WHEN in_way_not_in_time_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_way_not_in_time_on_highway_because_of_holiday,
+			sum(CASE WHEN in_way_not_in_time_left_last_sc THEN 1 ELSE 0 END) in_way_not_in_time_left_last_sc,
+			sum(CASE WHEN in_ops_not_in_time_delayed_in_ops THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_in_ops,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway,
+			sum(CASE WHEN in_ops_not_in_time_delayed_on_highway_because_of_holiday THEN 1 ELSE 0 END) in_ops_not_in_time_delayed_on_highway_because_of_holiday,
+			sum(CASE WHEN delivery_within_7_days THEN 1 ELSE 0 END) delivery_within_7_days,
+			sum(CASE WHEN delivery_after_7_days THEN 1 ELSE 0 END) delivery_after_7_days,
+			sum(CASE WHEN delivery_without_arrival THEN 1 ELSE 0 END) delivery_without_arrival,
+			sum(CASE WHEN delivery_without_arrival or delivery_within_7_days or delivery_after_7_days THEN 1 ELSE 0 END) delivery_total,
+			sum(CASE WHEN delivered_in_another_index THEN 1 ELSE 0 END) delivered_in_another_index,
+			sum(CASE WHEN balance_not_delivered_within_7_days THEN 1 ELSE 0 END) balance_not_delivered_within_7_days,
+			sum(CASE WHEN balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_after_7_days,
+			sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_total,
+			sum(CASE WHEN return_correct THEN 1 ELSE 0 END) return_correct,
+			sum(CASE WHEN return_incorrect THEN 1 ELSE 0 END) return_incorrect,
+			sum(CASE WHEN return_without_arrival THEN 1 ELSE 0 END) return_without_arrival,
+			sum(CASE WHEN return_other THEN 1 ELSE 0 END) return_other,
+			sum(CASE WHEN return_correct or return_incorrect or return_without_arrival or return_other THEN 1 ELSE 0 END) return_total,
+			sum(CASE WHEN return_delivered_to_sender THEN 1 ELSE 0 END) return_delivered_to_sender,
+            sum(CASE WHEN error THEN 1 ELSE 0 END) has_error,
+			CASE WHEN count(*) = 0 THEN NULL WHEN count(arrival_day) / count(*) >= 0.95 THEN floor(APPROXIMATE_PERCENTILE(arrival_day USING PARAMETERS percentile=0.95))::varchar ELSE 'Не достигнуто' END as arrival_day_perc
+		from tracking.sla sla
+		where
+    	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	) t
+) t2
+where total <> 0]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_statuses_rpo_list_ds"
+               id="sla_statuses_rpo_list_ds"
+               type="sql">
+      <Name>sla_statuses_rpo_list_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="sla_statuses_rpo_list_column" name="sla_statuses_rpo_list_column"
+                    type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="delivery_term" name="delivery_term" type="String"/>
+         <Parameter default="rpo_list_macroregion" name="rpo_list_macroregion" type="String"/>
+         <Parameter default="index_from_ufps" name="index_from_ufps" type="String"/>
+         <Parameter default="index_from_macroregion" name="index_from_macroregion" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  bar_code "Номер ШПИ",
+  index_from "Индекс приема",
+  index_to "Изначальный индекс назначения",
+  accepting_date_time "Дата и время операции 'Прием'",
+  arrival_date_time "Дата и время операции 'Прибыло в место вручения'",
+  arrival_index "Индекс операции 'Прибыло в место вручения'",
+  delivery_date_time "Дата и время операции 'Вручение'",
+  deliv_attr.name "Атрибут операции 'Вручение'",
+  delivery_index "Индекс места вручения",
+  mail_type_name "Вид отправления",
+  mailctg.name "Категория отправления",
+  index_from_population_ctg_name "Категория населения места приема",
+  index_to_population_ctg_name "Категория населения места назначения",
+  mass/1000 "Вес отправления",
+  mass_rate/100 "Стоимость пересылки",
+  sla.value/100 "Объявленная ценность",
+  insr_rate/100 "Тариф на объявленную ценность",
+  forwarding_date_time "Дата операции 'Досыл'",
+  forwarding_attr "Атрибут операции 'Досыл'",
+  leave_last_sc_date_time "Дата и время операции 'Покинуло последний СЦ'",
+  return_date_time "Дата и время операции 'Возврат'",
+  ret_attr.name "Причина возврата",
+  sla.error "Возможно с ошибкой"
+from tracking.sla sla
+left join dicts.oper_type_attr deliv_attr on deliv_attr.oper_type = 2 and sla.delivery_attr = deliv_attr.oper_attr
+left join dicts.oper_type_attr ret_attr on ret_attr.oper_type = 3 and sla.return_attr = ret_attr.oper_attr
+left join dicts.mailctg on sla.mail_ctg = mailctg.code
+where
+    (index_to_ufps_full = ${rpo_list_ufps})
+	and (index_to_macroregion_full = ${rpo_list_macroregion})
+	and (index_to_type_name_full = ${rpo_list_index_to_type})
+	and (index_from_ufps_full = ${index_from_ufps})
+	and (index_from_macroregion_full = ${index_from_macroregion})
+	and (delivery_term = ${delivery_term})
+	and 
+        	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	and (${sla_statuses_rpo_list_column} <> 'incorrect_accepting' or incorrect_accepting)
+	and (${sla_statuses_rpo_list_column} <> 'arrived_without_registration' or arrived_without_registration)
+	and (${sla_statuses_rpo_list_column} <> 'arrived_in_ks' or arrived_in_ks)
+	and (${sla_statuses_rpo_list_column} <> 'in_way_in_time_left_last_sc' or in_way_in_time_left_last_sc)
+	and (${sla_statuses_rpo_list_column} <> 'in_way_in_time_on_highway' or in_way_in_time_on_highway)
+	and (${sla_statuses_rpo_list_column} <> 'in_way_not_in_time_on_highway' or in_way_not_in_time_on_highway)
+	and (${sla_statuses_rpo_list_column} <> 'in_way_not_in_time_on_highway_because_of_holiday' or in_way_not_in_time_on_highway_because_of_holiday)
+	and (${sla_statuses_rpo_list_column} <> 'in_way_not_in_time_left_last_sc' or in_way_not_in_time_left_last_sc)
+	and (${sla_statuses_rpo_list_column} <> 'in_ops_not_in_time_delayed_in_ops' or in_ops_not_in_time_delayed_in_ops)
+	and (${sla_statuses_rpo_list_column} <> 'in_ops_not_in_time_delayed_on_highway' or in_ops_not_in_time_delayed_on_highway)
+	and (${sla_statuses_rpo_list_column} <> 'in_ops_not_in_time_delayed_on_highway_because_of_holiday' or in_ops_not_in_time_delayed_on_highway_because_of_holiday)
+	and (${sla_statuses_rpo_list_column} <> 'delivery_within_7_days' or delivery_within_7_days)
+	and (${sla_statuses_rpo_list_column} <> 'delivery_after_7_days' or delivery_after_7_days)
+	and (${sla_statuses_rpo_list_column} <> 'delivery_without_arrival' or delivery_without_arrival)
+	and (${sla_statuses_rpo_list_column} <> 'delivery_total' or (delivery_without_arrival or delivery_within_7_days or delivery_after_7_days))
+	and (${sla_statuses_rpo_list_column} <> 'delivered_in_another_index' or delivered_in_another_index)
+	and (${sla_statuses_rpo_list_column} <> 'balance_not_delivered_within_7_days' or balance_not_delivered_within_7_days)
+	and (${sla_statuses_rpo_list_column} <> 'balance_not_delivered_after_7_days' or balance_not_delivered_after_7_days)
+	and (${sla_statuses_rpo_list_column} <> 'balance_not_delivered_total' or (balance_not_delivered_within_7_days or balance_not_delivered_after_7_days))
+	and (${sla_statuses_rpo_list_column} <> 'return_correct' or return_correct)
+	and (${sla_statuses_rpo_list_column} <> 'return_incorrect' or return_incorrect)
+	and (${sla_statuses_rpo_list_column} <> 'return_without_arrival' or return_without_arrival)
+	and (${sla_statuses_rpo_list_column} <> 'return_other' or return_other)
+	and (${sla_statuses_rpo_list_column} <> 'return_total' or (return_correct or return_incorrect or return_without_arrival or return_other))
+	and (${sla_statuses_rpo_list_column} <> 'return_delivered_to_sender' or return_delivered_to_sender)
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_statuses_rpo_list_by_accepting_date_ds"
+               id="sla_statuses_rpo_list_by_accepting_date_ds"
+               type="sql">
+      <Name>sla_statuses_rpo_list_by_accepting_date_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="sla_statuses_by_accepting_date_rpo_list_column"
+                    name="sla_statuses_by_accepting_date_rpo_list_column"
+                    type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="delivery_term" name="delivery_term" type="String"/>
+         <Parameter default="rpo_list_macroregion" name="rpo_list_macroregion" type="String"/>
+         <Parameter default="index_from_ufps" name="index_from_ufps" type="String"/>
+         <Parameter default="index_from_macroregion" name="index_from_macroregion" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  bar_code "Номер ШПИ",
+  index_from "Индекс приема",
+  index_to "Изначальный индекс назначения",
+  accepting_date_time "Дата и время операции 'Прием'",
+  arrival_date_time "Дата и время операции 'Прибыло в место вручения'",
+  arrival_index "Индекс операции 'Прибыло в место вручения'",
+  delivery_date_time "Дата и время операции 'Вручение'",
+  deliv_attr.name "Атрибут операции 'Вручение'",
+  delivery_index "Индекс места вручения",
+  mail_type_name "Вид отправления",
+  mailctg.name "Категория отправления",
+  index_from_population_ctg_name "Категория населения места приема",
+  index_to_population_ctg_name "Категория населения места назначения",
+  mass/1000 "Вес отправления",
+  mass_rate/100 "Стоимость пересылки",
+  sla.value/100 "Объявленная ценность",
+  insr_rate/100 "Тариф на объявленную ценность",
+  forwarding_date_time "Дата операции 'Досыл'",
+  forwarding_attr "Атрибут операции 'Досыл'",
+  leave_last_sc_date_time "Дата и время операции 'Покинуло последний СЦ'",
+  return_date_time "Дата и время операции 'Возврат'",
+  ret_attr.name "Причина возврата",
+  sla.error "Возможно с ошибкой"
+from tracking.sla sla
+left join dicts.oper_type_attr deliv_attr on deliv_attr.oper_type = 2 and sla.delivery_attr = deliv_attr.oper_attr
+left join dicts.oper_type_attr ret_attr on ret_attr.oper_type = 3 and sla.return_attr = ret_attr.oper_attr
+left join dicts.mailctg on sla.mail_ctg = mailctg.code
+where
+    (substr(accepting_date_time, 1, 10) = ${rpo_list_date})
+	and (index_to_ufps_full = ${rpo_list_ufps})
+	and (index_to_macroregion_full = ${rpo_list_macroregion})
+	and (index_to_type_name_full = ${rpo_list_index_to_type})
+	and (index_from_ufps_full = ${index_from_ufps})
+	and (index_from_macroregion_full = ${index_from_macroregion})
+	and (delivery_term = ${delivery_term})
+	and 
+        	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'incorrect_accepting' or incorrect_accepting)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'arrived_without_registration' or arrived_without_registration)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'arrived_in_ks' or arrived_in_ks)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_way_in_time_left_last_sc' or in_way_in_time_left_last_sc)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_way_in_time_on_highway' or in_way_in_time_on_highway)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_way_not_in_time_on_highway' or in_way_not_in_time_on_highway)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_way_not_in_time_on_highway_because_of_holiday' or in_way_not_in_time_on_highway_because_of_holiday)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_way_not_in_time_left_last_sc' or in_way_not_in_time_left_last_sc)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_ops_not_in_time_delayed_in_ops' or in_ops_not_in_time_delayed_in_ops)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_ops_not_in_time_delayed_on_highway' or in_ops_not_in_time_delayed_on_highway)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'in_ops_not_in_time_delayed_on_highway_because_of_holiday' or in_ops_not_in_time_delayed_on_highway_because_of_holiday)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'delivery_within_7_days' or delivery_within_7_days)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'delivery_after_7_days' or delivery_after_7_days)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'delivery_without_arrival' or delivery_without_arrival)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'delivery_total' or (delivery_without_arrival or delivery_within_7_days or delivery_after_7_days))
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'delivered_in_another_index' or delivered_in_another_index)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'balance_not_delivered_within_7_days' or balance_not_delivered_within_7_days)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'balance_not_delivered_after_7_days' or balance_not_delivered_after_7_days)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'balance_not_delivered_total' or (balance_not_delivered_within_7_days or balance_not_delivered_after_7_days))
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_correct' or return_correct)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_incorrect' or return_incorrect)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_without_arrival' or return_without_arrival)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_other' or return_other)
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_total' or (return_correct or return_incorrect or return_without_arrival or return_other))
+	and (${sla_statuses_by_accepting_date_rpo_list_column} <> 'return_delivered_to_sender' or return_delivered_to_sender)
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_arrival_day_distribution_ds"
+               id="sla_arrival_day_distribution_ds"
+               type="sql">
+      <Name>sla_arrival_day_distribution_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    index_to_ufps_full as "УФПС назначения",
+	index_to_type_name_full as "Тип населенного пункта назначения",
+    index_from_ufps_full "УФПС приема",
+    index_from_macroregion_full "Макрорегион приема",
+    substr(accepting_date_time, 1, 10) "Дата приема",
+    delivery_term "к/с",
+	floor(sum(CASE WHEN real_term <= 0 THEN 1 ELSE 0 END) / count(*) * 100) "0",
+	floor(sum(CASE WHEN real_term <= 1 THEN 1 ELSE 0 END) / count(*) * 100) "1",
+	floor(sum(CASE WHEN real_term <= 2 THEN 1 ELSE 0 END) / count(*) * 100) "2",
+	floor(sum(CASE WHEN real_term <= 3 THEN 1 ELSE 0 END) / count(*) * 100) "3",
+	floor(sum(CASE WHEN real_term <= 4 THEN 1 ELSE 0 END) / count(*) * 100) "4",
+	floor(sum(CASE WHEN real_term <= 5 THEN 1 ELSE 0 END) / count(*) * 100) "5",
+	floor(sum(CASE WHEN real_term <= 6 THEN 1 ELSE 0 END) / count(*) * 100) "6",
+	floor(sum(CASE WHEN real_term <= 7 THEN 1 ELSE 0 END) / count(*) * 100) "7",
+	floor(sum(CASE WHEN real_term <= 8 THEN 1 ELSE 0 END) / count(*) * 100) "8",
+	floor(sum(CASE WHEN real_term <= 9 THEN 1 ELSE 0 END) / count(*) * 100) "9",
+	floor(sum(CASE WHEN real_term <= 10 THEN 1 ELSE 0 END) / count(*) * 100) "10",
+	floor(sum(CASE WHEN real_term <= 11 THEN 1 ELSE 0 END) / count(*) * 100) "11",
+	floor(sum(CASE WHEN real_term <= 12 THEN 1 ELSE 0 END) / count(*) * 100) "12",
+	floor(sum(CASE WHEN real_term <= 13 THEN 1 ELSE 0 END) / count(*) * 100) "13",
+	floor(sum(CASE WHEN real_term <= 14 THEN 1 ELSE 0 END) / count(*) * 100) "14",
+	floor(sum(CASE WHEN real_term <= 15 THEN 1 ELSE 0 END) / count(*) * 100) "15",
+	floor(sum(CASE WHEN real_term <= 16 THEN 1 ELSE 0 END) / count(*) * 100) "16",
+	floor(sum(CASE WHEN real_term <= 17 THEN 1 ELSE 0 END) / count(*) * 100) "17",
+	floor(sum(CASE WHEN real_term <= 18 THEN 1 ELSE 0 END) / count(*) * 100) "18",
+	floor(sum(CASE WHEN real_term <= 19 THEN 1 ELSE 0 END) / count(*) * 100) "19",
+	floor(sum(CASE WHEN real_term <= 20 THEN 1 ELSE 0 END) / count(*) * 100) "20",
+	floor(sum(CASE WHEN real_term <= 21 THEN 1 ELSE 0 END) / count(*) * 100) "21",
+	floor(sum(CASE WHEN real_term <= 22 THEN 1 ELSE 0 END) / count(*) * 100) "22",
+	floor(sum(CASE WHEN real_term <= 23 THEN 1 ELSE 0 END) / count(*) * 100) "23",
+	floor(sum(CASE WHEN real_term <= 24 THEN 1 ELSE 0 END) / count(*) * 100) "24",
+	floor(sum(CASE WHEN real_term <= 25 THEN 1 ELSE 0 END) / count(*) * 100) "25",
+	floor(sum(CASE WHEN real_term <= 26 THEN 1 ELSE 0 END) / count(*) * 100) "26",
+	floor(sum(CASE WHEN real_term <= 27 THEN 1 ELSE 0 END) / count(*) * 100) "27",
+	floor(sum(CASE WHEN real_term <= 28 THEN 1 ELSE 0 END) / count(*) * 100) "28",
+	floor(sum(CASE WHEN real_term <= 29 THEN 1 ELSE 0 END) / count(*) * 100) "29",
+	floor(sum(CASE WHEN real_term <= 30 THEN 1 ELSE 0 END) / count(*) * 100) "30",
+	floor(sum(CASE WHEN real_term is not null THEN 1 ELSE 0 END) / count(*) * 100) ">30",
+	sum(CASE WHEN has_ops_in_index_to and arrival_date_time is null THEN 1 ELSE 0 END) "Прибыло без оформления",
+	sum(CASE WHEN has_ops_in_index_to is null or NOT has_ops_in_index_to THEN 1 ELSE 0 END) "В пути",
+	count(*) "Итого"
+from tracking.sla
+where
+    	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+group by
+	index_to_ufps_full,
+	index_to_macroregion_full,
+	index_to_type_name_full,
+	index_from_ufps_full,
+	index_from_macroregion_full,
+	delivery_term,
+	substr(accepting_date_time, 1, 10)
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_arrival_day_distribution_rpo_list_ds"
+               id="sla_arrival_day_distribution_rpo_list_ds"
+               type="sql">
+      <Name>sla_arrival_day_distribution_rpo_list_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="sla_arrival_day_distribution_rpo_list_column"
+                    name="sla_arrival_day_distribution_rpo_list_column"
+                    type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="delivery_term" name="delivery_term" type="String"/>
+         <Parameter default="index_from_ufps" name="index_from_ufps" type="String"/>
+         <Parameter default="index_from_macroregion" name="index_from_macroregion" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  bar_code "Номер ШПИ",
+  index_from "Индекс приема",
+  index_to "Изначальный индекс назначения",
+  accepting_date_time "Дата и время операции 'Прием'",
+  arrival_date_time "Дата и время операции 'Прибыло в место вручения'",
+  arrival_index "Индекс операции 'Прибыло в место вручения'",
+  delivery_date_time "Дата и время операции 'Вручение'",
+  deliv_attr.name "Атрибут операции 'Вручение'",
+  delivery_index "Индекс места вручения",
+  mail_type_name "Вид отправления",
+  mailctg.name "Категория отправления",
+  index_from_population_ctg_name "Категория населения места приема",
+  index_to_population_ctg_name "Категория населения места назначения",
+  mass/1000 "Вес отправления",
+  mass_rate/100 "Стоимость пересылки",
+  sla.value/100 "Объявленная ценность",
+  insr_rate/100 "Тариф на объявленную ценность",
+  forwarding_date_time "Дата операции 'Досыл'",
+  forwarding_attr "Атрибут операции 'Досыл'",
+  leave_last_sc_date_time "Дата и время операции 'Покинуло последний СЦ'",
+  return_date_time "Дата и время операции 'Возврат'",
+  ret_attr.name "Причина возврата"
+from tracking.sla sla
+left join dicts.oper_type_attr deliv_attr on deliv_attr.oper_type = 2 and sla.delivery_attr = deliv_attr.oper_attr
+left join dicts.oper_type_attr ret_attr on ret_attr.oper_type = 3 and sla.return_attr = ret_attr.oper_attr
+left join dicts.mailctg on sla.mail_ctg = mailctg.code
+where
+    (substr(accepting_date_time, 1, 10) = ${rpo_list_date})
+	and (index_to_ufps_full = ${rpo_list_ufps})
+	and (index_to_type_name_full = ${rpo_list_index_to_type})
+	and (index_from_ufps_full = ${index_from_ufps})
+	and (index_from_macroregion_full = ${index_from_macroregion})
+	and (delivery_term = ${delivery_term})
+	and 
+        	(${accepting_date_from} = '' or cast(${accepting_date_from} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) >= ${accepting_date_from}) and (${accepting_date_to} = '' or cast(${accepting_date_to} as varchar) is null or SUBSTRING(accepting_date_time, 1, 10) <= ${accepting_date_to})
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+    and (${sla_arrival_day_distribution_rpo_list_column} <> 'arrival_without_registration' or (has_ops_in_index_to and arrival_date_time is null))
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'on_way' or (has_ops_in_index_to is null or NOT has_ops_in_index_to))
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio0' or real_term <= 0)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio1' or real_term <= 1)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio2' or real_term <= 2)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio3' or real_term <= 3)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio4' or real_term <= 4)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio5' or real_term <= 5)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio6' or real_term <= 6)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio7' or real_term <= 7)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio8' or real_term <= 8)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio9' or real_term <= 9)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio10' or real_term <= 10)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio11' or real_term <= 11)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio12' or real_term <= 12)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio13' or real_term <= 13)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio14' or real_term <= 14)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio15' or real_term <= 15)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio16' or real_term <= 16)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio17' or real_term <= 17)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio18' or real_term <= 18)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio19' or real_term <= 19)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio20' or real_term <= 20)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio21' or real_term <= 21)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio22' or real_term <= 22)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio23' or real_term <= 23)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio24' or real_term <= 24)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio25' or real_term <= 25)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio26' or real_term <= 26)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio27' or real_term <= 27)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio28' or real_term <= 28)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio29' or real_term <= 29)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio30' or real_term <= 30)
+	and (${sla_arrival_day_distribution_rpo_list_column} <> 'ratio_delivered' or real_term is not null)
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_arrival_chart_ds" id="sla_arrival_chart_ds"
+               type="sql">
+      <Name>sla_arrival_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="num_weeks" name="num_weeks" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') as week,
+    sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) as 'В к/с',
+	sum(CASE WHEN in_way_in_time_left_last_sc THEN 1 ELSE 0 END) as 'В пути без опоздания - Покинуло последний СЦ',
+	sum(CASE WHEN in_way_in_time_on_highway THEN 1 ELSE 0 END) as 'В пути без опоздания - В пути на магистрали',
+	sum(CASE WHEN in_way_not_in_time_on_highway or in_way_not_in_time_on_highway_because_of_holiday THEN 1 ELSE 0 END) as 'В пути с опозданием - В пути на магистрали',
+	sum(CASE WHEN in_way_not_in_time_left_last_sc THEN 1 ELSE 0 END) as 'В пути с опозданием - Покинуло последний СЦ',
+	sum(CASE WHEN in_ops_not_in_time_delayed_in_ops THEN 1 ELSE 0 END) as 'Доставленные с опозданием - Задержан в ОПС',
+	sum(CASE WHEN in_ops_not_in_time_delayed_on_highway or in_ops_not_in_time_delayed_on_highway_because_of_holiday THEN 1 ELSE 0 END) as 'Доставленные с опозданием - Задержан на Магистрали'
+from tracking.sla sla
+where
+	TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+group by TO_CHAR(accepting_date_time::datetime, 'YYYY,IW')
+order by week]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_delivery_chart_ds" id="sla_delivery_chart_ds"
+               type="sql">
+      <Name>sla_delivery_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="num_weeks" name="num_weeks" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select week,
+    floor(delivery_total / total * 100) as '% вручено',
+	floor(balance_not_delivered_total / total * 100) as '% на остатках в ОПС',
+	floor(return_total / total * 100) as '% возвратов',
+	-floor(arrived_in_ks / total * 100) as '% доставлено в к/с'
+from (
+	select TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') as week,
+        count(*) total,
+		sum(CASE WHEN arrived_in_ks THEN 1 ELSE 0 END) arrived_in_ks,
+		sum(CASE WHEN delivery_without_arrival or delivery_within_7_days or delivery_after_7_days THEN 1 ELSE 0 END) delivery_total,
+		sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) balance_not_delivered_total,
+		sum(CASE WHEN return_correct or return_incorrect or return_without_arrival or return_other THEN 1 ELSE 0 END) return_total
+	from tracking.sla sla
+	where
+		TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	group by TO_CHAR(accepting_date_time::datetime, 'YYYY,IW')
+) t
+order by week]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_balance_return_chart_ds"
+               id="sla_balance_return_chart_ds"
+               type="sql">
+      <Name>sla_balance_return_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="num_weeks" name="num_weeks" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') as week,
+    -sum(CASE WHEN balance_not_delivered_within_7_days or balance_not_delivered_after_7_days THEN 1 ELSE 0 END) as 'Остатки',
+	sum(CASE WHEN return_correct THEN 1 ELSE 0 END) as 'Корректные возвраты по параметру ''Истек срок хранения''',
+	sum(CASE WHEN return_incorrect THEN 1 ELSE 0 END) as 'Некорректные возвраты по параметру ''Истек срок хранения''',
+	sum(CASE WHEN return_without_arrival THEN 1 ELSE 0 END) as 'Возвращено без статуса ''Прибыло в место вручения''',
+	sum(CASE WHEN return_other THEN 1 ELSE 0 END) as 'Прочие возвраты'
+from tracking.sla sla
+where
+	TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+group by TO_CHAR(accepting_date_time::datetime, 'YYYY,IW')
+order by week]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_avg_arrival_term_chart_ds"
+               id="sla_avg_arrival_term_chart_ds"
+               type="sql">
+      <Name>sla_avg_arrival_term_chart_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="num_weeks" name="num_weeks" type="String"/>
+         <Parameter default="sla_avg_arrival_term_chart_percentile"
+                    name="sla_avg_arrival_term_chart_percentile"
+                    type="Numeric"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    week,
+	avg(CASE WHEN real_term <= perc_t.perc THEN real_term ELSE null END) as 'Ср. взв. срок доставки'
+from tracking.sla sla
+inner join (
+	select
+		TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') as week,
+		APPROXIMATE_PERCENTILE(real_term USING PARAMETERS percentile=(95/100)) perc
+	from tracking.sla
+	where
+			accepting_date_time is not null and arrival_date_time is not null
+			and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+			and accepting_date_time < arrival_date_time
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+	group by TO_CHAR(accepting_date_time::datetime, 'YYYY,IW')
+) perc_t on TO_CHAR(sla.accepting_date_time::datetime, 'YYYY,IW') = perc_t.week
+where
+	accepting_date_time is not null and arrival_date_time is not null
+	and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+	and accepting_date_time < arrival_date_time
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+group by week
+order by week]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sla_arrival_in_specific_term_chart_ds"
+               id="sla_arrival_in_specific_term_chart_ds"
+               type="sql">
+      <Name>sla_arrival_in_specific_term_chart_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="accepting_date_from" name="accepting_date_from" type="String"/>
+         <Parameter default="accepting_date_to" name="accepting_date_to" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="kpp" name="kpp" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="arrival_date_from" name="arrival_date_from" type="String"/>
+         <Parameter default="arrival_date_to" name="arrival_date_to" type="String"/>
+         <Parameter default="return_date_from" name="return_date_from" type="String"/>
+         <Parameter default="return_date_to" name="return_date_to" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="index_to_type" name="index_to_type" type="String"/>
+         <Parameter default="direction" name="direction" type="String"/>
+         <Parameter default="start_clock" name="start_clock" type="String"/>
+         <Parameter default="stop_clock" name="stop_clock" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="rpo_list_date" name="rpo_list_date" type="String"/>
+         <Parameter default="rpo_list_ufps" name="rpo_list_ufps" type="String"/>
+         <Parameter default="rpo_list_index_to_type" name="rpo_list_index_to_type" type="String"/>
+         <Parameter default="index_from_like" name="index_from_like" type="String"/>
+         <Parameter default="index_from_range" name="index_from_range" type="String"/>
+         <Parameter default="num_weeks" name="num_weeks" type="String"/>
+         <Parameter default="sla_arrival_in_specific_term" name="sla_arrival_in_specific_term"
+                    type="Numeric"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="population_ctg_from" name="population_ctg_from" type="String"/>
+         <Parameter default="population_ctg_to" name="population_ctg_to" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select week,
+    sum(CASE WHEN real_term = ${sla_arrival_in_specific_term} THEN 1 ELSE 0 END) / count(*) * 100 as fraction_in_specific_term
+from (
+	select TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') as week, real_term
+	from tracking.sla sla
+	where
+		accepting_date_time is not null and arrival_date_time is not null
+		and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') >= TO_CHAR(NOW() - (${num_weeks} * 7), 'YYYY,IW') and TO_CHAR(accepting_date_time::datetime, 'YYYY,IW') < TO_CHAR(NOW(), 'YYYY,IW')
+		and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+			or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+			or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+			or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+			or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+			or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+			or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+			or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+			or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+			or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+			or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+		and ((${index_from_like} || ${index_from_range}) = '' or (cast(${index_from_like} as varchar) is null and cast(${index_from_range} as varchar) is null)
+			or (split_part(${index_from_like}, ';', 1) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 1)))
+			or (split_part(${index_from_like}, ';', 2) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 2)))
+			or (split_part(${index_from_like}, ';', 3) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 3)))
+			or (split_part(${index_from_like}, ';', 4) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 4)))
+			or (split_part(${index_from_like}, ';', 5) <> '' and LOWER(index_from) like LOWER(split_part(${index_from_like}, ';', 5)))
+			or (split_part(${index_from_range}, ';', 1) <> '' and split_part(${index_from_range}, ';', 2) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 1)) and LOWER(split_part(${index_from_range}, ';', 2)))
+			or (split_part(${index_from_range}, ';', 3) <> '' and split_part(${index_from_range}, ';', 4) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 3)) and LOWER(split_part(${index_from_range}, ';', 4)))
+			or (split_part(${index_from_range}, ';', 5) <> '' and split_part(${index_from_range}, ';', 6) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 5)) and LOWER(split_part(${index_from_range}, ';', 6)))
+			or (split_part(${index_from_range}, ';', 7) <> '' and split_part(${index_from_range}, ';', 8) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 7)) and LOWER(split_part(${index_from_range}, ';', 8)))
+			or (split_part(${index_from_range}, ';', 9) <> '' and split_part(${index_from_range}, ';', 10) <> '' and LOWER(index_from) between LOWER(split_part(${index_from_range}, ';', 9)) and LOWER(split_part(${index_from_range}, ';', 10))))
+		and (${inn} = '' or cast(${inn} as varchar) is null or LOWER(inn) LIKE LOWER(${inn}))
+		and (${kpp} = '' or cast(${kpp} as varchar) is null or LOWER(kpp) LIKE LOWER(${kpp}))
+		and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || ']' in (${mail_type})
+			or '[mail_type].[' || mail_type_group || '].[' || mail_type_name || ']' in (${mail_type}))
+		and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR mail_ctg::VARCHAR in (${mail_ctg}))
+		and (${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) >= ${delivery_date_from}) and (${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or SUBSTRING(delivery_date_time, 1, 10) <= ${delivery_date_to})
+		and (${arrival_date_from} = '' or cast(${arrival_date_from} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) >= ${arrival_date_from}) and (${arrival_date_to} = '' or cast(${arrival_date_to} as varchar) is null or SUBSTRING(arrival_date_time, 1, 10) <= ${arrival_date_to})
+		and (${return_date_from} = '' or cast(${return_date_from} as varchar) is null or SUBSTRING(return_date_time, 1, 10) >= ${return_date_from}) and (${return_date_to} = '' or cast(${return_date_to} as varchar) is null or SUBSTRING(return_date_time, 1, 10) <= ${return_date_to})
+		and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR direct_ctg::VARCHAR in (${direct_ctg}))
+		and ('' in (${population_ctg_to}) OR 'population_ctg_to' in (${population_ctg_to}) OR index_to_population_ctg_id::VARCHAR in (${population_ctg_to}))
+    	and ('' in (${population_ctg_from}) OR 'population_ctg_from' in (${population_ctg_from}) OR index_from_population_ctg_id::VARCHAR in (${population_ctg_from}))
+        and ('' in (${fps_from}) or 'fps_from' in (${fps_from})
+    		or '[fps].[' || index_from_macroregion || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || ']' in (${fps_from})
+			or '[fps].[' || index_from_macroregion || '].[' || index_from_ufps || '].[' || index_from_post_object || ']' in (${fps_from}))
+        and ('' in (${fps_to}) or 'fps_to' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || ']' in (${fps_to})
+			or '[fps].[' || index_to_macroregion || '].[' || index_to_ufps || '].[' || index_to_post_object || ']' in (${fps_to}))
+		and ('' in (${index_to_type}) OR 'index_to_type' in (${index_to_type}) OR index_to_type::VARCHAR in (${index_to_type}))
+		and ('' in (${direction}) OR 'direction' in (${direction}) OR ('Прямые' in (${direction}) and return_date_time is null) OR ('Возвратные' in (${direction}) and return_date_time is not null))
+) t
+group by week
+order by week]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_type_ds" id="mail_type_ds" type="sql">
+      <Name>mail_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.mailtype
+where code not in (10, 11)]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_ctg_ds" id="mail_ctg_ds" type="sql">
+      <Name>mail_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.mailctg]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="direct_ctg_ds" id="direct_ctg_ds" type="sql">
+      <Name>direct_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.direct_ctg]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="place_type_ds" id="place_type_ds" type="sql">
+      <Name>place_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.place_type]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="population_ctg_ds" id="population_ctg_ds"
+               type="sql">
+      <Name>population_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT id "value", name FROM dicts.population_category]]></Query>
+   </DataAccess>
+</CDADescriptor>

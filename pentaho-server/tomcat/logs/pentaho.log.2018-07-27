@@ -1,0 +1,3 @@
+2018-07-27 13:48:37,220 ERROR [pt.webdetails.cda.CdaUtils] pt.webdetails.cda.exporter.ExporterException: Unknown exception during csv query 
+2018-07-27 13:48:50,468 ERROR [pt.webdetails.cda.CdaUtils] pt.webdetails.cda.exporter.ExporterException: Unknown exception during csv query 
+2018-07-27 13:49:05,217 ERROR [pt.webdetails.cda.CdaUtils] pt.webdetails.cda.exporter.ExporterException: Unknown exception during csv query 

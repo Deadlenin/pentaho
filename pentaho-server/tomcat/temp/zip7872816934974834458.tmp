@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="03-08-2018 12:35:41 MSK" exportBy="admin" rootFolder="/home/reports/" manifestVersion="2"/>
+    <ExportManifestEntity path="sla">
+        <ExportManifestProperty>
+            <EntityMetaData name="sla" createdDate="2017-11-01T13:40:05.865+03:00" isFolder="true" path="sla" isHidden="false" isSchedulable="false" locale="en_US" title="sla"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="sla/Отчет по SLA для посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cda" createdDate="2018-04-05T12:20:51.917+03:00" isFolder="false" path="sla/Отчет по SLA для посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="sla/Отчет по SLA для посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.cdfde" createdDate="2018-04-05T12:20:59.484+03:00" isFolder="false" path="sla/Отчет по SLA для посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="sla/Отчет по SLA для посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Отчет по SLA для посылочной почты.wcdf" createdDate="2018-04-05T12:21:10.872+03:00" isFolder="false" path="sla/Отчет по SLA для посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Отчет по SLA для посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

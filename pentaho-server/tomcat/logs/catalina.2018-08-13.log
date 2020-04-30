@@ -1,0 +1,375 @@
+13-Aug-2018 15:09:45.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+13-Aug-2018 15:09:45.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+13-Aug-2018 15:09:45.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+13-Aug-2018 15:09:45.826 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+13-Aug-2018 15:09:45.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.1
+13-Aug-2018 15:09:45.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+13-Aug-2018 15:09:45.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_161\jre
+13-Aug-2018 15:09:45.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_161-b12
+13-Aug-2018 15:09:45.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+13-Aug-2018 15:09:45.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+13-Aug-2018 15:09:45.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+13-Aug-2018 15:09:45.830 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+13-Aug-2018 15:09:45.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Aug-2018 15:09:45.833 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+13-Aug-2018 15:09:45.834 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+13-Aug-2018 15:09:45.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+13-Aug-2018 15:09:45.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+13-Aug-2018 15:09:45.837 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+13-Aug-2018 15:09:45.838 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+13-Aug-2018 15:09:45.840 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+13-Aug-2018 15:09:45.841 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+13-Aug-2018 15:09:45.842 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+13-Aug-2018 15:09:45.844 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+13-Aug-2018 15:09:45.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+13-Aug-2018 15:09:45.848 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+13-Aug-2018 15:09:45.850 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+13-Aug-2018 15:09:45.851 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+13-Aug-2018 15:09:46.860 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+13-Aug-2018 15:09:47.541 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+13-Aug-2018 15:09:47.576 SEVERE [main] org.apache.coyote.AbstractProtocol.init Failed to initialize end point associated with ProtocolHandler ["http-apr-8080"]
+ java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+
+13-Aug-2018 15:09:47.585 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[HTTP/1.1-8080]]
+ org.apache.catalina.LifecycleException: Failed to initialize component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:962)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	... 13 more
+
+13-Aug-2018 15:09:47.594 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+13-Aug-2018 15:09:47.600 SEVERE [main] org.apache.coyote.AbstractProtocol.init Failed to initialize end point associated with ProtocolHandler ["ajp-apr-8009"]
+ java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+
+13-Aug-2018 15:09:47.610 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[AJP/1.3-8009]]
+ org.apache.catalina.LifecycleException: Failed to initialize component [Connector[AJP/1.3-8009]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:962)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	... 13 more
+
+13-Aug-2018 15:09:47.620 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2496 ms
+13-Aug-2018 15:09:47.679 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+13-Aug-2018 15:09:47.680 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+13-Aug-2018 15:09:47.697 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+13-Aug-2018 15:09:47.825 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+13-Aug-2018 15:10:41.417 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13-Aug-2018 15:10:48.365 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+13-Aug-2018 15:10:48.367 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+13-Aug-2018 15:10:49.184 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [jackrabbit-pool-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+13-Aug-2018 15:10:49.194 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.195 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.195 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.196 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.196 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.197 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.197 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.198 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.198 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.199 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+13-Aug-2018 15:10:49.201 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.defineAnonymousClass(Native Method)
+ java.lang.invoke.InvokerBytecodeGenerator.loadAndInitializeInvokerClass(InvokerBytecodeGenerator.java:284)
+ java.lang.invoke.InvokerBytecodeGenerator.loadMethod(InvokerBytecodeGenerator.java:276)
+ java.lang.invoke.InvokerBytecodeGenerator.generateCustomizedCode(InvokerBytecodeGenerator.java:618)
+ java.lang.invoke.LambdaForm.compileToBytecode(LambdaForm.java:654)
+ java.lang.invoke.LambdaForm.prepare(LambdaForm.java:635)
+ java.lang.invoke.MethodHandle.<init>(MethodHandle.java:461)
+ java.lang.invoke.DelegatingMethodHandle.<init>(DelegatingMethodHandle.java:44)
+ java.lang.invoke.MethodHandleImpl$IntrinsicMethodHandle.<init>(MethodHandleImpl.java:1331)
+ java.lang.invoke.MethodHandleImpl.makeIntrinsic(MethodHandleImpl.java:1373)
+ java.lang.invoke.MethodHandleImpl.makeArrays(MethodHandleImpl.java:1429)
+ java.lang.invoke.MethodHandleImpl.access$000(MethodHandleImpl.java:49)
+ java.lang.invoke.MethodHandleImpl$Lazy.<clinit>(MethodHandleImpl.java:610)
+ java.lang.invoke.MethodHandleImpl.varargsArray(MethodHandleImpl.java:1506)
+ java.lang.invoke.MethodHandleImpl.varargsArray(MethodHandleImpl.java:1623)
+ java.lang.invoke.MethodHandle.asCollector(MethodHandle.java:999)
+ java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(MethodHandleImpl.java:460)
+ java.lang.invoke.MethodHandleImpl$AsVarargsCollector.<init>(MethodHandleImpl.java:454)
+ java.lang.invoke.MethodHandleImpl.makeVarargsCollector(MethodHandleImpl.java:445)
+ java.lang.invoke.MethodHandle.setVarargs(MethodHandle.java:1325)
+ java.lang.invoke.MethodHandles$Lookup.getDirectMethodCommon(MethodHandles.java:1670)
+ java.lang.invoke.MethodHandles$Lookup.getDirectMethod(MethodHandles.java:1605)
+ java.lang.invoke.MethodHandles$Lookup.findStatic(MethodHandles.java:781)
+ java.lang.invoke.CallSite.<clinit>(CallSite.java:226)
+ java.lang.invoke.MethodHandleNatives.linkCallSiteImpl(MethodHandleNatives.java:307)
+ java.lang.invoke.MethodHandleNatives.linkCallSite(MethodHandleNatives.java:297)
+ sun.net.www.protocol.http.HttpURLConnection.getNetProperty(HttpURLConnection.java:214)
+ sun.net.www.protocol.http.HttpURLConnection.<clinit>(HttpURLConnection.java:246)
+ sun.net.www.protocol.http.Handler.openConnection(Handler.java:62)
+ sun.net.www.protocol.http.Handler.openConnection(Handler.java:57)
+ java.net.URL.openConnection(URL.java:979)
+ org.quartz.utils.UpdateChecker.getUpdateProperties(UpdateChecker.java:99)
+ org.quartz.utils.UpdateChecker.doCheck(UpdateChecker.java:58)
+ org.quartz.utils.UpdateChecker.checkForUpdate(UpdateChecker.java:48)
+ org.quartz.utils.UpdateChecker.run(UpdateChecker.java:39)
+ java.util.TimerThread.mainLoop(Timer.java:555)
+ java.util.TimerThread.run(Timer.java:505)
+13-Aug-2018 15:10:49.228 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 61,532 ms
+13-Aug-2018 15:10:49.229 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+13-Aug-2018 15:10:52.157 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 2,928 ms
+13-Aug-2018 15:10:52.157 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+13-Aug-2018 15:10:54.749 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 2,592 ms
+13-Aug-2018 15:10:54.749 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+13-Aug-2018 15:10:57.243 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Alex\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 2,493 ms
+13-Aug-2018 15:10:57.248 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 69627 ms
+13-Aug-2018 15:10:57.250 SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]: 
+ java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:438)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:717)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:663)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:351)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:485)
+
+13-Aug-2018 15:10:57.251 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+13-Aug-2018 15:10:57.252 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+13-Aug-2018 15:10:57.252 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+13-Aug-2018 15:10:57.278 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+13-Aug-2018 15:10:57.278 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+13-Aug-2018 15:10:57.285 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+13-Aug-2018 15:10:57.288 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+13-Aug-2018 15:26:12.480 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cda.api, of type pt.webdetails.cda.CdaUtils as a root resource class
+13-Aug-2018 15:26:12.494 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, CdaCacheMonitor, of type pt.webdetails.cda.cache.endpoints.CacheMonitorEndpoint as a root resource class
+13-Aug-2018 15:26:12.495 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, CdaCacheScheduler, of type pt.webdetails.cda.cache.endpoints.CacheControllerEndpoint as a root resource class
+13-Aug-2018 15:26:12.506 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:14.223 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cda.CdaUtils.unwrapQuery(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws javax.ws.rs.WebApplicationException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cda.CdaUtils.getCdaList(java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.lang.Exception, MUST return a non-void type.
+13-Aug-2018 15:26:14.227 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, pt.webdetails.cgg.CggService#0, of type pt.webdetails.cgg.CggService as a root resource class
+13-Aug-2018 15:26:14.228 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:14.621 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cgg.CggService.draw(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+13-Aug-2018 15:26:14.626 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, datasources, of type pt.webdetails.cdf.dd.api.DatasourcesApi as a root resource class
+13-Aug-2018 15:26:14.626 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, wcdf.editor, of type pt.webdetails.cdf.dd.api.EditorApi as a root resource class
+13-Aug-2018 15:26:14.627 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, olap, of type pt.webdetails.cpf.olap.OlapApi as a root resource class
+13-Aug-2018 15:26:14.627 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, plugins, of type pt.webdetails.cdf.dd.api.PluginsApi as a root resource class
+13-Aug-2018 15:26:14.627 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, renderer, of type pt.webdetails.cdf.dd.api.RenderApi as a root resource class
+13-Aug-2018 15:26:14.628 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, resourcesapi, of type pt.webdetails.cdf.dd.api.ResourcesApi as a root resource class
+13-Aug-2018 15:26:14.628 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, syncronizer, of type pt.webdetails.cdf.dd.api.SyncronizerApi as a root resource class
+13-Aug-2018 15:26:14.641 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, version, of type pt.webdetails.cdf.dd.api.VersionApi as a root resource class
+13-Aug-2018 15:26:14.642 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:14.986 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getCubes(javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getCubeStructure(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getLevelMembersStructure(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getPaginatedLevelMembers(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,long,long,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getResource(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.res(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.resource(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getCssResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getJsResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getUntypedResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getImage(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.SyncronizerApi.syncStyles(javax.servlet.http.HttpServletResponse) throws java.io.IOException,pt.webdetails.cdf.dd.DashboardDesignerException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.VersionApi.checkVersion(javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+13-Aug-2018 15:26:14.998 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, com.pentaho.di.revision.RevisionResource#0, of type com.pentaho.di.revision.RevisionResource as a root resource class
+13-Aug-2018 15:26:14.998 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, com.pentaho.di.purge.PurgeResource#0, of type com.pentaho.di.purge.PurgeResource as a root resource class
+13-Aug-2018 15:26:14.999 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:15.495 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PlatformStagingDatabaseResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PlatformStagingDatabaseResource as a root resource class
+13-Aug-2018 15:26:15.496 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatasourceResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatasourceResource as a root resource class
+13-Aug-2018 15:26:15.496 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.AnalysisDatasourceService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.AnalysisDatasourceService as a root resource class
+13-Aug-2018 15:26:15.496 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.MetadataDatasourceService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.MetadataDatasourceService as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.ConnectionService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.ConnectionService as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.DataSourceWizardResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.DataSourceWizardResource as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.AnalysisResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.AnalysisResource as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.MetadataResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.MetadataResource as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource as a root resource class
+13-Aug-2018 15:26:15.497 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseDialectService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseDialectService as a root resource class
+13-Aug-2018 15:26:15.498 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PentahoJAXBContextResolver#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PentahoJAXBContextResolver as a provider class
+13-Aug-2018 15:26:15.498 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DataAccessPermissionResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DataAccessPermissionResource as a root resource class
+13-Aug-2018 15:26:15.498 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionReaderWriter as a provider class
+13-Aug-2018 15:26:15.498 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionListReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionListReaderWriter as a provider class
+13-Aug-2018 15:26:15.498 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypeReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypeReaderWriter as a provider class
+13-Aug-2018 15:26:15.499 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypesListReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypesListReaderWriter as a provider class
+13-Aug-2018 15:26:15.499 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, xml-metadataServiceDA/org.pentaho.platform.dataaccess.metadata.service.MetadataService, of type org.pentaho.platform.dataaccess.metadata.service.MetadataService as a root resource class
+13-Aug-2018 15:26:15.500 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, gwt-metadataServiceDA/org.pentaho.platform.dataaccess.metadata.service.MetadataService, of type org.pentaho.platform.dataaccess.metadata.service.MetadataService as a root resource class
+13-Aug-2018 15:26:15.501 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:17.016 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A sub-resource method, public org.pentaho.platform.web.http.api.resources.JaxbList org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource.getConnectionIDs(), with URI template, "/", is treated as a resource method
+13-Aug-2018 15:26:17.019 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, sparkl.api, of type pt.webdetails.cpk.CpkApi as a root resource class
+13-Aug-2018 15:26:17.019 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:17.367 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.status(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.version(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.reload(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.refreshGet(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.getSitemapJson(javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.elementsList(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.reloadPluginsGet() throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.genericEndpointGet(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.clearKettleResultsCache(), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.listDataAccessTypes(javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.defaultElement(javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, storage, of type org.pentaho.cdf.storage.StorageApi as a root resource class
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, context, of type org.pentaho.cdf.context.ContextApi as a root resource class
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, comments, of type org.pentaho.cdf.comments.CommentsApi as a root resource class
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, settings, of type org.pentaho.cdf.settings.SettingsApi as a root resource class
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cdfResources, of type org.pentaho.cdf.ResourcesApi as a root resource class
+13-Aug-2018 15:26:17.371 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cdfApi, of type org.pentaho.cdf.CdfApi as a root resource class
+13-Aug-2018 15:26:17.372 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:17.630 WARNING [http-apr-8080-exec-10] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.context.ContextApi.getConfig(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.add(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.delete(int,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.list(java.lang.String,int,int,boolean,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.archive(int,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.settings.SettingsApi.get(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.clearCache(javax.servlet.http.HttpServletResponse), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.export(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getCdfEmbeddedContext(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.callAction(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getJSONSolution(java.lang.String,java.lang.String,java.lang.String,int,boolean,java.lang.String,javax.servlet.http.HttpServletResponse) throws org.pentaho.cdf.InvalidCdfOperationException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.doGetViewAction(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+13-Aug-2018 15:26:17.634 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.reporting.platform.plugin.JobManager#0, of type org.pentaho.reporting.platform.plugin.JobManager as a root resource class
+13-Aug-2018 15:26:17.634 INFO [http-apr-8080-exec-10] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.reporting.platform.plugin.CacheManagerEndpoint#0, of type org.pentaho.reporting.platform.plugin.CacheManagerEndpoint as a root resource class
+13-Aug-2018 15:26:17.635 INFO [http-apr-8080-exec-10] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:22.153 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-unifiedRepository-unifiedRepositoryPort
+13-Aug-2018 15:26:23.170 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-repositorySync-repositorySyncPort
+13-Aug-2018 15:26:23.437 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-datasourceMgmtService-datasourceMgmtServicePort
+13-Aug-2018 15:26:23.844 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-userRoleService-userRoleServicePort
+13-Aug-2018 15:26:24.026 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-userRoleListService-userRoleListServicePort
+13-Aug-2018 15:26:24.110 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-authorizationPolicy-authorizationPolicyPort
+13-Aug-2018 15:26:24.253 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-roleBindingDao-roleBindingDaoPort
+13-Aug-2018 15:26:24.538 INFO [http-apr-8080-exec-8] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-Scheduler-SchedulerPort
+13-Aug-2018 15:26:24.731 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.JAXBContextResolver#0, of type org.pentaho.platform.web.http.api.resources.JAXBContextResolver as a provider class
+13-Aug-2018 15:26:24.733 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RootResource#0, of type org.pentaho.platform.web.http.api.resources.RootResource as a root resource class
+13-Aug-2018 15:26:24.733 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.DirectoryResource#0, of type org.pentaho.platform.web.http.api.resources.DirectoryResource as a root resource class
+13-Aug-2018 15:26:24.733 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserRoleDaoResource#0, of type org.pentaho.platform.web.http.api.resources.UserRoleDaoResource as a root resource class
+13-Aug-2018 15:26:24.733 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserRoleListResource#0, of type org.pentaho.platform.web.http.api.resources.UserRoleListResource as a root resource class
+13-Aug-2018 15:26:24.734 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.FileResource#0, of type org.pentaho.platform.web.http.api.resources.FileResource as a root resource class
+13-Aug-2018 15:26:24.735 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.EmailResource#0, of type org.pentaho.platform.web.http.api.resources.EmailResource as a root resource class
+13-Aug-2018 15:26:24.736 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SessionResource#0, of type org.pentaho.platform.web.http.api.resources.SessionResource as a root resource class
+13-Aug-2018 15:26:24.736 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SchedulerResource#0, of type org.pentaho.platform.web.http.api.resources.SchedulerResource as a root resource class
+13-Aug-2018 15:26:24.737 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryResource as a root resource class
+13-Aug-2018 15:26:24.739 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryImportResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryImportResource as a root resource class
+13-Aug-2018 15:26:24.740 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PluginResource#0, of type org.pentaho.platform.web.http.api.resources.PluginResource as a root resource class
+13-Aug-2018 15:26:24.740 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PluginManagerResource#0, of type org.pentaho.platform.web.http.api.resources.PluginManagerResource as a root resource class
+13-Aug-2018 15:26:24.740 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemPermissionsResource#0, of type org.pentaho.platform.web.http.api.resources.SystemPermissionsResource as a root resource class
+13-Aug-2018 15:26:24.748 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemUsersResource#0, of type org.pentaho.platform.web.http.api.resources.SystemUsersResource as a root resource class
+13-Aug-2018 15:26:24.748 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemRolesResource#0, of type org.pentaho.platform.web.http.api.resources.SystemRolesResource as a root resource class
+13-Aug-2018 15:26:24.749 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemResource#0, of type org.pentaho.platform.web.http.api.resources.SystemResource as a root resource class
+13-Aug-2018 15:26:24.749 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider#0, of type org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider as a provider class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.ThemeResource#0, of type org.pentaho.platform.web.http.api.resources.ThemeResource as a root resource class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemRefreshResource#0, of type org.pentaho.platform.web.http.api.resources.SystemRefreshResource as a root resource class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.VersionResource#0, of type org.pentaho.platform.web.http.api.resources.VersionResource as a root resource class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserConsoleResource#0, of type org.pentaho.platform.web.http.api.resources.UserConsoleResource as a root resource class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserSettingsResource#0, of type org.pentaho.platform.web.http.api.resources.UserSettingsResource as a root resource class
+13-Aug-2018 15:26:24.750 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryPublishResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryPublishResource as a root resource class
+13-Aug-2018 15:26:24.751 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.AuthorizationActionResource#0, of type org.pentaho.platform.web.http.api.resources.AuthorizationActionResource as a root resource class
+13-Aug-2018 15:26:24.751 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PasswordResource#0, of type org.pentaho.platform.web.http.api.resources.PasswordResource as a root resource class
+13-Aug-2018 15:26:24.751 INFO [http-apr-8080-exec-8] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.ServiceResource#0, of type org.pentaho.platform.web.http.api.resources.ServiceResource as a root resource class
+13-Aug-2018 15:26:24.751 INFO [http-apr-8080-exec-8] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+13-Aug-2018 15:26:25.291 WARNING [http-apr-8080-exec-8] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public javax.ws.rs.core.Response org.pentaho.platform.web.http.api.resources.EmailResource.deleteEmailConfig(org.pentaho.platform.plugin.services.email.EmailConfiguration), should not consume any entity.

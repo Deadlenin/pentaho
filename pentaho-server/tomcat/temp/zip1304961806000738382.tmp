@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="sorba_rpo_fact_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="sorba_rpo_fact_details_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="last_update_date_report" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="sorba_rpo_fact_ds" id="sorba_rpo_fact_ds"
+               type="sql">
+      <Name>sorba_rpo_fact_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select 
+    coalesce(dim_fps.object_border_index::varchar, '-') as "Объект",
+    b.last_index_oper as "Цех объекта",
+    coalesce(dim_fps.post_object_no_index, '-') as "Наименование цеха объекта",
+    sum(CASE WHEN days_before between 1 and 2 THEN 1 ELSE 0 END) as "1-2 дней до сортировки",
+    sum(CASE WHEN days_before = 3 THEN 1 ELSE 0 END) as "2-3 дней до сортировки",
+    sum(CASE WHEN days_before >= 4 THEN 1 ELSE 0 END) as "4+ дней до сортировки",
+    sum(CASE WHEN days_sorting between 1 and 2 THEN 1 ELSE 0 END) as "1-2 дней на сортировке",
+    sum(CASE WHEN days_sorting = 3 THEN 1 ELSE 0 END) as "2-3 дней на сортировке",	
+	sum(CASE WHEN days_sorting >= 4 THEN 1 ELSE 0 END) as "4+ дней на сортировке",
+	sum(CASE WHEN days_after between 1 and 2 THEN 1 ELSE 0 END) as "1-2 дней после сортировки",
+	sum(CASE WHEN days_after = 3 THEN 1 ELSE 0 END) as "2-3 дней после сортировки",
+	sum(CASE WHEN days_after >= 4 THEN 1 ELSE 0 END) as "4+ дней после сортировки"
+from sorting_balances_preprod.sorba_rpo_fact b
+left join dicts.dim_fps_structure dim_fps      on b.last_index_oper = dim_fps.post_object_index
+left join dicts.dim_fps_structure dim_fps_to   on b.index_to        = dim_fps_to.post_object_index
+left join dicts.dim_fps_structure dim_fps_from on b.index_from      = dim_fps_from.post_object_index
+left join dicts.mailctg mc on b.mail_ctg = mc.code
+left join dicts.mail_type_groups mtg on b.mail_type = mtg.code
+where
+    (IFNULL('fps' IN (${fps}), true) OR IFNULL('' IN (${fps}), true)
+		or '[fps].[' || dim_fps.macroregion || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_office || ']' in (${fps})
+		or '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_office || '].[' || dim_fps.object_border_index || ' ' || dim_fps.object_border || ']' in (${fps}))
+    and (IFNULL('fps_from' IN (${fps_from}), true) OR IFNULL('' IN (${fps_from}), true)
+		or '[fps].[' || dim_fps_from.macroregion || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || '].[' || dim_fps_from.post_office || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || '].[' || dim_fps_from.post_office || '].[' || dim_fps_from.object_border_index || ' ' || dim_fps_from.object_border  || ']' in (${fps_from}))
+    and (IFNULL('fps_to' IN (${fps_to}), true) OR IFNULL('' IN (${fps_to}), true)
+		or '[fps].[' || dim_fps_to.macroregion || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || '].[' || dim_fps_to.post_office || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || '].[' || dim_fps_to.post_office || '].[' || dim_fps_to.object_border_index || ' ' || dim_fps_to.object_border  || ']' in (${fps_to}))
+	and (IFNULL('mail_type' in (${mail_type}), true) OR IFNULL('' IN (${mail_type}), true)
+	    OR '[mail_type].[' || mtg.group || ']' in (${mail_type})
+	    OR '[mail_type].[' || mtg.group || '].[' || mtg.name || ']' in (${mail_type}))
+	and (IFNULL('mail_ctg' in (${mail_ctg}), true) OR IFNULL('' IN (${mail_ctg}), true)
+	    OR '[mail_ctg].[' || mc.name || ']' in (${mail_ctg}))
+    AND CASE 
+        WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+        WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+        ELSE TRUE END
+group by dim_fps.object_border_index, b.last_index_oper, dim_fps.post_object_no_index]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="sorba_rpo_fact_details_ds"
+               id="sorba_rpo_fact_details_ds"
+               type="sql">
+      <Name>sorba_rpo_fact_details_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="last_index_oper" name="last_index_oper" type="String"/>
+         <Parameter default="rpo_list_days_column" name="rpo_list_days_column" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    bar_code as "ШИ РПО",
+    coalesce(mtg.name, '-') as "Вид РПО",
+    coalesce(mc.name, '-') as "Категория РПО",
+    coalesce(dim_fps_from.object_border_index::varchar, '-') as "Индекс откуда",
+    coalesce(country_from.name_ru, '-') as "Страна откуда",
+    coalesce(case when b.country_from='643' then dim_fps_from.macroregion else null end, '-') as "Макрорегион откуда",
+    coalesce(case when b.country_from='643' then dim_fps_from.ufps else null end, '-') as "Филиал откуда",
+    coalesce(dim_fps_to.object_border_index::varchar, '-') as "Индекс куда",
+    coalesce(country_to.name_ru, '-') as "Страна куда",
+    coalesce(case when b.country_to='643' then dim_fps_to.macroregion else null end, '-') as "Макрорегион куда",
+	coalesce(case when b.country_to='643' then dim_fps_to.ufps else null end, '-') as "Филиал куда",
+	coalesce(last_msk_oper_date_time, '-') as "Дата и время последней операции",
+	coalesce(last_ot.name || '-' || last_ot_oa.name, last_ot.name, '-') as "Последняя операция",
+	coalesce(mass::varchar, '-') as "Вес РПО"
+from sorting_balances_preprod.sorba_rpo_fact b
+left join dicts.mail_type_groups mtg on b.mail_type = mtg.code
+left join dicts.mailctg mc on b.mail_ctg = mc.code
+left join dicts.countries_full country_from on b.country_from = country_from.code
+left join dicts.countries_full country_to on b.country_to = country_to.code
+left join dicts.oper_type_attr last_ot_oa on b.last_oper_type = last_ot_oa.oper_type and b.last_oper_attr = last_ot_oa.oper_attr
+left join dicts.oper_type last_ot on b.last_oper_type = last_ot.code
+left join dicts.dim_fps_structure dim_fps_from on b.index_from = dim_fps_from.post_object_index
+left join dicts.dim_fps_structure dim_fps_to on b.index_to = dim_fps_to.post_object_index
+where
+	b.last_index_oper = ${last_index_oper}
+	and (${rpo_list_days_column} <> 'days_before_1_2' or days_before between 1 and 2)
+	and (${rpo_list_days_column} <> 'days_before_2_3' or days_before = 3)
+	and (${rpo_list_days_column} <> 'days_before_4plus' or days_before >= 4 )
+	and (${rpo_list_days_column} <> 'days_sorting_1_2' or days_sorting between 1 and 2)
+	and (${rpo_list_days_column} <> 'days_sorting_2_3' or days_sorting = 3)
+	and (${rpo_list_days_column} <> 'days_sorting_4plus' or days_sorting >= 4)
+	and (${rpo_list_days_column} <> 'days_after_1_2' or days_after between 1 and 2)
+	and (${rpo_list_days_column} <> 'days_after_2_3' or days_after = 3)
+	and (${rpo_list_days_column} <> 'days_after_4plus' or days_after >= 4)
+	and (IFNULL('fps_from' IN (${fps_from}), true) OR IFNULL('' IN (${fps_from}), true)
+		or '[fps].[' || dim_fps_from.macroregion || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || '].[' || dim_fps_from.post_office || ']' in (${fps_from})
+		or '[fps].[' || dim_fps_from.macroregion || '].[' || dim_fps_from.ufps || '].[' || dim_fps_from.post_office || '].[' || dim_fps_from.object_border_index || ' ' || dim_fps_from.object_border || ']' in (${fps_from}))
+	and (IFNULL('fps_to' IN (${fps_to}), true) OR IFNULL('' IN (${fps_to}), true)
+		or '[fps].[' || dim_fps_to.macroregion || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || '].[' || dim_fps_to.post_office || ']' in (${fps_to})
+		or '[fps].[' || dim_fps_to.macroregion || '].[' || dim_fps_to.ufps || '].[' || dim_fps_to.post_office || '].[' || dim_fps_to.object_border_index || ' ' || dim_fps_to.object_border || ']' in (${fps_to}))
+	and (IFNULL('mail_type' in (${mail_type}), true) OR IFNULL('' IN (${mail_type}), true)
+	    OR '[mail_type].[' || mtg.group || ']' in (${mail_type})
+	    OR '[mail_type].[' || mtg.group || '].[' || mtg.name || ']' in (${mail_type}))
+	and (IFNULL('mail_ctg' in (${mail_ctg}), true) OR IFNULL('' IN (${mail_ctg}), true)
+	    OR '[mail_ctg].[' || mc.name || ']' in (${mail_ctg}))
+    AND CASE 
+        WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+        WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+        ELSE TRUE END]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="last_update_date_report"
+               id="last_update_date_report"
+               type="sql">
+      <Name>last_update_date_report</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT max(build_date)
+FROM sorting_balances_preprod.sorba_report_dates;]]></Query>
+   </DataAccess>
+</CDADescriptor>

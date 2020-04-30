@@ -1,0 +1,3 @@
+2018-09-13 13:33:34,982 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/return_level_report_mond_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@44dc78c1
+2018-09-13 13:33:34,991 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2018-09-13 16:24:39,650 ERROR [org.pentaho.platform.dataaccess.datasource.wizard.service.impl.AnalysisDatasourceService] Error putMondrianSchema MondrianCatalogHelper.ERROR_0004 - already exists status = 8

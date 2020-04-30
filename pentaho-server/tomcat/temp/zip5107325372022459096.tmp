@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="exec_interval_fps_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="exec_interval_ops_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="exec_interval_barcode_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="exec_interval_weeks" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="exec_interval_created_at" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="exec_interval_fps_dc" id="exec_interval_fps_dc"
+               type="sql">
+      <Name>exec_interval_fps_dc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  fps_to.macroregion as 'Макрорегион места вручения',
+  fps_to.ufps as 'УФПС места вручения',
+  case
+  when mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7')
+    then 'Посылка'
+  else 'Письмо'
+  end as 'Тип бизнеса (письмо/посылка)',
+  sum(case when sorting = 1 then 1 else 0 end) as 'Итого покинуло СЦ',
+  sum(case when ls_after_arrival = 1 then 1 else 0 end) as 'Выход из СЦ после обработки в ОПС',
+  sum(case when arrived_in_time = 1 then 1 else 0 end) as 'Обработано вовремя (СО)',
+  sum(case when arrived_not_in_time = 1 then 1 else 0 end) as 'Обработано не вовремя (Не СО)',
+  sum(case when arrived_0 = 1 then 1 else 0 end) as 'Не обработано в ОПС до 24 часов',
+  sum(case when arrived_1 = 1 then 1 else 0 end) as 'Не обработано в ОПС от 24 до 72 часов',
+  sum(case when arrived_4 = 1 then 1 else 0 end) as 'Не обработано в ОПС от 4 до 7 дней',
+  sum(case when arrived_7 = 1 then 1 else 0 end) as 'Не обработано в ОПС свыше 7 дней',
+  sum(case when not_sorting = 1 then 1 else 0 end) as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  sum(case when arrived_not_in_time = 1 then 1 else 0 end
+      + case when arrived_0 = 1 then 1 else 0 end
+      + case when arrived_1 = 1 then 1 else 0 end
+      + case when arrived_4 = 1 then 1 else 0 end
+      + case when arrived_7 = 1 then 1 else 0 end
+      + case when not_sorting = 1 then 1 else 0 end
+  ) as 'Не обработано в срок',
+  round(
+      sum(case when arrived_in_time = 1 then 1 else 0 end) * 100 / 
+      nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+      sum(case when arrived_not_in_time = 1 then 1 else 0 end) * 100 / 
+      nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+      sum(case when not_sorting = 1 then 1 else 0 end) *100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+      sum(case when arrived_0 = 1 then 1 else 0 end
+          + case when arrived_1 = 1 then 1 else 0 end
+          + case when arrived_4 = 1 then 1 else 0 end
+          + case when arrived_7 = 1 then 1 else 0 end
+      ) *100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+      sum(case when arrived_not_in_time = 1 then 1 else 0 end
+          + case when arrived_0 = 1 then 1 else 0 end
+          + case when arrived_1 = 1 then 1 else 0 end
+          + case when arrived_4 = 1 then 1 else 0 end
+          + case when arrived_7 = 1 then 1 else 0 end
+      ) *100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  case 
+    when report_period = 'W' then 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(week_iso(to_date(report_date, 'yyyy-mm-dd')))) 
+    else 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(to_date(report_date, 'yyyy-mm-dd'), 'mon')) 
+  end as 'Год/Календарная неделя(месяц) выхода из СЦ'
+from ( 
+    select * from tracking.exec_interval_fact 
+    where report_period = ${reportPeriod}
+    union all 
+    select * from tracking.exec_interval_fact_daily 
+    where report_period = ${reportPeriod}
+  ) ex
+  join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_to on ex.ops_to_code = fps_to.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_from on ex.ops_from_code = fps_from.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailtype mt on ex.mail_type_code = mt.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailctg mc on ex.mail_ctg_code = mc.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.place_type ot on ex.ops_to_type_code = ot.code
+where (
+	'' in (${mail_type}) or 'mail_type' in (${mail_type}) or '[Type].[' || mt.name || ']' in (${mail_type})
+  )
+  and (
+	'' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or '[Category].[' || mc.name || ']' in (${mail_ctg})
+  )
+  and (
+	'' in(${fps_from})
+	or 'fps_from' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || ']' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' in (${fps_from})
+  )
+  and (
+	'' in(${fps_to})
+	or 'fps_to' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || ']' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || ']' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || '].[' || fps_to.post_object || ']' in (${fps_to})
+  )
+  and (
+    ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) >= ${ls_date_from}
+  )
+  and (
+    ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) <= ${ls_date_to}
+  )
+  and (
+    ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) >= ${adp_date_from}
+  )
+  and (
+    ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) <= ${adp_date_to}
+  )
+  and (
+    ${get_date_from} = '' or cast(${get_date_from} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) >= ${get_date_from}
+  )
+  and (
+    ${get_date_to} = '' or cast(${get_date_to} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) <= ${get_date_to}
+  )
+  and (
+    ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) >= ${delivery_date_from}
+  )
+  and (
+    ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) <= ${delivery_date_to}
+  )
+  and (
+    ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) >= ${ret_date_from}
+  )
+  and (
+    ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) <= ${ret_date_to}
+  )
+  and report_date=${current_week}
+  and (
+	${rpo_status} = ''
+	or cast(${rpo_status} as varchar) is null
+	or (${rpo_status} = '1' and arrived_in_time = 1)
+	or (${rpo_status} = '2' and arrived_not_in_time = 1)
+	or (${rpo_status} = '3' and arrived_0 = 1)
+	or (${rpo_status} = '4' and arrived_1 = 1)
+	or (${rpo_status} = '5' and arrived_4 = 1)
+	or (${rpo_status} = '6' and arrived_7 = 1)
+	or (${rpo_status} = '7' and not_sorting = 1)
+	or (${rpo_status} = '8' and (arrived_not_in_time = 1 or arrived_0 = 1 or arrived_1 = 1 or arrived_4 = 1 or arrived_7 = 1 or not_sorting = 1))
+	or (${rpo_status} = '9' and ls_after_arrival = 1)
+  )
+  and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+	   or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+	   or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+	   or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+	   or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+	   or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+	   or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+	   or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+	   or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+	   or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+	   or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+  and (
+	${business_type} = ''
+	or cast(${business_type} as varchar) is null
+	or (${business_type} = '1' and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+	or (${business_type} = '2' and mail_type_code not in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+  )
+  and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7', '2', '3', '15', '16', '8', '9', '6', '19', '22', '26', '11', '32', '33', '20')
+  and not(mail_type_code = 5 and regexp_like(trim(bar_code), '^Z[A-Z]\d{9}[A-Z][A-Z]$', 'i'))
+group by
+  report_date,
+  created_at,
+  report_period,
+  case
+    when mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7')
+    then 'Посылка'
+    else 'Письмо'
+  end,
+  fps_to.macroregion,
+  fps_to.ufps_index,
+  fps_to.ufps
+-- order by 4 desc -- order by 'Игото покинуло СЦ']]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="exec_interval_ops_dc" id="exec_interval_ops_dc"
+               type="sql">
+      <Name>exec_interval_ops_dc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ufps" name="ufps" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="data_limit" name="data_limit" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  fps_to.macroregion as 'Макрорегион места вручения',
+  fps_to.ufps as 'УФПС места вручения',
+  fps_to.post_office as 'Почтамт',
+  fps_to.post_object_index as 'Индекс места вручения',
+  fps_to.post_object as 'Наименование места вручения',
+  case
+  when mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7')
+    then 'Посылка'
+  else 'Письмо'
+  end as 'Тип бизнеса (письмо/посылка)',
+  sum(case when sorting = 1 then 1 else 0 end) as 'Итого покинуло СЦ',
+  sum(case when ls_after_arrival = 1 then 1 else 0 end) as 'Выход из СЦ после обработки в ОПС',
+  sum(case when arrived_in_time = 1 then 1 else 0 end) as 'Обработано вовремя (СО)',
+  sum(case when arrived_not_in_time = 1 then 1 else 0 end) as 'Обработано не вовремя (Не СО)',
+  sum(case when arrived_0 = 1 then 1 else 0 end) as 'Не обработано в ОПС до 24 часов',
+  sum(case when arrived_1 = 1 then 1 else 0 end) as 'Не обработано в ОПС от 24 до 72 часов',
+  sum(case when arrived_4 = 1 then 1 else 0 end) as 'Не обработано в ОПС от 4 до 7 дней',
+  sum(case when arrived_7 = 1 then 1 else 0 end) as 'Не обработано в ОПС свыше 7 дней',
+  sum(case when not_sorting = 1 then 1 else 0 end) as 'Возвращено или вручено без обработки (Вруч/возвр но не приб)',
+  sum(case when arrived_not_in_time = 1 then 1 else 0 end
+      + case when arrived_0 = 1 then 1 else 0 end
+      + case when arrived_1 = 1 then 1 else 0 end
+      + case when arrived_4 = 1 then 1 else 0 end
+      + case when arrived_7 = 1 then 1 else 0 end
+      + case when not_sorting = 1 then 1 else 0 end
+  ) as 'Не обработано в срок',
+  round(
+      sum(case when arrived_in_time = 1 then 1 else 0 end) * 100 / 
+      nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля своевременно обработанных отправлений (СО, %)',
+  round(
+      sum(case when arrived_not_in_time = 1 then 1 else 0 end) * 100 / 
+      nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля обработанных не вовремя (Не СО, %)',
+  round(
+      sum(case when not_sorting = 1 then 1 else 0 end) * 100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля возвращенных или врученных без обработки (Вруч/возвр но не приб, %)',
+  round(
+      sum(case when arrived_0 = 1 then 1 else 0 end
+          + case when arrived_1 = 1 then 1 else 0 end
+          + case when arrived_4 = 1 then 1 else 0 end
+          + case when arrived_7 = 1 then 1 else 0 end
+      ) * 100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля не обработанных в ОПС (Остаток (Lost), %)',
+  round(
+      sum(case when arrived_not_in_time = 1 then 1 else 0 end
+          + case when arrived_0 = 1 then 1 else 0 end
+          + case when arrived_1 = 1 then 1 else 0 end
+          + case when arrived_4 = 1 then 1 else 0 end
+          + case when arrived_7 = 1 then 1 else 0 end
+      ) * 100 / 
+	  nullifzero(sum(case when sorting = 1 then 1 else 0 end) - sum(case when ls_after_arrival = 1 then 1 else 0 end))
+  ) as 'Доля не обработанных в срок (%)',
+  created_at as 'Дата создания отчета',
+  case 
+    when report_period = 'W' then 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(week_iso(to_date(report_date, 'yyyy-mm-dd')))) 
+    else 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(to_date(report_date, 'yyyy-mm-dd'), 'mon')) 
+  end as 'Год/Календарная неделя(месяц) выхода из СЦ'
+from ( 
+    select * from tracking.exec_interval_fact 
+    where report_period = ${reportPeriod}
+    union all 
+    select * from tracking.exec_interval_fact_daily 
+    where report_period = ${reportPeriod}
+  ) ex
+  left outer join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_to on ex.ops_to_code = fps_to.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_from on ex.ops_from_code = fps_from.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailtype mt on ex.mail_type_code = mt.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailctg mc on ex.mail_ctg_code = mc.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.place_type ot on ex.ops_to_type_code = ot.code
+where (
+	'' in (${mail_type}) or 'mail_type' in (${mail_type}) or '[Type].[' || mt.name || ']' in (${mail_type})
+  )
+  and (
+	'' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or '[Category].[' || mc.name || ']' in (${mail_ctg})
+  )
+  and (
+	'' in (${ops_to_type}) or 'ops_to_type' in (${ops_to_type}) or '[PlaceToType].[' || ot.name || ']' in (${ops_to_type})
+  )
+  and (
+	'' in(${fps_from})
+	or 'fps_from' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || ']' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' in (${fps_from})
+	or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' in (${fps_from})
+  )
+  and (
+	'' in(${fps_to})
+	or 'fps_to' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || ']' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || ']' in (${fps_to})
+	or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || '].[' || fps_to.post_object || ']' in (${fps_to})
+  )
+  and (
+    ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) >= ${ls_date_from}
+  )
+  and (
+    ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) <= ${ls_date_to}
+  )
+  and (
+    ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) >= ${adp_date_from}
+  )
+  and (
+    ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) <= ${adp_date_to}
+  )
+  and (
+    ${get_date_from} = '' or cast(${get_date_from} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) >= ${get_date_from}
+  )
+  and (
+    ${get_date_to} = '' or cast(${get_date_to} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) <= ${get_date_to}
+  )
+  and (
+    ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) >= ${delivery_date_from}
+  )
+  and (
+    ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) <= ${delivery_date_to}
+  )
+  and (
+    ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) >= ${ret_date_from}
+  )
+  and (
+    ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) <= ${ret_date_to}
+  )
+  and report_date=${current_week}
+  and (
+	${rpo_status} = ''
+	or cast(${rpo_status} as varchar) is null
+	or (${rpo_status} = '1' and arrived_in_time = 1)
+	or (${rpo_status} = '2' and arrived_not_in_time = 1)
+	or (${rpo_status} = '3' and arrived_0 = 1)
+	or (${rpo_status} = '4' and arrived_1 = 1)
+	or (${rpo_status} = '5' and arrived_4 = 1)
+	or (${rpo_status} = '6' and arrived_7 = 1)
+	or (${rpo_status} = '7' and not_sorting = 1)
+	or (${rpo_status} = '8' and (arrived_not_in_time = 1 or arrived_0 = 1 or arrived_1 = 1 or arrived_4 = 1 or arrived_7 = 1 or not_sorting = 1))
+	or (${rpo_status} = '9' and ls_after_arrival = 1)
+  )
+  and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+	   or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+	   or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+	   or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+	   or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+	   or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+	   or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+	   or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+	   or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+	   or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+	   or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+  and (
+	${business_type} = ''
+	or cast(${business_type} as varchar) is null
+	or (${business_type} = '1' and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+	or (${business_type} = '2' and mail_type_code not in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+  )
+  and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7', '2', '3', '15', '16', '8', '9', '6', '19', '22', '26', '11', '32', '33', '20')
+  and not(mail_type_code = 5 and regexp_like(trim(bar_code), '^Z[A-Z]\d{9}[A-Z][A-Z]$', 'i'))
+group by
+  report_date,
+  created_at,
+  report_period,
+  case
+    when mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7')
+    then 'Посылка'
+    else 'Письмо'
+  end,
+  fps_to.macroregion,
+  fps_to.ufps_index,
+  fps_to.ufps,
+  fps_to.post_office,
+  fps_to.post_object_index,
+  fps_to.post_object
+limit ${data_limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="exec_interval_barcode_dc"
+               id="exec_interval_barcode_dc"
+               type="sql">
+      <Name>exec_interval_barcode_dc</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="ops" name="ops" type="String"/>
+         <Parameter default="days" name="days" type="String"/>
+         <Parameter default="ufps" name="ufps" type="String"/>
+         <Parameter default="ls_date_from" name="ls_date_from" type="String"/>
+         <Parameter default="ls_date_to" name="ls_date_to" type="String"/>
+         <Parameter default="adp_date_from" name="adp_date_from" type="String"/>
+         <Parameter default="adp_date_to" name="adp_date_to" type="String"/>
+         <Parameter default="get_date_from" name="get_date_from" type="String"/>
+         <Parameter default="get_date_to" name="get_date_to" type="String"/>
+         <Parameter default="ops_to_type" name="ops_to_type" type="String"/>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="date_type" name="date_type" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="bar_code_like" name="bar_code_like" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="business_type" name="business_type" type="String"/>
+         <Parameter default="data_limit" name="data_limit" type="String"/>
+         <Parameter default="delivery_date_from" name="delivery_date_from" type="String"/>
+         <Parameter default="delivery_date_to" name="delivery_date_to" type="String"/>
+         <Parameter default="ret_date_from" name="ret_date_from" type="String"/>
+         <Parameter default="ret_date_to" name="ret_date_to" type="String"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select /*+ SYNTACTIC_JOIN */
+  bar_code as 'ШПИ',
+  case
+  when mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7')
+    then 'Посылка'
+  else 'Письмо'
+  end as 'Тип бизнеса (письмо/посылка)',
+  mt.name as 'Вид отправления',
+  fps_to.post_object_index as 'Индекс места вручения',
+  fps_to.post_object as 'Наименование места вручения',
+  fps_to.post_office as 'Почтамт',
+  fps_to.ufps as 'УФПС места вручения',
+  fps_to.macroregion as 'Макрорегион места вручения',
+  fps_ls.post_object_index as 'Индекс последнего СЦ',
+  fps_ls.post_object as 'Наименование последнего СЦ',
+  decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) as 'Дата и время выхода из СЦ',
+  decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) as 'Дата "Прибыло в место вручения"/"Ожидает курьерской доставки"/"Прибыло в ЦВПП"',
+  decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) as 'Дата вручения',
+  decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) as 'Дата возврата',
+  decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) as 'Дата приема',
+  case
+  when ls_after_arrival = 1 then 'Выход из СЦ после обработки в ОПС'
+  when arrived_in_time = 1 then 'Обработано вовремя'
+  when arrived_not_in_time = 1 then 'Обработано не вовремя'
+  when not_sorting = 1 then 'Возвращено или вручено без обработки'
+  when arrived_0 = 1 then 'Не обработано в ОПС до 24 часов'
+  when arrived_1 = 1 then 'Не обработано в ОПС от 24 до 72 часов'
+  when arrived_4 = 1 then 'Не обработано в ОПС от 4 до 7 дней'
+  when arrived_7 = 1 then 'Не обработано в ОПС свыше 7 дней'
+  else 'Не определен'
+  end as 'Статус на дату расчета',
+  created_at as 'Дата создания отчета',
+  case 
+    when report_period = 'W' then 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(week_iso(to_date(report_date, 'yyyy-mm-dd')))) 
+    else 
+      (year(to_date(report_date, 'yyyy-mm-dd'))||'.'||to_char(to_date(report_date, 'yyyy-mm-dd'), 'mon')) 
+  end as 'Год/Календарная неделя(месяц) выхода из СЦ'
+from ( 
+    select * from tracking.exec_interval_fact 
+    where report_period = ${reportPeriod}
+    union all 
+    select * from tracking.exec_interval_fact_daily 
+    where report_period = ${reportPeriod}
+  ) ex
+  join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_to on ex.ops_to_code = fps_to.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_from on ex.ops_from_code = fps_from.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.dim_fps_structure fps_ls on ex.ls_index_oper = fps_ls.post_object_index
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailtype mt on ex.mail_type_code = mt.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.mailctg mc on ex.mail_ctg_code = mc.code
+  left outer join /*+DISTRIB(L,L)*/ dicts.place_type ot on ex.ops_to_type_code = ot.code
+where (
+    '' in (${mail_type}) or 'mail_type' in (${mail_type}) or '[Type].[' || mt.name || ']' in (${mail_type})
+  )
+  and (
+    '' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or '[Category].[' || mc.name || ']' in (${mail_ctg})
+  )
+  and (
+    '' in(${fps_from})
+    or 'fps_from' in (${fps_from})
+    or '[FPS].[' || fps_from.macroregion || ']' in (${fps_from})
+    or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || ']' in (${fps_from})
+    or '[FPS].[' || fps_from.macroregion || '].[' || fps_from.ufps || '].[' || fps_from.post_object || ']' in (${fps_from})
+  )
+  and (
+    '' in(${fps_to})
+    or 'fps_to' in (${fps_to})
+    or '[FPS].[' || fps_to.macroregion || ']' in (${fps_to})
+    or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || ']' in (${fps_to})
+    or '[FPS].[' || fps_to.macroregion || '].[' || fps_to.ufps || '].[' || fps_to.post_object || ']' in (${fps_to})
+  )
+  and (
+    ${ls_date_from} = '' or cast(${ls_date_from} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) >= ${ls_date_from}
+  )
+  and (
+    ${ls_date_to} = '' or cast(${ls_date_to} as varchar) is null or decode(${date_type}, 'local', ls_oper_date_time_local, ls_oper_date_time) <= ${ls_date_to}
+  )
+  and (
+    ${adp_date_from} = '' or cast(${adp_date_from} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) >= ${adp_date_from}
+  )
+  and (
+    ${adp_date_to} = '' or cast(${adp_date_to} as varchar) is null or decode(${date_type}, 'local', adp_oper_date_time_local, adp_oper_date_time) <= ${adp_date_to}
+  )
+  and (
+    ${get_date_from} = '' or cast(${get_date_from} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) >= ${get_date_from}
+  )
+  and (
+    ${get_date_to} = '' or cast(${get_date_to} as varchar) is null or decode(${date_type}, 'local', get_oper_date_time_local, get_oper_date_time) <= ${get_date_to}
+  )
+  and (
+    ${delivery_date_from} = '' or cast(${delivery_date_from} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) >= ${delivery_date_from}
+  )
+  and (
+    ${delivery_date_to} = '' or cast(${delivery_date_to} as varchar) is null or decode(${date_type}, 'local', delivery_oper_date_time_local, delivery_oper_date_time) <= ${delivery_date_to}
+  )
+  and (
+    ${ret_date_from} = '' or cast(${ret_date_from} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) >= ${ret_date_from}
+  )
+  and (
+    ${ret_date_to} = '' or cast(${ret_date_to} as varchar) is null or decode(${date_type}, 'local', ret_oper_date_time_local, ret_oper_date_time) <= ${ret_date_to}
+  )
+  and (
+    ${rpo_status} = ''
+    or cast(${rpo_status} as varchar) is null
+    or (${rpo_status} = '1' and arrived_in_time = 1) --Обработано вовремя
+    or (${rpo_status} = '2' and arrived_not_in_time = 1) --Обработано не вовремя
+    or (${rpo_status} = '3' and arrived_0 = 1) --Не обработано в ОПС до 24 часов
+    or (${rpo_status} = '4' and arrived_1 = 1) --Не обработано в ОПС от 24 до 72 часов
+    or (${rpo_status} = '5' and arrived_4 = 1) --Не обработано в ОПС от 4 до 7 дней
+    or (${rpo_status} = '6' and arrived_7 = 1) -- Не обработано в ОПС свыше 7 дней
+    or (${rpo_status} = '7' and not_sorting = 1) --Возвращено или вручено без обработки
+    or (${rpo_status} = '8' and (arrived_not_in_time = 1 or arrived_0 = 1 or arrived_1 = 1 or arrived_4 = 1 or arrived_7 = 1 or not_sorting = 1)) --Не обработано в срок
+    or (${rpo_status} = '9' and ls_after_arrival = 1) --Выход из СЦ после обработки в ОПС
+  )
+  and report_date=${current_week}
+  and ((${bar_code_like} || ${bar_code_range}) = '' or (cast(${bar_code_like} as varchar) is null and cast(${bar_code_range} as varchar) is null)
+    or (split_part(${bar_code_like}, ';', 1) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 1)))
+    or (split_part(${bar_code_like}, ';', 2) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 2)))
+    or (split_part(${bar_code_like}, ';', 3) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 3)))
+    or (split_part(${bar_code_like}, ';', 4) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 4)))
+    or (split_part(${bar_code_like}, ';', 5) <> '' and LOWER(bar_code) like LOWER(split_part(${bar_code_like}, ';', 5)))
+    or (split_part(${bar_code_range}, ';', 1) <> '' and split_part(${bar_code_range}, ';', 2) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 1)) and LOWER(split_part(${bar_code_range}, ';', 2)))
+    or (split_part(${bar_code_range}, ';', 3) <> '' and split_part(${bar_code_range}, ';', 4) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 3)) and LOWER(split_part(${bar_code_range}, ';', 4)))
+    or (split_part(${bar_code_range}, ';', 5) <> '' and split_part(${bar_code_range}, ';', 6) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 5)) and LOWER(split_part(${bar_code_range}, ';', 6)))
+    or (split_part(${bar_code_range}, ';', 7) <> '' and split_part(${bar_code_range}, ';', 8) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 7)) and LOWER(split_part(${bar_code_range}, ';', 8)))
+    or (split_part(${bar_code_range}, ';', 9) <> '' and split_part(${bar_code_range}, ';', 10) <> '' and LOWER(bar_code) between LOWER(split_part(${bar_code_range}, ';', 9)) and LOWER(split_part(${bar_code_range}, ';', 10))))
+  and (
+    ${business_type} = ''
+    or cast(${business_type} as varchar) is null
+    or (${business_type} = '1' and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+    or (${business_type} = '2' and mail_type_code not in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7'))
+  )
+  and mail_type_code in ('4', '5', '23', '21', '24', '27', '28', '29', '30', '31', '7', '2', '3', '15', '16', '8', '9', '6', '19', '22', '26', '11', '32', '33', '20')
+  and not(mail_type_code = 5 and regexp_like(trim(bar_code), '^Z[A-Z]\d{9}[A-Z][A-Z]$', 'i'))
+limit ${data_limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="exec_interval_weeks" id="exec_interval_weeks"
+               type="sql">
+      <Name>exec_interval_weeks</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select report_date from (
+  select report_date 
+  from tracking.exec_interval_dates 
+  where report_period = ${reportPeriod}
+  union all 
+  select report_date 
+  from tracking.exec_interval_dates_daily
+  where report_period = ${reportPeriod}
+) dates
+order by report_date desc]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="exec_interval_created_at"
+               id="exec_interval_created_at"
+               type="sql">
+      <Name>exec_interval_created_at</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="current_week" name="current_week" type="String"/>
+         <Parameter default="reportPeriod" name="reportPeriod" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select max(created_at)
+from ( 
+  select max(created_at) as created_at
+  from tracking.exec_interval_fact 
+  where report_period = ${reportPeriod} and report_date = ${current_week}
+  union all 
+  select max(created_at) as created_at
+  from tracking.exec_interval_fact_daily 
+  where report_period = ${reportPeriod} and report_date = ${current_week}
+) ex
+limit 1]]></Query>
+   </DataAccess>
+</CDADescriptor>

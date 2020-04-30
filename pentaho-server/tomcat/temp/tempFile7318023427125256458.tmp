@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="SLA cubes" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mondrian.xsd">
+    <Cube name="SLA">
+        <Table name="sla_cube" schema="tracking" />
+        <Dimension name="Дата приема">
+            <Hierarchy name="Месяцы приема" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="accepting_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="accepting_month" nameColumn="accepting_month_name" ordinalColumn="accepting_month" levelType="TimeMonths"/>
+                <Level name="День" column="accepting_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели приема" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="accepting_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="accepting_week" levelType="TimeWeeks"/>
+                <Level name="День" column="accepting_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Дата вручения">
+            <Hierarchy name="Месяцы вручения" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="delivery_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="delivery_month" nameColumn="delivery_month_name" ordinalColumn="delivery_month" levelType="TimeMonths"/>
+                <Level name="День" column="delivery_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели вручения" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="delivery_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="delivery_week" levelType="TimeWeeks"/>
+                <Level name="День" column="delivery_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Дата прибытия">
+            <Hierarchy name="Месяцы прибытия" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="arrival_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="arrival_month" nameColumn="arrival_month_name" ordinalColumn="arrival_month" levelType="TimeMonths"/>
+                <Level name="День" column="arrival_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели прибытия" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="arrival_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="arrival_week" levelType="TimeWeeks"/>
+                <Level name="День" column="arrival_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Дата возврата">
+            <Hierarchy name="Месяцы возврата" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="return_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="return_month" nameColumn="return_month_name" ordinalColumn="return_month" levelType="TimeMonths"/>
+                <Level name="День" column="return_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели возврата" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="return_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="return_week" levelType="TimeWeeks"/>
+                <Level name="День" column="return_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Дата выхода из СЦ">
+            <Hierarchy name="Месяцы выхода из СЦ" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="leave_last_sc_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="leave_last_sc_month" nameColumn="leave_last_sc_month_name" ordinalColumn="leave_last_sc_month" levelType="TimeMonths"/>
+                <Level name="День" column="leave_last_sc_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели выхода из СЦ" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="leave_last_sc_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="leave_last_sc_week" levelType="TimeWeeks"/>
+                <Level name="День" column="leave_last_sc_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Дата досыла">
+            <Hierarchy name="Месяцы досыла" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="forwarding_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Месяц" column="forwarding_month" nameColumn="forwarding_month_name" ordinalColumn="forwarding_month" levelType="TimeMonths"/>
+                <Level name="День" column="forwarding_date" levelType="TimeDays"/>
+            </Hierarchy>
+            <Hierarchy name="Недели досыла" hasAll="true" allLevelName="(Все)" allMemberName="Все даты">
+                <Level name="Год" column="forwarding_year" uniqueMembers="true" levelType="TimeYears"/>
+                <Level name="Неделя" column="forwarding_week" levelType="TimeWeeks"/>
+                <Level name="День" column="forwarding_date" levelType="TimeDays"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ОПС вручения">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все ОПС">
+                <Level name="Макрорегион" column="delivery_macroregion"/>
+                <Level name="УФПС" column="delivery_ufps"/>
+                <Level name="ОПС" column="delivery_post_object"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ОПС прибытия">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все ОПС">
+                <Level name="Макрорегион" column="arrival_macroregion"/>
+                <Level name="УФПС" column="arrival_ufps"/>
+                <Level name="ОПС" column="arrival_post_object"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ОПС приема">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все ОПС">
+                <Level name="Макрорегион" column="from_macroregion"/>
+                <Level name="УФПС" column="from_ufps"/>
+                <Level name="ОПС" column="from_post_object"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ОПС назначения">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все ОПС">
+                <Level name="Макрорегион" column="to_macroregion"/>
+                <Level name="УФПС" column="to_ufps"/>
+                <Level name="ОПС" column="to_post_object"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Атрибут вручения">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все атрибуты вручения">
+                <Level name="Атрибут вручения" column="delivery_attr" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Атрибут возврата">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все атрибуты возврата">
+                <Level name="Атрибут возврата" column="return_attr" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Атрибут досыла">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все атрибуты досыла">
+                <Level name="Атрибут досыла" column="forwarding_attr" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Тип отправления">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все типы отправления">
+                <Level name="Тип отправления" column="mail_type_name" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Категория отправления">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все категории отправления">
+                <Level name="Категория отправления" column="mail_ctg_name" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Направление">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все направления">
+                <Level name="Направление" column="direct_ctg_name" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Контрольный срок">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все к-с">
+                <Level name="Контрольный срок" column="delivery_term" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Срок">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все сроки">
+                <Level name="Срок" column="real_term" uniqueMembers="true"/>
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="ИНН">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все ИНН">
+                <Level name="ИНН" column="inn" uniqueMembers="true"/>
+           </Hierarchy>
+        </Dimension>
+        <Dimension name="КПП">
+            <Hierarchy hasAll="true" allLevelName="(Все)" allMemberName="Все КПП">
+                <Level name="КПП" column="kpp" uniqueMembers="true" />
+            </Hierarchy>
+        </Dimension>
+
+        <!-- Статусы -->
+        <Dimension name="Статусы: DD">
+            <Hierarchy name="Корректность приема" hasAll="true" allLevelName="(Все)" allMemberName="Все приемы">
+                <Level name="Корректность приема" column="dim_incorrect_accepting" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Прием" hasAll="true" allLevelName="(Все)" allMemberName="Все статусы приема">
+                <Level name="Прием" column="dim_without_accepting" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Доставка" hasAll="true" allLevelName="(Все)" allMemberName="Все доставки">
+                <Level name="Доставка" column="dim_in_way" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Доставка в к-с" hasAll="true" allLevelName="(Все)" allMemberName="Все статусы к-с">
+                <Level name="Доставка в к-с" column="dim_arrived_in_ks" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Вручение" hasAll="true" allLevelName="(Все)" allMemberName="Все вручения">
+                <Level name="Вручение" column="dim_delivery" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Вручение на др индекс" hasAll="true" allLevelName="(Все)" allMemberName="Все статусы вручения на др индекс">
+                <Level name="Вручение на др индекс" column="dim_delivered_in_another_index" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Остатки" hasAll="true" allLevelName="(Все)" allMemberName="Все остатки">
+                <Level name="Остатки" column="dim_balance_not_delivered" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Возвраты" hasAll="true" allLevelName="(Все)" allMemberName="Все возвраты">
+                <Level name="Возвраты" column="dim_return" uniqueMembers="true" />
+            </Hierarchy>
+            <Hierarchy name="Возврат отправителю" hasAll="true" allLevelName="(Все)" allMemberName="Все возвраты отправителю">
+                <Level name="Возврат отправителю" column="dim_return_delivered_to_sender" uniqueMembers="true" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="ШПИ" column="bar_code" aggregator="count" />
+        <Measure name="Масса" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">mass/1000</SQL>
+            </MeasureExpression>
+        </Measure>
+        <Measure name="Ценность" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">value/100</SQL>
+            </MeasureExpression>
+        </Measure>
+        <Measure name="Плата за пересылку" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">mass_rate/100</SQL>
+            </MeasureExpression>
+        </Measure>
+        <Measure name="Плата за ОЦ" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">insr_rate/100</SQL>
+            </MeasureExpression>
+        </Measure>
+
+
+        <Measure name="Некорректный прием" column="incorrect_accepting" aggregator="sum"/>
+        <Measure name="Без приема" column="without_accepting" aggregator="sum"/>
+        <Measure name="Доставка в к-с" column="arrived_in_ks" aggregator="sum"/>
+
+        <Measure name="Дост: В пути б-о: покинуло СЦ" column="in_way_in_time_left_last_sc" aggregator="sum"/>
+        <Measure name="Дост: В пути б-о: на магистрали" column="in_way_in_time_on_highway" aggregator="sum"/>
+
+        <Measure name="Дост: В пути с-о: на магистр" column="in_way_not_in_time_on_highway" aggregator="sum"/>
+        <Measure name="Дост: В пути с-о: на магистр вых" column="in_way_not_in_time_on_highway_because_of_holiday" aggregator="sum"/>
+        <Measure name="Дост: В пути с-о: покинуло СЦ" column="in_way_not_in_time_left_last_sc" aggregator="sum"/>
+
+        <Measure name="Дост: В ОПС с-о: задержан в ОПС" column="in_ops_not_in_time_delayed_in_ops" aggregator="sum"/>
+        <Measure name="Дост: В ОПС с-о: на магистр" column="in_ops_not_in_time_delayed_on_highway" aggregator="sum"/>
+        <Measure name="Дост: В ОПС с-о: на магистр вых" column="in_ops_not_in_time_delayed_on_highway_because_of_holiday" aggregator="sum"/>
+
+        <Measure name="Вруч: В 7 дней" column="delivery_within_7_days" aggregator="sum"/>
+        <Measure name="Вруч: Дольше 7 дней" column="delivery_after_7_days" aggregator="sum"/>
+        <Measure name="Вруч: Без прибытия" column="delivery_without_arrival" aggregator="sum"/>
+        <Measure name="Вруч: На другом ОПС" column="delivered_in_another_index" aggregator="sum"/>
+        <Measure name="Вруч: Всего" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">delivery_without_arrival + delivery_within_7_days + delivery_after_7_days</SQL>
+            </MeasureExpression>
+        </Measure>
+
+        <Measure name="Остат: Не вручено в 7 дней" column="balance_not_delivered_within_7_days" aggregator="sum"/>
+        <Measure name="Остат: Не вручено дольше 7 дней" column="balance_not_delivered_after_7_days" aggregator="sum"/>
+        <Measure name="Остат: Всего" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">balance_not_delivered_within_7_days + balance_not_delivered_after_7_days</SQL>
+            </MeasureExpression>
+        </Measure>
+
+        <Measure name="Возвраты: Корректные" column="return_correct" aggregator="sum"/>
+        <Measure name="Возвраты: Некорректные" column="return_incorrect" aggregator="sum"/>
+        <Measure name="Возвраты: Без прибытия" column="return_without_arrival" aggregator="sum"/>
+        <Measure name="Возвраты: Прочие" column="return_other" aggregator="sum"/>
+        <Measure name="Возвраты: Всего" aggregator="sum">
+            <MeasureExpression>
+                <SQL dialect="generic">return_correct + return_incorrect + return_without_arrival + return_other</SQL>
+            </MeasureExpression>
+        </Measure>
+        <Measure name="Возвраты: Вручено отправителю" column="return_delivered_to_sender" aggregator="sum"/>
+    </Cube>
+</Schema>

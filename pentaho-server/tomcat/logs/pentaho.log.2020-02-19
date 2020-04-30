@@ -1,0 +1,343 @@
+2020-02-19 13:59:25,581 INFO  [org.pentaho.di] 2020/02/19 13:59:25 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 13:59:25,660 INFO  [org.pentaho.di] 2020/02/19 13:59:25 - PurRepository - Creating repository meta store interface
+2020-02-19 13:59:25,662 INFO  [org.pentaho.di] 2020/02/19 13:59:25 - PurRepository - Connected to the enterprise repository
+2020-02-19 13:59:25,965 INFO  [org.pentaho.di] 2020/02/19 13:59:25 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 13:59:26,087 INFO  [org.pentaho.di] 2020/02/19 13:59:26 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 13:59:26,182 INFO  [org.pentaho.di] 2020/02/19 13:59:26 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:00:11,756 ERROR [pt.webdetails.cpf.utils.PluginIOUtils] Error writing output
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:396)
+	at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:344)
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:421)
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:409)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:97)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:90)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.write(OnCommittedResponseWrapper.java:632)
+	at org.apache.commons.io.IOUtils.write(IOUtils.java:1249)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOut(PluginIOUtils.java:31)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOutAndFlush(PluginIOUtils.java:56)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:105)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: APR error: -730053
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:292)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:245)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.flushBuffer(InternalAprOutputBuffer.java:214)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.addToBB(InternalAprOutputBuffer.java:175)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.access$000(InternalAprOutputBuffer.java:41)
+	at org.apache.coyote.http11.InternalAprOutputBuffer$SocketOutputBuffer.doWrite(InternalAprOutputBuffer.java:350)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:118)
+	at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:256)
+	at org.apache.coyote.Response.doWrite(Response.java:491)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:391)
+	... 93 more
+2020-02-19 14:00:11,759 ERROR [pt.webdetails.cpf.utils.PluginIOUtils] Error writing output
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: APR error: -730053
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:356)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:320)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:110)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.flush(OnCommittedResponseWrapper.java:513)
+	at pt.webdetails.cpf.utils.PluginIOUtils.flush(PluginIOUtils.java:73)
+	at pt.webdetails.cpf.utils.PluginIOUtils.writeOutAndFlush(PluginIOUtils.java:57)
+	at pt.webdetails.cdf.dd.DashboardDesignerContentGenerator.createContent(DashboardDesignerContentGenerator.java:105)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.generateContent(GeneratorStreamingOutput.java:237)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutput.write(GeneratorStreamingOutput.java:162)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:54)
+	at org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider.writeTo(GeneratorStreamingOutputProvider.java:33)
+	at com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:302)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1510)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)
+	at com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)
+	at com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:558)
+	at com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:733)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.pentaho.platform.web.servlet.JAXRSServlet.service(JAXRSServlet.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoWebContextFilter.doFilter(Unknown Source)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoRequestContextFilter.doFilter(PentahoRequestContextFilter.java:87)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.pentaho.platform.web.http.filters.PreFlightReportingFilter.doFilter(PreFlightReportingFilter.java:47)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.security.RequestParameterAuthenticationFilter.doFilter(RequestParameterAuthenticationFilter.java:191)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:158)
+	at org.pentaho.platform.web.http.security.PentahoBasicProcessingFilter.doFilterInternal(PentahoBasicProcessingFilter.java:125)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.pentaho.platform.web.http.filters.HttpSessionPentahoSessionIntegrationFilter.doFilter(HttpSessionPentahoSessionIntegrationFilter.java:271)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:169)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SystemStatusFilter.doFilter(SystemStatusFilter.java:55)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:114)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.WebappRootForwardingFilter.doFilter(WebappRootForwardingFilter.java:70)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.pentaho.platform.web.http.filters.PentahoPathDecodingFilter.doFilter(PentahoPathDecodingFilter.java:34)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:94)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: APR error: -730053
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:292)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.writeToSocket(InternalAprOutputBuffer.java:245)
+	at org.apache.coyote.http11.InternalAprOutputBuffer.flushBuffer(InternalAprOutputBuffer.java:214)
+	at org.apache.coyote.http11.AbstractOutputBuffer.flush(AbstractOutputBuffer.java:305)
+	at org.apache.coyote.http11.AbstractHttp11Processor.action(AbstractHttp11Processor.java:792)
+	at org.apache.coyote.Response.action(Response.java:177)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:352)
+	... 89 more
+2020-02-19 14:00:36,537 INFO  [org.pentaho.di] 2020/02/19 14:00:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:00:36,678 INFO  [org.pentaho.di] 2020/02/19 14:00:36 - PurRepository - Creating repository meta store interface
+2020-02-19 14:00:36,679 INFO  [org.pentaho.di] 2020/02/19 14:00:36 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:00:36,737 INFO  [org.pentaho.di] 2020/02/19 14:00:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:00:46,786 INFO  [org.pentaho.di] 2020/02/19 14:00:46 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:00:46,893 INFO  [org.pentaho.di] 2020/02/19 14:00:46 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:04:25,906 INFO  [org.pentaho.di] 2020/02/19 14:04:25 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:04:26,032 INFO  [org.pentaho.di] 2020/02/19 14:04:26 - PurRepository - Creating repository meta store interface
+2020-02-19 14:04:26,033 INFO  [org.pentaho.di] 2020/02/19 14:04:26 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:04:26,217 INFO  [org.pentaho.di] 2020/02/19 14:04:26 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:04:26,267 INFO  [org.pentaho.di] 2020/02/19 14:04:26 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:04:26,391 INFO  [org.pentaho.di] 2020/02/19 14:04:26 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:17:02,864 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 14:17:02,864 INFO  [org.pentaho.di] 2020/02/19 14:17:02 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:17:02,985 INFO  [org.pentaho.di] 2020/02/19 14:17:02 - PurRepository - Creating repository meta store interface
+2020-02-19 14:17:02,987 INFO  [org.pentaho.di] 2020/02/19 14:17:02 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:17:03,238 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:17:30,763 INFO  [org.pentaho.di] 2020/02/19 14:17:30 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:17:30,920 INFO  [org.pentaho.di] 2020/02/19 14:17:30 - PurRepository - Creating repository meta store interface
+2020-02-19 14:17:30,923 INFO  [org.pentaho.di] 2020/02/19 14:17:30 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:17:30,948 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:17:31,045 INFO  [org.pentaho.di] 2020/02/19 14:17:31 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:17:31,116 INFO  [org.pentaho.di] 2020/02/19 14:17:31 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:17:31,260 INFO  [org.pentaho.di] 2020/02/19 14:17:31 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:23:07,408 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 14:23:07,408 INFO  [org.pentaho.di] 2020/02/19 14:23:07 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:23:07,419 INFO  [org.pentaho.di] 2020/02/19 14:23:07 - PurRepository - Creating repository meta store interface
+2020-02-19 14:23:07,432 INFO  [org.pentaho.di] 2020/02/19 14:23:07 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:23:07,728 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:23:44,988 INFO  [org.pentaho.di] 2020/02/19 14:23:44 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:23:44,997 INFO  [org.pentaho.di] 2020/02/19 14:23:44 - PurRepository - Creating repository meta store interface
+2020-02-19 14:23:45,002 INFO  [org.pentaho.di] 2020/02/19 14:23:45 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:23:45,034 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:23:45,177 INFO  [org.pentaho.di] 2020/02/19 14:23:45 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:23:45,312 INFO  [org.pentaho.di] 2020/02/19 14:23:45 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:23:45,472 INFO  [org.pentaho.di] 2020/02/19 14:23:45 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:28:38,597 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 14:28:38,598 INFO  [org.pentaho.di] 2020/02/19 14:28:38 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:28:38,603 INFO  [org.pentaho.di] 2020/02/19 14:28:38 - PurRepository - Creating repository meta store interface
+2020-02-19 14:28:38,604 INFO  [org.pentaho.di] 2020/02/19 14:28:38 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:28:38,906 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:29:51,778 INFO  [org.pentaho.di] 2020/02/19 14:29:51 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:29:51,788 INFO  [org.pentaho.di] 2020/02/19 14:29:51 - PurRepository - Creating repository meta store interface
+2020-02-19 14:29:51,793 INFO  [org.pentaho.di] 2020/02/19 14:29:51 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:29:51,824 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:29:51,985 INFO  [org.pentaho.di] 2020/02/19 14:29:51 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:30:02,096 INFO  [org.pentaho.di] 2020/02/19 14:30:02 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:30:02,327 INFO  [org.pentaho.di] 2020/02/19 14:30:02 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:36:12,206 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 14:36:12,207 INFO  [org.pentaho.di] 2020/02/19 14:36:12 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:36:12,357 INFO  [org.pentaho.di] 2020/02/19 14:36:12 - PurRepository - Creating repository meta store interface
+2020-02-19 14:36:12,359 INFO  [org.pentaho.di] 2020/02/19 14:36:12 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:36:12,557 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:40:37,762 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 14:40:37,762 INFO  [org.pentaho.di] 2020/02/19 14:40:37 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:40:37,772 INFO  [org.pentaho.di] 2020/02/19 14:40:37 - PurRepository - Creating repository meta store interface
+2020-02-19 14:40:37,773 INFO  [org.pentaho.di] 2020/02/19 14:40:37 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:40:37,996 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:42:07,337 INFO  [org.pentaho.di] 2020/02/19 14:42:07 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 14:42:07,346 INFO  [org.pentaho.di] 2020/02/19 14:42:07 - PurRepository - Creating repository meta store interface
+2020-02-19 14:42:07,355 INFO  [org.pentaho.di] 2020/02/19 14:42:07 - PurRepository - Connected to the enterprise repository
+2020-02-19 14:42:07,382 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:42:07,494 INFO  [org.pentaho.di] 2020/02/19 14:42:07 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 14:42:17,850 INFO  [org.pentaho.di] 2020/02/19 14:42:17 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 14:42:18,518 INFO  [org.pentaho.di] 2020/02/19 14:42:18 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 14:43:44,053 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 14:43:44,361 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 16:03:34,838 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:03:34,847 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - PurRepository - Creating repository meta store interface
+2020-02-19 16:03:34,851 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:03:34,930 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 16:03:34,931 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:03:34,934 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - PurRepository - Creating repository meta store interface
+2020-02-19 16:03:34,935 INFO  [org.pentaho.di] 2020/02/19 16:03:34 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:03:35,318 INFO  [org.pentaho.di] 2020/02/19 16:03:35 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:04:14,742 INFO  [org.pentaho.di] 2020/02/19 16:04:14 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:04:14,746 INFO  [org.pentaho.di] 2020/02/19 16:04:14 - PurRepository - Creating repository meta store interface
+2020-02-19 16:04:14,748 INFO  [org.pentaho.di] 2020/02/19 16:04:14 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:04:14,959 INFO  [org.pentaho.di] 2020/02/19 16:04:14 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:04:36,669 INFO  [org.pentaho.di] 2020/02/19 16:04:36 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:04:36,673 INFO  [org.pentaho.di] 2020/02/19 16:04:36 - PurRepository - Creating repository meta store interface
+2020-02-19 16:04:36,675 INFO  [org.pentaho.di] 2020/02/19 16:04:36 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:04:36,757 INFO  [org.pentaho.di] 2020/02/19 16:04:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:08:51,584 INFO  [org.pentaho.di] 2020/02/19 16:08:51 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:09:36,515 INFO  [org.pentaho.di] 2020/02/19 16:09:36 - PurRepository - Creating repository meta store interface
+2020-02-19 16:09:36,517 INFO  [org.pentaho.di] 2020/02/19 16:09:36 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:09:36,621 INFO  [org.pentaho.di] 2020/02/19 16:09:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:09:41,494 INFO  [org.pentaho.di] 2020/02/19 16:09:41 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:09:41,499 INFO  [org.pentaho.di] 2020/02/19 16:09:41 - PurRepository - Creating repository meta store interface
+2020-02-19 16:09:41,502 INFO  [org.pentaho.di] 2020/02/19 16:09:41 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:09:41,580 INFO  [org.pentaho.di] 2020/02/19 16:09:41 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:09:51,658 INFO  [org.pentaho.di] 2020/02/19 16:09:51 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 16:09:51,766 INFO  [org.pentaho.di] 2020/02/19 16:09:51 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 16:09:56,755 INFO  [org.pentaho.di] 2020/02/19 16:09:56 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 16:09:56,842 INFO  [org.pentaho.di] 2020/02/19 16:09:56 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 16:48:24,789 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 16:48:24,789 INFO  [org.pentaho.di] 2020/02/19 16:48:24 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:48:24,924 INFO  [org.pentaho.di] 2020/02/19 16:48:24 - PurRepository - Creating repository meta store interface
+2020-02-19 16:48:24,925 INFO  [org.pentaho.di] 2020/02/19 16:48:24 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:48:25,181 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository was cached for user: admin
+2020-02-19 16:48:34,700 INFO  [org.pentaho.di] 2020/02/19 16:48:34 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 16:48:34,708 INFO  [org.pentaho.di] 2020/02/19 16:48:34 - PurRepository - Creating repository meta store interface
+2020-02-19 16:48:34,713 INFO  [org.pentaho.di] 2020/02/19 16:48:34 - PurRepository - Connected to the enterprise repository
+2020-02-19 16:48:34,887 INFO  [org.pentaho.di] 2020/02/19 16:48:34 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 16:48:35,218 INFO  [org.pentaho.di] 2020/02/19 16:48:35 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 16:48:35,701 INFO  [org.pentaho.di] 2020/02/19 16:48:35 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 17:02:53,998 INFO  [org.pentaho.di] 2020/02/19 17:02:53 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 17:02:54,000 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - PurRepository - Creating repository meta store interface
+2020-02-19 17:02:54,003 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - PurRepository - Connected to the enterprise repository
+2020-02-19 17:02:54,023 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-02-19 17:02:54,023 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 17:02:54,026 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - PurRepository - Creating repository meta store interface
+2020-02-19 17:02:54,027 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - PurRepository - Connected to the enterprise repository
+2020-02-19 17:02:54,188 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 17:02:54,256 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 17:02:54,354 INFO  [org.pentaho.di] 2020/02/19 17:02:54 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 17:07:14,832 INFO  [org.pentaho.di] 2020/02/19 17:07:14 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 17:07:14,834 INFO  [org.pentaho.di] 2020/02/19 17:07:14 - PurRepository - Creating repository meta store interface
+2020-02-19 17:07:14,837 INFO  [org.pentaho.di] 2020/02/19 17:07:14 - PurRepository - Connected to the enterprise repository
+2020-02-19 17:07:14,929 INFO  [org.pentaho.di] 2020/02/19 17:07:14 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 17:07:34,982 INFO  [org.pentaho.di] 2020/02/19 17:07:34 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 17:07:35,073 INFO  [org.pentaho.di] 2020/02/19 17:07:35 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-02-19 17:07:39,961 INFO  [org.pentaho.di] 2020/02/19 17:07:39 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-02-19 17:07:40,106 INFO  [org.pentaho.di] 2020/02/19 17:07:40 - PurRepository - Creating repository meta store interface
+2020-02-19 17:07:40,107 INFO  [org.pentaho.di] 2020/02/19 17:07:40 - PurRepository - Connected to the enterprise repository
+2020-02-19 17:07:40,150 INFO  [org.pentaho.di] 2020/02/19 17:07:40 - insert_test - Dispatching started for transformation [insert_test]
+2020-02-19 17:07:40,188 INFO  [org.pentaho.di] 2020/02/19 17:07:40 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-02-19 17:07:40,290 INFO  [org.pentaho.di] 2020/02/19 17:07:40 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)

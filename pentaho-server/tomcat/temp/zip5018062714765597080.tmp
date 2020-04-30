@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="mmpo_kpi_facts" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="report_date_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="exit_points_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mmpo_kpi_total" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="mmpo_kpi_facts" id="mmpo_kpi_facts" type="sql">
+      <Name>mmpo_kpi_facts</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="2000-01-01" name="reference_date_from_arg" type="String"/>
+         <Parameter default="2200-12-31" name="reference_date_to_arg" type="String"/>
+         <Parameter default="default_country" name="country_olap_arg" type="String"/>
+         <Parameter default="" name="rpo_mask_arg" type="String"/>
+         <Parameter default="default_transtype" name="transtype_olap_arg" type="String"/>
+         <Parameter default="0" name="weight_from_arg" type="Integer"/>
+         <Parameter default="100000000" name="weight_to_arg" type="Integer"/>
+         <Parameter default="default_exit_point" name="exit_point_arg" type="String"/>
+         <Parameter default="default_mmpo" name="mmpo_olap_arg" type="String"/>
+         <Parameter default="default_mail_type" name="mail_type_olap_arg" type="String"/>
+         <Parameter default="default_mail_ctg" name="mail_ctg_olap_arg" type="String"/>
+         <Parameter default="default_direct_ctg" name="direct_ctg_olap_arg" type="String"/>
+         <Parameter default="default_arrive_index" name="arrive_index_arg" type="String"/>
+         <Parameter default="data_limit" name="limit" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  potmm.mmpo as "Точка выхода",
+  mkf.dt_msk_arrive_to_rf::DATE as "Дата прибытия в РФ",
+  fps_arrive.post_object as "Место прибытия в РФ",
+  fps_mmpo.post_object as "ММПО импорта",
+  REPLACE(TO_CHAR(SUM(in12h)  /SUM(total)*100,'FM990.09%'),'.',',') as '12 часов',
+  REPLACE(TO_CHAR(SUM(in1d)   /SUM(total)*100,'FM990.09%'),'.',',') as '1 день',
+  REPLACE(TO_CHAR(SUM(in1d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '1,5 дня',
+  REPLACE(TO_CHAR(SUM(in2d)   /SUM(total)*100,'FM990.09%'),'.',',') as '2 дня',
+  REPLACE(TO_CHAR(SUM(in2d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '2,5 дня',
+  REPLACE(TO_CHAR(SUM(in3d)   /SUM(total)*100,'FM990.09%'),'.',',') as '3 дня',
+  REPLACE(TO_CHAR(SUM(in3d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '3,5 дня',
+  REPLACE(TO_CHAR(SUM(in4d)   /SUM(total)*100,'FM990.09%'),'.',',') as '4 дня',
+  REPLACE(TO_CHAR(SUM(in5d)   /SUM(total)*100,'FM990.09%'),'.',',') as '5 дней',
+  REPLACE(TO_CHAR(SUM(in6d)   /SUM(total)*100,'FM990.09%'),'.',',') as '6 дней',
+  REPLACE(TO_CHAR(SUM(in7d)   /SUM(total)*100,'FM990.09%'),'.',',') as '7 дней',
+  REPLACE(TO_CHAR(SUM(in8d)   /SUM(total)*100,'FM990.09%'),'.',',') as '8 дней',
+  REPLACE(TO_CHAR(SUM(in9d)   /SUM(total)*100,'FM990.09%'),'.',',') as '9 дней',
+  REPLACE(TO_CHAR(SUM(in10d)  /SUM(total)*100,'FM990.09%'),'.',',') as '10 дней',
+  REPLACE(TO_CHAR(SUM(gt10d)  /SUM(total)*100,'FM990.09%'),'.',',') as '>10 дней',
+  SUM(left_mmpo_in_time)     as 'Покинуло ММПО вовремя',
+  SUM(left_mmpo_late)        as 'Покинуло ММПО невовремя',
+  SUM(left_mmpo_silent)      as 'Покинуло ММПО без статуса',
+  SUM(delay_in_mmpo)         as 'Задержан на ММПО',
+  SUM(no_arrive_to_rf)       as 'Нет статусов Прибытия в РФ',
+  SUM(left_mmpo_incorr_date) as 'Вышло из ММПО с некорректными датами',
+  SUM(mmpo_missing)          as 'Отсутствуют статусы обработки на ММПО',
+  SUM(rtrn)                  as 'Возврат',
+  COUNT(*) as 'Итого'
+FROM (
+  SELECT
+    bar_code,   weight,
+    index_mmpo,   index_arrive_to_rf,   country_import,   trans_type,   index_left_mmpo,
+    mail_type,   mail_ctg,   direct_ctg,   dt_msk_arrive_to_rf,   dt_msk_reference,
+    (mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 720  )::INT AS 'in12h',
+    (mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 1440 )::INT AS 'in1d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 2160 )::INT AS 'in1d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 2880 )::INT AS 'in2d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 3600 )::INT AS 'in2d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 4320 )::INT AS 'in3d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 5040 )::INT AS 'in3d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 5760 )::INT AS 'in4d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 7200 )::INT AS 'in5d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 8640 )::INT AS 'in6d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 10080)::INT AS 'in7d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 11520)::INT AS 'in8d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 12960)::INT AS 'in9d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 14400)::INT AS 'in10d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo >= 0)::INT                AS 'gt10d',
+	NULLIFZERO((mmpo_process_status!=0)::INT)                                 AS 'total',
+	(mmpo_process_status=0)::INT AS 'rtrn',
+	(mmpo_process_status=1)::INT AS 'left_mmpo_incorr_date',
+	(mmpo_process_status=2)::INT AS 'left_mmpo_in_time',
+	(mmpo_process_status=3)::INT AS 'left_mmpo_late',
+	(mmpo_process_status=4)::INT AS 'no_arrive_to_rf',
+	(mmpo_process_status=5)::INT AS 'left_mmpo_silent',
+	(mmpo_process_status=6)::INT AS 'delay_in_mmpo',
+	(mmpo_process_status=7)::INT AS 'mmpo_missing'
+  FROM mmpo_kpi.mmpo_kpi_periods_intersection
+) mkf
+LEFT JOIN dicts.dim_fps_structure fps_mmpo ON mkf.index_mmpo = fps_mmpo.post_object_index
+LEFT JOIN dicts.dim_fps_structure fps_arrive ON mkf.index_arrive_to_rf = fps_arrive.post_object_index
+LEFT JOIN dicts.countries_full cf ON IFNULL(mkf.country_import,'0') = cf.code::VARCHAR
+LEFT JOIN dicts.transtype tt ON mkf.trans_type = tt.code
+LEFT JOIN dicts.post_object_to_mmpo_mapping potmm on mkf.index_left_mmpo = potmm.post_object_index
+LEFT JOIN dicts.mailtype mt ON mkf.mail_type = mt.code
+LEFT JOIN dicts.mailctg mctg ON mkf.mail_ctg = mctg.code
+LEFT JOIN dicts.direct_ctg dc ON mkf.direct_ctg = dc.code
+
+--Дата приема в ММПО
+WHERE (('' IN (${reference_date_from_arg}))
+    OR ('' IN (${reference_date_to_arg}))
+    OR ${reference_date_from_arg}::VARCHAR LIKE ''::VARCHAR
+    OR ${reference_date_to_arg}::VARCHAR LIKE ''::VARCHAR
+    OR (TO_DATE(${reference_date_from_arg}, 'yyyy-MM-dd') <= TO_DATE(mkf.dt_msk_reference, 'yyyy-MM-dd')
+     AND TO_DATE(mkf.dt_msk_reference, 'yyyy-MM-dd') <= TO_DATE(${reference_date_to_arg}, 'yyyy-MM-dd')))
+
+--Страна импорта
+AND (IFNULL('default_country' IN (${country_olap_arg}), true)
+    OR IFNULL('' IN (${country_olap_arg}), true)
+    OR '[countries].[' || cf.name_ru || ']' IN (${country_olap_arg}))
+     
+--Номера отправлений
+AND ('' IN (${rpo_mask_arg}) OR mkf.bar_code LIKE ${rpo_mask_arg} OR ${rpo_mask_arg}::VARCHAR IS NULL)
+
+--Тип перевозки в РФ
+AND (IFNULL('default_transtype' IN (${transtype_olap_arg}), true)
+    OR IFNULL('' IN (${transtype_olap_arg}), true)
+    OR '[transtype].[' || tt.name || ']' IN (${transtype_olap_arg}))
+
+--Вес отправления
+AND (IFNULL('' IN (${weight_from_arg}), true)
+     OR IFNULL('' IN (${weight_to_arg}),true)
+	 OR ${weight_from_arg} <= ZEROIFNULL(weight) AND ZEROIFNULL(weight) <= ${weight_to_arg})
+
+--Точка выхода
+AND (('<Не указано>' IN (${exit_point_arg}) AND potmm.mmpo IS NULL)
+    OR '<Все возможные>' IN (${exit_point_arg})
+    OR potmm.mmpo IN (${exit_point_arg}))
+
+--Место прибытия в РФ
+AND ('' IN (${arrive_index_arg}) OR mkf.index_arrive_to_rf LIKE ${arrive_index_arg} OR ${arrive_index_arg}::VARCHAR IS NULL)
+
+--ММПО импорта
+AND (IFNULL('default_mmpo' IN (${mmpo_olap_arg}), true)
+    OR IFNULL('' IN (${mmpo_olap_arg}), true)
+    OR '[fps].[' || fps_mmpo.macroregion || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || '].[' || fps_mmpo.post_office || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || '].[' || fps_mmpo.post_office || '].[' || fps_mmpo.post_object || ']' IN (${mmpo_olap_arg}))
+    
+--Вид отправлений
+AND (IFNULL('default_mail_type' IN (${mail_type_olap_arg}), true)
+    OR IFNULL('' IN (${mail_type_olap_arg}), true)
+    OR '[mail_type].[' || mt.name || ']' IN (${mail_type_olap_arg})) 
+    
+--Категория отправлений
+AND (IFNULL('default_mail_ctg' IN (${mail_ctg_olap_arg}), true)
+    OR IFNULL('' IN (${mail_ctg_olap_arg}), true)
+    OR '[mail_ctg].[' || mctg.name || ']' IN (${mail_ctg_olap_arg}))
+
+--Класс отправлений
+AND (IFNULL('default_direct_ctg' IN (${direct_ctg_olap_arg}), true)
+    OR IFNULL('' IN (${direct_ctg_olap_arg}), true)
+    OR '[direct_ctg].[' || dc.name || ']' IN (${direct_ctg_olap_arg}))
+    
+GROUP BY potmm.mmpo, mkf.dt_msk_arrive_to_rf::DATE, fps_arrive.post_object, fps_mmpo.post_object
+ORDER BY potmm.mmpo, mkf.dt_msk_arrive_to_rf::DATE, fps_arrive.post_object, fps_mmpo.post_object
+LIMIT ${limit}
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="report_date_ds" id="report_date_ds" type="sql">
+      <Name>report_date_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT
+  param_max_date,
+  add_months(to_date(param_max_date,'YYYY-MM-dd'),-1)
+FROM mmpo_kpi.mmpo_kpi_report_dates
+ORDER BY build_date DESC
+LIMIT 1;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="exit_points_ds" id="exit_points_ds" type="sql">
+      <Name>exit_points_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT '<Все возможные>'
+UNION ALL
+SELECT '<Не указано>'
+UNION ALL
+SELECT DISTINCT mmpo
+FROM dicts.post_object_to_mmpo_mapping
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mmpo_kpi_total" id="mmpo_kpi_total" type="sql">
+      <Name>mmpo_kpi_total</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="2000-01-01" name="reference_date_from_arg" type="String"/>
+         <Parameter default="2200-12-31" name="reference_date_to_arg" type="String"/>
+         <Parameter default="default_country" name="country_olap_arg" type="String"/>
+         <Parameter default="" name="rpo_mask_arg" type="String"/>
+         <Parameter default="default_transtype" name="transtype_olap_arg" type="String"/>
+         <Parameter default="0" name="weight_from_arg" type="String"/>
+         <Parameter default="100000000" name="weight_to_arg" type="String"/>
+         <Parameter default="default_exit_point" name="exit_point_arg" type="String"/>
+         <Parameter default="default_mmpo" name="mmpo_olap_arg" type="String"/>
+         <Parameter default="default_mail_type" name="mail_type_olap_arg" type="String"/>
+         <Parameter default="default_mail_ctg" name="mail_ctg_olap_arg" type="String"/>
+         <Parameter default="default_direct_ctg" name="direct_ctg_olap_arg" type="String"/>
+         <Parameter default="default_arrive_index" name="arrive_index_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  'Итого' as ' ',
+  REPLACE(TO_CHAR(SUM(in12h)  /SUM(total)*100,'FM990.09%'),'.',',') as '12 часов',
+  REPLACE(TO_CHAR(SUM(in1d)   /SUM(total)*100,'FM990.09%'),'.',',') as '1 день',
+  REPLACE(TO_CHAR(SUM(in1d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '1,5 дня',
+  REPLACE(TO_CHAR(SUM(in2d)   /SUM(total)*100,'FM990.09%'),'.',',') as '2 дня',
+  REPLACE(TO_CHAR(SUM(in2d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '2,5 дня',
+  REPLACE(TO_CHAR(SUM(in3d)   /SUM(total)*100,'FM990.09%'),'.',',') as '3 дня',
+  REPLACE(TO_CHAR(SUM(in3d12h)/SUM(total)*100,'FM990.09%'),'.',',') as '3,5 дня',
+  REPLACE(TO_CHAR(SUM(in4d)   /SUM(total)*100,'FM990.09%'),'.',',') as '4 дня',
+  REPLACE(TO_CHAR(SUM(in5d)   /SUM(total)*100,'FM990.09%'),'.',',') as '5 дней',
+  REPLACE(TO_CHAR(SUM(in6d)   /SUM(total)*100,'FM990.09%'),'.',',') as '6 дней',
+  REPLACE(TO_CHAR(SUM(in7d)   /SUM(total)*100,'FM990.09%'),'.',',') as '7 дней',
+  REPLACE(TO_CHAR(SUM(in8d)   /SUM(total)*100,'FM990.09%'),'.',',') as '8 дней',
+  REPLACE(TO_CHAR(SUM(in9d)   /SUM(total)*100,'FM990.09%'),'.',',') as '9 дней',
+  REPLACE(TO_CHAR(SUM(in10d)  /SUM(total)*100,'FM990.09%'),'.',',') as '10 дней',
+  REPLACE(TO_CHAR(SUM(gt10d)  /SUM(total)*100,'FM990.09%'),'.',',') as '>10 дней',
+  SUM(left_mmpo_in_time)     as 'Покинуло ММПО вовремя',
+  SUM(left_mmpo_late)        as 'Покинуло ММПО невовремя',
+  SUM(left_mmpo_silent)      as 'Покинуло ММПО без статуса',
+  SUM(delay_in_mmpo)         as 'Задержан на ММПО',
+  SUM(no_arrive_to_rf)       as 'Нет статусов Прибытия в РФ',
+  SUM(left_mmpo_incorr_date) as 'Вышло из ММПО с некорректными датами',
+  SUM(mmpo_missing)          as 'Отсутствуют статусы обработки на ММПО',
+  SUM(rtrn)                  as 'Возврат',
+  COUNT(*) as 'Итого'
+FROM (
+  SELECT
+    bar_code,   weight,
+    index_mmpo,   index_arrive_to_rf,   country_import,   trans_type,   index_left_mmpo,
+    mail_type,   mail_ctg,   direct_ctg,   dt_msk_arrive_to_rf,   dt_msk_reference,
+    (mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 720  )::INT AS 'in12h',
+    (mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 1440 )::INT AS 'in1d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 2160 )::INT AS 'in1d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 2880 )::INT AS 'in2d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 3600 )::INT AS 'in2d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 4320 )::INT AS 'in3d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 5040 )::INT AS 'in3d12h',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 5760 )::INT AS 'in4d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 7200 )::INT AS 'in5d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 8640 )::INT AS 'in6d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 10080)::INT AS 'in7d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 11520)::INT AS 'in8d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 12960)::INT AS 'in9d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo BETWEEN 0 AND 14400)::INT AS 'in10d',
+	(mmpo_process_status!=0 AND minutes_inside_mmpo >= 0)::INT                AS 'gt10d',
+	NULLIFZERO((mmpo_process_status!=0)::INT)                                 AS 'total',
+	(mmpo_process_status=0)::INT AS 'rtrn',
+	(mmpo_process_status=1)::INT AS 'left_mmpo_incorr_date',
+	(mmpo_process_status=2)::INT AS 'left_mmpo_in_time',
+	(mmpo_process_status=3)::INT AS 'left_mmpo_late',
+	(mmpo_process_status=4)::INT AS 'no_arrive_to_rf',
+	(mmpo_process_status=5)::INT AS 'left_mmpo_silent',
+	(mmpo_process_status=6)::INT AS 'delay_in_mmpo',
+	(mmpo_process_status=7)::INT AS 'mmpo_missing'
+  FROM mmpo_kpi.mmpo_kpi_periods_intersection
+) mkf
+LEFT JOIN dicts.dim_fps_structure fps_mmpo ON mkf.index_mmpo = fps_mmpo.post_object_index
+LEFT JOIN dicts.dim_fps_structure fps_arrive ON mkf.index_arrive_to_rf = fps_arrive.post_object_index
+LEFT JOIN dicts.countries_full cf ON IFNULL(mkf.country_import,'0') = cf.code::VARCHAR
+LEFT JOIN dicts.transtype tt ON mkf.trans_type = tt.code
+LEFT JOIN dicts.post_object_to_mmpo_mapping potmm on mkf.index_left_mmpo = potmm.post_object_index
+LEFT JOIN dicts.mailtype mt ON mkf.mail_type = mt.code
+LEFT JOIN dicts.mailctg mctg ON mkf.mail_ctg = mctg.code
+LEFT JOIN dicts.direct_ctg dc ON mkf.direct_ctg = dc.code
+
+--Дата приема в ММПО
+WHERE (('' IN (${reference_date_from_arg}))
+    OR ('' IN (${reference_date_to_arg}))
+    OR ${reference_date_from_arg}::VARCHAR LIKE ''::VARCHAR
+    OR ${reference_date_to_arg}::VARCHAR LIKE ''::VARCHAR
+    OR (TO_DATE(${reference_date_from_arg}, 'yyyy-MM-dd') <= TO_DATE(dt_msk_reference, 'yyyy-MM-dd')
+     AND TO_DATE(dt_msk_reference, 'yyyy-MM-dd') <= TO_DATE(${reference_date_to_arg}, 'yyyy-MM-dd')))
+    
+--Страна импорта
+AND (IFNULL('default_country' IN (${country_olap_arg}), true)
+    OR IFNULL('' IN (${country_olap_arg}), true)
+    OR '[countries].[' || cf.name_ru || ']' IN (${country_olap_arg}))
+
+--Номера отправлений
+AND ('' IN (${rpo_mask_arg}) OR bar_code LIKE ${rpo_mask_arg} OR ${rpo_mask_arg}::VARCHAR IS NULL)
+
+--Тип перевозки в РФ
+AND (IFNULL('default_transtype' IN (${transtype_olap_arg}), true)
+    OR IFNULL('' IN (${transtype_olap_arg}), true)
+    OR '[transtype].[' || tt.name || ']' IN (${transtype_olap_arg}))
+
+--Вес отправления
+AND (IFNULL('' IN (${weight_from_arg}), true)
+     OR IFNULL('' IN (${weight_to_arg}),true)
+	 OR ${weight_from_arg} <= ZEROIFNULL(weight) AND ZEROIFNULL(weight) <= ${weight_to_arg})
+
+--Точка выхода
+AND (('<Не указано>' IN (${exit_point_arg}) AND potmm.mmpo IS NULL)
+    OR '<Все возможные>' IN (${exit_point_arg})
+    OR potmm.mmpo IN (${exit_point_arg}))
+
+--Место прибытия в РФ
+AND ('' IN (${arrive_index_arg}) OR mkf.index_arrive_to_rf LIKE ${arrive_index_arg} OR ${arrive_index_arg}::VARCHAR IS NULL)
+
+--ММПО импорта
+AND (IFNULL('default_mmpo' IN (${mmpo_olap_arg}), true)
+    OR IFNULL('' IN (${mmpo_olap_arg}), true)
+    OR '[fps].[' || fps_mmpo.macroregion || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || '].[' || fps_mmpo.post_office || ']' IN (${mmpo_olap_arg})
+    OR '[fps].[' || fps_mmpo.macroregion || '].[' || fps_mmpo.ufps || '].[' || fps_mmpo.post_office || '].[' || fps_mmpo.post_object || ']' IN (${mmpo_olap_arg}))
+    
+--Вид отправлений
+AND (IFNULL('default_mail_type' IN (${mail_type_olap_arg}), true)
+    OR IFNULL('' IN (${mail_type_olap_arg}), true)
+    OR '[mail_type].[' || mt.name || ']' IN (${mail_type_olap_arg}))    
+    
+--Категория отправлений
+AND (IFNULL('default_mail_ctg' IN (${mail_ctg_olap_arg}), true)
+    OR IFNULL('' IN (${mail_ctg_olap_arg}), true)
+    OR '[mail_ctg].[' || mctg.name || ']' IN (${mail_ctg_olap_arg}))
+
+--Класс отправлений
+AND (IFNULL('default_direct_ctg' IN (${direct_ctg_olap_arg}), true)
+    OR IFNULL('' IN (${direct_ctg_olap_arg}), true)
+    OR '[direct_ctg].[' || dc.name || ']' IN (${direct_ctg_olap_arg}))
+;]]></Query>
+   </DataAccess>
+</CDADescriptor>

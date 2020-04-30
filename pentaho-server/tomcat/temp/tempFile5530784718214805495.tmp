@@ -1,0 +1,36 @@
+<Schema name="kpi_zone_mondrian_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="mail_type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+    <Hierarchy name="mail_type" visible="true" hasAll="true" primaryKey="code" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      <Table name="bonus_mail_type_groups" schema="dicts">
+      </Table>
+      <Level name="group" visible="true" table="bonus_mail_type_groups" column="group_name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1053;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1073;&#1080;&#1079;&#1085;&#1077;&#1089;&#1072;">
+      </Level>
+      <Level name="name" visible="true" table="bonus_mail_type_groups" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="fps" caption="&#1060;&#1055;&#1057;">
+    <Hierarchy name="fps" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1060;&#1055;&#1057;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+      <Level name="post_office" visible="true" table="dim_fps_structure" column="post_office" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="IfBlankName" caption="&#1055;&#1086;&#1095;&#1090;&#1072;&#1084;&#1090;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057; &#1080;&#1085;&#1076;&#1077;&#1082;&#1089;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="kpi_zone" visible="true" cache="true" enabled="true">
+    <Table name="kpi_zone" schema="tracking">
+    </Table>
+    <DimensionUsage source="mail_type" name="mail_type" caption="&#1042;&#1080;&#1076; &#1056;&#1055;&#1054;" visible="true" foreignKey="mail_type" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="fps" name="fps" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="index_to" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="value_sum" column="value" aggregator="sum" caption="value_sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="balance_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="balance_dc_nowhere" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="balance_dc_bar_code_search" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="balance_dc_list" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="balance_dc_list_nowhere" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="balance_dc_list_bar_code_search" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="last_update_date_report" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="last_update_date" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="available_countries" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="balance_dc" id="balance_dc" type="sql">
+      <Name>balance_dc</Name>
+      <Cache duration="900" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="balances_type" name="balances_type" type="Integer"/>
+         <Parameter default="fps_here" name="fps_here" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="is_sortable" name="is_sortable" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  ufps        "Филиал",
+  post_office "Почтамт",
+  ops         "ОПС",
+  d_0         "0 дней",
+  d_1         "1 день",
+  d_2         "2 дня",
+  d_3         "3 дня",
+  d_4         "4 дня",
+  d_5         "5 дней",
+  d_6         "6 дней",
+  d_7         "7 дней",
+  d_8         "8 дней",
+  d_9         "9 дней",
+  d_10        "10 дней",
+  d_11        "11-30 дней",
+  d_30        "> 30 дней",
+  d_all       "Всего",
+  tmp_storage "Временное хранение"
+FROM (
+       SELECT
+         ufps,
+         post_office,
+         ops,
+         SUM(d_0)         AS d_0,
+         SUM(d_1)         AS d_1,
+         SUM(d_2)         AS d_2,
+         SUM(d_3)         AS d_3,
+         SUM(d_4)         AS d_4,
+         SUM(d_5)         AS d_5,
+         SUM(d_6)         AS d_6,
+         SUM(d_7)         AS d_7,
+         SUM(d_8)         AS d_8,
+         SUM(d_9)         AS d_9,
+         SUM(d_10)        AS d_10,
+         SUM(d_11)        AS d_11,
+         SUM(d_30)        AS d_30,
+         SUM(d_all)       AS d_all,
+         SUM(tmp_storage) AS tmp_storage
+       FROM (
+              SELECT
+                CASE
+                WHEN ag.country_code<>643 and fps.macroregion_code in ('16')
+                  THEN cnt.name_ru
+                ELSE fps.ufps_report
+                end as ufps,
+                CASE
+                WHEN ag.country_code<>643 and fps.macroregion_code in ('16')
+                  THEN cnt.name_ru
+                ELSE fps.post_office_report
+                end as post_office,
+                CASE
+                WHEN ag.country_code<>643 and fps.macroregion_code in ('16')
+                  THEN ops_code||' '||cnt.name_ru
+                ELSE fps.ops
+                end as ops,
+                d_0,
+                d_1,
+                d_2,
+                d_3,
+                d_4,
+                d_5,
+                d_6,
+                d_7,
+                d_8,
+                d_9,
+                d_10,
+                d_11,
+                d_30,
+                d_all,
+                tmp_storage
+              FROM (
+                     SELECT
+                       *,
+                       false as online
+                     FROM balances_cde.balance_fact_ag
+                     UNION ALL
+                     SELECT
+                       *,
+                       true as online
+                     FROM balances_cde.balance_fact_online_ag
+                   ) ag
+                LEFT JOIN dicts.mail_type_groups mt ON ag.mail_type=mt.code
+                LEFT JOIN dicts.mailctg mctg ON ag.mail_ctg=mctg.code
+                LEFT JOIN dicts.countries_full cnt ON ag.country_code=cnt.code
+                LEFT JOIN dicts.countries_full cnt_to ON ag.country_to=cnt_to.code
+                LEFT JOIN dicts.countries_full cnt_from ON ag.country_from=cnt_from.code
+                LEFT JOIN dicts.fps_structure_balances fps ON fps.post_object_index_str=ag.ops_code
+                LEFT JOIN dicts.fps_structure_balances fps_to ON fps_to.post_object_index_str=ag.ops_to_code
+                LEFT JOIN dicts.fps_structure_balances fps_from ON fps_from.post_object_index_str=ag.ops_from_code
+              WHERE (CASE WHEN 'hide' IN (${show_online_data})
+                THEN NOT ag.online
+                     ELSE ag.online END)
+                    AND fps.ops IS NOT NULL
+                    AND rpo_state=${balances_type}
+                    AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR cnt_to.name_ru IN (${country_to}))
+                    AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR cnt_from.name_ru IN (${country_from}))
+                    AND (${sender}:: VARCHAR IS NULL OR ${sender}='' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+                    AND (${receiver}:: VARCHAR IS NULL OR ${receiver}='' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+                    AND (${mass_from}:: VARCHAR IS NULL OR ${mass_from}='' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass)>=${mass_from})
+                    AND (${mass_to}:: VARCHAR IS NULL OR ${mass_to}='' OR cast(${mass_to} AS INTEGER) IS NULL OR ZEROIFNULL(mass)<=${mass_to})
+                    AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+                         OR '[mail_type].['||mt.group||']' IN (${mail_type})
+                         OR '[mail_type].['||mt.group||'].['||mt.name||']' IN (${mail_type}))
+                    AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg})
+                         OR '[mail_ctg].['||mctg.name||']' IN (${mail_ctg}))
+                    AND
+                    (case when ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})) then true
+                      else not(ag.country_code<>643 and fps.macroregion_code  in ('16')) and 
+                     ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})
+                      OR fps.olap_macroregion IN (${fps_here})
+                      OR fps.olap_ufps IN (${fps_here})
+                      OR fps.olap_post_office IN (${fps_here})
+                      OR fps.olap_object_border IN (${fps_here}))
+                    end)
+                    AND
+                    ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+                     OR fps_to.olap_macroregion IN (${fps_to})
+                     OR fps_to.olap_ufps IN (${fps_to})
+                     OR fps_to.olap_post_office IN (${fps_to})
+                     OR fps_to.olap_object_border IN (${fps_to}))
+                    AND
+                    ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+                     OR fps_from.olap_macroregion IN (${fps_from})
+                     OR fps_from.olap_ufps IN (${fps_from})
+                     OR fps_from.olap_post_office IN (${fps_from})
+                     OR fps_from.olap_object_border IN (${fps_from}))
+                    AND (2=${is_sortable} OR fps.sort_type=${is_sortable}) /*'2' Это сразу 2 типа*/
+                    AND report_date in (${update_date})
+            ) t
+       GROUP BY ufps, post_office, ops
+     ) t3;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="balance_dc_nowhere" id="balance_dc_nowhere"
+               type="sql">
+      <Name>balance_dc_nowhere</Name>
+      <Cache duration="900" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  ufps             AS "Филиал",
+  post_office      AS "Почтамт",
+  ops              AS "ОПС",
+  SUM(d_0)         AS "0 дней",
+  SUM(d_1)         AS "1 день",
+  SUM(d_2)         AS "2 дня",
+  SUM(d_3)         AS "3 дня",
+  SUM(d_4)         AS "4 дня",
+  SUM(d_5)         AS "5 дней",
+  SUM(d_6)         AS "6 дней",
+  SUM(d_7)         AS "7 дней",
+  SUM(d_8)         AS "8 дней",
+  SUM(d_9)         AS "9 дней",
+  SUM(d_10)        AS "10 дней",
+  SUM(d_11)        AS "11-30 дней",
+  SUM(d_30)        AS "> 30 дней",
+  SUM(d_all)       AS "Всего",
+  SUM(tmp_storage) AS "Временное хранение"
+FROM (
+  SELECT
+    ('000000 В никуда') AS ufps,
+    ('000000 В никуда') AS post_office,
+    ('000000 В никуда') AS ops,
+    d_0 :: tinyint,
+    d_1 :: tinyint,
+    d_2 :: tinyint,
+    d_3 :: tinyint,
+    d_4 :: tinyint,
+    d_5 :: tinyint,
+    d_6 :: tinyint,
+    d_7 :: tinyint,
+    d_8 :: tinyint,
+    d_9 :: tinyint,
+    d_10 :: tinyint,
+    d_11 :: tinyint,
+    d_30 :: tinyint,
+    tmp_storage :: tinyint,
+    d_0 :: tinyint + d_1 :: tinyint + d_2 :: tinyint + d_3 :: tinyint + d_4 :: tinyint +
+    d_5 :: tinyint + d_6 :: tinyint + d_7 :: tinyint + d_8 :: tinyint + d_9 :: tinyint +
+    d_10 :: tinyint + d_11 :: tinyint + d_30 :: tinyint AS d_all
+  FROM balances_cde.balance_fact_view rpo
+  LEFT JOIN dicts.fps_structure_balances fps_to     ON fps_to.post_object_index_str    =rpo.ops_to_code
+  LEFT JOIN dicts.fps_structure_balances fps_from   ON fps_from.post_object_index_str  =rpo.ops_from_code
+  WHERE (CASE WHEN 'hide' IN (${show_online_data}) THEN NOT rpo.online ELSE rpo.online END)
+    AND ops_code IS NULL
+    AND rpo_state = -1
+    AND ((${bar_code}='' AND ${bar_code_range}='') OR (${bar_code}:: VARCHAR IS NULL AND ${bar_code_range}:: VARCHAR IS NULL) OR
+         regexp_like(UPPER(bar_code), '(^'||REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^')||'$)') OR
+         (split_part(${bar_code_range}, ';', 1)<>'' AND split_part(${bar_code_range}, ';', 2)<>'' AND
+          LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+              split_part(${bar_code_range}, ';', 2))) OR
+         (split_part(${bar_code_range}, ';', 3)<>'' AND split_part(${bar_code_range}, ';', 4)<>'' AND
+          LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+              split_part(${bar_code_range}, ';', 4))) OR
+         (split_part(${bar_code_range}, ';', 5)<>'' AND split_part(${bar_code_range}, ';', 6)<>'' AND
+          LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+              split_part(${bar_code_range}, ';', 6))) OR
+         (split_part(${bar_code_range}, ';', 7)<>'' AND split_part(${bar_code_range}, ';', 8)<>'' AND
+          LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+              split_part(${bar_code_range}, ';', 8))) OR
+         (split_part(${bar_code_range}, ';', 9)<>'' AND split_part(${bar_code_range}, ';', 10)<>''
+          AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+             split_part(${bar_code_range}, ';', 10))))
+    AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR country_to IN (${country_to}))
+    AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR country_from IN (${country_from}))
+    AND (${sender} :: VARCHAR IS NULL OR ${sender} = '' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+    AND (${receiver} :: VARCHAR IS NULL OR ${receiver} = '' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+    AND (${mass_from} :: VARCHAR IS NULL OR ${mass_from} = '' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass) >= ${mass_from})
+    AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+       OR mt_olap_group IN (${mail_type})
+       OR mt_olap_name IN (${mail_type}))
+    AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR mctg_olap_name IN (${mail_ctg}))
+    AND
+    ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+       OR fps_to.olap_macroregion   IN (${fps_to})
+       OR fps_to.olap_ufps          IN (${fps_to})
+       OR fps_to.olap_post_office   IN (${fps_to})
+       OR fps_to.olap_object_border IN (${fps_to}))
+    AND
+    ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+       OR fps_from.olap_macroregion   IN (${fps_from})
+       OR fps_from.olap_ufps          IN (${fps_from})
+       OR fps_from.olap_post_office   IN (${fps_from})
+       OR fps_from.olap_object_border IN (${fps_from}))
+    AND report_date in (${update_date})
+    AND CASE 
+        WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+        WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+        ELSE TRUE END
+) t
+GROUP BY t.ufps,   t.post_office,   t.ops]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="balance_dc_bar_code_search"
+               id="balance_dc_bar_code_search"
+               type="sql">
+      <Name>balance_dc_bar_code_search</Name>
+      <Cache duration="900" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="balances_type_bar_code" name="balances_type_bar_code" type="Integer"/>
+         <Parameter default="fps_here" name="fps_here" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="is_sortable" name="is_sortable" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  ufps             AS "Филиал",
+  post_office      AS "Почтамт",
+  ops              AS "ОПС",
+  SUM(d_0)         AS "0 дней",
+  SUM(d_1)         AS "1 день",
+  SUM(d_2)         AS "2 дня",
+  SUM(d_3)         AS "3 дня",
+  SUM(d_4)         AS "4 дня",
+  SUM(d_5)         AS "5 дней",
+  SUM(d_6)         AS "6 дней",
+  SUM(d_7)         AS "7 дней",
+  SUM(d_8)         AS "8 дней",
+  SUM(d_9)         AS "9 дней",
+  SUM(d_10)        AS "10 дней",
+  SUM(d_11)        AS "11-30 дней",
+  SUM(d_30)        AS "> 30 дней",
+  SUM(d_all)       AS "Всего",
+  SUM(tmp_storage) AS "Временное хранение"
+FROM (
+       SELECT
+         CASE
+         WHEN rpo.country_code<>643 and fps.macroregion_code in ('16')
+           THEN rpo.country_name
+         ELSE fps.ufps_report
+         end                                          as ufps,
+         CASE
+         WHEN rpo.country_code<>643 and fps.macroregion_code in ('16')
+           THEN rpo.country_name
+         ELSE fps.post_office_report
+         end                                          as post_office,
+         CASE
+         WHEN rpo.country_code<>643 and fps.macroregion_code in ('16')
+           THEN ops_code||' '||rpo.country_name
+         ELSE fps.ops
+         end                                          as ops,
+         d_0:: TINYINT,
+         d_1:: TINYINT,
+         d_2:: TINYINT,
+         d_3:: TINYINT,
+         d_4:: TINYINT,
+         d_5:: TINYINT,
+         d_6:: TINYINT,
+         d_7:: TINYINT,
+         d_8:: TINYINT,
+         d_9:: TINYINT,
+         d_10:: TINYINT,
+         d_11:: TINYINT,
+         d_30:: TINYINT,
+         tmp_storage:: TINYINT,
+         d_0:: TINYINT+d_1:: TINYINT+d_2:: TINYINT+d_3:: TINYINT+d_4:: TINYINT+
+         d_5:: TINYINT+d_6:: TINYINT+d_7:: TINYINT+d_8:: TINYINT+d_9:: TINYINT+
+         d_10:: TINYINT+d_11:: TINYINT+d_30:: TINYINT AS d_all
+       FROM balances_cde.balance_fact_view rpo
+         LEFT JOIN dicts.fps_structure_balances fps ON fps.post_object_index_str=rpo.ops_code
+         LEFT JOIN dicts.fps_structure_balances fps_to ON fps_to.post_object_index_str=rpo.ops_to_code
+         LEFT JOIN dicts.fps_structure_balances fps_from ON fps_from.post_object_index_str=rpo.ops_from_code
+       WHERE (CASE WHEN 'hide' IN (${show_online_data})
+         THEN NOT rpo.online
+                                                  ELSE rpo.online END)
+             AND fps.ops IS NOT NULL
+             AND rpo_state=${balances_type_bar_code}
+             AND ((${bar_code}='' AND ${bar_code_range}='') OR (${bar_code}:: VARCHAR IS NULL AND ${bar_code_range}:: VARCHAR IS NULL) OR
+                  regexp_like(UPPER(bar_code), '(^'||REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^')||'$)') OR
+                  (split_part(${bar_code_range}, ';', 1)<>'' AND split_part(${bar_code_range}, ';', 2)<>'' AND
+                   LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+                       split_part(${bar_code_range}, ';', 2))) OR
+                  (split_part(${bar_code_range}, ';', 3)<>'' AND split_part(${bar_code_range}, ';', 4)<>'' AND
+                   LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+                       split_part(${bar_code_range}, ';', 4))) OR
+                  (split_part(${bar_code_range}, ';', 5)<>'' AND split_part(${bar_code_range}, ';', 6)<>'' AND
+                   LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+                       split_part(${bar_code_range}, ';', 6))) OR
+                  (split_part(${bar_code_range}, ';', 7)<>'' AND split_part(${bar_code_range}, ';', 8)<>'' AND
+                   LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+                       split_part(${bar_code_range}, ';', 8))) OR
+                  (split_part(${bar_code_range}, ';', 9)<>'' AND split_part(${bar_code_range}, ';', 10)<>''
+                   AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+                      split_part(${bar_code_range}, ';', 10))))
+             AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR country_to IN (${country_to}))
+             AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR country_from IN (${country_from}))
+             AND (${sender}:: VARCHAR IS NULL OR ${sender}='' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+             AND (${receiver}:: VARCHAR IS NULL OR ${receiver}='' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+             AND (${mass_from}:: VARCHAR IS NULL OR ${mass_from}='' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass)>=${mass_from})
+             AND (${mass_to}:: VARCHAR IS NULL OR ${mass_to}='' OR cast(${mass_to} AS INTEGER) IS NULL OR ZEROIFNULL(mass)<=${mass_to})
+             AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+                  OR mt_olap_group IN (${mail_type})
+                  OR mt_olap_name IN (${mail_type}))
+             AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR mctg_olap_name IN (${mail_ctg}))
+             AND
+             (case when ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})) then true
+              else not(rpo.country_code<>643 and fps.macroregion_code in ('16')) and
+                   ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})
+                    OR fps.olap_macroregion IN (${fps_here})
+                    OR fps.olap_ufps IN (${fps_here})
+                    OR fps.olap_post_office IN (${fps_here})
+                    OR fps.olap_object_border IN (${fps_here}))
+              end)
+             AND
+             ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+              OR fps_to.olap_macroregion IN (${fps_to})
+              OR fps_to.olap_ufps IN (${fps_to})
+              OR fps_to.olap_post_office IN (${fps_to})
+              OR fps_to.olap_object_border IN (${fps_to}))
+             AND
+             ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+              OR fps_from.olap_macroregion IN (${fps_from})
+              OR fps_from.olap_ufps IN (${fps_from})
+              OR fps_from.olap_post_office IN (${fps_from})
+              OR fps_from.olap_object_border IN (${fps_from}))
+             AND (2=${is_sortable} OR fps.sort_type=${is_sortable}) /*'2' Это сразу 2 типа*/
+             AND report_date in (${update_date})
+             AND CASE 
+                 WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+                 WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+                 ELSE TRUE END
+     ) t
+GROUP BY t.ufps, t.post_office, t.ops;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="balance_dc_list" id="balance_dc_list" type="sql">
+      <Name>balance_dc_list</Name>
+      <Cache duration="900" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="balances_type" name="balances_type" type="Integer"/>
+         <Parameter default="fps_here" name="fps_here" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="is_sortable" name="is_sortable" type="String"/>
+         <Parameter default="rpo_list_column" name="rpo_list_column" type="String"/>
+         <Parameter default="ops_name_drill" name="ops_name_drill" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="post_office_drill" name="post_office_drill" type="String"/>
+         <Parameter default="12" name="limit" type="Integer"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  bar_code     "ШИ РПО",
+  mail_type    "Вид отправления",
+  mail_ctg     "Категория отправления",
+  trans_type   "Способ пересылки",
+  fps_from.ops "ОПС отправления",
+  fps_to.ops   "ОПС назначения",
+  post_mark    "Отметка внутренних и международных отправлений",
+  direct_ctg   "Классификация отправления",
+  country_from "Страна места отправления",
+  country_to   "Страна места назначения",
+  inter_name   "Тип международного отправления",
+  sndr         "Отправитель",
+  rcpn         "Получатель",
+  mass         "Вес РПО"
+FROM balances_cde.balance_fact_view rpo
+  LEFT JOIN dicts.fps_structure_balances fps ON fps.post_object_index_str=rpo.ops_code
+  LEFT JOIN dicts.fps_structure_balances fps_to ON fps_to.post_object_index_str=rpo.ops_to_code
+  LEFT JOIN dicts.fps_structure_balances fps_from ON fps_from.post_object_index_str=rpo.ops_from_code
+WHERE (CASE WHEN 'hide' IN (${show_online_data})
+  THEN NOT rpo.online
+       ELSE rpo.online END)
+      AND fps.ops IS NOT NULL
+      AND (fps.ops=${ops_name_drill} or ((rpo.country_code<>643 and fps.macroregion_code in ('16'))
+                                         and rpo.ops_code||' '||rpo.country_name=${ops_name_drill}))
+      AND (${post_office_drill}:: VARCHAR IS NULL
+           OR cast(${post_office_drill} AS VARCHAR) IS NULL
+           OR ''=${post_office_drill}
+           or ((rpo.country_code<>643 and fps.macroregion_code in ('16'))
+               and rpo.country_name=${post_office_drill})
+           OR fps.post_office_report=${post_office_drill})
+      AND rpo_state=${balances_type}
+      AND ((${bar_code}='' AND ${bar_code_range}='') OR (${bar_code}:: VARCHAR IS NULL AND ${bar_code_range}:: VARCHAR IS NULL) OR
+           regexp_like(UPPER(bar_code), '(^'||REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^')||'$)') OR
+           (split_part(${bar_code_range}, ';', 1)<>'' AND split_part(${bar_code_range}, ';', 2)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+                split_part(${bar_code_range}, ';', 2))) OR
+           (split_part(${bar_code_range}, ';', 3)<>'' AND split_part(${bar_code_range}, ';', 4)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+                split_part(${bar_code_range}, ';', 4))) OR
+           (split_part(${bar_code_range}, ';', 5)<>'' AND split_part(${bar_code_range}, ';', 6)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+                split_part(${bar_code_range}, ';', 6))) OR
+           (split_part(${bar_code_range}, ';', 7)<>'' AND split_part(${bar_code_range}, ';', 8)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+                split_part(${bar_code_range}, ';', 8))) OR
+           (split_part(${bar_code_range}, ';', 9)<>'' AND split_part(${bar_code_range}, ';', 10)<>''
+            AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+               split_part(${bar_code_range}, ';', 10))))
+      AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR country_to IN (${country_to}))
+      AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR country_from IN (${country_from}))
+      AND (${sender}:: VARCHAR IS NULL OR ${sender}='' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+      AND (${receiver}:: VARCHAR IS NULL OR ${receiver}='' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+      AND (${mass_from}:: VARCHAR IS NULL OR ${mass_from}='' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass)>=${mass_from})
+      AND (${mass_to}:: VARCHAR IS NULL OR ${mass_to}='' OR cast(${mass_to} AS INTEGER) IS NULL OR ZEROIFNULL(mass)<=${mass_to})
+      AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+           OR mt_olap_group IN (${mail_type})
+           OR mt_olap_name IN (${mail_type}))
+      AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR mctg_olap_name IN (${mail_ctg}))
+      AND
+      (case when ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})) then true
+       else not(rpo.country_code<>643 and fps.macroregion_code in ('16')) and
+            ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})
+             OR fps.olap_macroregion IN (${fps_here})
+             OR fps.olap_ufps IN (${fps_here})
+             OR fps.olap_post_office IN (${fps_here})
+             OR fps.olap_object_border IN (${fps_here}))
+       end)
+      AND
+      ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+       OR fps_to.olap_macroregion IN (${fps_to})
+       OR fps_to.olap_ufps IN (${fps_to})
+       OR fps_to.olap_post_office IN (${fps_to})
+       OR fps_to.olap_object_border IN (${fps_to}))
+      AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+       OR fps_from.olap_macroregion IN (${fps_from})
+       OR fps_from.olap_ufps IN (${fps_from})
+       OR fps_from.olap_post_office IN (${fps_from})
+       OR fps_from.olap_object_border IN (${fps_from}))
+      AND (2=${is_sortable} OR fps.sort_type=${is_sortable}) /*'2' Это сразу 2 типа*/
+      AND report_date in (${update_date})
+      AND (('d_0'=${rpo_list_column} AND d_0=1) OR
+           ('d_1'=${rpo_list_column} AND d_1=1) OR
+           ('d_2'=${rpo_list_column} AND d_2=1) OR
+           ('d_3'=${rpo_list_column} AND d_3=1) OR
+           ('d_4'=${rpo_list_column} AND d_4=1) OR
+           ('d_5'=${rpo_list_column} AND d_5=1) OR
+           ('d_6'=${rpo_list_column} AND d_6=1) OR
+           ('d_7'=${rpo_list_column} AND d_7=1) OR
+           ('d_8'=${rpo_list_column} AND d_8=1) OR
+           ('d_9'=${rpo_list_column} AND d_9=1) OR
+           ('d_10'=${rpo_list_column} AND d_10=1) OR
+           ('d_11'=${rpo_list_column} AND d_11=1) OR
+           ('d_30'=${rpo_list_column} AND d_30=1) OR
+           ('tmp_storage'=${rpo_list_column} AND tmp_storage=1) OR
+           ('d_all'=${rpo_list_column} AND tmp_storage=0))
+      AND CASE 
+        WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+        WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+        ELSE TRUE END
+LIMIT ${limit};]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="balance_dc_list_nowhere"
+               id="balance_dc_list_nowhere"
+               type="sql">
+      <Name>balance_dc_list_nowhere</Name>
+      <Cache duration="900" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="rpo_list_column_nowhere" name="rpo_list_column_nowhere" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  bar_code      "ШИ РПО"
+  ,mail_type    "Вид отправления"
+  ,mail_ctg     "Категория отправления"
+  ,trans_type   "Способ пересылки"
+  ,fps_from.ops "ОПС отправления"
+  ,fps_to.ops   "ОПС назначения"
+  ,post_mark    "Отметка внутренних и международных отправлений"
+  ,direct_ctg   "Классификация отправления"
+  ,country_from "Страна места отправления"
+  ,country_to   "Страна места назначения"
+  ,inter_name   "Тип международного отправления"
+  ,sndr         "Отправитель"
+  ,rcpn         "Получатель"
+  ,mass         "Вес РПО"
+FROM balances_cde.balance_fact_view rpo
+LEFT JOIN dicts.fps_structure_balances fps_to     ON fps_to.post_object_index_str    =rpo.ops_to_code
+LEFT JOIN dicts.fps_structure_balances fps_from   ON fps_from.post_object_index_str  =rpo.ops_from_code
+WHERE (CASE WHEN 'hide' IN (${show_online_data}) THEN NOT rpo.online ELSE rpo.online END)
+  AND ops_code IS NULL
+  AND rpo_state = -1
+  AND ((${bar_code}='' AND ${bar_code_range}='') OR (${bar_code}:: VARCHAR IS NULL AND ${bar_code_range}:: VARCHAR IS NULL) OR
+       regexp_like(UPPER(bar_code), '(^'||REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^')||'$)') OR
+       (split_part(${bar_code_range}, ';', 1)<>'' AND split_part(${bar_code_range}, ';', 2)<>'' AND
+        LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+            split_part(${bar_code_range}, ';', 2))) OR
+       (split_part(${bar_code_range}, ';', 3)<>'' AND split_part(${bar_code_range}, ';', 4)<>'' AND
+        LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+            split_part(${bar_code_range}, ';', 4))) OR
+       (split_part(${bar_code_range}, ';', 5)<>'' AND split_part(${bar_code_range}, ';', 6)<>'' AND
+        LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+            split_part(${bar_code_range}, ';', 6))) OR
+       (split_part(${bar_code_range}, ';', 7)<>'' AND split_part(${bar_code_range}, ';', 8)<>'' AND
+        LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+            split_part(${bar_code_range}, ';', 8))) OR
+       (split_part(${bar_code_range}, ';', 9)<>'' AND split_part(${bar_code_range}, ';', 10)<>''
+        AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+           split_part(${bar_code_range}, ';', 10))))
+  AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR country_to IN (${country_to}))
+  AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR country_from IN (${country_from}))
+  AND (${sender} :: VARCHAR IS NULL OR ${sender} = '' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+  AND (${receiver} :: VARCHAR IS NULL OR ${receiver} = '' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+  AND (${mass_from} :: VARCHAR IS NULL OR ${mass_from} = '' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass) >= ${mass_from})
+  AND (${mass_to} :: VARCHAR IS NULL OR ${mass_to} = '' OR cast(${mass_to} AS INTEGER) IS NULL OR ZEROIFNULL(mass) <= ${mass_to})
+  AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+       OR mt_olap_group IN (${mail_type})
+       OR mt_olap_name IN (${mail_type}))
+  AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR mctg_olap_name IN (${mail_ctg}))
+  AND
+  ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+    OR fps_to.olap_macroregion   IN (${fps_to})
+    OR fps_to.olap_ufps          IN (${fps_to})
+    OR fps_to.olap_post_office   IN (${fps_to})
+    OR fps_to.olap_object_border IN (${fps_to}))
+  AND
+  ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+    OR fps_from.olap_macroregion   IN (${fps_from})
+    OR fps_from.olap_ufps          IN (${fps_from})
+    OR fps_from.olap_post_office   IN (${fps_from})
+    OR fps_from.olap_object_border IN (${fps_from}))
+  AND report_date in (${update_date})
+  AND (('d_0' = ${rpo_list_column_nowhere} AND d_0 = 1) OR
+       ('d_1' = ${rpo_list_column_nowhere} AND d_1 = 1) OR
+       ('d_2' = ${rpo_list_column_nowhere} AND d_2 = 1) OR
+       ('d_3' = ${rpo_list_column_nowhere} AND d_3 = 1) OR
+       ('d_4' = ${rpo_list_column_nowhere} AND d_4 = 1) OR
+       ('d_5' = ${rpo_list_column_nowhere} AND d_5 = 1) OR
+       ('d_6' = ${rpo_list_column_nowhere} AND d_6 = 1) OR
+       ('d_7' = ${rpo_list_column_nowhere} AND d_7 = 1) OR
+       ('d_8' = ${rpo_list_column_nowhere} AND d_8 = 1) OR
+       ('d_9' = ${rpo_list_column_nowhere} AND d_9 = 1) OR
+       ('d_10' = ${rpo_list_column_nowhere} AND d_10 = 1) OR
+       ('d_11' = ${rpo_list_column_nowhere} AND d_11 = 1) OR
+       ('d_30' = ${rpo_list_column_nowhere} AND d_30 = 1) OR
+       ('tmp_storage' = ${rpo_list_column_nowhere} AND tmp_storage = 1) OR
+       ('d_all' = ${rpo_list_column_nowhere} AND tmp_storage = 0))
+    AND CASE 
+        WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+        WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+        ELSE TRUE END
+LIMIT ${limit};]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="balance_dc_list_bar_code_search"
+               id="balance_dc_list_bar_code_search"
+               type="sql">
+      <Name>balance_dc_list_bar_code_search</Name>
+      <Cache duration="900" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="balances_type_bar_code" name="balances_type_bar_code" type="Integer"/>
+         <Parameter default="fps_here" name="fps_here" type="String"/>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="update_date" name="update_date" type="String"/>
+         <Parameter default="is_sortable" name="is_sortable" type="String"/>
+         <Parameter default="rpo_list_column_bar_code" name="rpo_list_column_bar_code"
+                    type="String"/>
+         <Parameter default="ops_name_drill" name="ops_name_drill" type="String"/>
+         <Parameter default="sender" name="sender" type="String"/>
+         <Parameter default="receiver" name="receiver" type="String"/>
+         <Parameter default="mass_from" name="mass_from" type="Numeric"/>
+         <Parameter default="mass_to" name="mass_to" type="Numeric"/>
+         <Parameter default="country_to" name="country_to" type="String"/>
+         <Parameter default="country_from" name="country_from" type="String"/>
+         <Parameter default="post_office_drill" name="post_office_drill" type="String"/>
+         <Parameter default="bar_code" name="bar_code" type="String"/>
+         <Parameter default="bar_code_range" name="bar_code_range" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="show_online_data" name="show_online_data" type="String"/>
+         <Parameter default="srm_filter" name="srm_filter" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  bar_code     "ШИ РПО",
+  mail_type    "Вид отправления",
+  mail_ctg     "Категория отправления",
+  trans_type   "Способ пересылки",
+  fps_from.ops "ОПС отправления",
+  fps_to.ops   "ОПС назначения",
+  post_mark    "Отметка внутренних и международных отправлений",
+  direct_ctg   "Классификация отправления",
+  country_from "Страна места отправления",
+  country_to   "Страна места назначения",
+  inter_name   "Тип международного отправления",
+  sndr         "Отправитель",
+  rcpn         "Получатель",
+  mass         "Вес РПО"
+FROM balances_cde.balance_fact_view rpo
+  LEFT JOIN dicts.fps_structure_balances fps ON fps.post_object_index_str=rpo.ops_code
+  LEFT JOIN dicts.fps_structure_balances fps_to ON fps_to.post_object_index_str=rpo.ops_to_code
+  LEFT JOIN dicts.fps_structure_balances fps_from ON fps_from.post_object_index_str=rpo.ops_from_code
+WHERE (CASE WHEN 'hide' IN (${show_online_data})
+  THEN NOT rpo.online
+       ELSE rpo.online END)
+      AND fps.ops IS NOT NULL
+      AND (fps.ops=${ops_name_drill} or (rpo.country_code<>643 and fps.macroregion_code in ('16') and rpo.ops_code||' '||rpo.country_name=${ops_name_drill}))
+      AND (${post_office_drill}:: VARCHAR IS NULL
+           OR cast(${post_office_drill} AS VARCHAR) IS NULL
+           OR ''=${post_office_drill}
+           or ((rpo.country_code<>643 and fps.macroregion_code in ('16') and rpo.country_name=${post_office_drill})
+               OR fps.post_office_report=${post_office_drill}))
+      AND rpo_state=${balances_type_bar_code}
+      AND ((${bar_code}='' AND ${bar_code_range}='') OR (${bar_code}:: VARCHAR IS NULL AND ${bar_code_range}:: VARCHAR IS NULL) OR
+           regexp_like(UPPER(bar_code), '(^'||REPLACE(REPLACE(UPPER(${bar_code}), '%', '.*'), ';', '$)|(^')||'$)') OR
+           (split_part(${bar_code_range}, ';', 1)<>'' AND split_part(${bar_code_range}, ';', 2)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 1)) AND LOWER(
+                split_part(${bar_code_range}, ';', 2))) OR
+           (split_part(${bar_code_range}, ';', 3)<>'' AND split_part(${bar_code_range}, ';', 4)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 3)) AND LOWER(
+                split_part(${bar_code_range}, ';', 4))) OR
+           (split_part(${bar_code_range}, ';', 5)<>'' AND split_part(${bar_code_range}, ';', 6)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 5)) AND LOWER(
+                split_part(${bar_code_range}, ';', 6))) OR
+           (split_part(${bar_code_range}, ';', 7)<>'' AND split_part(${bar_code_range}, ';', 8)<>'' AND
+            LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 7)) AND LOWER(
+                split_part(${bar_code_range}, ';', 8))) OR
+           (split_part(${bar_code_range}, ';', 9)<>'' AND split_part(${bar_code_range}, ';', 10)<>''
+            AND LOWER(bar_code) BETWEEN LOWER(split_part(${bar_code_range}, ';', 9)) AND LOWER(
+               split_part(${bar_code_range}, ';', 10))))
+      AND ('' IN (${country_to}) OR ('country_to' IN (${country_to})) OR country_to IN (${country_to}))
+      AND ('' IN (${country_from}) OR ('country_from' IN (${country_from})) OR country_from IN (${country_from}))
+      AND (${sender}:: VARCHAR IS NULL OR ${sender}='' OR cast(${sender} AS VARCHAR) IS NULL OR LOWER(sndr) LIKE LOWER(${sender}))
+      AND (${receiver}:: VARCHAR IS NULL OR ${receiver}='' OR cast(${receiver} AS VARCHAR) IS NULL OR LOWER(rcpn) LIKE LOWER(${receiver}))
+      AND (${mass_from}:: VARCHAR IS NULL OR ${mass_from}='' OR cast(${mass_from} AS INTEGER) IS NULL OR ZEROIFNULL(mass)>=${mass_from})
+      AND (${mass_to}:: VARCHAR IS NULL OR ${mass_to}='' OR cast(${mass_to} AS INTEGER) IS NULL OR ZEROIFNULL(mass)<=${mass_to})
+      AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type})
+           OR mt_olap_group IN (${mail_type})
+           OR mt_olap_name IN (${mail_type}))
+      AND ('' IN (${mail_ctg}) OR 'mail_ctg' IN (${mail_ctg}) OR mctg_olap_name IN (${mail_ctg}))
+      AND
+      (case when ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})) then true
+       else not(rpo.country_code<>643 and fps.macroregion_code in ('16')) and
+            ('' IN (${fps_here}) OR 'fps_here' IN (${fps_here})
+             OR fps.olap_macroregion IN (${fps_here})
+             OR fps.olap_ufps IN (${fps_here})
+             OR fps.olap_post_office IN (${fps_here})
+             OR fps.olap_object_border IN (${fps_here}))
+       end)
+      AND
+      ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to})
+       OR fps_to.olap_macroregion IN (${fps_to})
+       OR fps_to.olap_ufps IN (${fps_to})
+       OR fps_to.olap_post_office IN (${fps_to})
+       OR fps_to.olap_object_border IN (${fps_to}))
+      AND
+      ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from})
+       OR fps_from.olap_macroregion IN (${fps_from})
+       OR fps_from.olap_ufps IN (${fps_from})
+       OR fps_from.olap_post_office IN (${fps_from})
+       OR fps_from.olap_object_border IN (${fps_from}))
+      AND (2=${is_sortable} OR fps.sort_type=${is_sortable}) /*'2' Это сразу 2 типа*/
+      AND report_date in (${update_date})
+      AND (('d_0'=${rpo_list_column_bar_code} AND d_0=1) OR
+           ('d_1'=${rpo_list_column_bar_code} AND d_1=1) OR
+           ('d_2'=${rpo_list_column_bar_code} AND d_2=1) OR
+           ('d_3'=${rpo_list_column_bar_code} AND d_3=1) OR
+           ('d_4'=${rpo_list_column_bar_code} AND d_4=1) OR
+           ('d_5'=${rpo_list_column_bar_code} AND d_5=1) OR
+           ('d_6'=${rpo_list_column_bar_code} AND d_6=1) OR
+           ('d_7'=${rpo_list_column_bar_code} AND d_7=1) OR
+           ('d_8'=${rpo_list_column_bar_code} AND d_8=1) OR
+           ('d_9'=${rpo_list_column_bar_code} AND d_9=1) OR
+           ('d_10'=${rpo_list_column_bar_code} AND d_10=1) OR
+           ('d_11'=${rpo_list_column_bar_code} AND d_11=1) OR
+           ('d_30'=${rpo_list_column_bar_code} AND d_30=1) OR
+           ('tmp_storage'=${rpo_list_column_bar_code} AND tmp_storage=1) OR
+           ('d_all'=${rpo_list_column_bar_code} AND tmp_storage=0))
+      AND CASE 
+          WHEN ${srm_filter} = 1 THEN bar_code LIKE 'Z%'
+          WHEN ${srm_filter} = 0 THEN bar_code NOT LIKE 'Z%' 
+          ELSE TRUE END
+limit ${limit};]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="last_update_date_report"
+               id="last_update_date_report"
+               type="sql">
+      <Name>last_update_date_report</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT dateTime
+FROM balances_cde.balance_fact_build_time;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="last_update_date" id="last_update_date" type="sql">
+      <Name>last_update_date</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT report_date
+FROM balances_cde.balance_fact_dates
+ORDER BY report_date DESC;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="available_countries" id="available_countries"
+               type="sql">
+      <Name>available_countries</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[SELECT name_ru
+FROM dicts.countries_full cf
+ORDER BY name_ru;]]></Query>
+   </DataAccess>
+</CDADescriptor>

@@ -1,0 +1,15 @@
+2018-11-07 14:44:55,407 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2018-11-07 14:44:57,548 INFO  [org.pentaho.platform.osgi.OSGIBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+2018-11-07 14:45:03,039 INFO  [org.pentaho.platform.osgi.KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 1 at C:\Alex\Pentaho_src\pentaho-server71CleanWi ***
+***   thDataSource\pentaho-server\pentaho-solutions\system\karaf\caches\default\data-1***
+*** Karaf Port:8802                                                         ***
+*** OSGI Service Port:9051                                                  ***
+*** JMX RMI Registry Port:11099                                             ***
+*** RMI Server Port:44445                                                   ***
+*******************************************************************************
+2018-11-07 14:45:25,414 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2018-11-07 14:45:55,437 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2018-11-07 14:46:25,439 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2018-11-07 14:46:48,886 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] The system has finished initializing.

@@ -1,0 +1,132 @@
+2020-03-03 16:27:27,882 INFO  [org.pentaho.di] 2020/03/03 16:27:27 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:27:28,050 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - PurRepository - Creating repository meta store interface
+2020-03-03 16:27:28,052 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:27:28,146 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:27:28,200 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:27:28,214 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:27:28,216 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:27:28,269 INFO  [org.pentaho.di] 2020/03/03 16:27:28 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:33:57,249 INFO  [org.pentaho.di] 2020/03/03 16:33:57 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:33:57,354 INFO  [org.pentaho.di] 2020/03/03 16:33:57 - PurRepository - Creating repository meta store interface
+2020-03-03 16:33:57,356 INFO  [org.pentaho.di] 2020/03/03 16:33:57 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:33:57,434 INFO  [org.pentaho.di] 2020/03/03 16:33:57 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:34:07,539 INFO  [org.pentaho.di] 2020/03/03 16:34:07 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:34:07,550 INFO  [org.pentaho.di] 2020/03/03 16:34:07 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:34:07,560 INFO  [org.pentaho.di] 2020/03/03 16:34:07 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:34:07,689 INFO  [org.pentaho.di] 2020/03/03 16:34:07 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:35:14,230 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:35:14,457 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - PurRepository - Creating repository meta store interface
+2020-03-03 16:35:14,458 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:35:14,513 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:35:14,569 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:35:14,588 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:35:14,589 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:35:14,671 INFO  [org.pentaho.di] 2020/03/03 16:35:14 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:45:50,566 INFO  [org.pentaho.di] 2020/03/03 16:45:50 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:46:03,324 INFO  [org.pentaho.di] 2020/03/03 16:46:03 - PurRepository - Creating repository meta store interface
+2020-03-03 16:46:03,325 INFO  [org.pentaho.di] 2020/03/03 16:46:03 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:46:03,387 INFO  [org.pentaho.di] 2020/03/03 16:46:03 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:46:04,853 INFO  [org.pentaho.di] 2020/03/03 16:46:04 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:04,863 INFO  [org.pentaho.di] 2020/03/03 16:46:04 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:04,878 INFO  [org.pentaho.di] 2020/03/03 16:46:04 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:04,931 INFO  [org.pentaho.di] 2020/03/03 16:46:04 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:46:17,374 INFO  [org.pentaho.di] 2020/03/03 16:46:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:46:17,534 INFO  [org.pentaho.di] 2020/03/03 16:46:17 - PurRepository - Creating repository meta store interface
+2020-03-03 16:46:17,535 INFO  [org.pentaho.di] 2020/03/03 16:46:17 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:46:17,577 INFO  [org.pentaho.di] 2020/03/03 16:46:17 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:46:27,679 INFO  [org.pentaho.di] 2020/03/03 16:46:27 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:27,691 INFO  [org.pentaho.di] 2020/03/03 16:46:27 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:27,694 INFO  [org.pentaho.di] 2020/03/03 16:46:27 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:46:27,752 INFO  [org.pentaho.di] 2020/03/03 16:46:27 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:50:10,724 INFO  [org.pentaho.di] 2020/03/03 16:50:10 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:50:10,913 INFO  [org.pentaho.di] 2020/03/03 16:50:10 - PurRepository - Creating repository meta store interface
+2020-03-03 16:50:10,915 INFO  [org.pentaho.di] 2020/03/03 16:50:10 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:50:10,972 INFO  [org.pentaho.di] 2020/03/03 16:50:10 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:50:11,312 INFO  [org.pentaho.di] 2020/03/03 16:50:11 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:11,332 INFO  [org.pentaho.di] 2020/03/03 16:50:11 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:11,340 INFO  [org.pentaho.di] 2020/03/03 16:50:11 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:11,660 INFO  [org.pentaho.di] 2020/03/03 16:50:11 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:40,702 INFO  [org.pentaho.di] 2020/03/03 16:50:40 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:50:40,871 INFO  [org.pentaho.di] 2020/03/03 16:50:40 - PurRepository - Creating repository meta store interface
+2020-03-03 16:50:40,872 INFO  [org.pentaho.di] 2020/03/03 16:50:40 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:50:40,956 INFO  [org.pentaho.di] 2020/03/03 16:50:40 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:50:51,035 INFO  [org.pentaho.di] 2020/03/03 16:50:51 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:51,055 INFO  [org.pentaho.di] 2020/03/03 16:50:51 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:51,057 INFO  [org.pentaho.di] 2020/03/03 16:50:51 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:50:51,192 INFO  [org.pentaho.di] 2020/03/03 16:50:51 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:54:22,248 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:54:22,391 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - PurRepository - Creating repository meta store interface
+2020-03-03 16:54:22,392 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:54:22,437 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:54:22,486 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:22,497 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:22,501 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:22,648 INFO  [org.pentaho.di] 2020/03/03 16:54:22 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:54:35,879 INFO  [org.pentaho.di] 2020/03/03 16:54:35 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:54:36,060 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - PurRepository - Creating repository meta store interface
+2020-03-03 16:54:36,061 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:54:36,098 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:54:36,190 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:36,211 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:36,218 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:54:36,373 INFO  [org.pentaho.di] 2020/03/03 16:54:36 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 16:59:17,381 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 16:59:17,506 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - PurRepository - Creating repository meta store interface
+2020-03-03 16:59:17,510 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - PurRepository - Connected to the enterprise repository
+2020-03-03 16:59:17,574 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 16:59:17,633 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:59:17,645 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:59:17,648 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 16:59:17,835 INFO  [org.pentaho.di] 2020/03/03 16:59:17 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 17:02:55,796 INFO  [org.pentaho.di] 2020/03/03 17:02:55 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 17:02:55,899 INFO  [org.pentaho.di] 2020/03/03 17:02:55 - PurRepository - Creating repository meta store interface
+2020-03-03 17:02:55,900 INFO  [org.pentaho.di] 2020/03/03 17:02:55 - PurRepository - Connected to the enterprise repository
+2020-03-03 17:02:55,957 INFO  [org.pentaho.di] 2020/03/03 17:02:55 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 17:03:16,038 INFO  [org.pentaho.di] 2020/03/03 17:03:16 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 17:03:16,052 INFO  [org.pentaho.di] 2020/03/03 17:03:16 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 17:03:16,055 INFO  [org.pentaho.di] 2020/03/03 17:03:16 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 17:03:16,143 INFO  [org.pentaho.di] 2020/03/03 17:03:16 - insert_update.0 - Finished processing (I=1, O=1, R=1, W=1, U=0, E=0)
+2020-03-03 17:04:11,988 DEBUG [org.pentaho.di.repository.utils.IRepositoryFactory$CachingRepositoryFactory] Repository not cached for user: admin. Creating new Repository.
+2020-03-03 17:04:11,989 INFO  [org.pentaho.di] 2020/03/03 17:04:11 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 17:04:11,994 INFO  [org.pentaho.di] 2020/03/03 17:04:11 - PurRepository - Creating repository meta store interface
+2020-03-03 17:04:11,995 INFO  [org.pentaho.di] 2020/03/03 17:04:11 - PurRepository - Connected to the enterprise repository
+2020-03-03 18:26:10,489 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 18:26:10,620 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - PurRepository - Creating repository meta store interface
+2020-03-03 18:26:10,625 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - PurRepository - Connected to the enterprise repository
+2020-03-03 18:26:10,835 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 18:26:10,969 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:26:10,984 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:26:10,989 INFO  [org.pentaho.di] 2020/03/03 18:26:10 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:26:11,110 INFO  [org.pentaho.di] 2020/03/03 18:26:11 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 18:31:07,718 INFO  [org.pentaho.di] 2020/03/03 18:31:07 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 18:31:20,567 INFO  [org.pentaho.di] 2020/03/03 18:31:20 - PurRepository - Creating repository meta store interface
+2020-03-03 18:31:20,568 INFO  [org.pentaho.di] 2020/03/03 18:31:20 - PurRepository - Connected to the enterprise repository
+2020-03-03 18:31:20,623 INFO  [org.pentaho.di] 2020/03/03 18:31:20 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 18:31:40,681 INFO  [org.pentaho.di] 2020/03/03 18:31:40 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:31:40,693 INFO  [org.pentaho.di] 2020/03/03 18:31:40 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:31:40,700 INFO  [org.pentaho.di] 2020/03/03 18:31:40 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:31:40,756 INFO  [org.pentaho.di] 2020/03/03 18:31:40 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 18:46:11,379 INFO  [org.pentaho.di] 2020/03/03 18:46:11 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 18:46:11,519 INFO  [org.pentaho.di] 2020/03/03 18:46:11 - PurRepository - Creating repository meta store interface
+2020-03-03 18:46:11,521 INFO  [org.pentaho.di] 2020/03/03 18:46:11 - PurRepository - Connected to the enterprise repository
+2020-03-03 18:46:11,580 INFO  [org.pentaho.di] 2020/03/03 18:46:11 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 18:46:21,676 INFO  [org.pentaho.di] 2020/03/03 18:46:21 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:46:21,685 INFO  [org.pentaho.di] 2020/03/03 18:46:21 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:46:21,690 INFO  [org.pentaho.di] 2020/03/03 18:46:21 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:46:21,848 INFO  [org.pentaho.di] 2020/03/03 18:46:21 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 18:47:29,031 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 18:47:29,199 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - PurRepository - Creating repository meta store interface
+2020-03-03 18:47:29,200 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - PurRepository - Connected to the enterprise repository
+2020-03-03 18:47:29,252 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 18:47:29,311 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:47:29,323 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:47:29,327 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 18:47:29,392 INFO  [org.pentaho.di] 2020/03/03 18:47:29 - Delete.0 - Finished processing (I=0, O=0, R=1, W=1, U=1, E=0)
+2020-03-03 19:21:59,409 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - RepositoriesMeta - Reading repositories XML file: FromInputStream
+2020-03-03 19:21:59,539 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - PurRepository - Creating repository meta store interface
+2020-03-03 19:21:59,542 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - PurRepository - Connected to the enterprise repository
+2020-03-03 19:21:59,609 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - insert_test - Dispatching started for transformation [insert_test]
+2020-03-03 19:21:59,660 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - variable2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 19:21:59,674 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - Filter rows.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 19:21:59,677 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - Filter rows 2.0 - Finished processing (I=0, O=0, R=1, W=1, U=0, E=0)
+2020-03-03 19:21:59,816 INFO  [org.pentaho.di] 2020/03/03 19:21:59 - insert_update.0 - Finished processing (I=1, O=0, R=1, W=1, U=1, E=0)

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="bag_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ag_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="bag_ag_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="rpo_ag_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="bag_details_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="rpo_details_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="report_date_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="bag_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="bag_type_ds" id="bag_type_ds" type="sql">
+      <Name>bag_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.bagtype
+  union
+  select -1, '<Все возможные>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_type_ds" id="mail_type_ds" type="sql">
+      <Name>mail_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.mailtype
+  union
+  select -1, '<Все возможные>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_ctg_ds" id="mail_ctg_ds" type="sql">
+      <Name>mail_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.mailctg
+  union
+  select -1, '<Все возможные>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ag_ds" id="ag_ds" type="sql">
+      <Name>ag_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="fps_arg" type="String"/>
+         <Parameter default="" name="bag_type_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  t1.fps_index,
+  IFNULL(bt.name, IFNULL(t1.bag_type::VARCHAR,'Не указано')) bag_type_name,
+  CASE WHEN IFNULL(rpo_after01,  0)!=0 THEN rpo_after01   || ' / ' ELSE '' END || IFNULL(bags_after01  ,0) as after_quantity01,
+  CASE WHEN IFNULL(rpo_after23,  0)!=0 THEN rpo_after23   || ' / ' ELSE '' END || IFNULL(bags_after23  ,0) as after_quantity23,
+  CASE WHEN IFNULL(rpo_after4,   0)!=0 THEN rpo_after4    || ' / ' ELSE '' END || IFNULL(bags_after4   ,0) as after_quantity4,
+  CASE WHEN IFNULL(rpo_sorting01,0)!=0 THEN rpo_sorting01 || ' / ' ELSE '' END || IFNULL(bags_sorting01,0) as sorting_quantity01,
+  CASE WHEN IFNULL(rpo_sorting23,0)!=0 THEN rpo_sorting23 || ' / ' ELSE '' END || IFNULL(bags_sorting23,0) as sorting_quantity23,
+  CASE WHEN IFNULL(rpo_sorting4, 0)!=0 THEN rpo_sorting4  || ' / ' ELSE '' END || IFNULL(bags_sorting4 ,0) as sorting_quantity4,
+  CASE WHEN IFNULL(rpo_before01, 0)!=0 THEN rpo_before01  || ' / ' ELSE '' END || IFNULL(bags_before01 ,0) as before_quantity01,
+  CASE WHEN IFNULL(rpo_before23, 0)!=0 THEN rpo_before23  || ' / ' ELSE '' END || IFNULL(bags_before23 ,0) as before_quantity23,
+  CASE WHEN IFNULL(rpo_before4,  0)!=0 THEN rpo_before4   || ' / ' ELSE '' END || IFNULL(bags_before4  ,0) as before_quantity4
+FROM (
+  SELECT
+    fps_index,
+    bag_type,
+    SUM(after_quantity01) as bags_after01,
+    SUM(after_quantity23) as bags_after23,
+    SUM(after_quantity4) as bags_after4,
+    SUM(sorting_quantity01) as bags_sorting01,
+    SUM(sorting_quantity23) as bags_sorting23,
+    SUM(sorting_quantity4) as bags_sorting4,
+    SUM(before_quantity01) as bags_before01,
+    SUM(before_quantity23) as bags_before23,
+    SUM(before_quantity4) as bags_before4
+  FROM sorting_balances.sorting_balances_bag_ag
+  GROUP BY fps_index, bag_type
+) t1
+LEFT JOIN (
+  SELECT
+    fps_index,
+    bag_type,
+    SUM(after_quantity01) as rpo_after01,
+    SUM(after_quantity23) as rpo_after23,
+    SUM(after_quantity4) as rpo_after4,
+    SUM(sorting_quantity01) as rpo_sorting01,
+    SUM(sorting_quantity23) as rpo_sorting23,
+    SUM(sorting_quantity4) as rpo_sorting4,
+    SUM(before_quantity01) as rpo_before01,
+    SUM(before_quantity23) as rpo_before23,
+    SUM(before_quantity4) as rpo_before4
+  FROM sorting_balances.sorting_balances_rpo_ag
+  GROUP BY fps_index, bag_type
+) t2 ON t1.fps_index = t2.fps_index AND t1.bag_type = t2.bag_type
+LEFT JOIN dicts.bagtype AS bt ON t1.bag_type=bt.code
+LEFT JOIN dicts.dim_fps_structure AS fps ON t1.fps_index=fps.post_object_index
+WHERE ('' IN (${fps_arg}) OR 'fps_olap_param' IN (${fps_arg})
+    OR '[fps].[' || fps.macroregion || ']' IN (${fps_arg})
+    OR '[fps].[' || fps.macroregion || '].[' || fps.ufps_no_index || ']' IN (${fps_arg})
+    OR '[fps].[' || fps.macroregion || '].[' || fps.ufps_no_index || '].[' || fps.post_office || ']' IN (${fps_arg})
+    OR '[fps].[' || fps.macroregion || '].[' || fps.ufps_no_index || '].[' || fps.post_office || '].[' || fps.post_object || ']' IN (${fps_arg}))
+  AND ('bag_type_param' IN (${bag_type_arg})
+   OR '-1' IN (${bag_type_arg})
+   OR t1.bag_type::VARCHAR IN (${bag_type_arg}))
+LIMIT 100]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="bag_ag_ds" id="bag_ag_ds" type="sql">
+      <Name>bag_ag_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="-1" name="bag_type_name_arg" type="String"/>
+         <Parameter default="" name="fps_arg" type="String"/>
+         <Parameter default="-1" name="bag_ctg_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  fps_index,
+  IFNULL(bt.name, IFNULL(sba.bag_type::VARCHAR,'Не указано')) bag_type_name,
+  IFNULL(bctg.name, IFNULL(sba.bag_ctg::VARCHAR,'Не указано')) bag_ctg_name,
+  after_quantity01,
+  after_quantity23,
+  after_quantity4,
+  sorting_quantity01,
+  sorting_quantity23,
+  sorting_quantity4,
+  before_quantity01,
+  before_quantity23,
+  before_quantity4
+FROM sorting_balances.sorting_balances_bag_ag AS sba
+LEFT JOIN dicts.bagtype AS bt ON sba.bag_type=bt.code
+LEFT JOIN dicts.bagctg AS bctg ON sba.bag_ctg=bctg.code
+LEFT JOIN dicts.dim_fps_structure AS fps ON sba.fps_index=fps.post_object_index
+WHERE (sba.fps_index = ${fps_arg})
+  AND ('bag_type_name_param' IN (${bag_type_name_arg})
+   OR '-1' IN (${bag_type_name_arg})
+   OR bt.name::VARCHAR IN (${bag_type_name_arg}))
+  AND ('bag_ctg_param' IN (${bag_ctg_arg})
+   OR '-1' IN (${bag_ctg_arg})
+   OR sba.bag_ctg::VARCHAR IN (${bag_ctg_arg}))
+LIMIT 10000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="rpo_ag_ds" id="rpo_ag_ds" type="sql">
+      <Name>rpo_ag_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="-1" name="mail_type_arg" type="String"/>
+         <Parameter default="" name="fps_index_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  fps_index,
+  mt.name,
+  mctg.name,
+  after_quantity01,
+  after_quantity23,
+  after_quantity4,
+  sorting_quantity01,
+  sorting_quantity23,
+  sorting_quantity4,
+  before_quantity01,
+  before_quantity23,
+  before_quantity4
+FROM sorting_balances.sorting_balances_rpo_ag AS sba
+LEFT JOIN dicts.mailtype AS mt ON sba.mail_type=mt.code
+LEFT JOIN dicts.mailctg AS mctg ON sba.mail_ctg=mctg.code
+WHERE ('mail_type_param' IN (${mail_type_arg})
+   OR '-1' IN (${mail_type_arg})
+   OR mt.code::VARCHAR IN (${mail_type_arg}))
+  AND fps_index = ${fps_index_arg}
+LIMIT 10000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="bag_details_ds" id="bag_details_ds" type="sql">
+      <Name>bag_details_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="-1" name="bag_type_arg" type="String"/>
+         <Parameter default="-1" name="bag_ctg_arg" type="String"/>
+         <Parameter default="" name="fps_index_arg" type="String"/>
+         <Parameter default="ALL" name="sorting_status_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  bag_code,
+  CASE WHEN sorting_status='BEFORE' THEN 'до сортировки'
+       WHEN sorting_status='SORTING' THEN 'на сортировке'
+       WHEN sorting_status='AFTER' THEN 'после сортировки'
+  END sorting_status,
+  filter_date_local,
+  ifnull(bt.name,  sbbd.bag_type::VARCHAR),
+  ifnull(bctg.name,sbbd.bag_ctg::VARCHAR)
+FROM sorting_balances.sorting_balances_bag_details sbbd
+LEFT JOIN dicts.bagtype bt ON sbbd.bag_type = bt.code
+LEFT JOIN dicts.bagctg bctg ON sbbd.bag_ctg = bctg.code
+WHERE ('bag_type_name_param' IN (${bag_type_arg})
+   OR '-1' IN (${bag_type_arg})
+   OR bt.name IN (${bag_type_arg}))
+  AND ('bag_ctg_name_param' IN (${bag_ctg_arg})
+   OR '-1' IN (${bag_ctg_arg})
+   OR bctg.name IN (${bag_ctg_arg})
+   OR sbbd.bag_ctg::VARCHAR IN (${bag_ctg_arg})
+  )
+  AND sbbd.fps_index = ${fps_index_arg}
+  AND ('ALL' IN (${sorting_status_arg}) OR sbbd.sorting_status = ${sorting_status_arg})
+ORDER BY filter_date_local
+LIMIT 10000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="rpo_details_ds" id="rpo_details_ds" type="sql">
+      <Name>rpo_details_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="-1" name="mail_type_name_arg" type="String"/>
+         <Parameter default="-1" name="mail_ctg_name_arg" type="String"/>
+         <Parameter default="" name="fps_index_arg" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT
+  rpo_code,
+  CASE WHEN sorting_status='BEFORE' THEN 'до сортировки'
+       WHEN sorting_status='SORTING' THEN 'на сортировке'
+       WHEN sorting_status='AFTER' THEN 'после сортировки'
+  END,
+  filter_date_local,
+  mt.name,
+  mctg.name
+FROM sorting_balances.sorting_balances_rpo_details sbrd
+LEFT JOIN dicts.mailtype mt ON sbrd.mail_type = mt.code
+LEFT JOIN dicts.mailctg mctg ON sbrd.mail_ctg = mctg.code
+WHERE ('mail_type_name_param' IN (${mail_type_name_arg})
+   OR ('-1' IN (${mail_type_name_arg}) AND mt.name IS NULL)
+   OR mt.name IN (${mail_type_name_arg}))
+  AND ('mail_ctg_name_param' IN (${mail_ctg_name_arg})
+   OR ('-1' IN (${mail_ctg_name_arg}) AND mctg.name IS NULL)
+   OR mctg.name IN (${mail_ctg_name_arg}))
+  AND sbrd.fps_index = ${fps_index_arg}
+LIMIT 10000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="report_date_ds" id="report_date_ds" type="sql">
+      <Name>report_date_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select
+   param_max_date,
+   build_date
+ from sorting_balances.sorting_balances_report_dates
+ order by build_date desc
+ limit 1;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="bag_ctg_ds" id="bag_ctg_ds" type="sql">
+      <Name>bag_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.bagctg
+  union
+  select -1, '<Все возможные>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+</CDADescriptor>

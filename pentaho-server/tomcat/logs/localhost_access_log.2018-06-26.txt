@@ -1,0 +1,10 @@
+127.0.0.1 - - [26/Jun/2018:17:48:43 +0300] "GET /pentaho/Login HTTP/1.1" 200 7208
+127.0.0.1 - - [26/Jun/2018:17:48:44 +0300] "GET /pentaho/webcontext.js HTTP/1.1" 200 4404
+127.0.0.1 - - [26/Jun/2018:17:48:45 +0300] "GET /pentaho/content/client-config-folder-enabler/client-config-enabler-require-js-cfg.js HTTP/1.1" 200 1019
+127.0.0.1 - - [26/Jun/2018:17:48:45 +0300] "GET /pentaho/content/sparkl/resources/sparkl-require-js-cfg.js HTTP/1.1" 200 1525
+127.0.0.1 - - [26/Jun/2018:17:48:45 +0300] "GET /pentaho/content/data-access/resources/gwt/datasourceEditorDialog.css HTTP/1.1" 200 6251
+127.0.0.1 - - [26/Jun/2018:17:48:46 +0300] "GET /pentaho/js/themes.js HTTP/1.1" 200 1346
+127.0.0.1 - - [26/Jun/2018:17:48:46 +0300] "GET /pentaho/CacheExpirationService HTTP/1.1" 200 1369
+127.0.0.1 - - [26/Jun/2018:17:48:47 +0300] "GET /pentaho/content/common-ui/resources/themes/sapphire/globalSapphire.css HTTP/1.1" 200 189677
+127.0.0.1 - - [26/Jun/2018:17:48:47 +0300] "GET /pentaho/content/common-ui/resources/themes/sapphire/bootstrap/css/bootstrap-namespaced.css HTTP/1.1" 200 153154
+127.0.0.1 - - [26/Jun/2018:17:48:47 +0300] "GET /pentaho/content/common-ui/resources/themes/sapphire/opensans-regular.woff HTTP/1.1" 200 67604

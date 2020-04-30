@@ -1,0 +1,114 @@
+2018-08-28 13:12:55,670 ERROR [pt.webdetails.cda.CdaBigExportService] Cannot export query for requestExportRequest [id=f4fc32c0-c90e-4066-ad37-c3c07eff11e9-20180828131242154, user=admin, state=EXPORT, attempt=1]. Export will be reattempted.
+pt.webdetails.cda.exporter.ExporterException: Kettle exception during csv query 
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:213)
+	at pt.webdetails.cda.bigexporter.ZippedCsvExporter.export(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doExport(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$2$1.call(Unknown Source)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at pt.webdetails.cda.CdaBigExportService$2.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+The transformation execution ended with state FINISHED_ERROR (1 errors)
+
+	at pt.webdetails.robochef.DynamicTransformation.executeCheckedSuccess(DynamicTransformation.java:172)
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:201)
+	... 13 more
+2018-08-28 13:22:56,934 ERROR [pt.webdetails.cda.CdaBigExportService] Cannot export query for requestExportRequest [id=f4fc32c0-c90e-4066-ad37-c3c07eff11e9-20180828131242154, user=admin, state=EXPORT, attempt=2]. Export will be reattempted.
+pt.webdetails.cda.exporter.ExporterException: Kettle exception during csv query 
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:213)
+	at pt.webdetails.cda.bigexporter.ZippedCsvExporter.export(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doExport(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$2$1.call(Unknown Source)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at pt.webdetails.cda.CdaBigExportService$2.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+The transformation execution ended with state FINISHED_ERROR (1 errors)
+
+	at pt.webdetails.robochef.DynamicTransformation.executeCheckedSuccess(DynamicTransformation.java:172)
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:201)
+	... 13 more
+2018-08-28 13:32:57,488 ERROR [pt.webdetails.cda.CdaBigExportService] Cannot export query for requestExportRequest [id=f4fc32c0-c90e-4066-ad37-c3c07eff11e9-20180828131242154, user=admin, state=EXPORT, attempt=3]. Export will be reattempted.
+pt.webdetails.cda.exporter.ExporterException: Kettle exception during csv query 
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:213)
+	at pt.webdetails.cda.bigexporter.ZippedCsvExporter.export(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doExport(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$2$1.call(Unknown Source)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at pt.webdetails.cda.CdaBigExportService$2.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.pentaho.di.core.exception.KettleException: 
+The transformation execution ended with state FINISHED_ERROR (1 errors)
+
+	at pt.webdetails.robochef.DynamicTransformation.executeCheckedSuccess(DynamicTransformation.java:172)
+	at pt.webdetails.cda.exporter.DefaultStreamExporter.export(DefaultStreamExporter.java:201)
+	... 13 more
+2018-08-28 13:32:57,507 ERROR [pt.webdetails.cda.CdaBigExportService] Export failure for request ExportRequest [id=f4fc32c0-c90e-4066-ad37-c3c07eff11e9-20180828131242154, user=admin, state=FAIL, attempt=1]
+2018-08-28 13:32:58,620 ERROR [pt.webdetails.cda.bigexporter.notification.Emailer] Email.ERROR_0011_SEND_FAILED - admin@russianpost.ru
+javax.mail.MessagingException: Could not connect to SMTP host: localhost, port: 25;
+  nested exception is:
+	java.net.ConnectException: Connection refused: connect
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1961)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:654)
+	at javax.mail.Service.connect(Service.java:317)
+	at javax.mail.Service.connect(Service.java:176)
+	at javax.mail.Service.connect(Service.java:125)
+	at javax.mail.Transport.send0(Transport.java:194)
+	at javax.mail.Transport.send(Transport.java:124)
+	at pt.webdetails.cda.bigexporter.notification.Emailer.send(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendEmail(Unknown Source)
+	at pt.webdetails.cda.bigexporter.notification.ExportNotifier.sendFailureEmail(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.completeWithFailure(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.doProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.continueProcessing(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService.access$1000(Unknown Source)
+	at pt.webdetails.cda.CdaBigExportService$2$1.call(Unknown Source)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at pt.webdetails.cda.CdaBigExportService$2.run(Unknown Source)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:321)
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:237)
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:1927)
+	... 24 more
+2018-08-28 15:37:41,499 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/gkh_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@2db0873b
+2018-08-28 15:37:41,523 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection
+2018-08-28 15:37:44,127 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Invalid connection: provider=mondrian;dataSource=vertica; Catalog=mondrian:/gkh_mondrian_schema - mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while creating SQL connection: Anonymous data source=org.apache.commons.dbcp.PoolingDataSource@2db0873b
+2018-08-28 15:37:44,128 ERROR [pt.webdetails.cpf.olap.AbstractOlapUtils] Failed to get valid connection

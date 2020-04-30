@@ -1,0 +1,108 @@
+29-Aug-2018 12:26:09.719 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+29-Aug-2018 12:31:54.688 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+29-Aug-2018 12:59:15.739 INFO [http-apr-8080-exec-4] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:446)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:00:42.481 INFO [http-apr-8080-exec-5] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:385)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:09:12.583 INFO [http-apr-8080-exec-7] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseRequestLine(InternalAprInputBuffer.java:222)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1045)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:10:58.688 INFO [http-apr-8080-exec-6] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:446)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:10:58.998 INFO [http-apr-8080-exec-11] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:446)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:11:36.554 INFO [http-apr-8080-exec-13] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:446)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 13:11:36.566 INFO [http-apr-8080-exec-4] org.apache.coyote.http11.AbstractHttp11Processor.process Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+ java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:568)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeader(InternalAprInputBuffer.java:446)
+	at org.apache.coyote.http11.InternalAprInputBuffer.parseHeaders(InternalAprInputBuffer.java:322)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1061)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2521)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2510)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+29-Aug-2018 18:30:12.905 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+29-Aug-2018 19:20:55.070 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received

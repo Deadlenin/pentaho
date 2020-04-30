@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="ch_day_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_fps_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_hour_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_cheque_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_ops_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_entity_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_business_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_category_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_product_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_ops_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="ch_fps_hierarchy_ds" type="mondrian.jndi">
+         <Catalog>mondrian:/cheque_mondrian_schema</Catalog>
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="ch_day_ds" id="ch_day_ds" type="sql">
+      <Name>ch_day_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  decode(grouping_id(), 0, fps_name, 'ИТОГО') "Объект",
+  cheque_date "Дата",
+  nullif(sum(cnt), 0) "Количество кассовых чеков",
+  nullif(sum(cnt_le_1), 0) "Количество чеков с временем < 1 мин",
+  round(sum(cnt_le_1)/sum(cnt) * 100)::integer "Доля чеков с временем < 1 мин, %",
+  nullif(sum(cnt_be_1_and_5), 0) "Количество чеков с временем 1-5 мин",
+  round(sum(cnt_be_1_and_5)/sum(cnt) * 100)::integer "Доля чеков с временем 1-5 мин, %",
+  nullif(sum(cnt_be_5_and_10), 0) "Количество чеков с временем 5-10 мин",
+  round(sum(cnt_be_5_and_10)/sum(cnt) * 100)::integer "Доля чеков с временем 5-10 мин, %",
+  nullif(sum(cnt_gt_10), 0) "Количество чеков с временем > 10 мин",
+  round(sum(cnt_gt_10)/sum(cnt) * 100)::integer "Доля чеков с временем > 10 мин, %",
+  floor(sum(sum_duration)/sum(cnt))::integer "Среднее время чека, сек",
+  dicts.formatSeconds(floor(sum(sum_duration)/sum(cnt))::integer) "Среднее время чека"
+from (
+  select
+    ${fps_name}::varchar fps_name,
+    cheque_date,
+    count(*) cnt,
+    count(case when max_duration < 60 then 1 end) cnt_le_1,
+    count(case when 60 <= max_duration and max_duration < 5*60 then 1 end) cnt_be_1_and_5,
+    count(case when 5*60 <= max_duration and max_duration < 10*60 then 1 end) cnt_be_5_and_10,
+    count(case when 10*60 <= max_duration then 1 end) cnt_gt_10,
+    sum(max_duration) sum_duration
+  from tracking.cheque_data_mart
+  left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+  left join dicts.post_office po on po.post_office_index = ops
+  left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+    and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+      and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+    and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+    and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+      or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+      or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+      or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+      or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+      or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+    and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+    and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+    and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+      or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+      or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+    and (${entity} = 0 or (entity_flags & ${entity} > 0))
+    and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+    and (${product} = 0 or (product_flags & ${product} > 0))
+    and (${category} = 0 or (category_flags & ${category} > 0))
+    and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+  group by fps_name, cheque_date
+) totals
+group by rollup((fps_name, cheque_date))
+order by grouping_id() desc, cheque_date
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_fps_ds" id="ch_fps_ds" type="sql">
+      <Name>ch_fps_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  decode(grouping_id(), 0, fps_name, 'ИТОГО') "Объект",
+  nullif(sum(cnt), 0) "Количество кассовых чеков",
+  nullif(sum(cnt_le_1), 0) "Количество чеков с временем < 1 мин",
+  round(sum(cnt_le_1)/sum(cnt) * 100)::integer "Доля чеков с временем < 1 мин, %",
+  nullif(sum(cnt_be_1_and_5), 0) "Количество чеков с временем 1-5 мин",
+  round(sum(cnt_be_1_and_5)/sum(cnt) * 100)::integer "Доля чеков с временем 1-5 мин, %",
+  nullif(sum(cnt_be_5_and_10), 0) "Количество чеков с временем 5-10 мин",
+  round(sum(cnt_be_5_and_10)/sum(cnt) * 100)::integer "Доля чеков с временем 5-10 мин, %",
+  nullif(sum(cnt_gt_10), 0) "Количество чеков с временем > 10 мин",
+  round(sum(cnt_gt_10)/sum(cnt) * 100)::integer "Доля чеков с временем > 10 мин, %",
+  floor(sum(sum_duration)/sum(cnt))::integer "Среднее время чека, сек",
+  dicts.formatSeconds(floor(sum(sum_duration)/sum(cnt))::integer) "Среднее время чека"
+from (
+  select
+    case ${fps_level}::integer
+      when -1 then fps.macroregion
+      when 0 then fps.ufps
+      when 1 then fps.post_office
+      when 2 then fps.post_object
+      when 3 then terminal_id
+    end fps_name,
+    count(*) cnt,
+    count(case when max_duration < 60 then 1 end) cnt_le_1,
+    count(case when 60 <= max_duration and max_duration < 5*60 then 1 end) cnt_be_1_and_5,
+    count(case when 5*60 <= max_duration and max_duration < 10*60 then 1 end) cnt_be_5_and_10,
+    count(case when 10*60 <= max_duration then 1 end) cnt_gt_10,
+    sum(max_duration) sum_duration
+  from tracking.cheque_data_mart
+  left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+  left join dicts.post_office po on po.post_office_index = ops
+  left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+    and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+      and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+    and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+    and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+      or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+      or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+      or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+      or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+      or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+    and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+    and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+    and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+      or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+      or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+    and (${entity} = 0 or (entity_flags & ${entity} > 0))
+    and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+    and (${product} = 0 or (product_flags & ${product} > 0))
+    and (${category} = 0 or (category_flags & ${category} > 0))
+    and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+  group by fps_name
+) totals
+group by rollup(fps_name)
+order by grouping_id() desc, fps_name
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_hour_ds" id="ch_hour_ds" type="sql">
+      <Name>ch_hour_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  decode(grouping_id(), 0, fps_name, 'ИТОГО') "Объект",
+  work_period "Период рабочего дня",
+  nullif(sum(cnt), 0) "Количество кассовых чеков",
+  nullif(sum(cnt_le_1), 0) "Количество чеков с временем < 1 мин",
+  round(sum(cnt_le_1)/sum(cnt) * 100)::integer "Доля чеков с временем < 1 мин, %",
+  nullif(sum(cnt_be_1_and_5), 0) "Количество чеков с временем 1-5 мин",
+  round(sum(cnt_be_1_and_5)/sum(cnt) * 100)::integer "Доля чеков с временем 1-5 мин, %",
+  nullif(sum(cnt_be_5_and_10), 0) "Количество чеков с временем 5-10 мин",
+  round(sum(cnt_be_5_and_10)/sum(cnt) * 100)::integer "Доля чеков с временем 5-10 мин, %",
+  nullif(sum(cnt_gt_10), 0) "Количество чеков с временем > 10 мин",
+  round(sum(cnt_gt_10)/sum(cnt) * 100)::integer "Доля чеков с временем > 10 мин, %",
+  floor(sum(sum_duration)/sum(cnt))::integer "Среднее время чека, сек",
+  dicts.formatSeconds(floor(sum(sum_duration)/sum(cnt))::integer) "Среднее время чека"
+from (
+  select
+    ${fps_name}::varchar fps_name,
+    case hour_nbr
+      when 0 then '00:00-08:00, 20:00-00:00'
+      else lpad(hour_nbr::varchar, 2, '0') || ':' || '00-' || lpad((hour_nbr + 1)::varchar, 2, '0') || ':00'
+    end work_period,
+    count(*) cnt,
+    count(case when max_duration < 60 then 1 end) cnt_le_1,
+    count(case when 60 <= max_duration and max_duration < 5*60 then 1 end) cnt_be_1_and_5,
+    count(case when 5*60 <= max_duration and max_duration < 10*60 then 1 end) cnt_be_5_and_10,
+    count(case when 10*60 <= max_duration then 1 end) cnt_gt_10,
+    sum(max_duration) sum_duration
+  from tracking.cheque_data_mart
+  left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+  left join dicts.post_office po on po.post_office_index = ops
+  left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+    and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+      and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+    and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+    and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+      or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+      or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+      or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+      or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+      or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+    and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+    and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+    and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+      or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+      or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+    and (${entity} = 0 or (entity_flags & ${entity} > 0))
+    and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+    and (${product} = 0 or (product_flags & ${product} > 0))
+    and (${category} = 0 or (category_flags & ${category} > 0))
+    and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+  group by fps_name, work_period
+) totals
+group by rollup((fps_name, work_period))
+order by grouping_id() desc, work_period
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_ctg_ds" id="ch_ctg_ds" type="sql">
+      <Name>ch_ctg_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  decode(grouping_id(), 0, category_set, 'ИТОГО') "Категория транзакций",
+  nullif(sum(cnt), 0) "Количество кассовых чеков",
+  nullif(sum(cnt_le_1), 0) "Количество чеков с временем < 1 мин",
+  round(sum(cnt_le_1)/sum(cnt) * 100)::integer "Доля чеков с временем < 1 мин, %",
+  nullif(sum(cnt_be_1_and_5), 0) "Количество чеков с временем 1-5 мин",
+  round(sum(cnt_be_1_and_5)/sum(cnt) * 100)::integer "Доля чеков с временем 1-5 мин, %",
+  nullif(sum(cnt_be_5_and_10), 0) "Количество чеков с временем 5-10 мин",
+  round(sum(cnt_be_5_and_10)/sum(cnt) * 100)::integer "Доля чеков с временем 5-10 мин, %",
+  nullif(sum(cnt_gt_10), 0) "Количество чеков с временем > 10 мин",
+  round(sum(cnt_gt_10)/sum(cnt) * 100)::integer "Доля чеков с временем > 10 мин, %",
+  floor(sum(sum_duration)/sum(cnt))::integer "Среднее время чека, сек",
+  dicts.formatSeconds(floor(sum(sum_duration)/sum(cnt))::integer) "Среднее время чека"
+from (
+  select
+    category_set,
+    count(*) cnt,
+    count(case when max_duration < 60 then 1 end) cnt_le_1,
+    count(case when 60 <= max_duration and max_duration < 5*60 then 1 end) cnt_be_1_and_5,
+    count(case when 5*60 <= max_duration and max_duration < 10*60 then 1 end) cnt_be_5_and_10,
+    count(case when 10*60 <= max_duration then 1 end) cnt_gt_10,
+    sum(max_duration) sum_duration
+  from tracking.cheque_data_mart
+  left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+  left join dicts.post_office po on po.post_office_index = ops
+  left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+  where
+    ('' in (${fps}) or 'fps' in (${fps})
+      or '[fps].[' || fps.macroregion || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+      or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+    and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+      and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+    and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+    and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+      or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+      or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+      or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+      or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+      or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+    and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+    and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+    and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+      or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+      or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+    and (${entity} = 0 or (entity_flags & ${entity} > 0))
+    and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+    and (${product} = 0 or (product_flags & ${product} > 0))
+    and (${category} = 0 or (category_flags & ${category} > 0))
+    and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+  group by category_set
+) totals
+group by rollup(category_set)
+order by grouping_id() desc, category_set
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_cheque_ds" id="ch_cheque_ds" type="sql">
+      <Name>ch_cheque_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  sys_name "Фронт система",
+  ops "Индекс ОПС",
+  cheque_date "Дата",
+  cheque_num_set "Номер чека",
+  terminal_id "Окно",
+  operator_name "Оператор",
+  category_cnt "Кол-во категорий в чеке",
+  category_set "Перечень категорий в чеке",
+  trans_cnt "Кол-во транзакций в чеке",
+  trans_set "Перечень транзакций в чеке",
+  max_duration "Время чека, сек",
+  dicts.formatSeconds(max_duration) "Время чека",
+  cheque_amount "Сумма чека, руб"
+from tracking.cheque_data_mart
+left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+left join dicts.post_office po on po.post_office_index = ops
+left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+where
+  ('' in (${fps}) or 'fps' in (${fps})
+    or '[fps].[' || fps.macroregion || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+  and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+    and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+  and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+  and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+    or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+    or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+    or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+    or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+    or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+  and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+  and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+  and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+    or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+    or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+  and (${entity} = 0 or (entity_flags & ${entity} > 0))
+  and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+  and (${product} = 0 or (product_flags & ${product} > 0))
+  and (${category} = 0 or (category_flags & ${category} > 0))
+  and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+order by cheque_date, ops, terminal_id, cheque_num_set
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_ops_ds" id="ch_ops_ds" type="sql">
+      <Name>ch_ops_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_name" name="fps_name" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="cheque_date_from" name="cheque_date_from" type="String"/>
+         <Parameter default="cheque_date_to" name="cheque_date_to" type="String"/>
+         <Parameter default="cheque_date_weekday" name="cheque_date_weekday" type="String"/>
+         <Parameter default="cheque_amount_ctg" name="cheque_amount_ctg" type="String"/>
+         <Parameter default="limit" name="limit" type="Integer"/>
+         <Parameter default="ops_type" name="ops_type" type="String"/>
+         <Parameter default="ops_class" name="ops_class" type="String"/>
+         <Parameter default="ops_cvpp" name="ops_cvpp" type="String"/>
+         <Parameter default="entity" name="entity" type="Integer"/>
+         <Parameter default="business_type" name="business_type" type="Integer"/>
+         <Parameter default="category" name="category" type="Integer"/>
+         <Parameter default="product" name="product" type="Integer"/>
+         <Parameter default="direction_cf" name="direction_cf" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+  fps.post_object "Индекс ОПС",
+  fps.ufps_no_index "УФПС",
+  fps.macroregion "Макрорегион",
+  nullif(count(*), 0) "Количество кассовых чеков",
+  nullif(sum(trans_cnt), 0) "Количество транзакций в чеке",
+  nullif(sum(category_prt_cnt), 0) "Количество транзакций с партионной почтой",
+  nullif(sum(category_prc_cnt), 0) "Количество транзакций с приемом посылок",
+  nullif(sum(category_ems_cnt), 0) "Количество транзакций с EMS",
+  nullif(sum(business_post_cnt), 0) "Количество почтовых транзакций",
+  nullif(sum(business_fin_cnt), 0) "Количество финансовых транзакций",
+  nullif(sum(category_sell_cnt), 0) "Количество транзакций по продаже товаров",
+  floor(sum(max_duration)/count(*))::integer "Среднее время обслуживания чеков, сек"
+from tracking.cheque_data_mart
+left join dicts.dim_fps_structure fps on fps.post_object_index = ops
+left join dicts.post_office po on po.post_office_index = ops
+left join dicts.cvpp_info cvpp on cvpp.post_object_index = ops
+where
+  ('' in (${fps}) or 'fps' in (${fps})
+    or '[fps].[' || fps.macroregion || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+  and (${cheque_date_from} = '' or ${cheque_date_from}::varchar is null or cheque_date >= ${cheque_date_from})
+    and (${cheque_date_to} = '' or ${cheque_date_to}::varchar is null or cheque_date <= ${cheque_date_to})
+  and ('' in (${cheque_date_weekday}) or 'cheque_date_weekday' in (${cheque_date_weekday}) or dayofweek(cheque_date::date)::varchar in (${cheque_date_weekday}))
+  and ('' in (${cheque_amount_ctg}) or 'cheque_amount_ctg' in (${cheque_amount_ctg})
+    or ('1' in (${cheque_amount_ctg}) and cheque_amount < 0)
+    or ('2' in (${cheque_amount_ctg}) and cheque_amount = 0)
+    or ('3' in (${cheque_amount_ctg}) and 0 < cheque_amount and cheque_amount <= 500)
+    or ('4' in (${cheque_amount_ctg}) and 500 < cheque_amount and cheque_amount <= 1000)
+    or ('5' in (${cheque_amount_ctg}) and 1000 < cheque_amount))
+  and ('' in (${ops_type}) or 'ops_type' in (${ops_type}) or po.post_office_type::varchar in (${ops_type}))
+  and ('' in (${ops_class}) or 'ops_class' in (${ops_class}) or nvl(po.post_office_class, -1)::varchar in (${ops_class}))
+  and ('' in (${ops_cvpp}) or 'ops_cvpp' in (${ops_cvpp})
+    or ('cvpp' in (${ops_cvpp}) and cvpp.object_type = 1)
+    or ('other' in (${ops_cvpp}) and (cvpp.object_type is null or cvpp.object_type != 1)))
+  and (${entity} = 0 or (entity_flags & ${entity} > 0))
+  and (${business_type} = 0 or (business_type_flags & ${business_type} > 0))
+  and (${product} = 0 or (product_flags & ${product} > 0))
+  and (${category} = 0 or (category_flags & ${category} > 0))
+  and ('' in (${direction_cf}) or 'direction_cf' in (${direction_cf}) or direction_cf::varchar in (${direction_cf}))
+group by fps.post_object, fps.ufps_no_index, fps.macroregion
+order by fps.post_object
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_entity_ds" id="ch_entity_ds" type="sql">
+      <Name>ch_entity_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select entity_id, entity_name
+from tracking.cheque_dm_dim_entity
+order by entity_name]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_business_type_ds" id="ch_business_type_ds"
+               type="sql">
+      <Name>ch_business_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select business_type_id, business_type
+from tracking.cheque_dm_dim_business_type
+order by business_type]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_category_ds" id="ch_category_ds" type="sql">
+      <Name>ch_category_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select category_id, category
+from tracking.cheque_dm_dim_category
+order by category]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_product_ds" id="ch_product_ds" type="sql">
+      <Name>ch_product_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select product_id, product
+from tracking.cheque_dm_dim_product
+order by product]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_ops_type_ds" id="ch_ops_type_ds" type="sql">
+      <Name>ch_ops_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code, short_name 
+from dicts.post_office_type
+order by name]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="ch_fps_hierarchy_ds" id="ch_fps_hierarchy_ds"
+               type="denormalizedMdx">
+      <Name>ch_fps_hierarchy_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[WITH
+    MEMBER [Measures].[1] AS 1
+SELECT
+    NON EMPTY {[Measures].[1]} ON COLUMNS,
+    NON EMPTY Hierarchize({
+        {[fps].[macroregion].Members},
+        {[fps].[ufps].Members},
+        {[fps].[post_office].Members},
+        {[fps].[post_object].Members}
+    }) ON ROWS
+FROM [cheque_data_mart]]]></Query>
+   </DataAccess>
+</CDADescriptor>

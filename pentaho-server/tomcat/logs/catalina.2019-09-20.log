@@ -1,0 +1,238 @@
+20-Sep-2019 18:42:39.017 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+20-Sep-2019 18:42:39.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+20-Sep-2019 18:42:39.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+20-Sep-2019 18:42:39.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+20-Sep-2019 18:42:39.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+20-Sep-2019 18:42:39.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+20-Sep-2019 18:42:39.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+20-Sep-2019 18:42:39.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+20-Sep-2019 18:42:39.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+20-Sep-2019 18:42:39.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:42:39.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:42:39.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+20-Sep-2019 18:42:39.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+20-Sep-2019 18:42:39.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+20-Sep-2019 18:42:39.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+20-Sep-2019 18:42:39.027 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+20-Sep-2019 18:42:39.028 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+20-Sep-2019 18:42:39.028 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+20-Sep-2019 18:42:39.029 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+20-Sep-2019 18:42:39.030 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+20-Sep-2019 18:42:39.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+20-Sep-2019 18:42:39.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+20-Sep-2019 18:42:39.035 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:42:39.037 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:42:39.039 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+20-Sep-2019 18:42:39.040 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+20-Sep-2019 18:42:39.041 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+20-Sep-2019 18:42:39.821 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+20-Sep-2019 18:42:41.474 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:42:41.486 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:42:41.489 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2821 ms
+20-Sep-2019 18:42:41.530 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+20-Sep-2019 18:42:41.531 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+20-Sep-2019 18:42:41.547 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+20-Sep-2019 18:42:41.605 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+20-Sep-2019 18:43:47.972 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:43:48.837 INFO [HSQLDB Server @14e77a1c] org.hsqldb.persist.Logger.logInfoEvent checkpointClose start
+20-Sep-2019 18:43:48.872 INFO [HSQLDB Server @14e77a1c] org.hsqldb.persist.Logger.logInfoEvent checkpointClose end
+20-Sep-2019 18:43:48.969 INFO [HSQLDB Server @14e77a1c] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+20-Sep-2019 18:43:48.986 INFO [HSQLDB Server @14e77a1c] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+20-Sep-2019 18:46:05.422 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+20-Sep-2019 18:46:05.423 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+20-Sep-2019 18:46:08.974 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [HSQLDB Timer @62b2e5ec] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.hsqldb.lib.HsqlTimer$TaskQueue.park(Unknown Source)
+ org.hsqldb.lib.HsqlTimer.nextTask(Unknown Source)
+ org.hsqldb.lib.HsqlTimer$TaskRunner.run(Unknown Source)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:46:08.975 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 TCP Server (tcp://10.0.75.1:9092)] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainSocketImpl.accept0(Native Method)
+ java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+ java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+ java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+ java.net.ServerSocket.implAccept(ServerSocket.java:545)
+ java.net.ServerSocket.accept(ServerSocket.java:513)
+ org.h2.server.TcpServer.listen(TcpServer.java:210)
+ org.h2.tools.Server.run(Server.java:415)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:46:08.977 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:46:08.978 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.980 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.981 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.981 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.982 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.983 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.984 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.987 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.988 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.988 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:46:08.989 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.SocketInputStream.socketRead0(Native Method)
+ java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+ java.net.SocketInputStream.read(SocketInputStream.java:171)
+ java.net.SocketInputStream.read(SocketInputStream.java:141)
+ java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+ java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+ java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+ sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+ sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+ org.quartz.utils.UpdateChecker.getUpdateProperties(UpdateChecker.java:100)
+ org.quartz.utils.UpdateChecker.doCheck(UpdateChecker.java:58)
+ org.quartz.utils.UpdateChecker.checkForUpdate(UpdateChecker.java:48)
+ org.quartz.utils.UpdateChecker.run(UpdateChecker.java:39)
+ java.util.TimerThread.mainLoop(Timer.java:555)
+ java.util.TimerThread.run(Timer.java:505)
+20-Sep-2019 18:46:09.008 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 207,461 ms
+20-Sep-2019 18:46:09.008 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+20-Sep-2019 18:46:11.011 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:46:11.026 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 2,017 ms
+20-Sep-2019 18:46:11.026 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+20-Sep-2019 18:46:12.600 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:46:12.605 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,579 ms
+20-Sep-2019 18:46:12.605 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+20-Sep-2019 18:46:14.177 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:46:14.178 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,573 ms
+20-Sep-2019 18:46:14.186 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:46:14.222 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:46:14.248 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 212760 ms
+20-Sep-2019 18:49:23.144 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+20-Sep-2019 18:49:23.145 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:49:23.202 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:49:23.254 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+20-Sep-2019 18:49:23.295 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:49:23.366 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:49:23.420 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:49:23.421 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:49:27.697 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+20-Sep-2019 18:49:27.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+20-Sep-2019 18:49:27.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+20-Sep-2019 18:49:27.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+20-Sep-2019 18:49:27.701 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+20-Sep-2019 18:49:27.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+20-Sep-2019 18:49:27.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+20-Sep-2019 18:49:27.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+20-Sep-2019 18:49:27.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+20-Sep-2019 18:49:27.702 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:49:27.703 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:49:27.706 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+20-Sep-2019 18:49:27.707 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+20-Sep-2019 18:49:27.707 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+20-Sep-2019 18:49:27.707 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+20-Sep-2019 18:49:27.707 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+20-Sep-2019 18:49:27.708 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+20-Sep-2019 18:49:27.709 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+20-Sep-2019 18:49:27.712 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+20-Sep-2019 18:49:27.713 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+20-Sep-2019 18:49:27.713 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+20-Sep-2019 18:49:27.714 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+20-Sep-2019 18:49:27.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:49:27.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+20-Sep-2019 18:49:27.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+20-Sep-2019 18:49:27.717 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+20-Sep-2019 18:49:27.719 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+20-Sep-2019 18:49:28.479 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+20-Sep-2019 18:49:28.595 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:49:28.606 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:49:28.608 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1234 ms
+20-Sep-2019 18:49:28.637 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+20-Sep-2019 18:49:28.638 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+20-Sep-2019 18:49:28.652 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+20-Sep-2019 18:49:28.694 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+20-Sep-2019 18:49:56.546 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:49:57.481 INFO [HSQLDB Server @152a2648] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+20-Sep-2019 18:49:57.493 INFO [HSQLDB Server @152a2648] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+20-Sep-2019 18:52:10.746 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+20-Sep-2019 18:52:10.748 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+20-Sep-2019 18:52:13.422 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [HSQLDB Timer @66533fc9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.hsqldb.lib.HsqlTimer$TaskQueue.park(Unknown Source)
+ org.hsqldb.lib.HsqlTimer.nextTask(Unknown Source)
+ org.hsqldb.lib.HsqlTimer$TaskRunner.run(Unknown Source)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:52:13.423 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 TCP Server (tcp://10.0.75.1:9092)] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainSocketImpl.accept0(Native Method)
+ java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+ java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+ java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+ java.net.ServerSocket.implAccept(ServerSocket.java:545)
+ java.net.ServerSocket.accept(ServerSocket.java:513)
+ org.h2.server.TcpServer.listen(TcpServer.java:210)
+ org.h2.tools.Server.run(Server.java:415)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:52:13.424 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+20-Sep-2019 18:52:13.425 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.426 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.427 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.427 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.428 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.429 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.430 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.430 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.431 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.432 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+20-Sep-2019 18:52:13.434 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Timer.java:552)
+ java.util.TimerThread.run(Timer.java:505)
+20-Sep-2019 18:52:13.450 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 164,798 ms
+20-Sep-2019 18:52:13.451 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+20-Sep-2019 18:52:15.067 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:52:15.082 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 1,631 ms
+20-Sep-2019 18:52:15.083 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+20-Sep-2019 18:52:16.616 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:52:16.619 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,536 ms
+20-Sep-2019 18:52:16.620 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+20-Sep-2019 18:52:18.097 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+20-Sep-2019 18:52:18.100 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,480 ms
+20-Sep-2019 18:52:18.104 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+20-Sep-2019 18:52:18.138 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+20-Sep-2019 18:52:18.166 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 169558 ms

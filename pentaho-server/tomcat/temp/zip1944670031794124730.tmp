@@ -1,0 +1,1389 @@
+{
+ "components": {
+  "rows": [
+   {
+    "id": "GENERIC",
+    "name": "Generic",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "type": "Label",
+      "value": "Generic"
+     }
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
+   },
+   {
+    "id": "3a9c3eb4-4bce-aaec-d382-6ebe83085d28",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "submit_next_days_forecast_table"
+     },
+     {
+      "name": "propertyValue",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "parameterViewRole",
+      "type": "parameterViewRoleCustom",
+      "value": "unused"
+     },
+     {
+      "name": "bookmarkable",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "public",
+      "type": "Boolean",
+      "value": "false"
+     }
+    ],
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter"
+   },
+   {
+    "id": "101d1c53-35dc-158b-b62a-d2e6674ce7df",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "fps"
+     },
+     {
+      "name": "propertyValue",
+      "type": "String",
+      "value": "fps"
+     },
+     {
+      "name": "parameterViewRole",
+      "type": "parameterViewRoleCustom",
+      "value": "unused"
+     },
+     {
+      "name": "bookmarkable",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "public",
+      "type": "Boolean",
+      "value": "false"
+     }
+    ],
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter"
+   },
+   {
+    "id": "88d35c9b-1abf-b121-3668-f3712e1acea6",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "mail_type"
+     },
+     {
+      "name": "propertyValue",
+      "type": "String",
+      "value": "mail_type"
+     },
+     {
+      "name": "parameterViewRole",
+      "type": "parameterViewRoleCustom",
+      "value": "unused"
+     },
+     {
+      "name": "bookmarkable",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "public",
+      "type": "Boolean",
+      "value": "false"
+     }
+    ],
+    "type": "ComponentsParameter",
+    "typeDesc": "Simple parameter"
+   },
+   {
+    "id": "OTHERCOMPONENTS",
+    "name": "Others",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "type": "Label",
+      "value": "Others"
+     }
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
+   },
+   {
+    "id": "49ebef0c-93cd-6113-a754-644a2c1b25df",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "next_days_forecast_table"
+     },
+     {
+      "name": "bigExport",
+      "type": "BigExportCustom",
+      "value": "Dynamic"
+     },
+     {
+      "name": "expandContainerObject",
+      "type": "String",
+      "value": "large_deal_details_table"
+     },
+     {
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "['${p:submit_next_days_forecast_table}']"
+     },
+     {
+      "name": "oLanguage",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "language",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "colFormats",
+      "type": "Array",
+      "value": "[]"
+     },
+     {
+      "name": "colHeaders",
+      "type": "Array",
+      "value": "[]"
+     },
+     {
+      "name": "colSortable",
+      "type": "Array",
+      "value": "[]"
+     },
+     {
+      "name": "colTypes",
+      "type": "colTypesCustom",
+      "value": "[\"string\",\"string\",\"string\",\"string\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\",\"numeric\"]"
+     },
+     {
+      "name": "colWidths",
+      "type": "Array",
+      "value": "[]"
+     },
+     {
+      "name": "expandParameters",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "parameters",
+      "type": "ValuesArray",
+      "value": "[[\"fps\",\"fps\"],[\"mail_type\",\"mail_type\"]]"
+     },
+     {
+      "name": "displayLength",
+      "type": "Integer",
+      "value": "50"
+     },
+     {
+      "name": "expandCell",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "expandOnClick",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "filter",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "info",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "lengthChange",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "paginate",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "sort",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "colSearchable",
+      "type": "Array",
+      "value": "[]"
+     },
+     {
+      "name": "drawCallback",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "next_days_forecast_ds"
+     },
+     {
+      "name": "sDom",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "sortBy",
+      "type": "SortByArray",
+      "value": "[]"
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "refreshPeriod",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "paginationType",
+      "type": "PaginationType",
+      "value": "simple_numbers"
+     },
+     {
+      "name": "tableStyle",
+      "type": "TableStyle",
+      "value": "themeroller"
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "${h:panel_report}"
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "paginateServerside",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postFetch",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "preChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "preExpand",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "extraOptions",
+      "type": "OptionArray",
+      "value": "[]"
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
+     },
+     {
+      "name": "clickAction",
+      "type": "JavaScript",
+      "value": ""
+     }
+    ],
+    "type": "ComponentsTable",
+    "typeDesc": "table Component"
+   },
+   {
+    "id": "bc242b19-cb85-dddf-5dc2-24edd514d06b",
+    "parent": "OTHERCOMPONENTS",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "submit_next_days_forecast_table_button"
+     },
+     {
+      "name": "label",
+      "type": "String",
+      "value": "Показать"
+     },
+     {
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "[]"
+     },
+     {
+      "name": "actionParameters",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "expression",
+      "type": "JavaScript",
+      "value": "function() {\n  Dashboards.fireChange('submit_next_days_forecast_table', 'submit_next_days_forecast_table');\n} "
+     },
+     {
+      "name": "failureCallback",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "successCallback",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": ""
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "refreshPeriod",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "buttonStyle",
+      "type": "TableStyle",
+      "value": "themeroller"
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "submit_next_days_forecast_table_button"
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
+     },
+     {
+      "name": "Datasource",
+      "type": "Datasource",
+      "value": ""
+     }
+    ],
+    "type": "ComponentsbuttonComponent",
+    "typeDesc": "Button Component"
+   },
+   {
+    "id": "SELECTORS",
+    "name": "Selects",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "type": "Label",
+      "value": "Selects"
+     }
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
+   },
+   {
+    "id": "4233c656-b93c-cda1-b20c-d8141bfaf744",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "fps_filter"
+     },
+     {
+      "name": "title",
+      "type": "String",
+      "value": "ОПС"
+     },
+     {
+      "name": "parameter",
+      "type": "Parameter",
+      "value": "${p:fps}"
+     },
+     {
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "[]"
+     },
+     {
+      "name": "catalog",
+      "type": "MondrianCatalog",
+      "value": "mondrian:/next_days_forecast_schema"
+     },
+     {
+      "name": "cube",
+      "type": "String",
+      "value": "next_days_forecast"
+     },
+     {
+      "name": "dimensionName",
+      "type": "String",
+      "value": "fps"
+     },
+     {
+      "name": "multiSelect",
+      "type": "Boolean",
+      "value": true
+     },
+     {
+      "name": "parameters",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "fps_filter"
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postFetch",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "preChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postChange",
+      "type": "JavaScript",
+      "value": "function(data){\n    fps = filterOlapData(data);\n} "
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
+     }
+    ],
+    "type": "ComponentsolapSelector",
+    "typeDesc": "Olap Selector"
+   },
+   {
+    "id": "66db49f9-e0fb-78ef-8c0e-3b9ab8e3c395",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "mail_type_filter"
+     },
+     {
+      "name": "title",
+      "type": "String",
+      "value": "Вид отправлений"
+     },
+     {
+      "name": "parameter",
+      "type": "Parameter",
+      "value": "${p:mail_type}"
+     },
+     {
+      "name": "listeners",
+      "type": "Listeners",
+      "value": "[]"
+     },
+     {
+      "name": "catalog",
+      "type": "MondrianCatalog",
+      "value": "mondrian:/next_days_forecast_schema"
+     },
+     {
+      "name": "cube",
+      "type": "String",
+      "value": "next_days_forecast"
+     },
+     {
+      "name": "dimensionName",
+      "type": "String",
+      "value": "mail_type"
+     },
+     {
+      "name": "multiSelect",
+      "type": "Boolean",
+      "value": true
+     },
+     {
+      "name": "parameters",
+      "type": "ValuesArray",
+      "value": "[]"
+     },
+     {
+      "name": "priority",
+      "type": "Integer",
+      "value": 5
+     },
+     {
+      "name": "htmlObject",
+      "type": "HtmlObject",
+      "value": "mail_type_filter"
+     },
+     {
+      "name": "executeAtStart",
+      "type": "Boolean",
+      "value": "true"
+     },
+     {
+      "name": "preExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postExecution",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postFetch",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "preChange",
+      "type": "JavaScript",
+      "value": ""
+     },
+     {
+      "name": "postChange",
+      "type": "JavaScript",
+      "value": "function(data){\r\n    mail_type = filterOlapData(data);\r\n} "
+     },
+     {
+      "name": "tooltip",
+      "type": "Html",
+      "value": ""
+     }
+    ],
+    "type": "ComponentsolapSelector",
+    "typeDesc": "Olap Selector"
+   }
+  ]
+ },
+ "datasources": {
+  "rows": [
+   {
+    "id": "SQL",
+    "name": "SQL Queries",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "type": "Label",
+      "value": "SQL Queries"
+     }
+    ],
+    "type": "Label",
+    "typeDesc": "<i>Group</i>"
+   },
+   {
+    "id": "f3689cbf-45cd-445e-99eb-7bd3d15a9cf1",
+    "meta": "CDA",
+    "meta_conntype": "sql.jndi",
+    "meta_datype": "sql",
+    "parent": "SQL",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "next_days_forecast_ds"
+     },
+     {
+      "name": "access",
+      "type": "Access",
+      "value": "public"
+     },
+     {
+      "name": "jndi",
+      "type": "Jndi",
+      "value": "vertica"
+     },
+     {
+      "name": "query",
+      "type": "SqlQuery",
+      "value": "select \r\n  forecast_date as 'День составления прогноза', \r\n  dim_fps.post_object as 'Объект',\r\n  index as 'Индекс', \r\n  mt.name as 'Вид отправлений', \r\n  prev_d7 as 'Факт: в День прогноза -6д',\r\n  prev_d6 as 'Факт: в День прогноза -5д',\r\n  prev_d5 as 'Факт: в День прогноза -4д',\r\n  prev_d4 as 'Факт: в День прогноза -3д',\r\n  prev_d3 as 'Факт: в День прогноза -2д',\r\n  prev_d2 as 'Факт: в День прогноза -1д',\r\n  prev_d1 as 'Факт: в День составления прогноза',\r\n  forecast_d1 as 'План: в День прогноза +1д', \r\n  forecast_d2 as 'План: в День прогноза +2д', \r\n  forecast_d3 as 'План: в День прогноза +3д', \r\n  forecast_d4 as 'План: в День прогноза +4д', \r\n  forecast_d5 as 'План: в День прогноза +5д', \r\n  forecast_d6 as 'План: в День прогноза +6д', \r\n  forecast_d7 as 'План: в День прогноза +7д'\r\nfrom tracking.next_days_forecast ndf\r\nleft join dicts.dim_fps_structure dim_fps on ndf.index = dim_fps.post_object_index\r\nleft join dicts.mail_type_groups mt on ndf.mail_type = mt.code\r\nwhere\r\n('' in (${fps}) or 'fps' in (${fps})\r\n        \tor '[fps].[' || dim_fps.macroregion || ']' in (${fps})\r\n\t\t\tor '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || ']' in (${fps})\r\n\t\t\tor '[fps].[' || dim_fps.macroregion || '].[' || dim_fps.ufps || '].[' || dim_fps.post_object || ']' in (${fps}))\r\nand ('' in (${mail_type}) or 'mail_type' in (${mail_type})\r\n\t\t\tor '[mail_type].[' || mt.group || ']' in (${mail_type})\r\n\t\t\tor '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))\r\norder by index, mail_type\r\n"
+     },
+     {
+      "name": "parameters",
+      "type": "CdaParameters",
+      "value": "[[\"fps\",\"fps\",\"String\",\"\"],[\"mail_type\",\"mail_type\",\"String\",\"\"]]"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "type": "CdaCalculatedColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "cdacolumns",
+      "type": "CdaColumnsArray",
+      "value": "[]"
+     },
+     {
+      "name": "output",
+      "type": "IndexArray",
+      "value": "[]"
+     },
+     {
+      "name": "outputMode",
+      "type": "OutputMode",
+      "value": "include"
+     },
+     {
+      "name": "cacheKeys",
+      "type": "CacheKeysValues",
+      "value": "[]"
+     },
+     {
+      "name": "cacheDuration",
+      "type": "Integer",
+      "value": 3600
+     },
+     {
+      "name": "cache",
+      "type": "Boolean",
+      "value": "true"
+     }
+    ],
+    "type": "Componentssql_sqlJndi",
+    "typeDesc": "sql over sqlJndi"
+   }
+  ]
+ },
+ "filename": "/home/reports_uat/Прогноз/Прогноз+поступлений+на+7+дней.cdfde",
+ "layout": {
+  "rows": [
+   {
+    "id": "753f3b01-1c95-3616-a2ae-7ffd9861de33",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "resourceCode",
+      "type": "Resource",
+      "value": "// init default values\nvar date = new Date();\nvar tzoffset = date.getTimezoneOffset() * 60000;\nvar day = date.getDate();\nvar month = date.getMonth(); // months from 0-11\nvar year = date.getFullYear();\nvar iii = 0;\n\nfunction formatDate(date) {\n\treturn (new Date(date - tzoffset)).toISOString().slice(0, 10);\n}\n\nfunction filterOlapData(data){\n    var rez = new Array();\n    for(var i = 0; i < data.length; i++){\n        var add = true;\n        for (var j = (i+1); j < data.length; j++) {\n          if(data[j].indexOf(data[i]) == 0){\n              add = false;\n              break;\n          }\n        }\n        if(add){\n          rez.push(data[i]);\n        }  \n    }\n    return rez;\n}\n\nfunction parseRangeFilter(str) {\n    var single = '';\n    var range = '';\n\n    str.trim().split(';').forEach(function(item, i, arr) {\n      if (item.length > 0){\n        if (item.indexOf('-') > -1) {\n          var it = item.split('-');\n          range += it[0] + ';' + it[1] + ';';\n        } else {\n          single += item + ';';\n        }\n      }  \n    });\n\n    return [single, range];\n}\n\nfunction checkDateRangeFilters() {\n    var errorMessages = [];\n    function checkDateRangeFilter(name, id, filterFrom, filterTo) {\n        var date_from = new Date(Dashboards.getParameterValue(filterFrom));\n        var date_to = new Date(Dashboards.getParameterValue(filterTo));\n        if (date_from > date_to) {\n            errorMessages.push(name + ': \"Дата с\" не может быть больше \"Даты по\".');\n            $(id + ' input').css('color', 'red');\n            $(id).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);\n        }\n    }\n    \n    checkDateRangeFilter('Отчётный период', '#date_filter', 'date_from', 'date_to');\n    \n    if (errorMessages.length > 0) {\n        alert(errorMessages.join(\"\\n\"));\n        return false;\n    }\n    \n    return true;\n}\n "
+     },
+     {
+      "name": "resourceType",
+      "type": "Label",
+      "value": "Javascript"
+     }
+    ],
+    "type": "LayoutResourceCode",
+    "typeDesc": "Resource"
+   },
+   {
+    "id": "1061ce6e-cbc5-a570-ee2f-5fb5df4d1b6a",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "resourceCode",
+      "type": "Resource",
+      "value": ".hidden {\n    display: none;\n}\n\n.container {\n    width: 97%;\n} \n\n.span-24 {\n    width: calc(97% - 180px);\n} \n\n.span-12 {\n    width: 48%;\n}\n\n.span-5 {\n    width: 180px;\n} \n\n.dateFilter {\n    width: calc(50% - 2px);\n    display: inline-block;\n}\n\n.dateFilter.singleDate > div {\n    margin-left: 10px;\n}\n\n.tableComponent td.numeric {\n    font-family: inherit;\n}\n\n.olapSelectorComponent .optionList .rightArea .options {\n     -webkit-column-width: 400px;\n} \n\n\n.olapSelectorComponent .optionList .rightArea .item {\n  width:350px;\n} \n\n.olapSelectorComponent .item .name {\n    width:340px;\n}\n\ninput[type=\"text\"] {\n    width:180px;\n}\n\nselect {\n    width:180px;\n} \n\ntable .even{ background-color: #E4F0F8 !important; } \n\n.filter-separator {\n    border-bottom-style: solid;\n    border-bottom-width: 3px;\n    border-bottom-color: #5985B6;\n}\n\n.filter-group-title {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    padding-top: 5px;\n    padding-bottom: 5px;\n}\n\n.wide-button {\n    margin-bottom: 5px;\n}\n\n.wide-button button {\n    width: 100%;\n}\n\ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column92, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column93, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column98, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column99, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column103, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column105, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column106, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column110 {\n    cursor:pointer;\n    color:#2779aa;\n}\n\ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column92:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column93:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column98:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column99:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column103:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column105:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column106:hover, \ndiv[drilldown_columns=\"cvpp_fact_table\"] .data-row .column110:hover {\n    text-decoration:underline;\n}\n "
+     },
+     {
+      "name": "resourceType",
+      "type": "Label",
+      "value": "Css"
+     }
+    ],
+    "type": "LayoutResourceCode",
+    "typeDesc": "Resource"
+   },
+   {
+    "id": "e12f9bf3-27f1-beb1-0a68-a5b0facd091b",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Header"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "5dc54aa4-6a22-269a-d641-ac5fd3a61298",
+    "parent": "e12f9bf3-27f1-beb1-0a68-a5b0facd091b",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "60"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "60"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#5985b6"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "center"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "53e4ccdd-bd66-1ee1-8b5a-5a8771703095",
+    "parent": "5dc54aa4-6a22-269a-d641-ac5fd3a61298",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "title"
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": "<h2 style=\"color:#ffffff;\">Прогноз поступлений на 7 дней</h2> "
+     },
+     {
+      "name": "fontSize",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "color",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutHtml",
+    "typeDesc": "Html"
+   },
+   {
+    "id": "cda9bf5f-0f51-13db-68ac-616cef3e73be",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Spacer"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "5"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "9b5e4665-60dd-d123-d49a-7cb9072a0540",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Body"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "parent": "9b5e4665-60dd-d123-d49a-7cb9072a0540",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "panel_filters"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "5"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "d91b9d30-0501-951b-a36e-cd7dd8a9d0e6",
+    "parent": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "fps_filter"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "aaa92c14-e873-e165-2f54-cbf616b9a1ea",
+    "parent": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "15"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "d0af1b9f-3dba-c7f7-b056-7f73a11ea708",
+    "parent": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "mail_type_filter"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "f2a557c5-2821-b986-a973-9d74e422dc53",
+    "parent": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "15"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "3882c630-c639-1576-4614-2e2bd9442753",
+    "parent": "bd0bebb7-79a0-b57d-b000-13b265f96964",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "submit_next_days_forecast_table_button"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": "wide-button"
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   },
+   {
+    "id": "70ec60a7-437d-490d-b2e5-e7ed9c42d343",
+    "parent": "9b5e4665-60dd-d123-d49a-7cb9072a0540",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "panel_result"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "24"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": "Flase"
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "800"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutColumn",
+    "typeDesc": "Column"
+   },
+   {
+    "id": "c963515c-d1b8-46a9-204b-e1afadb00ae4",
+    "parent": "70ec60a7-437d-490d-b2e5-e7ed9c42d343",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "panel_report"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "800"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     }
+    ],
+    "type": "LayoutRow",
+    "typeDesc": "Row"
+   }
+  ],
+  "title": "post_template"
+ }
+}

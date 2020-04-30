@@ -1,0 +1,6 @@
+127.0.0.1 - - [15/Mar/2019:11:53:35 +0300] "GET /pentaho/Login HTTP/1.1" 200 7208
+127.0.0.1 - - [15/Mar/2019:11:53:35 +0300] "GET /pentaho/webcontext.js HTTP/1.1" 200 4872
+127.0.0.1 - - [15/Mar/2019:11:53:35 +0300] "GET /pentaho/content/sparkl/resources/sparkl-require-js-cfg.js HTTP/1.1" 200 1525
+127.0.0.1 - - [15/Mar/2019:11:53:35 +0300] "GET /pentaho/content/client-config-folder-enabler/client-config-enabler-require-js-cfg.js HTTP/1.1" 200 1019
+127.0.0.1 - - [15/Mar/2019:11:54:29 +0300] "GET /pentaho/js/themes.js HTTP/1.1" 200 1346
+127.0.0.1 - - [15/Mar/2019:11:54:29 +0300] "GET /pentaho/CacheExpirationService HTTP/1.1" 200 1369

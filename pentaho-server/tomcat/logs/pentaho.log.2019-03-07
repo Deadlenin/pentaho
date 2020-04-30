@@ -1,0 +1,105 @@
+2019-03-07 14:54:28,935 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:54:30,245 INFO  [org.pentaho.platform.osgi.OSGIBoot] Checking to see if org.pentaho.clean.karaf.cache is enabled
+2019-03-07 14:54:35,665 INFO  [org.pentaho.platform.osgi.KarafInstance] 
+*******************************************************************************
+*** Karaf Instance Number: 1 at C:\Alex\Pentaho_src\pentaho-server71CleanWi ***
+***   thDataSource\pentaho-server\pentaho-solutions\system\karaf\caches\default\data-1***
+*** Karaf Port:8802                                                         ***
+*** OSGI Service Port:9051                                                  ***
+*** JMX RMI Registry Port:11099                                             ***
+*** RMI Server Port:44445                                                   ***
+*******************************************************************************
+2019-03-07 14:54:58,916 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:55:28,926 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:55:58,926 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:56:28,925 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:56:58,924 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:57:28,928 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:57:58,959 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] Caution, the system is initializing. Do not shut down or restart the system at this time.
+2019-03-07 14:58:23,318 INFO  [org.pentaho.platform.engine.core.system.status.PeriodicStatusLogger] The system has finished initializing.
+2019-03-07 15:24:14,387 ERROR [org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor] 935672261: Report processing failed.
+org.pentaho.reporting.engine.classic.core.ReportDataFactoryException: Failed at query: SELECT
+code, name, 'ALL' as kpi_macroregion_code, 'ALL' as kpi_ufps_index, 'ALL' as kpi_post_office_index, 'ALL' as kpi_post_object_index,
+cnt_total, cnt_in, cnt_out, cnt_internal, 
+(cnt_in_unknown+cnt_in_unknown_code+cnt_in_unknown_index) as cnt_in_unknown, cnt_in_unknown_code, cnt_in_unknown_index, cnt_shiping_in_intime, 
+cnt_shiping_in_late, cnt_in_delivered,cnt_in_delivered_late,
+case when cnt_in=0 then null 
+else (cnt_in_delivered+cnt_shiping_in_intime)/(cnt_in) end as cnt_in_kpi,
+(cnt_out_unknown + cnt_out_unknown_code + cnt_out_unknown_index) as cnt_out_unknown, cnt_out_unknown_code, cnt_out_unknown_index, 
+cnt_shiping_out_intime, cnt_shiping_out_late,
+cnt_out_delivered, cnt_out_delivered_late,
+case when cnt_out = 0 then null 
+else (cnt_out_delivered +cnt_shiping_out_intime) /(cnt_out) end as cnt_out_kpi,
+(cnt_internal_unknown + cnt_internal_unknown_code + cnt_internal_unknown_index) as cnt_internal_unknown, cnt_internal_unknown_code, cnt_internal_unknown_index,
+cnt_shiping_internal_intime,cnt_shiping_internal_late,  cnt_internal_delivered, 
+cnt_internal_delivered_late, 
+case when cnt_internal=0 then null 
+else (cnt_internal_delivered+cnt_shiping_internal_intime)/(cnt_internal) end as cnt_internal_kpi
+FROM
+(SELECT
+country_code as code, country_name as name, 
+sum(cnt_in + cnt_out + cnt_internal) as cnt_total, sum(cnt_in) as cnt_in, sum(cnt_out) as cnt_out, sum(cnt_internal) as cnt_internal, 
+sum(cnt_in_unknown) as cnt_in_unknown, sum(cnt_in_unknown_code) as cnt_in_unknown_code, sum(cnt_in_unknown_index) as cnt_in_unknown_index, 
+sum(cnt_in_delivered) as cnt_in_delivered, sum(cnt_in_delivered_late) as cnt_in_delivered_late, 
+sum(cnt_shiping_in_intime) as cnt_shiping_in_intime, sum(cnt_shiping_in_late) as cnt_shiping_in_late,
+sum(cnt_out_unknown) as cnt_out_unknown, sum(cnt_out_unknown_code) as cnt_out_unknown_code, 
+sum(cnt_out_unknown_index) as cnt_out_unknown_index, 
+sum(cnt_out_delivered) as cnt_out_delivered, sum(cnt_out_delivered_late) as cnt_out_delivered_late, 
+sum(cnt_shiping_out_intime) as cnt_shiping_out_intime, sum(cnt_shiping_out_late) as cnt_shiping_out_late,
+sum(cnt_internal_unknown) as cnt_internal_unknown, sum(cnt_internal_unknown_code) as cnt_internal_unknown_code, 
+sum(cnt_internal_unknown_index) as cnt_internal_unknown_index, 
+sum(cnt_internal_delivered) as cnt_internal_delivered, sum(cnt_internal_delivered_late) as cnt_internal_delivered_late,
+sum(cnt_shiping_internal_intime) as cnt_shiping_internal_intime, sum(cnt_shiping_internal_late) as cnt_shiping_internal_late
+FROM tracking.ends_full_report_kpi_country kpi
+WHERE
+('' = ${date_start} OR '' = ${date_end} OR (date >= ${date_start} AND date <= ${date_end}||' 23:59:59'))
+AND (-1 in (${mail_type}) OR mail_type in (${mail_type}))
+AND (-1 in (${mail_ctg}) OR mail_ctg in (${mail_ctg}))
+AND ('Все' = ${inn} OR inn= ${inn})
+AND (-1 = ${srm} OR srm = ${srm})
+AND ('Все' = ${dti} OR dti = ${dti})
+AND ('-1' = ${direction} OR direction like concat(${direction},'%'))
+GROUP BY country_code, country_name
+) T
+
+	at org.pentaho.reporting.engine.classic.core.modules.misc.datafactory.sql.SimpleSQLReportDataFactory.queryData(SimpleSQLReportDataFactory.java:183)
+	at org.pentaho.reporting.engine.classic.core.modules.misc.datafactory.sql.SQLReportDataFactory.queryData(SQLReportDataFactory.java:142)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:172)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryInternal(CachingDataFactory.java:408)
+	at org.pentaho.reporting.engine.classic.core.cache.CachingDataFactory.queryStatic(CachingDataFactory.java:151)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStaticInternal(CompoundDataFactory.java:168)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryStatic(CompoundDataFactory.java:154)
+	at org.pentaho.reporting.engine.classic.core.CompoundDataFactory.queryData(CompoundDataFactory.java:67)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQueryData(DefaultFlowController.java:251)
+	at org.pentaho.reporting.engine.classic.core.states.datarow.DefaultFlowController.performQuery(DefaultFlowController.java:188)
+	at org.pentaho.reporting.engine.classic.core.states.process.ProcessState.initializeForMasterReport(ProcessState.java:318)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.prepareReportProcessing(AbstractReportProcessor.java:442)
+	at org.pentaho.reporting.engine.classic.core.layout.output.AbstractReportProcessor.processReport(AbstractReportProcessor.java:1433)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.produceCacheablePages(CachingPageableHTMLOutput.java:279)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.regenerateCache(CachingPageableHTMLOutput.java:245)
+	at org.pentaho.reporting.platform.plugin.output.CachingPageableHTMLOutput.generate(CachingPageableHTMLOutput.java:171)
+	at org.pentaho.reporting.platform.plugin.SimpleReportingComponent.execute(SimpleReportingComponent.java:942)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:102)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution$1.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:175)
+	at org.pentaho.platform.engine.security.SecurityHelper.runAsUser(SecurityHelper.java:164)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:88)
+	at org.pentaho.reporting.platform.plugin.async.PentahoAsyncReportExecution.call(PentahoAsyncReportExecution.java:40)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLInvalidAuthorizationSpecException: [Vertica][VJDBC](3781) FATAL: Invalid username or password
+	at com.vertica.util.ServerErrorData.buildException(Unknown Source)
+	at com.vertica.io.ProtocolStream.authenticate(Unknown Source)
+	at com.vertica.io.ProtocolStream.initSession(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at org.pentaho.reporting.engine.classic.core.modules.misc.datafactory.sql.DriverConnectionProvider.createConnection(DriverConnectionProvider.java:121)
+	at org.pentaho.reporting.engine.classic.core.modules.misc.datafactory.sql.SimpleSQLReportDataFactory.getConnection(SimpleSQLReportDataFactory.java:124)
+	at org.pentaho.reporting.engine.classic.core.modules.misc.datafactory.sql.SimpleSQLReportDataFactory.queryData(SimpleSQLReportDataFactory.java:168)
+	... 27 more
+Caused by: com.vertica.support.exceptions.InvalidAuthorizationException: [Vertica][VJDBC](3781) FATAL: Invalid username or password
+	... 36 more

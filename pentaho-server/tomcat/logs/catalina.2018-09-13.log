@@ -1,0 +1,1288 @@
+13-Sep-2018 13:33:36.366 SEVERE [http-apr-8080-exec-9] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([MailTypeShort].[MailTypeShort].Hierarchy.DefaultMember, [MailTypeShort].[MailTypeShort])'
+  set membersSet as '[MailTypeShort].[MailTypeShort].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[MailTypeShort].[MailTypeShort]]; sql=[select "MailTypeShortAlias"."code" as "c0", "MailTypeShortAlias"."name" as "c1" from (SELECT * FROM dicts.mailtype Where code IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)) as "MailTypeShortAlias" group by "MailTypeShortAlias"."code", "MailTypeShortAlias"."name" order by CASE WHEN "MailTypeShortAlias"."code" IS NULL THEN 1 ELSE 0 END, "MailTypeShortAlias"."code" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:33:36.393 SEVERE [http-apr-8080-exec-11] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Category].[Category].Hierarchy.DefaultMember, [Category].[Category])'
+  set membersSet as '[Category].[Category].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Category].[Category].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Category].[Category].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Category].[Category]]; sql=[select "mailctg"."name" as "c0" from "dicts"."mailctg" as "mailctg" group by "mailctg"."name" order by CASE WHEN "mailctg"."name" IS NULL THEN 1 ELSE 0 END, "mailctg"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:33:36.480 SEVERE [http-apr-8080-exec-13] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([FPS].[post_object].Hierarchy.DefaultMember, [FPS].[post_object])'
+  set membersSet as '[FPS].[post_object].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([FPS].[post_object].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [FPS].[post_object].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[FPS].[post_object]]; sql=[select "dim_fps_structure"."macroregion" as "c0", "dim_fps_structure"."ufps" as "c1", "dim_fps_structure"."post_object" as "c2" from "dicts"."dim_fps_structure" as "dim_fps_structure" group by "dim_fps_structure"."macroregion", "dim_fps_structure"."ufps", "dim_fps_structure"."post_object" order by CASE WHEN "dim_fps_structure"."macroregion" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."macroregion" ASC, CASE WHEN "dim_fps_structure"."ufps" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."ufps" ASC, CASE WHEN "dim_fps_structure"."post_object" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."post_object" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:33:36.766 SEVERE [http-apr-8080-exec-6] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SenderCtg].[SenderCtg].Hierarchy.DefaultMember, [SenderCtg].[SenderCtg])'
+  set membersSet as '[SenderCtg].[SenderCtg].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SenderCtg].[SenderCtg].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SenderCtg].[SenderCtg].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SenderCtg].[SenderCtg]]; sql=[select "sender_ctg"."CODE" as "c0", "sender_ctg"."NAME" as "c1", "sender_ctg"."NAME" as "c2" from "dicts"."sender_ctg" as "sender_ctg" group by "sender_ctg"."CODE", "sender_ctg"."NAME" order by CASE WHEN "sender_ctg"."CODE" IS NULL THEN 1 ELSE 0 END, "sender_ctg"."CODE" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:33:36.892 SEVERE [http-apr-8080-exec-20] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:33:37.036 SEVERE [http-apr-8080-exec-17] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([MailRank].[MailRank].Hierarchy.DefaultMember, [MailRank].[MailRank])'
+  set membersSet as '[MailRank].[MailRank].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([MailRank].[MailRank].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [MailRank].[MailRank].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[MailRank].[MailRank]]; sql=[select "mail_rank"."code" as "c0", "mail_rank"."name" as "c1", "mail_rank"."name" as "c2" from "dicts"."mail_rank" as "mail_rank" group by "mail_rank"."code", "mail_rank"."name" order by CASE WHEN "mail_rank"."code" IS NULL THEN 1 ELSE 0 END, "mail_rank"."code" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:23.486 SEVERE [http-apr-8080-exec-6] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([MailTypeShort].[MailTypeShort].Hierarchy.DefaultMember, [MailTypeShort].[MailTypeShort])'
+  set membersSet as '[MailTypeShort].[MailTypeShort].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[MailTypeShort].[MailTypeShort]]; sql=[select "MailTypeShortAlias"."code" as "c0", "MailTypeShortAlias"."name" as "c1" from (SELECT * FROM dicts.mailtype Where code IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)) as "MailTypeShortAlias" group by "MailTypeShortAlias"."code", "MailTypeShortAlias"."name" order by CASE WHEN "MailTypeShortAlias"."code" IS NULL THEN 1 ELSE 0 END, "MailTypeShortAlias"."code" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:23.545 SEVERE [http-apr-8080-exec-21] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([Category].[Category].Hierarchy.DefaultMember, [Category].[Category])'
+  set membersSet as '[Category].[Category].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([Category].[Category].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [Category].[Category].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[Category].[Category]]; sql=[select "mailctg"."name" as "c0" from "dicts"."mailctg" as "mailctg" group by "mailctg"."name" order by CASE WHEN "mailctg"."name" IS NULL THEN 1 ELSE 0 END, "mailctg"."name" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:23.685 SEVERE [http-apr-8080-exec-17] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([FPS].[post_object].Hierarchy.DefaultMember, [FPS].[post_object])'
+  set membersSet as '[FPS].[post_object].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([FPS].[post_object].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [FPS].[post_object].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[FPS].[post_object]]; sql=[select "dim_fps_structure"."macroregion" as "c0", "dim_fps_structure"."ufps" as "c1", "dim_fps_structure"."post_object" as "c2" from "dicts"."dim_fps_structure" as "dim_fps_structure" group by "dim_fps_structure"."macroregion", "dim_fps_structure"."ufps", "dim_fps_structure"."post_object" order by CASE WHEN "dim_fps_structure"."macroregion" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."macroregion" ASC, CASE WHEN "dim_fps_structure"."ufps" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."ufps" ASC, CASE WHEN "dim_fps_structure"."post_object" IS NULL THEN 1 ELSE 0 END, "dim_fps_structure"."post_object" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:23.942 SEVERE [http-apr-8080-exec-9] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SenderCtg].[SenderCtg].Hierarchy.DefaultMember, [SenderCtg].[SenderCtg])'
+  set membersSet as '[SenderCtg].[SenderCtg].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SenderCtg].[SenderCtg].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SenderCtg].[SenderCtg].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SenderCtg].[SenderCtg]]; sql=[select "sender_ctg"."CODE" as "c0", "sender_ctg"."NAME" as "c1", "sender_ctg"."NAME" as "c2" from "dicts"."sender_ctg" as "sender_ctg" group by "sender_ctg"."CODE", "sender_ctg"."NAME" order by CASE WHEN "sender_ctg"."CODE" IS NULL THEN 1 ELSE 0 END, "sender_ctg"."CODE" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:24.250 SEVERE [http-apr-8080-exec-13] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([SignNp].[SignNp].Hierarchy.DefaultMember, [SignNp].[SignNp])'
+  set membersSet as '[SignNp].[SignNp].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([SignNp].[SignNp].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [SignNp].[SignNp].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[SignNp].[SignNp]]; sql=[select "SignNpAlias"."sign_np" as "c0", "SignNpAlias"."sign_np" as "c1" from (SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag) as "SignNpAlias" group by "SignNpAlias"."sign_np" order by CASE WHEN "SignNpAlias"."sign_np" IS NULL THEN 1 ELSE 0 END, "SignNpAlias"."sign_np" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:24.344 SEVERE [http-apr-8080-exec-11] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([MailRank].[MailRank].Hierarchy.DefaultMember, [MailRank].[MailRank])'
+  set membersSet as '[MailRank].[MailRank].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([MailRank].[MailRank].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [MailRank].[MailRank].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[MailRank].[MailRank]]; sql=[select "mail_rank"."code" as "c0", "mail_rank"."name" as "c1", "mail_rank"."name" as "c2" from "dicts"."mail_rank" as "mail_rank" group by "mail_rank"."code", "mail_rank"."name" order by CASE WHEN "mail_rank"."code" IS NULL THEN 1 ELSE 0 END, "mail_rank"."code" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:44.531 SEVERE [http-apr-8080-exec-20] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([MailTypeShort].[MailTypeShort].Hierarchy.DefaultMember, [MailTypeShort].[MailTypeShort])'
+  set membersSet as '[MailTypeShort].[MailTypeShort].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [MailTypeShort].[MailTypeShort].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[MailTypeShort].[MailTypeShort]]; sql=[select "MailTypeShortAlias"."code" as "c0", "MailTypeShortAlias"."name" as "c1" from (SELECT * FROM dicts.mailtype Where code IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)) as "MailTypeShortAlias" group by "MailTypeShortAlias"."code", "MailTypeShortAlias"."name" order by CASE WHEN "MailTypeShortAlias"."code" IS NULL THEN 1 ELSE 0 END, "MailTypeShortAlias"."code" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+
+13-Sep-2018 13:39:44.741 SEVERE [http-apr-8080-exec-2] com.sun.jersey.spi.container.ContainerResponse.mapMappableContainerException The RuntimeException could not be mapped to a response, re-throwing to the HTTP container
+ mondrian.olap.MondrianException: Mondrian Error:Internal error: Error while executing query [with set descendantsSet as 'Descendants([DeliveryType].[DeliveryType].Hierarchy.DefaultMember, [DeliveryType].[DeliveryType])'
+  set membersSet as '[DeliveryType].[DeliveryType].Members'
+  set resultSet as '[membersSet]'
+  set filteredSet as 'Filter([resultSet], (InStr(LCase([DeliveryType].[DeliveryType].Hierarchy.CurrentMember.Name), LCase("")) > 0))'
+select {} ON COLUMNS,
+  Subset(Order([resultSet], [DeliveryType].[DeliveryType].Hierarchy.CurrentMember.Name, BASC), 0, 15) ON ROWS
+from [LevelReturnReport]
+where {}
+]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:697)
+	at mondrian.rolap.RolapConnection.access$000(RolapConnection.java:52)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:613)
+	at mondrian.rolap.RolapConnection$1.call(RolapConnection.java:611)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mondrian.olap.MondrianException: Mondrian Error:Internal error: Populating member cache with members for [[DeliveryType].[DeliveryType]]; sql=[select "DeliveryTypeAlias"."oper_attr" as "c0", "DeliveryTypeAlias"."name" as "c1", "DeliveryTypeAlias"."name" as "c2" from (select * from dicts.oper_type_attr where oper_type = 2) as "DeliveryTypeAlias" group by "DeliveryTypeAlias"."oper_attr", "DeliveryTypeAlias"."name" order by CASE WHEN "DeliveryTypeAlias"."oper_attr" IS NULL THEN 1 ELSE 0 END, "DeliveryTypeAlias"."oper_attr" ASC]
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:987)
+	at mondrian.olap.Util.newInternal(Util.java:2410)
+	at mondrian.olap.Util.newError(Util.java:2426)
+	at mondrian.rolap.SqlStatement.handle(SqlStatement.java:364)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:254)
+	at mondrian.rolap.RolapUtil.executeQuery(RolapUtil.java:350)
+	at mondrian.rolap.SqlTupleReader.prepareTuples(SqlTupleReader.java:462)
+	at mondrian.rolap.SqlTupleReader.readMembers(SqlTupleReader.java:583)
+	at mondrian.rolap.SqlMemberSource.getMembersInLevel(SqlMemberSource.java:536)
+	at mondrian.rolap.SmartMemberReader.getMembersInLevel(SmartMemberReader.java:148)
+	at mondrian.rolap.RolapCubeHierarchy$CacheRolapCubeHierarchyMemberReader.getMembersInLevel(RolapCubeHierarchy.java:756)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:580)
+	at mondrian.rolap.RolapSchemaReader.getLevelMembers(RolapSchemaReader.java:565)
+	at mondrian.rolap.RolapCube$RolapCubeSchemaReader.getLevelMembers(RolapCube.java:2852)
+	at mondrian.olap.DelegatingSchemaReader.getLevelMembers(DelegatingSchemaReader.java:195)
+	at mondrian.olap.Query$QuerySchemaReader.getLevelMembers(Query.java:1535)
+	at mondrian.olap.fun.FunUtil.getNonEmptyLevelMembers(FunUtil.java:2235)
+	at mondrian.olap.fun.FunUtil.levelMembers(FunUtil.java:2244)
+	at mondrian.olap.fun.LevelMembersFunDef$1.evaluateList(LevelMembersFunDef.java:37)
+	at mondrian.calc.impl.AbstractListCalc.evaluate(AbstractListCalc.java:65)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.calc.impl.AbstractIterCalc.evaluate(AbstractIterCalc.java:50)
+	at mondrian.rolap.RolapResult.evaluateExp(RolapResult.java:1092)
+	at mondrian.rolap.RolapNamedSetEvaluator.ensureList(RolapNamedSetEvaluator.java:100)
+	at mondrian.rolap.RolapNamedSetEvaluator.evaluateTupleIterable(RolapNamedSetEvaluator.java:66)
+	at mondrian.mdx.NamedSetExpr$1.evaluateIterable(NamedSetExpr.java:98)
+	at mondrian.olap.fun.OrderFunDef$CalcImpl.evaluateList(OrderFunDef.java:203)
+	at mondrian.olap.fun.SubsetFunDef$1.evaluateList(SubsetFunDef.java:53)
+	at mondrian.calc.impl.AbstractListCalc.evaluateIterable(AbstractListCalc.java:71)
+	at mondrian.rolap.RolapResult.executeAxis(RolapResult.java:980)
+	at mondrian.rolap.RolapResult.evalLoad(RolapResult.java:804)
+	at mondrian.rolap.RolapResult.loadMembers(RolapResult.java:760)
+	at mondrian.rolap.RolapResult.<init>(RolapResult.java:401)
+	at mondrian.rolap.RolapConnection.executeInternal(RolapConnection.java:662)
+	... 7 more
+Caused by: java.sql.SQLNonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.ProtocolStream.<init>(Unknown Source)
+	at com.vertica.core.VConnection.connect(Unknown Source)
+	at com.vertica.jdbc.common.BaseConnectionFactory.doConnect(Unknown Source)
+	at com.vertica.jdbc.common.AbstractDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at org.apache.commons.dbcp.DriverManagerConnectionFactory.createConnection(DriverManagerConnectionFactory.java:75)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1185)
+	at org.apache.commons.dbcp.AbandonedObjectPool.borrowObject(AbandonedObjectPool.java:79)
+	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:106)
+	at mondrian.rolap.SqlStatement.execute(SqlStatement.java:140)
+	... 39 more
+Caused by: com.vertica.support.exceptions.NonTransientConnectionException: [Vertica][VJDBC](100176) Failed to connect to host 10.233.0.83 on port 5433. Reason: Failed to establish a connection to the primary server or any backup address.
+	... 51 more
+Caused by: java.io.IOException: Failed to establish a connection to the primary server or any backup address.
+	at com.vertica.io.VStream.establishConnection(Unknown Source)
+	at com.vertica.io.VStream.<init>(Unknown Source)
+	... 51 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	... 53 more
+

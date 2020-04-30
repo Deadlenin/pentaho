@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="agregates" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="chart_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="rpo_dc" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="agregates" id="agregates" type="sql">
+      <Name>agregates</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="report_mode" name="report_mode" type="Integer"/>
+         <Parameter default="is_unloading" name="is_unloading" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+         <Parameter default="cvpp" name="cvpp" type="String"/>
+         <Parameter default="details_level" name="details_level" type="String"/>
+         <Parameter default="sign_np" name="sign_np" type="String"/>
+         <Parameter default="delivery_attribute" name="delivery_attribute" type="String"/>
+      </Parameters>
+      <Query><![CDATA[WITH pre_agr_tab AS (
+SELECT 
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'main_index' IN (${details_level})) 
+     THEN main_index ELSE '' END AS main_index,
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'cvppinfo_dim' IN (${details_level})) 
+	 THEN cvppinfo_dim ELSE '' END AS cvppinfo_dim ,
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'pop_cat' IN (${details_level})) 
+	 THEN population_category_to_name ELSE '' END AS population_category_to_name,
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'city' IN (${details_level})) 
+	 THEN main_index_place ELSE '' END AS main_index_place ,
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'ufps' IN (${details_level}))
+	 THEN main_index_ufps ELSE '' END AS main_index_ufps ,
+CASE WHEN ('' IN (${details_level}) OR 'details_level' IN (${details_level}) OR 'macroregion' IN (${details_level})) 
+	 THEN main_index_macroregion ELSE '' END AS main_index_macroregion ,
+SUM(CASE WHEN mail_type = 4 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_4_np_count,
+SUM(CASE WHEN mail_type = 4 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_4_np_return,
+SUM(CASE WHEN mail_type = 4 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_4_count,
+SUM(CASE WHEN mail_type = 4 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_4_return,
+SUM(CASE WHEN mail_type = 7 AND sign_np = 'С Н/П'  THEN 1 ELSE 0 END ) AS type_7_np_count,
+SUM(CASE WHEN mail_type = 7 AND sign_np = 'С Н/П'  AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_7_np_return,
+SUM(CASE WHEN mail_type = 7 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_7_count,
+SUM(CASE WHEN mail_type = 7 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_7_return,
+SUM(CASE WHEN mail_type = 23 AND sign_np = 'С Н/П'  THEN 1 ELSE 0 END ) AS type_23_np_count,
+SUM(CASE WHEN mail_type = 23 AND sign_np = 'С Н/П'  AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_23_np_return,
+SUM(CASE WHEN mail_type = 23 AND sign_np != 'С Н/П'  THEN 1 ELSE 0 END ) AS type_23_count,
+SUM(CASE WHEN mail_type = 23 AND sign_np != 'С Н/П'  AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_23_return,
+SUM(CASE WHEN mail_type = 24 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_24_np_count,
+SUM(CASE WHEN mail_type = 24 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_24_np_return,
+SUM(CASE WHEN mail_type = 24 AND sign_np != 'С Н/П'  THEN 1 ELSE 0 END ) AS type_24_count,
+SUM(CASE WHEN mail_type = 24 AND sign_np != 'С Н/П'  AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_24_return,
+SUM(CASE WHEN mail_type = 27 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_27_np_count,
+SUM(CASE WHEN mail_type = 27 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_27_np_return,
+SUM(CASE WHEN mail_type = 27 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_27_count,
+SUM(CASE WHEN mail_type = 27 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_27_return,
+SUM(CASE WHEN mail_type = 28 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_28_np_count,
+SUM(CASE WHEN mail_type = 28 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_28_np_return,
+SUM(CASE WHEN mail_type = 28 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_28_count,
+SUM(CASE WHEN mail_type = 28 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_28_return,
+SUM(CASE WHEN mail_type = 29 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_29_np_count,
+SUM(CASE WHEN mail_type = 29 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_29_np_return,
+SUM(CASE WHEN mail_type = 29 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_29_count,
+SUM(CASE WHEN mail_type = 29 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_29_return,
+SUM(CASE WHEN mail_type = 30 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_30_np_count,
+SUM(CASE WHEN mail_type = 30 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_30_np_return,
+SUM(CASE WHEN mail_type = 30 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_30_count,
+SUM(CASE WHEN mail_type = 30 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_30_return,
+SUM(CASE WHEN mail_type = 31 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_31_np_count,
+SUM(CASE WHEN mail_type = 31 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_31_np_return,
+SUM(CASE WHEN mail_type = 31 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_31_count,
+SUM(CASE WHEN mail_type = 31 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_31_return,
+SUM(CASE WHEN mail_type = 34 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_34_np_count,
+SUM(CASE WHEN mail_type = 34 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_34_np_return,
+SUM(CASE WHEN mail_type = 34 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_34_count,
+SUM(CASE WHEN mail_type = 34 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_34_return,
+SUM(CASE WHEN mail_type = 38 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_38_np_count,
+SUM(CASE WHEN mail_type = 38 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_38_np_return,
+SUM(CASE WHEN mail_type = 38 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_38_count,
+SUM(CASE WHEN mail_type = 38 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_38_return,
+SUM(CASE WHEN mail_type = 41 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_41_np_count,
+SUM(CASE WHEN mail_type = 41 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_41_np_return,
+SUM(CASE WHEN mail_type = 41 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_41_count,
+SUM(CASE WHEN mail_type = 41 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_41_return,
+SUM(CASE WHEN mail_type = 42 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_42_np_count,
+SUM(CASE WHEN mail_type = 42 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_42_np_return,
+SUM(CASE WHEN mail_type = 42 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_42_count,
+SUM(CASE WHEN mail_type = 42 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_42_return,
+SUM(CASE WHEN mail_type = 43 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_43_np_count,
+SUM(CASE WHEN mail_type = 43 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_43_np_return,
+SUM(CASE WHEN mail_type = 43 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_43_count,
+SUM(CASE WHEN mail_type = 43 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_43_return,
+SUM(CASE WHEN mail_type = 47 AND sign_np = 'С Н/П' THEN 1 ELSE 0 END ) AS type_47_np_count,
+SUM(CASE WHEN mail_type = 47 AND sign_np = 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_47_np_return,
+SUM(CASE WHEN mail_type = 47 AND sign_np != 'С Н/П' THEN 1 ELSE 0 END ) AS type_47_count,
+SUM(CASE WHEN mail_type = 47 AND sign_np != 'С Н/П' AND status in (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END ) AS type_47_return
+FROM tracking.rpo_return_fact_ag
+WHERE TRUE
+AND mail_type IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)
+AND (${inn} = '' OR ${inn} :: varchar IS NULL OR regexp_like(UPPER(inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)'))
+AND (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') 
+AND (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00')
+AND ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR '[Category].[' || mail_ctg_name || ']' IN (${mail_category}))
+AND ('' IN (${cvpp}) OR 'cvpp' IN (${cvpp}) OR '[Cvpp].[' || cvppinfo_dim || ']' IN (${cvpp}))
+AND ('' IN (${sign_np}) OR 'sign_np' IN (${sign_np}) OR '[SignNp].[' || sign_np || ']' IN (${sign_np}))
+AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || population_category_to_name || ']' IN (${pop_cat}))
+AND ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR status :: VARCHAR IN (${rpo_status}))
+AND ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR '[ReturnType].[' || ret_attr_name || ']' IN (${return_attribute}))
+AND ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR '[MailRank].[' || mail_rank_name || ']' IN (${mail_rank}))
+AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR '[MailTypeShort].[' || mail_type_name || ']' IN (${mail_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR '[PlaceType].[' || place_type_to_name || ']' IN (${place_to_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR '[DirectCtg].[' || direct_ctg_name || ']' IN (${direct_category}))
+AND ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || '].[' || main_index_post_object || ']' IN (${fps_to}))
+AND ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || '].[' || fps_from_post_object || ']' IN (${fps_from}))
+GROUP BY 1, 2, 3, 4, 5, 6
+)
+SELECT -- column order very important for column hide mechanism
+main_index,
+cvppinfo_dim ,
+population_category_to_name,
+main_index_place ,
+main_index_ufps ,
+main_index_macroregion ,
+type_4_np_count,
+type_4_np_return,
+CASE WHEN type_4_np_count != 0 THEN type_4_np_return/type_4_np_count ELSE NULL END AS type_4_np_ratio,
+type_4_count,
+type_4_return,
+CASE WHEN type_4_count != 0 THEN type_4_return/type_4_count ELSE NULL END AS type_4_ratio,
+type_7_np_count,
+type_7_np_return,
+CASE WHEN type_7_np_count != 0 THEN type_7_np_return/type_7_np_count ELSE NULL END AS type_7_np_ratio,
+type_7_count,
+type_7_return,
+CASE WHEN type_7_count != 0 THEN type_7_return/type_7_count ELSE NULL END AS type_7_ratio,
+type_23_np_count,
+type_23_np_return,
+CASE WHEN type_23_np_count != 0 THEN type_23_np_return/type_23_np_count ELSE NULL END AS type_23_np_ratio,
+type_23_count,
+type_23_return,
+CASE WHEN type_23_count != 0 THEN type_23_return/type_23_count ELSE NULL END AS type_23_ratio,
+type_24_np_count,
+type_24_np_return,
+CASE WHEN type_24_np_count != 0 THEN type_24_np_return/type_24_np_count ELSE NULL END AS type_24_np_ratio,
+type_24_count,
+type_24_return,
+CASE WHEN type_24_count != 0 THEN type_24_return/type_24_count ELSE NULL END AS type_24_ratio,
+type_27_np_count,
+type_27_np_return,
+CASE WHEN type_27_np_count != 0 THEN type_27_np_return/type_27_np_count ELSE NULL END AS type_27_np_ratio,
+type_27_count,
+type_27_return,
+CASE WHEN type_27_count != 0 THEN type_27_return/type_27_count ELSE NULL END AS type_27_ratio,
+type_28_np_count,
+type_28_np_return,
+CASE WHEN type_28_np_count != 0 THEN type_28_np_return/type_28_np_count ELSE NULL END AS type_28_np_ratio,
+type_28_count,
+type_28_return,
+CASE WHEN type_28_count != 0 THEN type_28_return/type_28_count ELSE NULL END AS type_28_ratio,
+type_29_np_count,
+type_29_np_return,
+CASE WHEN type_29_np_count != 0 THEN type_29_np_return/type_29_np_count ELSE NULL END AS type_29_np_ratio,
+type_29_count,
+type_29_return,
+CASE WHEN type_29_count != 0 THEN type_29_return/type_29_count ELSE NULL END AS type_29_ratio,
+type_30_np_count,
+type_30_np_return,
+CASE WHEN type_30_np_count != 0 THEN type_30_np_return/type_30_np_count ELSE NULL END AS type_30_np_ratio,
+type_30_count,
+type_30_return,
+CASE WHEN type_30_count != 0 THEN type_30_return/type_30_count ELSE NULL END AS type_30_ratio,
+type_31_np_count,
+type_31_np_return,
+CASE WHEN type_31_np_count != 0 THEN type_31_np_return/type_31_np_count ELSE NULL END AS type_31_np_ratio,
+type_31_count,
+type_31_return,
+CASE WHEN type_31_count != 0 THEN type_31_return/type_31_count ELSE NULL END AS type_31_ratio,
+type_34_np_count,
+type_34_np_return,
+CASE WHEN type_34_np_count != 0 THEN type_34_np_return/type_34_np_count ELSE NULL END AS type_34_np_ratio,
+type_34_count,
+type_34_return,
+CASE WHEN type_34_count != 0 THEN type_34_return/type_34_count ELSE NULL END AS type_34_ratio,
+type_38_np_count,
+type_38_np_return,
+CASE WHEN type_38_np_count != 0 THEN type_38_np_return/type_38_np_count ELSE NULL END AS type_38_np_ratio,
+type_38_count,
+type_38_return,
+CASE WHEN type_38_count != 0 THEN type_38_return/type_38_count ELSE NULL END AS type_38_ratio,
+type_41_np_count,
+type_41_np_return,
+CASE WHEN type_41_np_count != 0 THEN type_41_np_return/type_41_np_count ELSE NULL END AS type_41_np_ratio,
+type_41_count,
+type_41_return,
+CASE WHEN type_41_count != 0 THEN type_41_return/type_41_count ELSE NULL END AS type_41_ratio,
+type_42_np_count,
+type_42_np_return,
+CASE WHEN type_42_np_count != 0 THEN type_42_np_return/type_42_np_count ELSE NULL END AS type_42_np_ratio,
+type_42_count,
+type_42_return,
+CASE WHEN type_42_count != 0 THEN type_42_return/type_42_count ELSE NULL END AS type_42_ratio,
+type_43_np_count,
+type_43_np_return,
+CASE WHEN type_43_np_count != 0 THEN type_43_np_return/type_43_np_count ELSE NULL END AS type_43_np_ratio,
+type_43_count,
+type_43_return,
+CASE WHEN type_43_count != 0 THEN type_43_return/type_43_count ELSE NULL END AS type_43_ratio,
+type_47_np_count,
+type_47_np_return,
+CASE WHEN type_47_np_count != 0 THEN type_47_np_return/type_47_np_count ELSE NULL END AS type_47_np_ratio,
+type_47_count,
+type_47_return,
+CASE WHEN type_47_count != 0 THEN type_47_return/type_47_count ELSE NULL END AS type_47_ratio
+FROM pre_agr_tab pat
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="chart_dc" id="chart_dc" type="sql">
+      <Name>chart_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="accept_month" name="accept_month" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="report_mode" name="report_mode" type="String"/>
+         <Parameter default="is_unloading" name="is_unloading" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+         <Parameter default="cvpp" name="cvpp" type="String"/>
+         <Parameter default="details_level" name="details_level" type="String"/>
+         <Parameter default="sign_np" name="sign_np" type="String"/>
+         <Parameter default="delivery_attribute" name="delivery_attribute" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT 
+t1.month_dev as "Месяц", 
+t1.delivered as "Количество врученных отправлений",
+t1.not_delivered as "Количество возвратов",
+TO_CHAR((t1.not_delivered+1)*100/(t1.delivered+t1.not_delivered+1),'FM99999.990') as "Доля возвратов"
+FROM (
+SELECT
+SUBSTRING(accept_oper_date_time_local, 0, 8 ) AS month_dev ,
+SUM(CASE WHEN status NOT IN (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END) AS delivered ,
+SUM(CASE WHEN status IN (2,3,4,5,6,7,8,9,10,11,12) THEN 1 ELSE 0 END) AS not_delivered
+FROM tracking.rpo_return_fact_ag fact
+WHERE TRUE
+AND mail_type IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)
+AND (${inn} = '' OR ${inn} :: varchar IS NULL OR regexp_like(UPPER(inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)'))
+AND ('' IN (${accept_month}) OR 'accept_month' IN (${accept_month}) OR '[AcceptMonth].[' || SUBSTRING(accept_oper_date_time_local, 0, 8 ) || ']' IN (${accept_month}))
+AND ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR '[Category].[' || mail_ctg_name || ']' IN (${mail_category}))
+AND ('' IN (${cvpp}) OR 'cvpp' IN (${cvpp}) OR '[Cvpp].[' || cvppinfo_dim || ']' IN (${cvpp}))
+AND ('' IN (${sign_np}) OR 'sign_np' IN (${sign_np}) OR '[SignNp].[' || sign_np || ']' IN (${sign_np}))
+AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || population_category_to_name || ']' IN (${pop_cat}))
+AND ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR status :: VARCHAR IN (${rpo_status}))
+AND ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR '[ReturnType].[' || ret_attr_name || ']' IN (${return_attribute}))
+AND ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR '[MailRank].[' || mail_rank_name || ']' IN (${mail_rank}))
+AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR '[MailTypeShort].[' || mail_type_name || ']' IN (${mail_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR '[PlaceType].[' || place_type_to_name || ']' IN (${place_to_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR '[DirectCtg].[' || direct_ctg_name || ']' IN (${direct_category}))
+AND ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || '].[' || main_index_post_object || ']' IN (${fps_to}))
+AND ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || '].[' || fps_from_post_object || ']' IN (${fps_from}))
+GROUP BY 1
+) t1
+ORDER BY 1]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="rpo_dc" id="rpo_dc" type="sql">
+      <Name>rpo_dc</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="fps_from" name="fps_from" type="String"/>
+         <Parameter default="fps_to" name="fps_to" type="String"/>
+         <Parameter default="inn" name="inn" type="String"/>
+         <Parameter default="accept_date_from" name="accept_date_from" type="String"/>
+         <Parameter default="accept_date_to" name="accept_date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_category" name="mail_category" type="String"/>
+         <Parameter default="direct_category" name="direct_category" type="String"/>
+         <Parameter default="sender_ctg" name="sender_ctg" type="String"/>
+         <Parameter default="mail_rank" name="mail_rank" type="String"/>
+         <Parameter default="place_to_type" name="place_to_type" type="String"/>
+         <Parameter default="return_attribute" name="return_attribute" type="String"/>
+         <Parameter default="report_mode" name="report_mode" type="String"/>
+         <Parameter default="is_unloading" name="is_unloading" type="String"/>
+         <Parameter default="dd_macroregion" name="dd_macroregion" type="String"/>
+         <Parameter default="dd_ufps" name="dd_ufps" type="String"/>
+         <Parameter default="dd_pop_cat" name="dd_pop_cat" type="String"/>
+         <Parameter default="dd_city" name="dd_city" type="String"/>
+         <Parameter default="dd_main_index" name="dd_main_index" type="String"/>
+         <Parameter default="dd_cvpp_info" name="dd_cvpp_info" type="String"/>
+         <Parameter default="rpo_status" name="rpo_status" type="String"/>
+         <Parameter default="pop_cat" name="pop_cat" type="String"/>
+         <Parameter default="cvpp" name="cvpp" type="String"/>
+         <Parameter default="details_level" name="details_level" type="String"/>
+         <Parameter default="sign_np" name="sign_np" type="String"/>
+         <Parameter default="delivery_attribute" name="delivery_attribute" type="String"/>
+      </Parameters>
+      <Query><![CDATA[SELECT 
+  fact.bar_code                                  "РПО",
+  fact.accept_oper_date_time_local :: DATE       "Дата приема РПО",
+  nvl(fact.inn, '–')                             "Клиент",
+  nvl(fact.mail_type_name, '–')                  "Услуга",
+  nvl(fact.fps_from_place, '–')                  "Город отправления",
+  nvl(fact.index_from, '–')                      "Индекс отправителя",
+  nvl(fact.main_index_macroregion, '–')          "МРЦ вручения",
+  nvl(fact.main_index_ufps, '–')                 "УФПС вручения",
+  fact.main_index_place                          "Город доставки",
+  fact.main_index                                "Индекс получателя",
+  fact.population_category_to_name    			 "Категория населения",
+  fact.cvppinfo_dim                              "Признак ЦВПП/ОПС",
+  fact.recv_address                              "Адрес доставки",
+  fact.rcpn                                      "Получатель",
+  fact.recv_phone                                "Телефон получателя",
+  fact.place_of_delivery_date_time_local :: DATE "Прибыло в место вручения",
+  CASE WHEN fact.delivery = 1 
+         THEN fact.delivery_date_time_local :: DATE :: VARCHAR 
+  	   ELSE 'Нет вручения адресату'
+  END                                            "Вручение",
+  (nvl(fact.mass, 0) / 1000)                     "Физический вес, кг",
+  CASE WHEN fact.delivery = 1 OR fact.status = 1 THEN 'Нет возврата' 
+       WHEN fact.status = 5   					 THEN 'Отсутствие оформление возврата по истечении срока хранения' 
+       WHEN fact.status = 10				     THEN 'Отсутствие статусов по отправлению' 
+       WHEN fact.return_date_time_local IS NULL  THEN 'Возврат без оформления статусов' 
+       ELSE fact.return_date_time_local :: DATE :: VARCHAR  
+       END                                       "Фактическая дата оформления возврата",
+  CASE WHEN fact.delivery = 1 
+		 OR fact.status = 1 
+		 OR fact.status = 5
+       THEN 'Нет возврата' 
+       WHEN fact.status = 10 
+       THEN 'Отсутствие статусов по отправлению' 
+       ELSE nvl(fact.ret_attr_name, 'Прочие возвраты')
+       END                                  	 "Причина возврата",
+   CASE WHEN fact.delivery = 1	THEN 'Вручено адресату' 
+   WHEN fact.status = 1 		THEN 'Ожидает вручения' 
+   WHEN fact.status = 2 		THEN 'Возврат раньше срока' 
+   WHEN fact.status = 3 		THEN 'Возврат позже срока' 
+   WHEN fact.status = 4 		THEN 'Возврат вовремя' 
+   WHEN fact.status = 5 		THEN 'Отсутствует оформление возврата по истечению срока хранения' 
+   WHEN fact.status = 6 		THEN 'Возврат по причине отказа' 
+   WHEN fact.status = 7 		THEN 'Иные возвраты' 
+   WHEN fact.status = 8 		THEN 'По требованию отправителя' 
+   WHEN fact.status = 9 		THEN 'Прочие возвраты' 
+   WHEN fact.status = 10 		THEN 'Отсутствие статусов по отправлению' 
+   WHEN fact.status = 11 		THEN 'Нет информации о выбытии возврата' 
+   WHEN fact.status = 12 		THEN 'Возврат без оформления статусов'
+   END											 "Статус Возврата"
+FROM tracking.rpo_return_fact_ag fact
+WHERE TRUE
+AND mail_type IN (4,7,23,24,27,28,29,30,31,34,38,41,42,43,47)
+AND (${inn} = '' OR ${inn} :: varchar IS NULL OR regexp_like(UPPER(inn), '(^' || REPLACE(REPLACE(UPPER(${inn}), '%', '.*'), ';', '$)|(^') || '$)'))
+AND (${accept_date_from} = '' OR ${accept_date_from} :: VARCHAR IS NULL OR accept_oper_date_time_local >= ${accept_date_from} || ' 00:00:00') 
+AND (${accept_date_to} = '' OR ${accept_date_to} :: VARCHAR IS NULL OR accept_oper_date_time_local <= ${accept_date_to} || ' 24:00:00')
+AND ('' IN (${mail_category}) OR 'mail_category' IN (${mail_category}) OR '[Category].[' || mail_ctg_name || ']' IN (${mail_category}))
+AND ('' IN (${cvpp}) OR 'cvpp' IN (${cvpp}) OR '[Cvpp].[' || cvppinfo_dim || ']' IN (${cvpp}))
+AND ('' IN (${sign_np}) OR 'sign_np' IN (${sign_np}) OR '[SignNp].[' || sign_np || ']' IN (${sign_np}))
+AND ('' IN (${pop_cat}) OR 'pop_cat' IN (${pop_cat}) OR '[PopCategory].[' || population_category_to_name || ']' IN (${pop_cat}))
+AND ('' IN (${rpo_status}) OR 'rpo_status' IN (${rpo_status}) OR status :: VARCHAR IN (${rpo_status}))
+AND ('' IN (${return_attribute}) OR 'return_attribute' IN (${return_attribute}) OR '[ReturnType].[' || ret_attr_name || ']' IN (${return_attribute}))
+AND ('' IN (${mail_rank}) OR 'mail_rank' IN (${mail_rank}) OR '[MailRank].[' || mail_rank_name || ']' IN (${mail_rank}))
+AND ('' IN (${mail_type}) OR 'mail_type' IN (${mail_type}) OR '[MailTypeShort].[' || mail_type_name || ']' IN (${mail_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${place_to_type}) OR 'place_to_type' IN (${place_to_type}) OR '[PlaceType].[' || place_type_to_name || ']' IN (${place_to_type}))
+AND ('' IN (${sender_ctg}) OR 'sender_ctg' IN (${sender_ctg}) OR '[SenderCtg].[' || sender_ctg_name || ']' IN (${sender_ctg}))
+AND ('' IN (${direct_category}) OR 'direct_category' IN (${direct_category}) OR '[DirectCtg].[' || direct_ctg_name || ']' IN (${direct_category}))
+AND ('' IN (${fps_to}) OR 'fps_to' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || ']' IN (${fps_to}) OR
+     '[FPS].[' || main_index_macroregion || '].[' || main_index_ufps || '].[' || main_index_post_object || ']' IN (${fps_to}))
+AND ('' IN (${fps_from}) OR 'fps_from' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || ']' IN (${fps_from}) OR
+     '[FPS].[' || fps_from_macroregion || '].[' || fps_from_ufps || '].[' || fps_from_post_object || ']' IN (${fps_from}))
+AND   (COALESCE(${dd_macroregion},'') = '' OR ${dd_macroregion} :: VARCHAR = main_index_macroregion :: VARCHAR OR (' ' IN (${dd_macroregion} :: VARCHAR) AND main_index_macroregion IS NULL)) 
+AND   (COALESCE(${dd_ufps},'') = '' OR ${dd_ufps} :: VARCHAR = main_index_ufps :: VARCHAR OR (' ' IN (${dd_ufps} :: VARCHAR) AND main_index_ufps IS NULL)) 
+AND	  (COALESCE(${dd_city},'') = '' OR ${dd_city} :: VARCHAR = main_index_place :: VARCHAR OR (' ' IN (${dd_city} :: VARCHAR) AND main_index_place IS NULL)) 
+AND	  (COALESCE(${dd_main_index},'') = '' OR ${dd_main_index} :: VARCHAR = fact.main_index OR (' ' IN (${dd_main_index} :: VARCHAR) AND fact.main_index IS NULL)) 
+AND	  (COALESCE(${dd_cvpp_info},'') = '' OR ${dd_cvpp_info} :: VARCHAR = fact.cvppinfo_dim) 
+AND	  (COALESCE(${dd_pop_cat},'') = '' OR ${dd_pop_cat} :: VARCHAR = fact.population_category_to_name)
+LIMIT 100000;]]></Query>
+   </DataAccess>
+</CDADescriptor>

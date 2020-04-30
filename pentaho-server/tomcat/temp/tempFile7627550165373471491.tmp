@@ -1,0 +1,174 @@
+<Schema name="return_level_report_mond_schema">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Type">
+    <Hierarchy name="Type" visible="true" hasAll="true" primaryKey="code">
+      <Table name="mailtype" schema="dicts">
+      </Table>
+      <Level name="Type" visible="true" table="mailtype" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="ReturnType" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;">
+    <Hierarchy name="ReturnType" visible="true" hasAll="true" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;">
+      <View alias="ReturnTypeAlias">
+        <SQL dialect="generic">
+          <![CDATA[select * from dicts.oper_type_attr where oper_type = 3]]>
+        </SQL>
+      </View>
+      <Level name="ReturnType" visible="true" column="oper_attr" nameColumn="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="FPS">
+    <Hierarchy name="FPS" visible="true" hasAll="true" primaryKey="post_object_index" caption="&#1060;&#1055;&#1057;">
+      <Table name="dim_fps_structure" schema="dicts">
+      </Table>
+      <Level name="macroregion" visible="true" table="dim_fps_structure" column="macroregion" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1072;&#1082;&#1088;&#1086;&#1088;&#1077;&#1075;&#1080;&#1086;&#1085;">
+      </Level>
+      <Level name="ufps_index" visible="true" table="dim_fps_structure" column="ufps" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1060;&#1080;&#1083;&#1080;&#1072;&#1083;">
+      </Level>
+      <Level name="post_object" visible="true" table="dim_fps_structure" column="post_object" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1054;&#1055;&#1057;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="Category" visible="true" hasAll="true" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="mailctg" schema="dicts">
+      </Table>
+      <Level name="Category" visible="true" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="DirectCtg" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+    <Hierarchy name="DirectCtg" visible="true" hasAll="true" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1056;&#1055;&#1054;">
+      <Table name="direct_ctg" schema="dicts">
+      </Table>
+      <Level name="DirectCtg" visible="true" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PlaceType" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="PlaceType" visible="true" hasAll="true" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="place_type" schema="dicts">
+      </Table>
+      <Level name="PlaceType" visible="true" column="code" nameColumn="name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#1058;&#1080;&#1087; &#1085;.&#1087;. &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="MailRank" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="MailRank" visible="true" hasAll="true" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <Table name="mail_rank" schema="dicts">
+      </Table>
+      <Level name="MailRank" visible="true" column="code" nameColumn="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1056;&#1072;&#1079;&#1088;&#1103;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="SenderCtg" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+    <Hierarchy name="SenderCtg" visible="true" hasAll="true" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;">
+      <Table name="sender_ctg" schema="dicts">
+      </Table>
+      <Level name="SenderCtg" visible="true" column="CODE" nameColumn="NAME" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103;" captionColumn="NAME">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="PopCategory" caption="&#1090;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072;">
+    <Hierarchy name="PopCategory" visible="true" hasAll="true" caption="&#1058;&#1080;&#1087; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1091;&#1085;&#1082;&#1090;&#1072;">
+      <Table name="population_category" schema="dicts">
+      </Table>
+      <Level name="PopCategory" visible="true" column="id" nameColumn="name" ordinalColumn="id" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1080; &#1085;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="DeliveryType" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;">
+    <Hierarchy name="DeliveryType" visible="true" hasAll="true" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;">
+      <View alias="DeliveryTypeAlias">
+        <SQL dialect="generic">
+          <![CDATA[select * from dicts.oper_type_attr where oper_type = 2]]>
+        </SQL>
+      </View>
+      <Level name="DeliveryType" visible="true" column="oper_attr" nameColumn="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Cvpp" caption="Cvpp">
+    <Hierarchy name="Cvpp" visible="true" hasAll="true" caption="Cvpp">
+      <View alias="CvppAlias">
+        <SQL dialect="generic">
+          <![CDATA[SELECT DISTINCT cvppinfo_dim as name FROM tracking.rpo_return_fact_ag]]>
+        </SQL>
+      </View>
+      <Level name="Cvpp" visible="true" column="name" nameColumn="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1055;&#1088;&#1080;&#1079;&#1085;&#1072;&#1082; &#1062;&#1042;&#1055;&#1055;" captionColumn="name">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="SignNp">
+    <Hierarchy name="SignNp" visible="true" hasAll="true" caption="SignNp" description="SignNp">
+      <View alias="SignNpAlias">
+        <SQL dialect="generic">
+          <![CDATA[SELECT DISTINCT sign_np FROM tracking.rpo_return_fact_ag]]>
+        </SQL>
+      </View>
+      <Level name="SignNp" visible="true" column="sign_np" nameColumn="sign_np" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1053;&#1072;&#1083;&#1080;&#1095;&#1080;&#1077; &#1053;&#1055;" captionColumn="sign_np">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="MailTypeShort">
+    <Hierarchy name="MailTypeShort" visible="true" hasAll="true" caption="&#1050;&#1091;&#1088;&#1100;&#1077;&#1088;&#1089;&#1082;&#1080;&#1077; &#1080; &#1087;&#1086;&#1089;&#1099;&#1083;&#1086;&#1095;&#1085;&#1099;&#1077; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      <View alias="MailTypeShortAlias">
+        <SQL dialect="generic">
+          <![CDATA[SELECT * FROM dicts.mailtype Where code IN (4,5,7,23,24,27,28,29,30,31,34,38,41,42,43,47)]]>
+        </SQL>
+      </View>
+      <Level name="MailTypeShort" visible="true" column="code" nameColumn="name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1050;&#1091;&#1088;&#1100;&#1077;&#1088;&#1089;&#1082;&#1080;&#1077; &#1080; &#1087;&#1086;&#1089;&#1099;&#1083;&#1086;&#1095;&#1085;&#1099;&#1077; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="AcceptMonth">
+    <Hierarchy name="AcceptMonth" visible="true" hasAll="true">
+      <View alias="AcceptMonthAlias">
+        <SQL dialect="generic">
+          <![CDATA[SELECT DISTINCT SUBSTRING(accept_oper_date_time_local, 0, 8 ) as acc_month FROM tracking.rpo_return_fact_ag ORDER BY 1 DESC]]>
+        </SQL>
+      </View>
+      <Level name="AcceptMonth" visible="true" column="acc_month" nameColumn="acc_month" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#1052;&#1077;&#1089;&#1103;&#1094; &#1087;&#1088;&#1080;&#1077;&#1084;&#1072;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="LevelReturnReport" visible="true" cache="true" enabled="true">
+    <Table name="rpo_return_fact_ag" schema="tracking">
+    </Table>
+    <DimensionUsage source="Type" name="Type" caption="&#1042;&#1080;&#1076; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;" visible="true" foreignKey="mail_type" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ReturnType" name="ReturnType" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072;" visible="true" foreignKey="return_attr" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="ToFPS" caption="&#1055;&#1091;&#1085;&#1082;&#1090; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="index_to" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Category" name="Category" caption="&#1050;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;" visible="true" foreignKey="mail_ctg" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="DirectCtg" name="DirectCategory" caption="&#1050;&#1083;&#1072;&#1089;&#1089;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1081;" visible="true" foreignKey="direct_ctg" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="FromFps" visible="true" foreignKey="index_from" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="FPS" name="FPS" caption="&#1052;&#1077;&#1089;&#1090;&#1086; &#1085;&#1072;&#1093;&#1086;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="main_index" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PlaceType" name="PlaceType" visible="true" foreignKey="index_to" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="MailRank" name="MailRank" visible="true" foreignKey="mail_rank" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="SenderCtg" name="SenderCtg" visible="true" foreignKey="send_ctg" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="PopCategory" name="PopCategory" visible="true" foreignKey="population_category_from_id" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="DeliveryType" name="DeliveryType" caption="&#1040;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1074;&#1088;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103;" visible="true" foreignKey="delivery_attr" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Cvpp" name="Cvpp" visible="true" foreignKey="cvppinfo_dim" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="SignNp" name="SignNp" caption="SignNp" visible="true" foreignKey="sign_np" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="MailTypeShort" name="MailTypeShort" caption="MailTypeShort" visible="true" foreignKey="mail_type">
+    </DimensionUsage>
+    <DimensionUsage source="AcceptMonth" name="AcceptMonth" caption="AcceptMonth" visible="true" foreignKey="accept_oper_date_time_local">
+    </DimensionUsage>
+    <Measure name="M1" column="bar_code" datatype="String" aggregator="distinct-count" description="barcode" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

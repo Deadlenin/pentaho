@@ -1,0 +1,885 @@
+09-Sep-2019 13:07:03.953 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:07:03.997 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:07:03.998 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:07:03.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:07:03.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:07:03.999 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:07:04.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:07:04.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:07:04.000 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:07:04.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:07:04.001 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:07:04.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:07:04.006 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:07:04.007 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:07:04.007 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:07:04.007 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:07:04.010 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:07:04.011 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:07:04.011 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:07:04.012 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:07:04.013 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:07:04.013 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:07:04.014 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:07:04.016 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:07:04.017 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:07:04.018 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:07:04.019 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:07:04.959 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:07:07.223 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:07:07.231 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:07:07.234 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 4256 ms
+09-Sep-2019 13:07:07.278 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:07:07.278 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:07:07.295 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:07:07.355 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:08:49.401 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:08:51.265 INFO [HSQLDB Server @46afe6d6] org.hsqldb.persist.Logger.logInfoEvent checkpointClose start
+09-Sep-2019 13:08:51.361 INFO [HSQLDB Server @46afe6d6] org.hsqldb.persist.Logger.logInfoEvent checkpointClose end
+09-Sep-2019 13:08:51.580 INFO [HSQLDB Server @46afe6d6] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+09-Sep-2019 13:08:51.597 INFO [HSQLDB Server @46afe6d6] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+09-Sep-2019 13:11:10.500 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+09-Sep-2019 13:11:10.501 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+09-Sep-2019 13:11:57.153 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [HSQLDB Timer @3873c135] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.hsqldb.lib.HsqlTimer$TaskQueue.park(Unknown Source)
+ org.hsqldb.lib.HsqlTimer.nextTask(Unknown Source)
+ org.hsqldb.lib.HsqlTimer$TaskRunner.run(Unknown Source)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:11:57.156 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 TCP Server (tcp://10.0.75.1:9092)] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainSocketImpl.accept0(Native Method)
+ java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+ java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+ java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+ java.net.ServerSocket.implAccept(ServerSocket.java:545)
+ java.net.ServerSocket.accept(ServerSocket.java:513)
+ org.h2.server.TcpServer.listen(TcpServer.java:210)
+ org.h2.tools.Server.run(Server.java:415)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:11:57.158 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:11:57.160 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.161 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.161 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.162 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.163 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.165 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.169 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.170 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.172 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.172 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:11:57.173 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.SocketInputStream.socketRead0(Native Method)
+ java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+ java.net.SocketInputStream.read(SocketInputStream.java:171)
+ java.net.SocketInputStream.read(SocketInputStream.java:141)
+ java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+ java.io.BufferedInputStream.read1(BufferedInputStream.java:286)
+ java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+ sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:735)
+ sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:678)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1587)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+ org.quartz.utils.UpdateChecker.getUpdateProperties(UpdateChecker.java:100)
+ org.quartz.utils.UpdateChecker.doCheck(UpdateChecker.java:58)
+ org.quartz.utils.UpdateChecker.checkForUpdate(UpdateChecker.java:48)
+ org.quartz.utils.UpdateChecker.run(UpdateChecker.java:39)
+ java.util.TimerThread.mainLoop(Timer.java:555)
+ java.util.TimerThread.run(Timer.java:505)
+09-Sep-2019 13:11:57.193 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 289,897 ms
+09-Sep-2019 13:11:57.193 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+09-Sep-2019 13:11:59.253 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:11:59.283 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 2,090 ms
+09-Sep-2019 13:11:59.286 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+09-Sep-2019 13:12:01.414 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:12:01.420 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 2,133 ms
+09-Sep-2019 13:12:01.421 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+09-Sep-2019 13:12:03.262 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:12:03.267 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,845 ms
+09-Sep-2019 13:12:03.273 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:12:03.343 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:12:03.403 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 296168 ms
+09-Sep-2019 13:15:47.292 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+09-Sep-2019 13:15:47.294 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:15:47.348 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:15:47.416 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+09-Sep-2019 13:15:47.471 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:15:47.551 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:15:47.609 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:15:47.611 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:15:54.470 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:15:54.496 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:15:54.496 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:15:54.496 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:15:54.497 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:15:54.500 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:15:54.501 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:15:54.501 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:15:54.501 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:15:54.502 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:15:54.502 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:15:54.502 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:15:54.503 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:15:54.503 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:15:54.504 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:15:54.504 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:15:54.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:15:54.505 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:15:54.508 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:15:54.508 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:15:54.509 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:15:55.279 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:15:56.933 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:15:56.945 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:15:56.947 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2815 ms
+09-Sep-2019 13:15:56.977 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:15:56.977 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:15:56.990 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:15:57.033 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:16:24.977 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:16:25.947 INFO [HSQLDB Server @52964de8] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+09-Sep-2019 13:16:25.958 INFO [HSQLDB Server @52964de8] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+09-Sep-2019 13:18:39.533 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+09-Sep-2019 13:18:39.534 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+09-Sep-2019 13:18:42.265 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [HSQLDB Timer @6129f63f] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.hsqldb.lib.HsqlTimer$TaskQueue.park(Unknown Source)
+ org.hsqldb.lib.HsqlTimer.nextTask(Unknown Source)
+ org.hsqldb.lib.HsqlTimer$TaskRunner.run(Unknown Source)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:18:42.269 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 TCP Server (tcp://10.0.75.1:9092)] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainSocketImpl.accept0(Native Method)
+ java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+ java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+ java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+ java.net.ServerSocket.implAccept(ServerSocket.java:545)
+ java.net.ServerSocket.accept(ServerSocket.java:513)
+ org.h2.server.TcpServer.listen(TcpServer.java:210)
+ org.h2.tools.Server.run(Server.java:415)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:18:42.270 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.272 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.273 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.274 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.275 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.275 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.277 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.280 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.281 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.281 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:18:42.282 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Timer.java:552)
+ java.util.TimerThread.run(Timer.java:505)
+09-Sep-2019 13:18:42.299 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 165,309 ms
+09-Sep-2019 13:18:42.299 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+09-Sep-2019 13:18:44.012 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:18:44.028 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 1,729 ms
+09-Sep-2019 13:18:44.029 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+09-Sep-2019 13:18:45.613 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:18:45.617 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,588 ms
+09-Sep-2019 13:18:45.618 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+09-Sep-2019 13:18:47.142 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:18:47.146 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,528 ms
+09-Sep-2019 13:18:47.150 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:18:47.179 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:18:47.206 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 170259 ms
+09-Sep-2019 13:20:13.952 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+09-Sep-2019 13:20:13.953 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:20:14.008 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:20:14.060 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+09-Sep-2019 13:20:14.103 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:20:14.174 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:20:14.230 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:20:14.231 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:24:16.427 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:24:16.433 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:24:16.433 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:24:16.433 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:24:16.434 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:24:16.434 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:24:16.434 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:24:16.434 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:24:16.435 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:24:16.435 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:24:16.435 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:24:16.438 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:24:16.439 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:24:16.439 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:24:16.439 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:24:16.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:24:16.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:24:16.440 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:24:16.443 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:24:16.444 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:24:16.444 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:24:16.445 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:24:16.445 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:24:16.446 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:24:16.446 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:24:16.448 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:24:16.449 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:24:17.216 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:24:17.332 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:24:17.343 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:24:17.345 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1240 ms
+09-Sep-2019 13:24:17.382 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:24:17.383 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:24:17.396 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:24:17.438 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:24:45.233 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:24:46.248 INFO [HSQLDB Server @5f924818] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+09-Sep-2019 13:24:46.260 INFO [HSQLDB Server @5f924818] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+09-Sep-2019 13:28:19.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:28:19.460 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:28:19.460 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:28:19.460 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:28:19.461 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:28:19.465 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:28:19.465 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:28:19.465 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:28:19.465 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:28:19.466 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:28:19.466 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:28:19.466 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:28:19.466 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:28:19.467 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:28:19.467 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:28:19.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:28:19.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:28:19.471 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:28:19.471 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:28:19.472 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:28:19.472 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:28:20.289 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:28:20.412 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:28:20.422 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:28:20.424 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1297 ms
+09-Sep-2019 13:28:20.460 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:28:20.461 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:28:20.475 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:28:20.515 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:28:47.336 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:28:48.612 INFO [HSQLDB Server @52964de8] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+09-Sep-2019 13:28:48.625 INFO [HSQLDB Server @52964de8] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+09-Sep-2019 13:33:00.499 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+09-Sep-2019 13:33:00.500 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+09-Sep-2019 13:33:45.274 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [HSQLDB Timer @47d14e5e] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.hsqldb.lib.HsqlTimer$TaskQueue.park(Unknown Source)
+ org.hsqldb.lib.HsqlTimer.nextTask(Unknown Source)
+ org.hsqldb.lib.HsqlTimer$TaskRunner.run(Unknown Source)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:33:45.283 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 TCP Server (tcp://10.0.75.1:9092)] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainSocketImpl.accept0(Native Method)
+ java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131)
+ java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+ java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199)
+ java.net.ServerSocket.implAccept(ServerSocket.java:545)
+ java.net.ServerSocket.accept(ServerSocket.java:513)
+ org.h2.server.TcpServer.listen(TcpServer.java:210)
+ org.h2.tools.Server.run(Server.java:415)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:33:45.284 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:33:45.286 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.288 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.289 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.293 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.294 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.295 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.298 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.299 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.300 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.301 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:33:45.302 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Timer.java:552)
+ java.util.TimerThread.run(Timer.java:505)
+09-Sep-2019 13:33:45.321 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 324,847 ms
+09-Sep-2019 13:33:45.321 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+09-Sep-2019 13:33:47.221 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:33:47.242 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 1,921 ms
+09-Sep-2019 13:33:47.242 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+09-Sep-2019 13:33:49.076 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:33:49.082 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,840 ms
+09-Sep-2019 13:33:49.084 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+09-Sep-2019 13:33:50.862 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:33:50.869 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,785 ms
+09-Sep-2019 13:33:50.875 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:33:50.942 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:33:50.998 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 330572 ms
+09-Sep-2019 13:50:17.923 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+09-Sep-2019 13:50:30.629 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:50:30.654 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:50:30.654 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:50:30.655 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:50:30.656 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:50:30.656 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:50:30.659 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:50:30.659 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:50:30.660 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:50:30.660 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:50:30.660 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:50:30.660 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:50:30.661 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:50:30.661 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:50:30.661 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:50:30.662 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:50:30.662 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:50:30.663 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:50:30.663 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:50:30.666 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:50:30.666 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:50:30.667 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:50:31.446 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:50:32.691 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:50:32.703 SEVERE [main] org.apache.coyote.AbstractProtocol.init Failed to initialize end point associated with ProtocolHandler ["http-apr-8080"]
+ java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+
+09-Sep-2019 13:50:32.705 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[HTTP/1.1-8080]]
+ org.apache.catalina.LifecycleException: Failed to initialize component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:962)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	... 13 more
+
+09-Sep-2019 13:50:32.706 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:50:32.709 SEVERE [main] org.apache.coyote.AbstractProtocol.init Failed to initialize end point associated with ProtocolHandler ["ajp-apr-8009"]
+ java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+
+09-Sep-2019 13:50:32.709 SEVERE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[AJP/1.3-8009]]
+ org.apache.catalina.LifecycleException: Failed to initialize component [Connector[AJP/1.3-8009]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:568)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:871)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:580)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:603)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:310)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:484)
+Caused by: org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:962)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:102)
+	... 12 more
+Caused by: java.lang.Exception: Socket bind failed: [730048] Only one usage of each socket address (protocol/network address/port) is normally permitted.  
+	at org.apache.tomcat.util.net.AprEndpoint.bind(AprEndpoint.java:471)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:810)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:476)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:960)
+	... 13 more
+
+09-Sep-2019 13:50:32.712 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 2413 ms
+09-Sep-2019 13:50:32.747 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:50:32.748 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:50:32.760 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:50:32.801 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:51:00.100 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:51:34.714 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+09-Sep-2019 13:51:34.715 SEVERE [localhost-startStop-1] org.apache.catalina.core.StandardContext.startInternal Context [/pentaho] startup failed due to previous errors
+09-Sep-2019 13:51:37.515 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:51:37.516 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [H2 Log Writer DB] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.h2.store.WriterThread.run(WriterThread.java:101)
+ java.lang.Thread.run(Thread.java:748)
+09-Sep-2019 13:51:37.518 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.518 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.519 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.520 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.520 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-5] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.521 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-6] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.522 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-7] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.522 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-8] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.523 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-9] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.524 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [DefaultQuartzScheduler_Worker-10] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:540)
+09-Sep-2019 13:51:37.524 WARNING [localhost-startStop-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [pentaho] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+ java.net.InetAddress$2.lookupAllHostAddr(InetAddress.java:929)
+ java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1324)
+ java.net.InetAddress.getAllByName0(InetAddress.java:1277)
+ java.net.InetAddress.getAllByName(InetAddress.java:1193)
+ java.net.InetAddress.getAllByName(InetAddress.java:1127)
+ java.net.InetAddress.getByName(InetAddress.java:1077)
+ java.net.InetSocketAddress.<init>(InetSocketAddress.java:220)
+ sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+ sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+ sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+ sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+ sun.net.www.http.HttpClient.New(HttpClient.java:339)
+ sun.net.www.http.HttpClient.New(HttpClient.java:357)
+ sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+ sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+ sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+ sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1564)
+ sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1492)
+ org.quartz.utils.UpdateChecker.getUpdateProperties(UpdateChecker.java:100)
+ org.quartz.utils.UpdateChecker.doCheck(UpdateChecker.java:58)
+ org.quartz.utils.UpdateChecker.checkForUpdate(UpdateChecker.java:48)
+ org.quartz.utils.UpdateChecker.run(UpdateChecker.java:39)
+ java.util.TimerThread.mainLoop(Timer.java:555)
+ java.util.TimerThread.run(Timer.java:505)
+09-Sep-2019 13:51:37.545 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 64,785 ms
+09-Sep-2019 13:51:37.546 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+09-Sep-2019 13:51:39.278 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 1,731 ms
+09-Sep-2019 13:51:39.279 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+09-Sep-2019 13:51:40.887 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,607 ms
+09-Sep-2019 13:51:40.887 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+09-Sep-2019 13:51:42.456 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,569 ms
+09-Sep-2019 13:51:42.461 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 69747 ms
+09-Sep-2019 13:51:42.463 SEVERE [main] org.apache.catalina.core.StandardServer.await StandardServer.await: create[localhost:8005]: 
+ java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:438)
+	at org.apache.catalina.startup.Catalina.await(Catalina.java:717)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:663)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:351)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:485)
+
+09-Sep-2019 13:51:42.464 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:51:42.464 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:51:42.464 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+09-Sep-2019 13:51:42.483 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:51:42.484 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:51:42.485 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:51:42.486 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:52:02.998 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact localhost:8005. Tomcat may not be running.
+09-Sep-2019 13:52:03.001 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Catalina.stop: 
+ java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:450)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:400)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:487)
+
+09-Sep-2019 13:55:08.161 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.43
+09-Sep-2019 13:55:08.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 28 2017 14:42:59 UTC
+09-Sep-2019 13:55:08.231 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.43.0
+09-Sep-2019 13:55:08.233 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+09-Sep-2019 13:55:08.234 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Sep-2019 13:55:08.234 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Sep-2019 13:55:08.234 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_201\jre
+09-Sep-2019 13:55:08.238 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+09-Sep-2019 13:55:08.242 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Sep-2019 13:55:08.242 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:55:08.242 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\conf\logging.properties
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms512m
+09-Sep-2019 13:55:08.243 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx3000m
+09-Sep-2019 13:55:08.244 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseG1GC
+09-Sep-2019 13:55:08.244 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:MaxGCPauseMillis=500
+09-Sep-2019 13:55:08.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=utf8
+09-Sep-2019 13:55:08.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -DDI_HOME=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\pentaho-solutions\system\kettle
+09-Sep-2019 13:55:08.245 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\endorsed
+09-Sep-2019 13:55:08.246 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:55:08.246 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat
+09-Sep-2019 13:55:08.247 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\temp
+09-Sep-2019 13:55:08.247 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.12 using APR version 1.5.2.
+09-Sep-2019 13:55:08.250 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+09-Sep-2019 13:55:09.255 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2k  26 Jan 2017)
+09-Sep-2019 13:55:11.127 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:55:11.136 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:55:11.139 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3552 ms
+09-Sep-2019 13:55:11.182 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+09-Sep-2019 13:55:11.182 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.43
+09-Sep-2019 13:55:11.201 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho
+09-Sep-2019 13:55:11.268 WARNING [localhost-startStop-1] org.apache.catalina.startup.SetContextPropertiesRule.begin [SetContextPropertiesRule]{Context} Setting property 'docbase' to 'webapps/pentaho/' did not find a matching property.
+09-Sep-2019 13:56:25.959 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:56:27.352 INFO [HSQLDB Server @20b05e95] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open start
+09-Sep-2019 13:56:27.366 INFO [HSQLDB Server @20b05e95] org.hsqldb.persist.Logger.logInfoEvent dataFileCache open end
+09-Sep-2019 13:57:10.903 INFO [Thread-9] org.apache.karaf.main.Main$KarafLockCallback.lockAquired Lock acquired. Setting startlevel to 100
+09-Sep-2019 13:57:17.853 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/core
+09-Sep-2019 13:57:17.854 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/configuration/beans
+09-Sep-2019 13:57:17.856 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/configuration/parameterized-types
+09-Sep-2019 13:57:17.859 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/configuration/security
+09-Sep-2019 13:57:17.862 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://schemas.xmlsoap.org/wsdl/
+09-Sep-2019 13:57:17.864 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://www.w3.org/2005/08/addressing
+09-Sep-2019 13:57:17.865 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/08/addressing
+09-Sep-2019 13:57:17.874 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-management (76) [org.apache.cxf.management.InstrumentationManager]
+09-Sep-2019 13:57:17.925 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-wsdl (79) [org.apache.cxf.wsdl.WSDLManager]
+09-Sep-2019 13:57:17.935 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-xml (81) [org.apache.cxf.binding.xml.XMLBindingFactory, org.apache.cxf.binding.xml.wsdl11.XMLWSDLExtensionLoader]
+09-Sep-2019 13:57:17.942 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-soap (82) [org.apache.cxf.binding.soap.SoapBindingFactory, org.apache.cxf.binding.soap.SoapTransportFactory]
+09-Sep-2019 13:57:17.967 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/bindings/soap
+09-Sep-2019 13:57:18.012 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-policy (103) [org.apache.cxf.ws.policy.PolicyEngine, org.apache.cxf.policy.PolicyDataEngine, org.apache.cxf.ws.policy.AssertionBuilderRegistry, org.apache.cxf.ws.policy.PolicyInterceptorProviderRegistry, org.apache.cxf.ws.policy.PolicyBuilder, org.apache.cxf.ws.policy.PolicyAnnotationListener, org.apache.cxf.ws.policy.attachment.ServiceModelPolicyProvider, org.apache.cxf.ws.policy.attachment.external.DomainExpressionBuilderRegistry, org.apache.cxf.ws.policy.attachment.external.EndpointReferenceDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.external.URIDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.wsdl11.Wsdl11AttachmentPolicyProvider, org.apache.cxf.ws.policy.mtom.MTOMAssertionBuilder, org.apache.cxf.ws.policy.mtom.MTOMPolicyInterceptorProvider]
+09-Sep-2019 13:57:18.026 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-http (86) [org.apache.cxf.transport.http.HTTPTransportFactory, org.apache.cxf.transport.http.HTTPWSDLExtensionLoader, org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder, org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder, org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]
+09-Sep-2019 13:57:18.093 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/transports/http/configuration
+09-Sep-2019 13:57:18.110 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/simple
+09-Sep-2019 13:57:18.155 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-frontend-jaxws (88) [org.apache.cxf.jaxws.context.WebServiceContextResourceResolver]
+09-Sep-2019 13:57:18.160 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxws
+09-Sep-2019 13:57:18.188 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs
+09-Sep-2019 13:57:18.196 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/jaxrs-client
+09-Sep-2019 13:57:18.206 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/binding/coloc
+09-Sep-2019 13:57:18.209 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-transports-local (99) [org.apache.cxf.transport.local.LocalTransportFactory]
+09-Sep-2019 13:57:18.213 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-bindings-object (100) [org.apache.cxf.binding.object.ObjectBindingFactory]
+09-Sep-2019 13:57:18.216 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/blueprint/binding/object
+09-Sep-2019 13:57:18.220 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/policy
+09-Sep-2019 13:57:18.222 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://www.w3.org/ns/ws-policy
+09-Sep-2019 13:57:18.228 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://www.w3.org/2006/07/ws-policy
+09-Sep-2019 13:57:18.233 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2004/09/policy
+09-Sep-2019 13:57:18.248 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd
+09-Sep-2019 13:57:18.249 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd
+09-Sep-2019 13:57:18.251 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://www.w3.org/2000/09/xmldsig#
+09-Sep-2019 13:57:18.252 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702
+09-Sep-2019 13:57:18.259 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-addr (120) [org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider, org.apache.cxf.ws.addressing.impl.AddressingWSDLExtensionLoader, org.apache.cxf.ws.addressing.WSAddressingFeature$WSAddressingFeatureApplier, org.apache.cxf.ws.addressing.MAPAggregator$MAPAggregatorLoader]
+09-Sep-2019 13:57:18.267 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/ws/addressing
+09-Sep-2019 13:57:18.295 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-security (122) [org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader, org.apache.cxf.ws.security.cache.CacheCleanupListener]
+09-Sep-2019 13:57:18.307 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-ws-rm (124) [org.apache.cxf.ws.rm.RMManager, org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider, org.apache.cxf.ws.rm.policy.RM10AssertionBuilder, org.apache.cxf.ws.rm.policy.RM12AssertionBuilder, org.apache.cxf.ws.rm.policy.WSRMP12PolicyLoader, org.apache.cxf.ws.rm.policy.MC11PolicyLoader, org.apache.cxf.ws.rm.policy.RSPPolicyLoader]
+09-Sep-2019 13:57:18.310 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://cxf.apache.org/ws/rm/manager
+09-Sep-2019 13:57:18.311 INFO [FelixStartLevel] org.apache.cxf.bus.blueprint.NamespaceHandlerRegisterer.register Registered blueprint namespace handler for http://schemas.xmlsoap.org/ws/2005/02/rm/policy
+09-Sep-2019 13:57:18.315 INFO [FelixStartLevel] org.apache.cxf.bus.osgi.CXFExtensionBundleListener.addExtensions Adding the extensions from bundle org.apache.cxf.cxf-rt-javascript (125) [org.apache.cxf.javascript.JavascriptServerListener]
+09-Sep-2019 13:57:18.700 INFO [FelixStartLevel] org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1.onSuccess New Caching Service registered
+09-Sep-2019 13:57:18.705 INFO [FelixStartLevel] org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1.onSuccess New Caching Service registered
+09-Sep-2019 13:57:18.707 INFO [FelixStartLevel] org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1.onSuccess New Caching Service registered
+09-Sep-2019 13:57:18.708 INFO [FelixStartLevel] org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1.onSuccess New Caching Service registered
+09-Sep-2019 13:57:18.709 INFO [FelixStartLevel] org.pentaho.caching.impl.PentahoCacheManagerFactory$RegistrationHandler$1.onSuccess New Caching Service registered
+09-Sep-2019 13:57:31.909 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,type=Bus,instance.id=1219016798: org.apache.cxf.bus.ManagedBus@45fa786d
+09-Sep-2019 13:57:31.929 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,type=Bus,instance.id=1219016798: javax.management.modelmbean.RequiredModelMBean@4abece5a
+09-Sep-2019 13:57:31.938 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.init registered org.apache.cxf:bus.id=marketplaceImplBus,type=Bus,instance.id=1219016798
+09-Sep-2019 13:57:31.941 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=880808853: org.apache.cxf.bus.managers.WorkQueueManagerImplMBeanWrapper@44fa34a8
+09-Sep-2019 13:57:31.942 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=880808853: javax.management.modelmbean.RequiredModelMBean@7d30c410
+09-Sep-2019 13:57:32.614 INFO [FelixStartLevel] org.apache.cxf.endpoint.ServerImpl.initDestination Setting the server's publish address to be /marketplace
+09-Sep-2019 13:57:32.617 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,type=Bus.Service.Endpoint,service="{http://endpoints.marketplace.pentaho.org/}MarketplaceService",port="MarketplaceService",instance.id=359386333: org.apache.cxf.endpoint.ManagedEndpoint@5f5b790d
+09-Sep-2019 13:57:32.637 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=marketplaceImplBus,type=Bus.Service.Endpoint,service="{http://endpoints.marketplace.pentaho.org/}MarketplaceService",port="MarketplaceService",instance.id=359386333: javax.management.modelmbean.RequiredModelMBean@26bdee10
+09-Sep-2019 13:57:32.895 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,type=Bus,instance.id=1952768928: org.apache.cxf.bus.ManagedBus@e0da854
+09-Sep-2019 13:57:32.897 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,type=Bus,instance.id=1952768928: javax.management.modelmbean.RequiredModelMBean@72fcb6ae
+09-Sep-2019 13:57:32.912 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.init registered org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,type=Bus,instance.id=1952768928
+09-Sep-2019 13:57:32.921 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=1143380153: org.apache.cxf.bus.managers.WorkQueueManagerImplMBeanWrapper@178c0a7e
+09-Sep-2019 13:57:32.923 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=1143380153: javax.management.modelmbean.RequiredModelMBean@74a05fd3
+09-Sep-2019 13:57:33.051 INFO [FelixStartLevel] org.apache.cxf.endpoint.ServerImpl.initDestination Setting the server's publish address to be /lineage
+09-Sep-2019 13:57:33.054 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,type=Bus.Service.Endpoint,service="{http://service.metaverse.pentaho.org/}MetaverseService",port="MetaverseService",instance.id=512024942: org.apache.cxf.endpoint.ManagedEndpoint@287e4b87
+09-Sep-2019 13:57:33.055 INFO [FelixStartLevel] org.apache.cxf.management.jmx.InstrumentationManagerImpl.registerMBeanWithServer registering MBean org.apache.cxf:bus.id=pentaho-metaverse-web-cxf1952768928,type=Bus.Service.Endpoint,service="{http://service.metaverse.pentaho.org/}MetaverseService",port="MetaverseService",instance.id=512024942: javax.management.modelmbean.RequiredModelMBean@275ab9cc
+09-Sep-2019 13:58:07.524 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho has finished in 176,321 ms
+09-Sep-2019 13:58:07.525 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style
+09-Sep-2019 13:58:09.373 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:58:09.378 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\pentaho-style has finished in 1,854 ms
+09-Sep-2019 13:58:09.385 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT
+09-Sep-2019 13:58:11.084 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:58:11.120 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\ROOT has finished in 1,735 ms
+09-Sep-2019 13:58:11.120 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style
+09-Sep-2019 13:58:12.818 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+09-Sep-2019 13:58:12.821 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Pentaho_src\pentaho-server71CleanWithDataSource\pentaho-server\tomcat\webapps\sw-style has finished in 1,701 ms
+09-Sep-2019 13:58:12.826 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+09-Sep-2019 13:58:12.887 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+09-Sep-2019 13:58:12.930 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 181791 ms
+09-Sep-2019 14:03:12.075 WARNING [main] org.apache.catalina.core.StandardServer.await StandardServer.await: Invalid command '' received
+09-Sep-2019 14:06:56.953 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cda.api, of type pt.webdetails.cda.CdaUtils as a root resource class
+09-Sep-2019 14:06:56.962 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, CdaCacheMonitor, of type pt.webdetails.cda.cache.endpoints.CacheMonitorEndpoint as a root resource class
+09-Sep-2019 14:06:56.964 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, CdaCacheScheduler, of type pt.webdetails.cda.cache.endpoints.CacheControllerEndpoint as a root resource class
+09-Sep-2019 14:06:56.992 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:58.210 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cda.CdaUtils.unwrapQuery(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws javax.ws.rs.WebApplicationException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cda.CdaUtils.getCdaList(java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.lang.Exception, MUST return a non-void type.
+09-Sep-2019 14:06:58.213 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, pt.webdetails.cgg.CggService#0, of type pt.webdetails.cgg.CggService as a root resource class
+09-Sep-2019 14:06:58.214 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:58.354 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cgg.CggService.draw(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+09-Sep-2019 14:06:58.357 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, datasources, of type pt.webdetails.cdf.dd.api.DatasourcesApi as a root resource class
+09-Sep-2019 14:06:58.358 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, wcdf.editor, of type pt.webdetails.cdf.dd.api.EditorApi as a root resource class
+09-Sep-2019 14:06:58.358 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, olap, of type pt.webdetails.cpf.olap.OlapApi as a root resource class
+09-Sep-2019 14:06:58.359 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, plugins, of type pt.webdetails.cdf.dd.api.PluginsApi as a root resource class
+09-Sep-2019 14:06:58.360 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, renderer, of type pt.webdetails.cdf.dd.api.RenderApi as a root resource class
+09-Sep-2019 14:06:58.362 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, resourcesapi, of type pt.webdetails.cdf.dd.api.ResourcesApi as a root resource class
+09-Sep-2019 14:06:58.363 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, syncronizer, of type pt.webdetails.cdf.dd.api.SyncronizerApi as a root resource class
+09-Sep-2019 14:06:58.363 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, version, of type pt.webdetails.cdf.dd.api.VersionApi as a root resource class
+09-Sep-2019 14:06:58.365 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:58.640 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getCubes(javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getCubeStructure(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getLevelMembersStructure(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpf.olap.OlapApi.getPaginatedLevelMembers(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,long,long,javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getResource(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.res(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.resource(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getJsResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getCssResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getImage(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.ResourcesApi.getUntypedResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.SyncronizerApi.syncStyles(javax.servlet.http.HttpServletResponse) throws java.io.IOException,pt.webdetails.cdf.dd.DashboardDesignerException,org.json.JSONException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cdf.dd.api.VersionApi.checkVersion(javax.servlet.http.HttpServletResponse) throws java.io.IOException,org.json.JSONException, MUST return a non-void type.
+09-Sep-2019 14:06:58.649 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, com.pentaho.di.revision.RevisionResource#0, of type com.pentaho.di.revision.RevisionResource as a root resource class
+09-Sep-2019 14:06:58.650 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, com.pentaho.di.purge.PurgeResource#0, of type com.pentaho.di.purge.PurgeResource as a root resource class
+09-Sep-2019 14:06:58.650 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:58.863 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PlatformStagingDatabaseResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PlatformStagingDatabaseResource as a root resource class
+09-Sep-2019 14:06:58.863 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatasourceResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatasourceResource as a root resource class
+09-Sep-2019 14:06:58.865 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.AnalysisDatasourceService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.AnalysisDatasourceService as a root resource class
+09-Sep-2019 14:06:58.866 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.MetadataDatasourceService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.MetadataDatasourceService as a root resource class
+09-Sep-2019 14:06:58.866 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.ConnectionService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.ConnectionService as a root resource class
+09-Sep-2019 14:06:58.866 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.DataSourceWizardResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.DataSourceWizardResource as a root resource class
+09-Sep-2019 14:06:58.867 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.AnalysisResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.AnalysisResource as a root resource class
+09-Sep-2019 14:06:58.869 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.MetadataResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.MetadataResource as a root resource class
+09-Sep-2019 14:06:58.869 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource#0, of type org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource as a root resource class
+09-Sep-2019 14:06:58.870 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseDialectService#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseDialectService as a root resource class
+09-Sep-2019 14:06:58.871 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PentahoJAXBContextResolver#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.PentahoJAXBContextResolver as a provider class
+09-Sep-2019 14:06:58.871 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DataAccessPermissionResource#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DataAccessPermissionResource as a root resource class
+09-Sep-2019 14:06:58.872 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionReaderWriter as a provider class
+09-Sep-2019 14:06:58.872 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionListReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseConnectionListReaderWriter as a provider class
+09-Sep-2019 14:06:58.876 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypeReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypeReaderWriter as a provider class
+09-Sep-2019 14:06:58.877 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypesListReaderWriter#0, of type org.pentaho.platform.dataaccess.datasource.wizard.service.impl.DatabaseTypesListReaderWriter as a provider class
+09-Sep-2019 14:06:58.878 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, xml-metadataServiceDA/org.pentaho.platform.dataaccess.metadata.service.MetadataService, of type org.pentaho.platform.dataaccess.metadata.service.MetadataService as a root resource class
+09-Sep-2019 14:06:58.879 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, gwt-metadataServiceDA/org.pentaho.platform.dataaccess.metadata.service.MetadataService, of type org.pentaho.platform.dataaccess.metadata.service.MetadataService as a root resource class
+09-Sep-2019 14:06:58.879 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:59.751 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A sub-resource method, public org.pentaho.platform.web.http.api.resources.JaxbList org.pentaho.platform.dataaccess.datasource.api.resources.JDBCDatasourceResource.getConnectionIDs(), with URI template, "/", is treated as a resource method
+09-Sep-2019 14:06:59.754 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, sparkl.api, of type pt.webdetails.cpk.CpkApi as a root resource class
+09-Sep-2019 14:06:59.755 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:06:59.914 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.status(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.version(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.reload(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.genericEndpointGet(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.clearKettleResultsCache(), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.defaultElement(javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.refreshGet(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws org.dom4j.DocumentException,java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.getSitemapJson(javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.elementsList(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,javax.ws.rs.core.HttpHeaders) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.reloadPluginsGet() throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void pt.webdetails.cpk.CpkApi.listDataAccessTypes(javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+09-Sep-2019 14:06:59.918 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, storage, of type org.pentaho.cdf.storage.StorageApi as a root resource class
+09-Sep-2019 14:06:59.919 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, context, of type org.pentaho.cdf.context.ContextApi as a root resource class
+09-Sep-2019 14:06:59.920 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, comments, of type org.pentaho.cdf.comments.CommentsApi as a root resource class
+09-Sep-2019 14:06:59.920 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, settings, of type org.pentaho.cdf.settings.SettingsApi as a root resource class
+09-Sep-2019 14:06:59.921 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cdfResources, of type org.pentaho.cdf.ResourcesApi as a root resource class
+09-Sep-2019 14:06:59.921 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, cdfApi, of type org.pentaho.cdf.CdfApi as a root resource class
+09-Sep-2019 14:06:59.922 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:07:00.081 WARNING [http-apr-8080-exec-2] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.context.ContextApi.getConfig(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.add(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.delete(int,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.list(java.lang.String,int,int,boolean,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.comments.CommentsApi.archive(int,boolean,javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.settings.SettingsApi.get(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getResource(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.clearCache(javax.servlet.http.HttpServletResponse), MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.export(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.doGetViewAction(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getJSONSolution(java.lang.String,java.lang.String,java.lang.String,int,boolean,java.lang.String,javax.servlet.http.HttpServletResponse) throws org.pentaho.cdf.InvalidCdfOperationException, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.callAction(java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+  WARNING: A HTTP GET method, public void org.pentaho.cdf.CdfApi.getCdfEmbeddedContext(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception, MUST return a non-void type.
+09-Sep-2019 14:07:00.092 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.reporting.platform.plugin.JobManager#0, of type org.pentaho.reporting.platform.plugin.JobManager as a root resource class
+09-Sep-2019 14:07:00.094 INFO [http-apr-8080-exec-2] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.reporting.platform.plugin.CacheManagerEndpoint#0, of type org.pentaho.reporting.platform.plugin.CacheManagerEndpoint as a root resource class
+09-Sep-2019 14:07:00.095 INFO [http-apr-8080-exec-2] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:07:02.247 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-unifiedRepository-unifiedRepositoryPort
+09-Sep-2019 14:07:02.914 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-repositorySync-repositorySyncPort
+09-Sep-2019 14:07:03.107 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-datasourceMgmtService-datasourceMgmtServicePort
+09-Sep-2019 14:07:03.277 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-userRoleService-userRoleServicePort
+09-Sep-2019 14:07:03.341 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-userRoleListService-userRoleListServicePort
+09-Sep-2019 14:07:03.384 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-authorizationPolicy-authorizationPolicyPort
+09-Sep-2019 14:07:03.461 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-roleBindingDao-roleBindingDaoPort
+09-Sep-2019 14:07:03.667 INFO [http-apr-8080-exec-6] com.sun.xml.ws.server.MonitorBase.createRoot Metro monitoring rootname successfully set to: com.sun.metro:pp=/,type=WSEndpoint,name=/pentaho-Scheduler-SchedulerPort
+09-Sep-2019 14:07:03.781 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.JAXBContextResolver#0, of type org.pentaho.platform.web.http.api.resources.JAXBContextResolver as a provider class
+09-Sep-2019 14:07:03.781 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RootResource#0, of type org.pentaho.platform.web.http.api.resources.RootResource as a root resource class
+09-Sep-2019 14:07:03.783 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.DirectoryResource#0, of type org.pentaho.platform.web.http.api.resources.DirectoryResource as a root resource class
+09-Sep-2019 14:07:03.783 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserRoleDaoResource#0, of type org.pentaho.platform.web.http.api.resources.UserRoleDaoResource as a root resource class
+09-Sep-2019 14:07:03.784 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserRoleListResource#0, of type org.pentaho.platform.web.http.api.resources.UserRoleListResource as a root resource class
+09-Sep-2019 14:07:03.785 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.FileResource#0, of type org.pentaho.platform.web.http.api.resources.FileResource as a root resource class
+09-Sep-2019 14:07:03.787 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.EmailResource#0, of type org.pentaho.platform.web.http.api.resources.EmailResource as a root resource class
+09-Sep-2019 14:07:03.788 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SessionResource#0, of type org.pentaho.platform.web.http.api.resources.SessionResource as a root resource class
+09-Sep-2019 14:07:03.789 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SchedulerResource#0, of type org.pentaho.platform.web.http.api.resources.SchedulerResource as a root resource class
+09-Sep-2019 14:07:03.790 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryResource as a root resource class
+09-Sep-2019 14:07:03.790 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryImportResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryImportResource as a root resource class
+09-Sep-2019 14:07:03.794 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PluginResource#0, of type org.pentaho.platform.web.http.api.resources.PluginResource as a root resource class
+09-Sep-2019 14:07:03.794 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PluginManagerResource#0, of type org.pentaho.platform.web.http.api.resources.PluginManagerResource as a root resource class
+09-Sep-2019 14:07:03.795 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemPermissionsResource#0, of type org.pentaho.platform.web.http.api.resources.SystemPermissionsResource as a root resource class
+09-Sep-2019 14:07:03.796 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemUsersResource#0, of type org.pentaho.platform.web.http.api.resources.SystemUsersResource as a root resource class
+09-Sep-2019 14:07:03.796 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemRolesResource#0, of type org.pentaho.platform.web.http.api.resources.SystemRolesResource as a root resource class
+09-Sep-2019 14:07:03.797 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemResource#0, of type org.pentaho.platform.web.http.api.resources.SystemResource as a root resource class
+09-Sep-2019 14:07:03.798 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider#0, of type org.pentaho.platform.web.http.api.resources.GeneratorStreamingOutputProvider as a provider class
+09-Sep-2019 14:07:03.798 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.ThemeResource#0, of type org.pentaho.platform.web.http.api.resources.ThemeResource as a root resource class
+09-Sep-2019 14:07:03.799 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.SystemRefreshResource#0, of type org.pentaho.platform.web.http.api.resources.SystemRefreshResource as a root resource class
+09-Sep-2019 14:07:03.799 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.VersionResource#0, of type org.pentaho.platform.web.http.api.resources.VersionResource as a root resource class
+09-Sep-2019 14:07:03.800 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserConsoleResource#0, of type org.pentaho.platform.web.http.api.resources.UserConsoleResource as a root resource class
+09-Sep-2019 14:07:03.800 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.UserSettingsResource#0, of type org.pentaho.platform.web.http.api.resources.UserSettingsResource as a root resource class
+09-Sep-2019 14:07:03.801 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.RepositoryPublishResource#0, of type org.pentaho.platform.web.http.api.resources.RepositoryPublishResource as a root resource class
+09-Sep-2019 14:07:03.801 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.AuthorizationActionResource#0, of type org.pentaho.platform.web.http.api.resources.AuthorizationActionResource as a root resource class
+09-Sep-2019 14:07:03.806 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.PasswordResource#0, of type org.pentaho.platform.web.http.api.resources.PasswordResource as a root resource class
+09-Sep-2019 14:07:03.807 INFO [http-apr-8080-exec-6] com.sun.jersey.spi.spring.container.SpringComponentProviderFactory.registerSpringBeans Registering Spring bean, org.pentaho.platform.web.http.api.resources.ServiceResource#0, of type org.pentaho.platform.web.http.api.resources.ServiceResource as a root resource class
+09-Sep-2019 14:07:03.807 INFO [http-apr-8080-exec-6] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19.1 03/11/2016 02:42 PM'
+09-Sep-2019 14:07:03.984 WARNING [http-apr-8080-exec-6] com.sun.jersey.spi.inject.Errors.processErrorMessages The following warnings have been detected with resource and/or provider classes:
+  WARNING: A HTTP GET method, public javax.ws.rs.core.Response org.pentaho.platform.web.http.api.resources.EmailResource.deleteEmailConfig(org.pentaho.platform.plugin.services.email.EmailConfiguration), should not consume any entity.

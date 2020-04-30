@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ExportManifest xmlns:ns2="http://www.pentaho.com/schema/">
+    <ExportManifestInformation exportDate="23-10-2018 06:53:24 MSK" exportBy="admin" rootFolder="/home/AntonZ/rpo_return_3/" manifestVersion="2"/>
+    <ExportManifestEntity path="rpo_return_level">
+        <ExportManifestProperty>
+            <EntityMetaData name="rpo_return_level" createdDate="2018-10-07T13:57:04.065+03:00" isFolder="true" path="rpo_return_level" isHidden="false" isSchedulable="false" locale="en_US" title="rpo_return_level"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="rpo_return_level/Уровни возвратов посылочной почты.cda">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cda" createdDate="2018-10-07T13:57:04.147+03:00" isFolder="false" path="rpo_return_level/Уровни возвратов посылочной почты.cda" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="rpo_return_level/Уровни возвратов посылочной почты.cdfde">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.cdfde" createdDate="2018-10-07T13:57:04.469+03:00" isFolder="false" path="rpo_return_level/Уровни возвратов посылочной почты.cdfde" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.cdfde"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+    <ExportManifestEntity path="rpo_return_level/Уровни возвратов посылочной почты.wcdf">
+        <ExportManifestProperty>
+            <EntityMetaData name="Уровни возвратов посылочной почты.wcdf" createdDate="2018-10-07T13:57:04.813+03:00" isFolder="false" path="rpo_return_level/Уровни возвратов посылочной почты.wcdf" isHidden="false" isSchedulable="true" locale="en_US" title="Уровни возвратов посылочной почты.wcdf"/>
+        </ExportManifestProperty>
+        <ExportManifestProperty>
+            <EntityAcl>
+                <entriesInheriting>true</entriesInheriting>
+                <owner>admin</owner>
+                <ownerType>USER</ownerType>
+            </EntityAcl>
+        </ExportManifestProperty>
+    </ExportManifestEntity>
+</ns2:ExportManifest>

@@ -1,0 +1,2195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="cvpp_fact_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_number_arrival_25h_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_number_await_arrival_25h_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_in_ops_after_accepting_25h_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_in_ops_after_accepting_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_await_delivery_total_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_await_delivery_8d_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_arriving_delivery_7d_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_arriving_delivery_8d_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_arriving_total_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_return_expired_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_return_expired_correct_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_return_expired_incorrect_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_return_other_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_drill_return_total_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_monthly_forecast_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_by_ops_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_rpo_count_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_rpo_types_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_revenue_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_revenue_types_chart_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_rpo_types_chart_by_week_days_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_rpo_types_chart_by_hours_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_revenue_chart_by_week_days_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_dynamics_revenue_chart_by_hours_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="direct_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="place_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="pay_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="accept_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_operation_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_year_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_hour_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_week_day_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="dynamics_month_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="cvpp_date_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="cvpp_fact_ds" id="cvpp_fact_ds" type="sql">
+      <Name>cvpp_fact_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    ifnull(fps.macroregion, 'ИТОГО') "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    fps.post_object_index "Индекс ЦВПП",
+    fi.address "Адрес ЦВПП",
+    fi.windows "Кол-во действующих посылочных окон",
+    REGEXP_COUNT(os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun, 't') "Режим работы",
+
+    nullif(sum(ifnull(number_accepting_total, 0) + ifnull(number_delivery_total, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Итого",
+    nullif(sum(ifnull(number_accepting_packages_total, 0) + ifnull(number_delivery_packages_total, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылки: Итого",
+    nullif(sum(ifnull(number_accepting_package, 0) + ifnull(number_delivery_package, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка",
+    nullif(sum(ifnull(number_accepting_package_online, 0) + ifnull(number_delivery_package_online, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка онлайн",
+    nullif(sum(ifnull(number_accepting_package_standard, 0) + ifnull(number_delivery_package_standard, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка стандарт",
+    nullif(sum(ifnull(number_accepting_package_express, 0) + ifnull(number_delivery_package_express, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка экспресс",
+    nullif(sum(ifnull(number_accepting_package_currier, 0) + ifnull(number_delivery_package_currier, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка курьер",
+    nullif(sum(ifnull(number_accepting_package_1st_class, 0) + ifnull(number_delivery_package_1st_class, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылка 1-го класса",
+    nullif(sum(ifnull(number_accepting_spacket, 0) + ifnull(number_delivery_spacket, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Мелкий пакет",
+    nullif(sum(ifnull(number_accepting_ems_optimal, 0) + ifnull(number_delivery_ems_optimal, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: EMS оптимальное",
+    nullif(sum(ifnull(number_accepting_ems, 0) + ifnull(number_delivery_ems, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Отправление EMS",
+    nullif(sum(ifnull(number_accepting_currier_online, 0) + ifnull(number_delivery_currier_online, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Курьер онлайн",
+    nullif(sum(ifnull(number_accepting_business_currier, 0) + ifnull(number_delivery_business_currier, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Бизнес курьер",
+    nullif(sum(ifnull(number_accepting_business_currier_express, 0) + ifnull(number_delivery_business_currier_express, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Бизнес курьер экспресс",
+    nullif(sum(ifnull(number_accepting_ems_pt, 0) + ifnull(number_delivery_ems_pt, 0)), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: EMS РТ",
+    nullif(sum(number_accepting_total), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Итого",
+    nullif(sum(number_accepting_packages_total), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылки: Итого",
+    nullif(sum(number_accepting_package), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка",
+    nullif(sum(number_accepting_package_online), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка онлайн",
+    nullif(sum(number_accepting_package_standard), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка стандарт",
+    nullif(sum(number_accepting_package_express), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка экспресс",
+    nullif(sum(number_accepting_package_currier), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка курьер",
+    nullif(sum(number_accepting_package_1st_class), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылка 1-го класса",
+    nullif(sum(number_accepting_spacket), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Мелкий пакет",
+    nullif(sum(number_accepting_ems_optimal), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: EMS оптимальное",
+    nullif(sum(number_accepting_ems), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Отправление EMS",
+    nullif(sum(number_accepting_currier_online), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Курьер онлайн",
+    nullif(sum(number_accepting_business_currier), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Бизнес курьер",
+    nullif(sum(number_accepting_business_currier_express), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Бизнес курьер экспресс",
+    nullif(sum(number_accepting_ems_pt), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: EMS РТ",
+    nullif(sum(number_delivery_total), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Итого",
+    nullif(sum(number_delivery_packages_total), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылки: Итого",
+    nullif(sum(number_delivery_package), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка",
+    nullif(sum(number_delivery_package_online), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка онлайн",
+    nullif(sum(number_delivery_package_standard), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка стандарт",
+    nullif(sum(number_delivery_package_express), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка экспресс",
+    nullif(sum(number_delivery_package_currier), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка курьер",
+    nullif(sum(number_delivery_package_1st_class), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылка 1-го класса",
+    nullif(sum(number_delivery_spacket), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Мелкий пакет",
+    nullif(sum(number_delivery_ems_optimal), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: EMS оптимальное",
+    nullif(sum(number_delivery_ems), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Отправление EMS",
+    nullif(sum(number_delivery_currier_online), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Курьер онлайн",
+    nullif(sum(number_delivery_business_currier), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Бизнес курьер",
+    nullif(sum(number_delivery_business_currier_express), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Бизнес курьер экспресс",
+    nullif(sum(number_delivery_ems_pt), 0) "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: EMS РТ",
+
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_total, 0) + ifnull(mass_delivery_total, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_packages_total, 0) + ifnull(mass_delivery_packages_total, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылки: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package, 0) + ifnull(mass_delivery_package, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package_online, 0) + ifnull(mass_delivery_package_online, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package_standard, 0) + ifnull(mass_delivery_package_standard, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка стандарт (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package_express, 0) + ifnull(mass_delivery_package_express, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package_currier, 0) + ifnull(mass_delivery_package_currier, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_package_1st_class, 0) + ifnull(mass_delivery_package_1st_class, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Посылка 1-го класса (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_spacket, 0) + ifnull(mass_delivery_spacket, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Мелкий пакет (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_ems_optimal, 0) + ifnull(mass_delivery_ems_optimal, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: EMS оптимальное (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_ems, 0) + ifnull(mass_delivery_ems, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Отправление EMS (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_currier_online, 0) + ifnull(mass_delivery_currier_online, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Курьер онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_business_currier, 0) + ifnull(mass_delivery_business_currier, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Бизнес курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_business_currier_express, 0) + ifnull(mass_delivery_business_currier_express, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: Бизнес курьер экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then (ifnull(mass_accepting_ems_pt, 0) + ifnull(mass_delivery_ems_pt, 0)) / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые + Врученные: EMS РТ (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_total / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_packages_total / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылки: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package_online / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package_standard / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка стандарт (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package_express / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package_currier / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_package_1st_class / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Посылка 1-го класса (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_spacket / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Мелкий пакет (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_ems_optimal / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: EMS оптимальное (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_ems / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Отправление EMS (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_currier_online / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Курьер онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_business_currier / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Бизнес курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_business_currier_express / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: Бизнес курьер экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_accepting_ems_pt / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Принятые: EMS РТ (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_total / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_packages_total / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылки: Итого (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package_online / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package_standard / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка стандарт (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package_express / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package_currier / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_package_1st_class / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Посылка 1-го класса (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_spacket / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Мелкий пакет (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_ems_optimal / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: EMS оптимальное (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_ems / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Отправление EMS (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_currier_online / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Курьер онлайн (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_business_currier / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Бизнес курьер (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_business_currier_express / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: Бизнес курьер экспресс (кг)",
+    nullif(round(sum(case when fi.is_cvpp = 1 then mass_delivery_ems_pt / 1000 else null end)), 0)::integer "ОБЩИЙ ВЕС: Врученные: EMS РТ (кг)",
+
+    nullif(sum(number_arrival_24h), 0) "Переданы из СЦ на ЦВПП: Обработаны в течение 24 часов",
+    nullif(sum(number_arrival_25h_more), 0) "Переданы из СЦ на ЦВПП: Обработаны позднее 24 часов",
+    nullif(sum(number_await_arrival_25h_more), 0) "Переданы из СЦ на ЦВПП: Не обработаны свыше 24 часов",
+    nullif(sum(number_leaving_sc_total), 0) "Переданы из СЦ на ЦВПП: Итого",
+    nullif(sum(number_await_arrival_24h), 0) "Переданы из СЦ на ЦВПП: Не обработаны менее 24 часов",
+    round(sum(number_arrival_24h) / nullif(sum(number_leaving_sc_total), 0) * 100)::integer "Доля обработанных на ЦВПП в течение 24 часов (%)",
+
+    nullif(sum(in_ops_after_accepting_24h), 0) "Переданы из ЦВПП на СЦ с момента приема: в течение 24 часов",
+    nullif(sum(in_ops_after_accepting_25h_more), 0) "Переданы из ЦВПП на СЦ с момента приема: позднее 24 часов",
+    nullif(sum(in_ops_after_accepting), 0) "Не переданы из ЦВПП на СЦ",
+    nullif(sum(number_accepting_total), 0) "Приняты на ЦВПП: Итого",
+    round(sum(in_ops_after_accepting_24h) / nullif(sum(number_accepting_total), 0) * 100)::integer "Доля переданных из ЦВПП на СЦ в течение 24 часов (%)",
+
+    nullif(sum(number_await_delivery), 0) "Ожидающие вручения: Итого",
+    nullif(sum(number_await_delivery_8d_more), 0) "Ожидающие вручения: от 8 и более дней",
+
+    nullif(sum(number_arriving_delivery_7d), 0) "Врученные: до 7 дней",
+    nullif(sum(number_arriving_delivery_8d_more), 0) "Врученные: от 8 и более дней",
+    nullif(sum(number_arriving_total), 0) "Прибывшие в место вручения: Итого",
+    round(sum(number_arriving_delivery_7d) / nullif(sum(number_arriving_total), 0) * 100)::integer "Врученные: Доля врученных до 7 дней (%)",
+
+    nullif(sum(return_expired), 0) "Оформленные возвраты: Истек срок хранения",
+    nullif(sum(return_expired - return_expired_incorrect - return_expired_no_arrival), 0)  "Оформленные возвраты: Истек срок хранения: Своевременно",
+    nullif(sum(return_expired_no_arrival), 0) "Оформленные возвраты: Истек срок хранения: Нет прибытия",
+    nullif(sum(return_expired_incorrect), 0) "Оформленные возвраты: Истек срок хранения: Несвоевременно",
+    round(sum(return_expired - return_expired_incorrect - return_expired_no_arrival) / nullif(sum(return_expired), 0) * 100)::integer "Оформленные возвраты: Истек срок хранения: Доля оформленных (%)",
+    nullif(sum(return_total - return_expired), 0) "Оформленные возвраты: Иные причины",
+    nullif(sum(return_total), 0) "Оформленные возвраты: Итого",
+
+    nullif(round(sum((ifnull(number_accepting_total, 0) + ifnull( number_delivery_total, 0)) / nullif(dicts.countWorkingDays(${date_from}::datetime, ${date_to}::datetime, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0))), 0)::integer "Среднее количество отправлений в день: Принятые + Врученные",
+    nullif(round(sum(number_accepting_total / nullif(dicts.countWorkingDays(${date_from}::datetime, ${date_to}::datetime, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0))), 0)::integer "Среднее количество отправлений в день: Принятые",
+    nullif(round(sum(number_delivery_total / nullif(dicts.countWorkingDays(${date_from}::datetime, ${date_to}::datetime, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0))), 0)::integer "Среднее количество отправлений в день: Врученные",
+
+    nullif(round(sum(revenue_accepting_total / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Итого (руб)",
+    nullif(round(sum(revenue_accepting_packages_total / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылки: Итого (руб)",
+    nullif(round(sum(revenue_accepting_package / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка (руб)",
+    nullif(round(sum(revenue_accepting_package_online / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка онлайн (руб)",
+    nullif(round(sum(revenue_accepting_package_standard / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка стандарт (руб)",
+    nullif(round(sum(revenue_accepting_package_express / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка экспресс (руб)",
+    nullif(round(sum(revenue_accepting_package_currier / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка курьер (руб)",
+    nullif(round(sum(revenue_accepting_package_1st_class / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылка 1-го класса (руб)",
+    nullif(round(sum(revenue_accepting_spacket / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Мелкий пакет (руб)",
+    nullif(round(sum(revenue_accepting_ems_optimal / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: EMS оптимальное (руб)",
+    nullif(round(sum(revenue_accepting_ems / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Отправление EMS (руб)",
+    nullif(round(sum(revenue_accepting_currier_online / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Курьер онлайн (руб)",
+    nullif(round(sum(revenue_accepting_business_currier / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Бизнес курьер (руб)",
+    nullif(round(sum(revenue_accepting_business_currier_express / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Бизнес курьер экспресс (руб)",
+    nullif(round(sum(revenue_accepting_ems_pt / 100)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: EMS РТ (руб)",
+
+    report_date "Дата расчета"
+from dicts.dim_fps fps
+cross join tracking.cvpp_date
+left join (
+    select accepting_index ops_index,
+        count(*) number_accepting_total,
+        sum(case when mail_type in (4, 23, 27, 28, 29,47) then 1 else 0 end) number_accepting_packages_total,
+        sum(case when mail_type = 4 then 1 else 0 end) number_accepting_package,
+        sum(case when mail_type = 23 then 1 else 0 end) number_accepting_package_online,
+        sum(case when mail_type = 27 then 1 else 0 end) number_accepting_package_standard,
+        sum(case when mail_type = 29 then 1 else 0 end) number_accepting_package_express,
+        sum(case when mail_type = 28 then 1 else 0 end) number_accepting_package_currier,
+        sum(case when mail_type = 47 then 1 else 0 end) number_accepting_package_1st_class,
+        sum(case when mail_type = 5 then 1 else 0 end) number_accepting_spacket,
+        sum(case when mail_type = 7 then 1 else 0 end) number_accepting_ems,
+        sum(case when mail_type = 34 then 1 else 0 end) number_accepting_ems_optimal,
+        sum(case when mail_type = 41 then 1 else 0 end) number_accepting_ems_pt,
+        sum(case when mail_type = 24 then 1 else 0 end) number_accepting_currier_online,
+        sum(case when mail_type = 30 then 1 else 0 end) number_accepting_business_currier,
+        sum(case when mail_type = 31 then 1 else 0 end) number_accepting_business_currier_express,
+
+        sum(mass) mass_accepting_total,
+        sum(case when mail_type in (4, 23, 27, 28, 29,47) then mass else 0 end) mass_accepting_packages_total,
+        sum(case when mail_type = 4 then mass else 0 end) mass_accepting_package,
+        sum(case when mail_type = 23 then mass else 0 end) mass_accepting_package_online,
+        sum(case when mail_type = 27 then mass else 0 end) mass_accepting_package_standard,
+        sum(case when mail_type = 29 then mass else 0 end) mass_accepting_package_express,
+        sum(case when mail_type = 28 then mass else 0 end) mass_accepting_package_currier,
+        sum(case when mail_type = 47 then mass else 0 end) mass_accepting_package_1st_class,
+        sum(case when mail_type = 5 then mass else 0 end) mass_accepting_spacket,
+        sum(case when mail_type = 7 then mass else 0 end) mass_accepting_ems,
+        sum(case when mail_type = 34 then mass else 0 end) mass_accepting_ems_optimal,
+        sum(case when mail_type = 41 then mass else 0 end) mass_accepting_ems_pt,
+        sum(case when mail_type = 24 then mass else 0 end) mass_accepting_currier_online,
+        sum(case when mail_type = 30 then mass else 0 end) mass_accepting_business_currier,
+        sum(case when mail_type = 31 then mass else 0 end) mass_accepting_business_currier_express,
+
+        sum(isnull(total_rate, 0)) revenue_accepting_total,
+        sum(case when mail_type in (4, 23, 27, 28, 29,47) then isnull(total_rate, 0) else 0 end) revenue_accepting_packages_total,
+        sum(case when mail_type = 4 then isnull(total_rate, 0) else 0 end) revenue_accepting_package,
+        sum(case when mail_type = 23 then isnull(total_rate, 0) else 0 end) revenue_accepting_package_online,
+        sum(case when mail_type = 27 then isnull(total_rate, 0) else 0 end) revenue_accepting_package_standard,
+        sum(case when mail_type = 29 then isnull(total_rate, 0) else 0 end) revenue_accepting_package_express,
+        sum(case when mail_type = 28 then isnull(total_rate, 0) else 0 end) revenue_accepting_package_currier,
+        sum(case when mail_type = 47 then isnull(total_rate, 0) else 0 end) revenue_accepting_package_1st_class,
+        sum(case when mail_type = 5 then isnull(total_rate, 0) else 0 end) revenue_accepting_spacket,
+        sum(case when mail_type = 7 then isnull(total_rate, 0) else 0 end) revenue_accepting_ems,
+        sum(case when mail_type = 34 then isnull(total_rate, 0) else 0 end) revenue_accepting_ems_optimal,
+        sum(case when mail_type = 41 then isnull(total_rate, 0) else 0 end) revenue_accepting_ems_pt,
+        sum(case when mail_type = 24 then isnull(total_rate, 0) else 0 end) revenue_accepting_currier_online,
+        sum(case when mail_type = 30 then isnull(total_rate, 0) else 0 end) revenue_accepting_business_currier,
+        sum(case when mail_type = 31 then isnull(total_rate, 0) else 0 end) revenue_accepting_business_currier_express,
+
+        sum(case when leave_accepting_place <= 24 then 1 else 0 end) in_ops_after_accepting_24h,
+        sum(case when leave_accepting_place > 24 and same_delivery_index = 0 then 1 else 0 end) in_ops_after_accepting_25h_more,
+        sum(case when remain_in_accepting_place = 1 and same_delivery_index = 0 then 1 else 0 end) in_ops_after_accepting
+    from (
+        select accepting_index,
+            mail_type,
+            mass,
+            total_rate,
+            case when substring(leave_accepting_place_date_time, 1, 10) <= report_date then ceil(datediff('ss', accepting_date_time::datetime, leave_accepting_place_date_time::datetime)/(60*60)) else null end leave_accepting_place,
+            case when leave_accepting_place_date_time is null or report_date < substring(leave_accepting_place_date_time, 1, 10) then 1 else 0 end remain_in_accepting_place,
+            case when substring(delivery_date_time, 1, 10) <= report_date and accepting_index = delivery_index then 1 else 0 end same_delivery_index
+        from tracking.cvpp cvpp
+        left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+        where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+            and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                    or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                    or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+            and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+            and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+            and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+            and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    ) t
+    group by accepting_index
+) accepting on fps.post_object_index::varchar = accepting.ops_index
+left join (
+    select delivery_index ops_index,
+        count(*) number_delivery_total,
+        sum(case when mail_type in (4, 23, 27, 28, 29,47) then 1 else 0 end) number_delivery_packages_total,
+        sum(case when mail_type = 4 then 1 else 0 end) number_delivery_package,
+        sum(case when mail_type = 23 then 1 else 0 end) number_delivery_package_online,
+        sum(case when mail_type = 27 then 1 else 0 end) number_delivery_package_standard,
+        sum(case when mail_type = 29 then 1 else 0 end) number_delivery_package_express,
+        sum(case when mail_type = 28 then 1 else 0 end) number_delivery_package_currier,
+        sum(case when mail_type = 47 then 1 else 0 end) number_delivery_package_1st_class,
+        sum(case when mail_type = 5 then 1 else 0 end) number_delivery_spacket,
+        sum(case when mail_type = 7 then 1 else 0 end) number_delivery_ems,
+        sum(case when mail_type = 34 then 1 else 0 end) number_delivery_ems_optimal,
+        sum(case when mail_type = 41 then 1 else 0 end) number_delivery_ems_pt,
+        sum(case when mail_type = 24 then 1 else 0 end) number_delivery_currier_online,
+        sum(case when mail_type = 30 then 1 else 0 end) number_delivery_business_currier,
+        sum(case when mail_type = 31 then 1 else 0 end) number_delivery_business_currier_express,
+
+        sum(mass) mass_delivery_total,
+        sum(case when mail_type in (4, 23, 27, 28, 29,47) then mass ELSE 0 END) mass_delivery_packages_total,
+        sum(case when mail_type = 4 then mass ELSE 0 END) mass_delivery_package,
+        sum(case when mail_type = 23 then mass ELSE 0 END) mass_delivery_package_online,
+        sum(case when mail_type = 27 then mass ELSE 0 END) mass_delivery_package_standard,
+        sum(case when mail_type = 29 then mass ELSE 0 END) mass_delivery_package_express,
+        sum(case when mail_type = 28 then mass ELSE 0 END) mass_delivery_package_currier,
+        sum(case when mail_type = 47 then mass ELSE 0 END) mass_delivery_package_1st_class,
+        sum(case when mail_type = 5 then mass ELSE 0 END) mass_delivery_spacket,
+        sum(case when mail_type = 7 then mass ELSE 0 END) mass_delivery_ems,
+        sum(case when mail_type = 34 then mass ELSE 0 END) mass_delivery_ems_optimal,
+        sum(case when mail_type = 41 then mass ELSE 0 END) mass_delivery_ems_pt,
+        sum(case when mail_type = 24 then mass ELSE 0 END) mass_delivery_currier_online,
+        sum(case when mail_type = 30 then mass ELSE 0 END) mass_delivery_business_currier,
+        sum(case when mail_type = 31 then mass ELSE 0 END) mass_delivery_business_currier_express
+    from tracking.cvpp cvpp
+    left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+        and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    group by delivery_index
+) delivery on fps.post_object_index::varchar = delivery.ops_index
+left join (
+    select index_to ops_index,
+        count(*) number_leaving_sc_total,
+        sum(case when arrival_hours <= 24 then 1 else 0 end) number_arrival_24h,
+        sum(case when arrival_hours > 24 then 1 else 0 end) number_arrival_25h_more,
+        sum(case when lost_hours <= 24 then 1 else 0 end) number_await_arrival_24h,
+        sum(case when lost_hours > 24 then 1 else 0 end) number_await_arrival_25h_more
+    from tracking.cvpp cvpp
+    left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+        and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    group by index_to
+) leaving_sc on fps.post_object_index::varchar = leaving_sc.ops_index
+left join (
+    select arrival_index ops_index,
+        sum(arriving) number_arriving_total,
+        sum(case when arriving = 1 and delivery_time <= 7 then 1 else 0 end) number_arriving_delivery_7d,
+        sum(case when arriving = 1 and delivery_time > 7 then 1 else 0 end) number_arriving_delivery_8d_more,
+        sum(case when await_delivery is not null then 1 else 0 end) number_await_delivery,
+        sum(case when await_delivery > 7 then 1 else 0 end) number_await_delivery_8d_more
+    from (
+        select arrival_index,
+            case when ((delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+                        and (return_date_time is null or report_date < substring(return_date_time, 1, 10))
+                        and (forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10))
+                        and (storage_date_time is null or report_date < substring(storage_date_time, 1, 10))
+                ) then datediff('dd', arrival_date_time::date, report_date::date) else null end await_delivery,
+            case when ((forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10) or arrival_date_time <= forwarding_date_time)
+                        and ((delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+                                or (substring(delivery_date_time, 1, 10) <= report_date and arrival_index = delivery_index))) then 1 else 0 end arriving,
+            case when (substring(delivery_date_time, 1, 10) <= report_date) then datediff('dd', arrival_date_time::date, delivery_date_time::date) end delivery_time
+        from tracking.cvpp cvpp
+        left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+        where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+            and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+            and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+            and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+            and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+            and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    ) t
+    group by arrival_index
+) arriving on fps.post_object_index::varchar = arriving.ops_index
+left join (
+    select return_index ops_index,
+        count(*) return_total,
+        sum(case when return_attr = 1 then 1 else 0 end) return_expired,
+        sum(case when return_attr = 1 and arrival_return_date_time_local is null then 1 else 0 end) return_expired_no_arrival,
+        sum(case when return_attr = 1
+            and (datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date)
+                 - zeroifnull(case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+                                   then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end)) not between 30 and 32 then 1 else 0 end) return_expired_incorrect
+    from tracking.cvpp cvpp
+    left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+    left join dicts.ops_schedule os on os.post_object_index::varchar = cvpp.return_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+        and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    group by return_index
+) returns on fps.post_object_index::varchar = returns.ops_index
+left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+left join dicts.ops_schedule os on fps.post_object_index = os.post_object_index
+where (accepting.ops_index is not null or delivery.ops_index is not null or leaving_sc.ops_index is not null or arriving.ops_index is not null or returns.ops_index is not null)
+and ('' in (${fps}) or 'fps' in (${fps})
+    or '[fps].[' || fps.macroregion || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+    or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+and ('' in (${object_type}) OR 'object_type' in (${object_type}) OR fi.is_cvpp::VARCHAR in (${object_type}))
+group by rollup((macroregion, "УФПС", fps.post_object_index, address, "Кол-во действующих посылочных окон", "Режим работы", report_date)) order by grouping_id() desc
+limit 100000
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_number_arrival_25h_ds"
+               id="cvpp_drill_number_arrival_25h_ds"
+               type="sql">
+      <Name>cvpp_drill_number_arrival_25h_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    index_to "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    leave_last_sc_date_time_local "Дата и время операции 'Покинуло сортировочный центр'",
+    arrival_hours "Прошло часов с момента отправки из последнего сортировочного центра"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = index_to
+left join dicts.fps fi on fi.post_object_index = index_to
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (index_to = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and arrival_hours > 24;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_number_await_arrival_25h_ds"
+               id="cvpp_drill_number_await_arrival_25h_ds"
+               type="sql">
+      <Name>cvpp_drill_number_await_arrival_25h_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    index_to "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    leave_last_sc_date_time_local "Дата и время операции 'Покинуло сортировочный центр'",
+    lost_hours "Прошло часов с момента отправки из последнего сортировочного центра"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = index_to
+left join dicts.fps fi on fi.post_object_index = index_to
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(leave_last_sc_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (index_to = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and lost_hours > 24;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_in_ops_after_accepting_25h_ds"
+               id="cvpp_drill_in_ops_after_accepting_25h_ds"
+               type="sql">
+      <Name>cvpp_drill_in_ops_after_accepting_25h_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    accepting_index "Индекс ОПС (место приема)",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    accepting_date_time_local "Дата и время приема отправления в ОПС",
+    leave_accepting_place_date_time_local "Дата и время приема отправления на СЦ",
+    ceil(datediff('ss', accepting_date_time::datetime, leave_accepting_place_date_time::datetime)/(60*60)) "Прошло часов с момента 'Приема' отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = accepting_index
+left join dicts.fps fi on fi.post_object_index = accepting_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (accepting_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (case when substring(leave_accepting_place_date_time, 1, 10) <= report_date
+        then ceil(datediff('ss', accepting_date_time::datetime, leave_accepting_place_date_time::datetime)/(60*60))
+        else null end) > 24
+    and (case when substring(delivery_date_time, 1, 10) <= report_date and accepting_index = delivery_index then 1 else 0 end) = 0;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_in_ops_after_accepting_ds"
+               id="cvpp_drill_in_ops_after_accepting_ds"
+               type="sql">
+      <Name>cvpp_drill_in_ops_after_accepting_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    accepting_index "Индекс ОПС (место приема)",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    accepting_date_time_local "Дата и время приема отправления в ОПС",
+    ceil(datediff('ss', accepting_date_time::datetime, report_date::datetime + 1)/(60*60)) "Прошло часов с момента 'Приема' отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = accepting_index
+left join dicts.fps fi on fi.post_object_index = accepting_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (accepting_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (leave_accepting_place_date_time is null or report_date < substring(leave_accepting_place_date_time, 1, 10))
+    and (case when substring(delivery_date_time, 1, 10) <= report_date and accepting_index = delivery_index then 1 else 0 end) = 0;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_await_delivery_total_ds"
+               id="cvpp_drill_await_delivery_total_ds"
+               type="sql">
+      <Name>cvpp_drill_await_delivery_total_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    arrival_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_date_time_local "Дата и время операции 'Прибыло в место вручения'",
+    datediff('dd', arrival_date_time::date, report_date::date) "Прошло дней с момента прибытия отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = arrival_index
+left join dicts.fps fi on fi.post_object_index = arrival_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+        or '[mail_type].[' || mt.group || ']' in (${mail_type})
+        or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (arrival_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+    and (return_date_time is null or report_date < substring(return_date_time, 1, 10))
+    and (forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10))
+    and (storage_date_time is null or report_date < substring(storage_date_time, 1, 10));]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_await_delivery_8d_ds"
+               id="cvpp_drill_await_delivery_8d_ds"
+               type="sql">
+      <Name>cvpp_drill_await_delivery_8d_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    arrival_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_date_time_local "Дата и время операции 'Прибыло в место вручения'",
+    datediff('dd', arrival_date_time::date, report_date::date) "Прошло дней с момента прибытия отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = arrival_index
+left join dicts.fps fi on fi.post_object_index = arrival_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+        or '[mail_type].[' || mt.group || ']' in (${mail_type})
+        or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (arrival_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+    and (return_date_time is null or report_date < substring(return_date_time, 1, 10))
+    and (forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10))
+    and (storage_date_time is null or report_date < substring(storage_date_time, 1, 10))
+    and datediff('dd', arrival_date_time::date, report_date::date) > 7;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_arriving_delivery_7d_ds"
+               id="cvpp_drill_arriving_delivery_7d_ds"
+               type="sql">
+      <Name>cvpp_drill_arriving_delivery_7d_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    arrival_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_date_time_local "Дата и время операции 'Прибыло в место вручения'",
+    delivery_date_time_local "Дата и время операции 'Вручение'",
+    datediff('dd', arrival_date_time::date, delivery_date_time::date) "Прошло дней с момента прибытия отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = arrival_index
+left join dicts.fps fi on fi.post_object_index = arrival_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (arrival_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and ((forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10) or arrival_date_time <= forwarding_date_time)
+         and ((delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+              or (substring(delivery_date_time, 1, 10) <= report_date and arrival_index = delivery_index)))
+    and (case when substring(delivery_date_time, 1, 10) <= report_date
+        then datediff('dd', arrival_date_time::date, delivery_date_time::date)
+        else null end) <= 7;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_arriving_delivery_8d_ds"
+               id="cvpp_drill_arriving_delivery_8d_ds"
+               type="sql">
+      <Name>cvpp_drill_arriving_delivery_8d_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    arrival_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_date_time_local "Дата и время операции 'Прибыло в место вручения'",
+    delivery_date_time_local "Дата и время операции 'Вручение'",
+    datediff('dd', arrival_date_time::date, delivery_date_time::date) "Прошло дней с момента прибытия отправления в ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = arrival_index
+left join dicts.fps fi on fi.post_object_index = arrival_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (arrival_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and ((forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10) or arrival_date_time <= forwarding_date_time)
+         and ((delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+              or (substring(delivery_date_time, 1, 10) <= report_date and arrival_index = delivery_index)))
+    and (case when substring(delivery_date_time, 1, 10) <= report_date
+        then datediff('dd', arrival_date_time::date, delivery_date_time::date)
+        else null end) > 7;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_arriving_total_ds"
+               id="cvpp_drill_arriving_total_ds"
+               type="sql">
+      <Name>cvpp_drill_arriving_total_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    arrival_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_date_time_local "Дата и время операции 'Прибыло в место вручения'"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = arrival_index
+left join dicts.fps fi on fi.post_object_index = arrival_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(arrival_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (arrival_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and ((forwarding_date_time is null or report_date < substring(forwarding_date_time, 1, 10) or arrival_date_time <= forwarding_date_time)
+         and ((delivery_date_time is null or report_date < substring(delivery_date_time, 1, 10))
+              or (substring(delivery_date_time, 1, 10) <= report_date and arrival_index = delivery_index)));]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_return_expired_ds"
+               id="cvpp_drill_return_expired_ds"
+               type="sql">
+      <Name>cvpp_drill_return_expired_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    return_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_return_date_time_local "Локальная дата и время операции 'Прибыло в место вручения'",
+    return_date_time_local "Локальная дата и время операции 'Возврат'",
+    datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) "Прошло дней между возвратом и моментом прибытия отправления в ОПС",
+    case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+         then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end "Продление срока возврата из-за выходного дня",
+    rtrim(case when mon then 'ПН,' else '' end ||
+          case when tue then 'ВТ,' else '' end ||
+          case when wed then 'СР,' else '' end ||
+          case when thu then 'ЧТ,' else '' end ||
+          case when fri then 'ПТ,' else '' end ||
+          case when sat then 'СБ,' else '' end ||
+          case when sun then 'ВС,' else '' end, ',') "Режим работы ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.ops_schedule os on os.post_object_index::varchar = return_index
+left join dicts.dim_fps fps on fps.post_object_index = return_index
+left join dicts.fps fi on fi.post_object_index = return_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (return_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (return_attr = 1);]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_return_expired_correct_ds"
+               id="cvpp_drill_return_expired_correct_ds"
+               type="sql">
+      <Name>cvpp_drill_return_expired_correct_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    return_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_return_date_time_local "Локальная дата и время операции 'Прибыло в место вручения'",
+    return_date_time_local "Локальная дата и время операции 'Возврат'",
+    datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) "Прошло дней между возвратом и моментом прибытия отправления в ОПС",
+    case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+         then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end "Продление срока возврата из-за выходного дня",
+    rtrim(case when mon then 'ПН,' else '' end ||
+          case when tue then 'ВТ,' else '' end ||
+          case when wed then 'СР,' else '' end ||
+          case when thu then 'ЧТ,' else '' end ||
+          case when fri then 'ПТ,' else '' end ||
+          case when sat then 'СБ,' else '' end ||
+          case when sun then 'ВС,' else '' end, ',') "Режим работы ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.ops_schedule os on os.post_object_index::varchar = return_index
+left join dicts.dim_fps fps on fps.post_object_index = return_index
+left join dicts.fps fi on fi.post_object_index = return_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (return_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (return_attr = 1
+        and (datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date)
+             - zeroifnull(case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+                               then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end)) between 30 and 32);]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_return_expired_incorrect_ds"
+               id="cvpp_drill_return_expired_incorrect_ds"
+               type="sql">
+      <Name>cvpp_drill_return_expired_incorrect_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    return_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    arrival_return_date_time_local "Локальная дата и время операции 'Прибыло в место вручения'",
+    return_date_time_local "Локальная дата и время операции 'Возврат'",
+    datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) "Прошло дней между возвратом и моментом прибытия отправления в ОПС",
+    case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+         then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end "Продление срока возврата из-за выходного дня",
+    rtrim(case when mon then 'ПН,' else '' end ||
+          case when tue then 'ВТ,' else '' end ||
+          case when wed then 'СР,' else '' end ||
+          case when thu then 'ЧТ,' else '' end ||
+          case when fri then 'ПТ,' else '' end ||
+          case when sat then 'СБ,' else '' end ||
+          case when sun then 'ВС,' else '' end, ',') "Режим работы ОПС"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.ops_schedule os on os.post_object_index::varchar = return_index
+left join dicts.dim_fps fps on fps.post_object_index = return_index
+left join dicts.fps fi on fi.post_object_index = return_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (return_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (return_attr = 1
+        and (datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date)
+             - zeroifnull(case when datediff('dd', arrival_return_date_time_local::date, return_date_time_local::date) > 32
+                               then dicts.daysToWorkingDay(arrival_return_date_time_local::date + 32, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) end)) not between 30 and 32);]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_return_other_ds"
+               id="cvpp_drill_return_other_ds"
+               type="sql">
+      <Name>cvpp_drill_return_other_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    return_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    return_date_time_local "Локальная дата и время операции 'Возврат'"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = return_index
+left join dicts.fps fi on fi.post_object_index = return_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (return_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1))
+    and (return_attr is null
+         or return_attr != 1);]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_drill_return_total_ds"
+               id="cvpp_drill_return_total_ds"
+               type="sql">
+      <Name>cvpp_drill_return_total_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="date_now" name="date_now" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="selected_ops" name="selected_ops" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    fps.ufps_no_index "УФПС",
+    return_index "Индекс ОПС",
+    bar_code "ШИ отправления",
+    mt.name "Тип отправления",
+    return_date_time_local "Локальная дата и время операции 'Возврат'"
+from tracking.cvpp cvpp
+left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+left join dicts.dim_fps fps on fps.post_object_index = return_index
+left join dicts.fps fi on fi.post_object_index = return_index
+where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(return_date_time_local, 1, 10) <= ${date_to})
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+    and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+    and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+    and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+    and (return_index = ${selected_ops} or (${selected_ops}::varchar is null and fi.is_cvpp = 1));]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_monthly_forecast_ds"
+               id="cvpp_monthly_forecast_ds"
+               type="sql">
+      <Name>cvpp_monthly_forecast_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    ifnull(macroregion,'ИТОГО') "Макрорегион",
+    ufps "УФПС",
+    index_cvpp "Индекс ЦВПП",
+    address "Адрес ЦВПП",
+    windows "Кол-во действующих посылочных окон",
+    working_days "Режим работы",
+    nullif(round(sum(number_all_total / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Итого",
+    nullif(round(sum(number_all_package / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Посылки",
+    nullif(round(sum(number_all_spacket / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: Мелкие пакеты",
+    nullif(round(sum(number_all_ems / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые + Врученные: EMS-отправления",
+    nullif(round(sum(number_accepting_total / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Итого",
+    nullif(round(sum(number_accepting_package / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Посылки",
+    nullif(round(sum(number_accepting_spacket / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: Мелкие пакеты",
+    nullif(round(sum(number_accepting_ems / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Принятые: EMS-отправления",
+    nullif(round(sum(number_delivery_total / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Итого",
+    nullif(round(sum(number_delivery_package / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Посылки",
+    nullif(round(sum(number_delivery_spacket / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: Мелкие пакеты",
+    nullif(round(sum(number_delivery_ems / wd_past * wd_total)), 0)::integer "ОБЩЕЕ КОЛИЧЕСТВО: Врученные: EMS-отправления",
+    nullif(round(sum(revenue_accepting_total / 100 / wd_past * wd_total)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Итого (руб)",
+    nullif(round(sum(revenue_accepting_package / 100 / wd_past * wd_total)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Посылки (руб)",
+    nullif(round(sum(revenue_accepting_spacket / 100 / wd_past * wd_total)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: Мелкие пакеты (руб)",
+    nullif(round(sum(revenue_accepting_ems / 100 / wd_past * wd_total)), 0)::integer "ОБЩАЯ ВЫРУЧКА: Принятые: EMS-отправления (руб)"
+from (
+    select
+        fps.macroregion,
+        fps.ufps,
+        fps.post_object_index index_cvpp,
+        fi.address,
+        fi.windows,
+        REGEXP_COUNT(os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun, 't') working_days,
+        (ifnull(number_accepting_total, 0) + ifnull(number_delivery_total, 0)) number_all_total,
+        (ifnull(number_accepting_package, 0) + ifnull(number_delivery_package, 0)) number_all_package,
+        (ifnull(number_accepting_spacket, 0) + ifnull(number_delivery_spacket, 0)) number_all_spacket,
+        (ifnull(number_accepting_ems, 0) + ifnull(number_delivery_ems, 0)) number_all_ems,
+        number_accepting_total,
+        number_accepting_package,
+        number_accepting_spacket,
+        number_accepting_ems,
+        number_delivery_total,
+        number_delivery_package,
+        number_delivery_spacket,
+        number_delivery_ems,
+        revenue_accepting_total,
+        revenue_accepting_package,
+        revenue_accepting_spacket,
+        revenue_accepting_ems,
+        nullif(dicts.countWorkingDays(${date_from}::datetime, ${date_to}::datetime, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0) wd_past,
+        nullif(dicts.countWorkingDays(${date_from}::datetime, LAST_DAY(${date_from}), os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0) wd_total
+    from dicts.dim_fps fps
+    left join (
+        select accepting_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 5, 7, 34, 41) THEN 1 ELSE 0 END) number_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29) THEN 1 ELSE 0 END) number_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) number_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) number_accepting_ems,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 5, 7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) revenue_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29) THEN isnull(total_rate, 0) ELSE 0 END) revenue_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN isnull(total_rate, 0) ELSE 0 END) revenue_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) revenue_accepting_ems
+        from (
+            select accepting_index, mail_type, total_rate
+            from tracking.cvpp cvpp
+            left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+            where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+                and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                        or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                        or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+                and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+                and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+                and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+                and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        ) t
+        group by accepting_index
+    ) accepting on fps.post_object_index::varchar = accepting.ops_index
+    left join (
+        select delivery_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 5, 7, 34, 41) THEN 1 ELSE 0 END) number_delivery_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29) THEN 1 ELSE 0 END) number_delivery_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) number_delivery_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) number_delivery_ems
+        from tracking.cvpp cvpp
+        left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+        where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) >= ${date_from}) and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) <= ${date_to})
+            and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                    or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                    or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+            and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+            and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+            and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+            and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        group by delivery_index
+    ) delivery on fps.post_object_index::varchar = delivery.ops_index
+    left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    left join dicts.ops_schedule os on fps.post_object_index = os.post_object_index
+    where (accepting.ops_index is not null or delivery.ops_index is not null) and (os.mon or os.tue or os.wed or os.thu or os.fri or os.sat or os.sun)
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    and ('' in (${object_type}) OR 'object_type' in (${object_type}) OR fi.is_cvpp::VARCHAR in (${object_type}))
+) t
+group by rollup((macroregion, ufps, index_cvpp, address, windows, working_days)) order by grouping_id() desc
+limit 100000
+;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_by_ops_ds"
+               id="cvpp_dynamics_by_ops_ds"
+               type="sql">
+      <Name>cvpp_dynamics_by_ops_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="object_type" name="object_type" type="String"/>
+         <Parameter default="prev_date_from" name="prev_date_from" type="String"/>
+         <Parameter default="prev_date_to" name="prev_date_to" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    ifnull(macroregion, 'ИТОГО') "Макрорегион",
+    ufps "УФПС",
+    index_cvpp "Индекс ЦВПП",
+    address "Адрес ЦВПП",
+    nullif(sum(prev_number_all_total), 0) "Предыдущий период. Принятые + Врученные: Итого",
+    nullif(sum(prev_number_all_package), 0) "Предыдущий период. Принятые + Врученные: Посылки",
+    nullif(sum(prev_number_all_spacket), 0) "Предыдущий период. Принятые + Врученные: Мелкие пакеты",
+    nullif(sum(prev_number_all_ems), 0) "Предыдущий период. Принятые + Врученные: EMS-отправления",
+    nullif(sum(prev_number_accepting_total), 0) "Предыдущий период. Принятые: Итого",
+    nullif(sum(prev_number_accepting_package), 0) "Предыдущий период. Принятые: Посылки",
+    nullif(sum(prev_number_accepting_spacket), 0) "Предыдущий период. Принятые: Мелкие пакеты",
+    nullif(sum(prev_number_accepting_ems), 0) "Предыдущий период. Принятые: EMS-отправления",
+    nullif(sum(prev_number_delivery_total), 0) "Предыдущий период. Врученные: Итого",
+    nullif(sum(prev_number_delivery_package), 0) "Предыдущий период. Врученные: Посылки",
+    nullif(sum(prev_number_delivery_spacket), 0) "Предыдущий период. Врученные: Мелкие пакеты",
+    nullif(sum(prev_number_delivery_ems), 0) "Предыдущий период. Врученные: EMS-отправления",
+    nullif(round(sum(prev_revenue_accepting_total)), 0)::integer "Предыдущий период. Выручка: Принятые: Итого (руб)",
+    nullif(round(sum(prev_revenue_accepting_package)), 0)::integer "Предыдущий период. Выручка: Принятые: Посылки (руб)",
+    nullif(round(sum(prev_revenue_accepting_spacket)), 0)::integer "Предыдущий период. Выручка: Принятые: Мелкие пакеты (руб)",
+    nullif(round(sum(prev_revenue_accepting_ems)), 0)::integer "Предыдущий период. Выручка: Принятые: EMS-отправления (руб)",
+    nullif(round(sum(cur_number_all_total)), 0)::integer "Текущий период. Принятые + Врученные: Итого",
+    nullif(round(sum(cur_number_all_package)), 0)::integer "Текущий период. Принятые + Врученные: Посылки",
+    nullif(round(sum(cur_number_all_spacket)), 0)::integer "Текущий период. Принятые + Врученные: Мелкие пакеты",
+    nullif(round(sum(cur_number_all_ems)), 0)::integer "Текущий период. Принятые + Врученные: EMS-отправления",
+    nullif(round(sum(cur_number_accepting_total)), 0)::integer "Текущий период. Принятые: Итого",
+    nullif(round(sum(cur_number_accepting_package)), 0)::integer "Текущий период. Принятые: Посылки",
+    nullif(round(sum(cur_number_accepting_spacket)), 0)::integer "Текущий период. Принятые: Мелкие пакеты",
+    nullif(round(sum(cur_number_accepting_ems)), 0)::integer "Текущий период. Принятые: EMS-отправления",
+    nullif(round(sum(cur_number_delivery_total)), 0)::integer "Текущий период. Врученные: Итого",
+    nullif(round(sum(cur_number_delivery_package)), 0)::integer "Текущий период. Врученные: Посылки",
+    nullif(round(sum(cur_number_delivery_spacket)), 0)::integer "Текущий период. Врученные: Мелкие пакеты",
+    nullif(round(sum(cur_number_delivery_ems)), 0)::integer "Текущий период. Врученные: EMS-отправления",
+    nullif(round(sum(cur_revenue_accepting_total)), 0)::integer "Текущий период. Выручка: Принятые: Итого (руб)",
+    nullif(round(sum(cur_revenue_accepting_package)), 0)::integer "Текущий период. Выручка: Принятые: Посылки (руб)",
+    nullif(round(sum(cur_revenue_accepting_spacket)), 0)::integer "Текущий период. Выручка: Принятые: Мелкие пакеты (руб)",
+    nullif(round(sum(cur_revenue_accepting_ems)), 0)::integer "Текущий период. Выручка: Принятые: EMS-отправления (руб)",
+    nullif(round(sum(ifnull(cur_number_all_total, 0) - ifnull(prev_number_all_total, 0))), 0)::integer "Динамика. Принятые + Врученные: Итого",
+    nullif(round(sum(ifnull(cur_number_all_package, 0) - ifnull(prev_number_all_package, 0))), 0)::integer "Динамика. Принятые + Врученные: Посылки",
+    nullif(round(sum(ifnull(cur_number_all_spacket, 0) - ifnull(prev_number_all_spacket, 0))), 0)::integer "Динамика. Принятые + Врученные: Мелкие пакеты",
+    nullif(round(sum(ifnull(cur_number_all_ems, 0) - ifnull(prev_number_all_ems, 0))), 0)::integer "Динамика. Принятые + Врученные: EMS-отправления",
+    nullif(round(sum(ifnull(cur_number_accepting_total, 0) - ifnull(prev_number_accepting_total, 0))), 0)::integer "Динамика. Принятые: Итого",
+    nullif(round(sum(ifnull(cur_number_accepting_package, 0) - ifnull(prev_number_accepting_package, 0))), 0)::integer "Динамика. Принятые: Посылки",
+    nullif(round(sum(ifnull(cur_number_accepting_spacket, 0) - ifnull(prev_number_accepting_spacket, 0))), 0)::integer "Динамика. Принятые: Мелкие пакеты",
+    nullif(round(sum(ifnull(cur_number_accepting_ems, 0) - ifnull(prev_number_accepting_ems, 0))), 0)::integer "Динамика. Принятые: EMS-отправления",
+    nullif(round(sum(ifnull(cur_number_delivery_total, 0) - ifnull(prev_number_delivery_total, 0))), 0)::integer "Динамика. Врученные: Итого",
+    nullif(round(sum(ifnull(cur_number_delivery_package, 0) - ifnull(prev_number_delivery_package, 0))), 0)::integer "Динамика. Врученные: Посылки",
+    nullif(round(sum(ifnull(cur_number_delivery_spacket, 0) - ifnull(prev_number_delivery_spacket, 0))), 0)::integer "Динамика. Врученные: Мелкие пакеты",
+    nullif(round(sum(ifnull(cur_number_delivery_ems, 0) - ifnull(prev_number_delivery_ems, 0))), 0)::integer "Динамика. Врученные: EMS-отправления",
+    nullif(round(sum(ifnull(cur_revenue_accepting_total, 0) - ifnull(prev_revenue_accepting_total, 0))), 0)::integer "Динамика. Выручка: Принятые: Итого (руб)",
+    nullif(round(sum(ifnull(cur_revenue_accepting_package, 0) - ifnull(prev_revenue_accepting_package, 0))), 0)::integer "Динамика. Выручка: Принятые: Посылки (руб)",
+    nullif(round(sum(ifnull(cur_revenue_accepting_spacket, 0) - ifnull(prev_revenue_accepting_spacket, 0))), 0)::integer "Динамика. Выручка: Принятые: Мелкие пакеты (руб)",
+    nullif(round(sum(ifnull(cur_revenue_accepting_ems, 0) - ifnull(prev_revenue_accepting_ems, 0))), 0)::integer "Динамика. Выручка: Принятые: EMS-отправления (руб)",
+    nullif(round(sum(cur_number_all_total) / nullif(sum(prev_number_all_total), 0) * 100), 0)::integer "Динамика, %. Принятые + Врученные: Итого",
+    nullif(round(sum(cur_number_all_package) / nullif(sum(prev_number_all_package), 0) * 100), 0)::integer "Динамика, %. Принятые + Врученные: Посылки",
+    nullif(round(sum(cur_number_all_spacket) / nullif(sum(prev_number_all_spacket), 0) * 100), 0)::integer "Динамика, %. Принятые + Врученные: Мелкие пакеты",
+    nullif(round(sum(cur_number_all_ems) / nullif(sum(prev_number_all_ems), 0) * 100), 0)::integer "Динамика, %. Принятые + Врученные: EMS-отправления",
+    nullif(round(sum(cur_number_accepting_total) / nullif(sum(prev_number_accepting_total), 0) * 100), 0)::integer "Динамика, %. Принятые: Итого",
+    nullif(round(sum(cur_number_accepting_package) / nullif(sum(prev_number_accepting_package), 0) * 100), 0)::integer "Динамика, %. Принятые: Посылки",
+    nullif(round(sum(cur_number_accepting_spacket) / nullif(sum(prev_number_accepting_spacket), 0) * 100), 0)::integer "Динамика, %. Принятые: Мелкие пакеты",
+    nullif(round(sum(cur_number_accepting_ems) / nullif(sum(prev_number_accepting_ems), 0) * 100), 0)::integer "Динамика, %. Принятые: EMS-отправления",
+    nullif(round(sum(cur_number_delivery_total) / nullif(sum(prev_number_delivery_total), 0) * 100), 0)::integer "Динамика, %. Врученные: Итого",
+    nullif(round(sum(cur_number_delivery_package) / nullif(sum(prev_number_delivery_package), 0) * 100), 0)::integer "Динамика, %. Врученные: Посылки",
+    nullif(round(sum(cur_number_delivery_spacket) / nullif(sum(prev_number_delivery_spacket), 0) * 100), 0)::integer "Динамика, %. Врученные: Мелкие пакеты",
+    nullif(round(sum(cur_number_delivery_ems) / nullif(sum(prev_number_delivery_ems), 0) * 100), 0)::integer "Динамика, %. Врученные: EMS-отправления",
+    nullif(round(sum(cur_revenue_accepting_total) / nullif(sum(prev_revenue_accepting_total), 0) * 100), 0)::integer "Динамика, %. Выручка: Принятые: Итого",
+    nullif(round(sum(cur_revenue_accepting_package) / nullif(sum(prev_revenue_accepting_package), 0) * 100), 0)::integer "Динамика, %. Выручка: Принятые: Посылки",
+    nullif(round(sum(cur_revenue_accepting_spacket) / nullif(sum(prev_revenue_accepting_spacket), 0) * 100), 0)::integer "Динамика, %. Выручка: Принятые: Мелкие пакеты",
+    nullif(round(sum(cur_revenue_accepting_ems) / nullif(sum(prev_revenue_accepting_ems), 0) * 100), 0)::integer "Динамика, %. Выручка: Принятые: EMS-отправления"
+from (
+    select
+        fps.macroregion,
+        fps.ufps,
+        fps.post_object_index index_cvpp,
+        fi.address,
+        (ifnull(prev_number_accepting_total, 0) + ifnull(prev_number_delivery_total, 0)) prev_number_all_total,
+        (ifnull(prev_number_accepting_package, 0) + ifnull(prev_number_delivery_package, 0)) prev_number_all_package,
+        (ifnull(prev_number_accepting_spacket, 0) + ifnull(prev_number_delivery_spacket, 0)) prev_number_all_spacket,
+        (ifnull(prev_number_accepting_ems, 0) + ifnull(prev_number_delivery_ems, 0)) prev_number_all_ems,
+        prev_number_accepting_total,
+        prev_number_accepting_package,
+        prev_number_accepting_spacket,
+        prev_number_accepting_ems,
+        prev_number_delivery_total,
+        prev_number_delivery_package,
+        prev_number_delivery_spacket,
+        prev_number_delivery_ems,
+        (prev_revenue_accepting_total / 100) prev_revenue_accepting_total,
+        (prev_revenue_accepting_package / 100) prev_revenue_accepting_package,
+        (prev_revenue_accepting_spacket / 100) prev_revenue_accepting_spacket,
+        (prev_revenue_accepting_ems / 100) prev_revenue_accepting_ems,
+        ((ifnull(cur_number_accepting_total, 0) + ifnull(cur_number_delivery_total, 0)) * wd_ratio) cur_number_all_total,
+        ((ifnull(cur_number_accepting_package, 0) + ifnull(cur_number_delivery_package, 0)) * wd_ratio) cur_number_all_package,
+        ((ifnull(cur_number_accepting_spacket, 0) + ifnull(cur_number_delivery_spacket, 0)) * wd_ratio) cur_number_all_spacket,
+        ((ifnull(cur_number_accepting_ems, 0) + ifnull(cur_number_delivery_ems, 0)) * wd_ratio) cur_number_all_ems,
+        (cur_number_accepting_total * wd_ratio) cur_number_accepting_total,
+        (cur_number_accepting_package * wd_ratio) cur_number_accepting_package,
+        (cur_number_accepting_spacket * wd_ratio) cur_number_accepting_spacket,
+        (cur_number_accepting_ems * wd_ratio) cur_number_accepting_ems,
+        (cur_number_delivery_total * wd_ratio) cur_number_delivery_total,
+        (cur_number_delivery_package * wd_ratio) cur_number_delivery_package,
+        (cur_number_delivery_spacket * wd_ratio) cur_number_delivery_spacket,
+        (cur_number_delivery_ems * wd_ratio) cur_number_delivery_ems,
+        (cur_revenue_accepting_total * wd_ratio / 100) cur_revenue_accepting_total,
+        (cur_revenue_accepting_package * wd_ratio / 100) cur_revenue_accepting_package,
+        (cur_revenue_accepting_spacket * wd_ratio / 100) cur_revenue_accepting_spacket,
+        (cur_revenue_accepting_ems * wd_ratio / 100) cur_revenue_accepting_ems
+    from dicts.dim_fps fps
+    left join (
+        select accepting_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN 1 ELSE 0 END) prev_number_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN 1 ELSE 0 END) prev_number_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) prev_number_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) prev_number_accepting_ems,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) prev_revenue_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN isnull(total_rate, 0) ELSE 0 END) prev_revenue_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN isnull(total_rate, 0) ELSE 0 END) prev_revenue_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) prev_revenue_accepting_ems
+        from (
+            select accepting_index, mail_type, total_rate
+            from tracking.cvpp cvpp
+            left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+            where (SUBSTRING(accepting_date_time_local, 1, 10) >= ${prev_date_from} and SUBSTRING(accepting_date_time_local, 1, 10) <= ${prev_date_to})
+                and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                        or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                        or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+                and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+                and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+                and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+                and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        ) t
+        group by accepting_index
+    ) prev_accepting on fps.post_object_index::varchar = prev_accepting.ops_index
+    left join (
+        select accepting_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN 1 ELSE 0 END) cur_number_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN 1 ELSE 0 END) cur_number_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) cur_number_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) cur_number_accepting_ems,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) cur_revenue_accepting_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN isnull(total_rate, 0) ELSE 0 END) cur_revenue_accepting_package,
+            sum(CASE WHEN mail_type in (5) THEN isnull(total_rate, 0) ELSE 0 END) cur_revenue_accepting_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN isnull(total_rate, 0) ELSE 0 END) cur_revenue_accepting_ems
+        from (
+            select accepting_index, mail_type, total_rate
+            from tracking.cvpp cvpp
+            left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+            where (SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from} and SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+                and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                        or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                        or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+                and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+                and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+                and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+                and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        ) t
+        group by accepting_index
+    ) cur_accepting on fps.post_object_index::varchar = cur_accepting.ops_index
+    left join (
+        select delivery_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN 1 ELSE 0 END) prev_number_delivery_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN 1 ELSE 0 END) prev_number_delivery_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) prev_number_delivery_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) prev_number_delivery_ems
+        from tracking.cvpp cvpp
+        left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+        where (SUBSTRING(delivery_date_time_local, 1, 10) >= ${prev_date_from} and SUBSTRING(delivery_date_time_local, 1, 10) <= ${prev_date_to})
+            and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                    or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                    or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+            and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+            and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+            and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+            and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        group by delivery_index
+    ) prev_delivery on fps.post_object_index::varchar = prev_delivery.ops_index
+    left join (
+        select delivery_index ops_index,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47, 5, 7, 34, 41) THEN 1 ELSE 0 END) cur_number_delivery_total,
+            sum(CASE WHEN mail_type in (4, 23, 27, 28, 29, 47) THEN 1 ELSE 0 END) cur_number_delivery_package,
+            sum(CASE WHEN mail_type in (5) THEN 1 ELSE 0 END) cur_number_delivery_spacket,
+            sum(CASE WHEN mail_type in (7, 34, 41) THEN 1 ELSE 0 END) cur_number_delivery_ems
+        from tracking.cvpp cvpp
+        left join dicts.mail_type_groups mt on cvpp.mail_type = mt.code
+        where (SUBSTRING(delivery_date_time_local, 1, 10) >= ${date_from} and SUBSTRING(delivery_date_time_local, 1, 10) <= ${date_to})
+            and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+                    or '[mail_type].[' || mt.group || ']' in (${mail_type})
+                    or '[mail_type].[' || mt.group || '].[' || mt.name || ']' in (${mail_type}))
+            and ('' in (${mail_ctg}) OR 'mail_ctg' in (${mail_ctg}) OR nvl(mail_ctg, 999999)::VARCHAR in (${mail_ctg}))
+            and ('' in (${direct_ctg}) OR 'direct_ctg' in (${direct_ctg}) OR nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+            and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+            and ('' in (${pay_type}) OR 'pay_type' in (${pay_type}) OR (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        group by delivery_index
+    ) cur_delivery on fps.post_object_index::varchar = cur_delivery.ops_index
+    left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    left join (
+        select
+            post_object_index,
+            -- wd_ratio = wd_total / wd_past
+            case when SYSDATE() < ${date_to}
+                then dicts.countWorkingDays(${date_from}::datetime, LAST_DAY(${date_to}), os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun) /
+                    nullif(dicts.countWorkingDays(${date_from}::datetime, ${date_to}::datetime, os.mon || os.tue || os.wed || os.thu || os.fri || os.sat || os.sun), 0)
+                else 1
+            end wd_ratio
+        from dicts.ops_schedule os
+        where os.mon or os.tue or os.wed or os.thu or os.fri or os.sat or os.sun
+    ) wd on fps.post_object_index = wd.post_object_index
+    where (prev_accepting.ops_index is not null or cur_accepting.ops_index is not null
+            or prev_delivery.ops_index is not null or cur_delivery.ops_index is not null)
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+        and ('' in (${object_type}) OR 'object_type' in (${object_type}) OR fi.is_cvpp::VARCHAR in (${object_type}))
+) t
+group by rollup((macroregion, ufps, index_cvpp, address)) order by grouping_id() desc
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_rpo_count_chart_ds"
+               id="cvpp_dynamics_rpo_count_chart_ds"
+               type="sql">
+      <Name>cvpp_dynamics_rpo_count_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="direct_ctg" type="String"/>
+         <Parameter default="" name="accept_type" type="String"/>
+         <Parameter default="" name="pay_type" type="String"/>
+         <Parameter default="" name="fps" type="String"/>
+         <Parameter default="" name="dynamics_operation_type" type="String"/>
+         <Parameter default="" name="dynamics_mail_type" type="String"/>
+         <Parameter default="" name="dynamics_year" type="String"/>
+         <Parameter default="" name="dynamics_month" type="String"/>
+         <Parameter default="" name="dynamics_opening_month" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    years.year "Год",
+    months.month "Месяц",
+    ifnull(number_accepting, 0) + ifnull(number_delivery, 0) "Количество"
+from dicts.cvpp_months months
+cross join dicts.cvpp_years years
+left join (
+    select
+        year(accepting_date_time_local::datetime) "year",
+        month(accepting_date_time_local::datetime) "month",
+        sum(1) number_accepting
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(accepting_date_time_local::datetime) in (year(now()) - 1, year(now()) - 2))
+            or (year(accepting_date_time_local::datetime)::varchar in (${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(accepting_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_operation_type}) or '2' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by year, month
+) accepting on accepting.year = years.year and accepting.month = months.month
+left join (
+    select
+        year(delivery_date_time_local::datetime) "year",
+        month(delivery_date_time_local::datetime) "month",
+        sum(1) number_delivery
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = delivery_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(delivery_date_time_local::datetime) in (year(now()) - 1, year(now()) - 2))
+            or (year(delivery_date_time_local::datetime)::varchar in (${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(delivery_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_operation_type}) or '1' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by year, month
+) delivery on delivery.year = years.year and delivery.month = months.month
+where (('' in (${dynamics_year}) and years.year in (year(now()) - 1, year(now()) - 2))
+        or (years.year::varchar in (${dynamics_year})))
+    and ('' in (${dynamics_month}) or months.month::varchar in (${dynamics_month}))
+order by years.year, months.month]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_rpo_types_chart_ds"
+               id="cvpp_dynamics_rpo_types_chart_ds"
+               type="sql">
+      <Name>cvpp_dynamics_rpo_types_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="direct_ctg" type="String"/>
+         <Parameter default="" name="accept_type" type="String"/>
+         <Parameter default="" name="pay_type" type="String"/>
+         <Parameter default="" name="fps" type="String"/>
+         <Parameter default="" name="dynamics_operation_type" type="String"/>
+         <Parameter default="" name="dynamics_mail_type" type="String"/>
+         <Parameter default="" name="dynamics_year" type="String"/>
+         <Parameter default="" name="dynamics_month" type="String"/>
+         <Parameter default="" name="dynamics_opening_month" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    months.month "Месяц",
+    ifnull(number_delivery_package, 0) "Вручение",
+    ifnull(number_accepting_package, 0) "Приём"
+from dicts.cvpp_months months
+left join (
+    select
+        month(accepting_date_time_local::datetime) "month",
+        sum(1) number_accepting_package
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(accepting_date_time_local::datetime) = year(now()) - 1)
+            or (year(accepting_date_time_local::datetime)::varchar = greatest(${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(accepting_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_operation_type}) or '2' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by month
+) accepting on accepting.month = months.month
+left join (
+    select
+        month(delivery_date_time_local::datetime) "month",
+        sum(1) number_delivery_package
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = delivery_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(delivery_date_time_local::datetime) = year(now()) - 1)
+            or (year(delivery_date_time_local::datetime)::varchar = greatest(${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(delivery_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_operation_type}) or '1' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by month
+) delivery on delivery.month = months.month
+where ('' in (${dynamics_month}) or months.month::varchar in (${dynamics_month}))
+order by months.month]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_revenue_chart_ds"
+               id="cvpp_dynamics_revenue_chart_ds"
+               type="sql">
+      <Name>cvpp_dynamics_revenue_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="direct_ctg" type="String"/>
+         <Parameter default="" name="accept_type" type="String"/>
+         <Parameter default="" name="pay_type" type="String"/>
+         <Parameter default="" name="fps" type="String"/>
+         <Parameter default="" name="dynamics_operation_type" type="String"/>
+         <Parameter default="" name="dynamics_mail_type" type="String"/>
+         <Parameter default="" name="dynamics_year" type="String"/>
+         <Parameter default="" name="dynamics_month" type="String"/>
+         <Parameter default="" name="dynamics_opening_month" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    years.year "Год",
+    months.month "Месяц",
+    ifnull(revenue_total / 100000, 0) "Выручка"
+from dicts.cvpp_months months
+cross join dicts.cvpp_years years
+left join (
+    select
+        year(accepting_date_time_local::datetime) "year",
+        month(accepting_date_time_local::datetime) "month",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 5, 7, 34, 41) then isnull(total_rate, 0) else 0 end) revenue_total
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(accepting_date_time_local::datetime) in (year(now()) - 1, year(now()) - 2))
+            or (year(accepting_date_time_local::datetime)::varchar in (${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(accepting_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by year, month
+) accepting on accepting.year = years.year and accepting.month = months.month
+where (('' in (${dynamics_year}) and years.year in (year(now()) - 1, year(now()) - 2))
+        or (years.year::varchar in (${dynamics_year})))
+    and ('' in (${dynamics_month}) or months.month::varchar in (${dynamics_month}))
+order by years.year, months.month]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_revenue_types_chart_ds"
+               id="cvpp_dynamics_revenue_types_chart_ds"
+               type="sql">
+      <Name>cvpp_dynamics_revenue_types_chart_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="direct_ctg" type="String"/>
+         <Parameter default="" name="accept_type" type="String"/>
+         <Parameter default="" name="pay_type" type="String"/>
+         <Parameter default="" name="fps" type="String"/>
+         <Parameter default="" name="dynamics_operation_type" type="String"/>
+         <Parameter default="" name="dynamics_mail_type" type="String"/>
+         <Parameter default="" name="dynamics_year" type="String"/>
+         <Parameter default="" name="dynamics_month" type="String"/>
+         <Parameter default="" name="dynamics_opening_month" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    months.month "Месяц",
+    ifnull(revenue_package / 100000, 0) "Посылка",
+    ifnull(revenue_ems / 100000, 0) "Отправление EMS",
+    ifnull(revenue_spacket / 100000, 0) "Мелкий пакет"
+from dicts.cvpp_months months
+left join (
+    select
+        month(accepting_date_time_local::datetime) "month",
+        sum(case when mail_type in (4, 23, 27, 28, 29) then isnull(total_rate, 0) else 0 end) revenue_package,
+        sum(case when mail_type in (5) then isnull(total_rate, 0) else 0 end) revenue_spacket,
+        sum(case when mail_type in (7, 34, 41) then isnull(total_rate, 0) else 0 end) revenue_ems
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (('' in (${dynamics_year}) and year(accepting_date_time_local::datetime) = year(now()) - 1)
+            or (year(accepting_date_time_local::datetime)::varchar = greatest(${dynamics_year})))
+        and ('' in (${dynamics_month}) or month(accepting_date_time_local::datetime)::varchar in (${dynamics_month}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by month
+) accepting on accepting.month = months.month
+where ('' in (${dynamics_month}) or months.month::varchar in (${dynamics_month}))
+order by months.month]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_rpo_types_chart_by_week_days_ds"
+               id="cvpp_dynamics_rpo_types_chart_by_week_days_ds"
+               type="sql">
+      <Name>cvpp_dynamics_rpo_types_chart_by_week_days_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="dynamics_operation_type" name="dynamics_operation_type" type="String"/>
+         <Parameter default="dynamics_mail_type" name="dynamics_mail_type" type="String"/>
+         <Parameter default="dynamics_week_day" name="dynamics_week_day" type="String"/>
+         <Parameter default="dynamics_hour" name="dynamics_hour" type="String"/>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    week_days.caption "День недели",
+    ifnull(number_package_accepting,0) + ifnull(number_package_delivery, 0) "Посылка",
+    ifnull(number_ems_accepting,0) + ifnull(number_ems_delivery, 0) "Отправление EMS",
+    ifnull(number_spacket_accepting,0) + ifnull(number_spacket_delivery, 0) "Мелкий пакет"
+from dicts.cvpp_week_days week_days
+left join (
+    select
+        dayofweek(accepting_date_time_local::datetime) "week_day",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then 1 else 0 end) number_package_accepting,
+        sum(case when mail_type in (5) then 1 else 0 end) number_spacket_accepting,
+        sum(case when mail_type in (7, 34, 41) then 1 else 0 end) number_ems_accepting
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(accepting_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(accepting_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_operation_type}) or '2' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by week_day
+) accepting on accepting.week_day = week_days.week_day
+left join (
+    select
+        dayofweek(delivery_date_time_local::datetime) "week_day",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then 1 else 0 end) number_package_delivery,
+        sum(case when mail_type in (5) then 1 else 0 end) number_spacket_delivery,
+        sum(case when mail_type in (7, 34, 41) then 1 else 0 end) number_ems_delivery
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = delivery_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(delivery_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(delivery_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_operation_type}) or '1' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by week_day
+) delivery on delivery.week_day = week_days.week_day
+where ('' in (${dynamics_week_day}) or week_days.week_day::varchar in (${dynamics_week_day}))
+order by week_days.order_index]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_rpo_types_chart_by_hours_ds"
+               id="cvpp_dynamics_rpo_types_chart_by_hours_ds"
+               type="sql">
+      <Name>cvpp_dynamics_rpo_types_chart_by_hours_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="dynamics_operation_type" name="dynamics_operation_type" type="String"/>
+         <Parameter default="dynamics_mail_type" name="dynamics_mail_type" type="String"/>
+         <Parameter default="dynamics_hour" name="dynamics_hour" type="String"/>
+         <Parameter default="dynamics_week_day" name="dynamics_week_day" type="String"/>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    hours.hour "Час",
+    ifnull(number_package_accepting,0) + ifnull(number_package_delivery, 0) "Посылка",
+    ifnull(number_ems_accepting,0) + ifnull(number_ems_delivery, 0) "Отправление EMS",
+    ifnull(number_spacket_accepting,0) + ifnull(number_spacket_delivery, 0) "Мелкий пакет"
+from dicts.cvpp_hours hours
+left join (
+    select
+        hour(accepting_date_time_local::datetime) "hour",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then 1 else 0 end) number_package_accepting,
+        sum(case when mail_type in (5) then 1 else 0 end) number_spacket_accepting,
+        sum(case when mail_type in (7, 34, 41) then 1 else 0 end) number_ems_accepting
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(accepting_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(accepting_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_operation_type}) or '2' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by hour
+) accepting on accepting.hour = hours.hour
+left join (
+    select
+        hour(delivery_date_time_local::datetime) "hour",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then 1 else 0 end) number_package_delivery,
+        sum(case when mail_type in (5) then 1 else 0 end) number_spacket_delivery,
+        sum(case when mail_type in (7, 34, 41) then 1 else 0 end) number_ems_delivery
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = delivery_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(delivery_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(delivery_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(delivery_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_operation_type}) or '1' in (${dynamics_operation_type}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by hour
+) delivery on delivery.hour = hours.hour
+where ('' in (${dynamics_hour}) or hours.hour::varchar in (${dynamics_hour}))
+order by hours.hour]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_revenue_chart_by_week_days_ds"
+               id="cvpp_dynamics_revenue_chart_by_week_days_ds"
+               type="sql">
+      <Name>cvpp_dynamics_revenue_chart_by_week_days_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="dynamics_mail_type" name="dynamics_mail_type" type="String"/>
+         <Parameter default="dynamics_week_day" name="dynamics_week_day" type="String"/>
+         <Parameter default="dynamics_hour" name="dynamics_hour" type="String"/>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    week_days.caption "День недели",
+    ifnull(revenue_package / 100, 0) "Посылка",
+    ifnull(revenue_ems / 100, 0) "Отправление EMS",
+    ifnull(revenue_spacket / 100, 0) "Мелкий пакет"
+from dicts.cvpp_week_days week_days
+left join (
+    select
+        dayofweek(accepting_date_time_local::datetime) "week_day",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then isnull(total_rate, 0) else 0 end) revenue_package,
+        sum(case when mail_type in (5) then isnull(total_rate, 0) else 0 end) revenue_spacket,
+        sum(case when mail_type in (7, 34, 41) then isnull(total_rate, 0) else 0 end) revenue_ems
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(accepting_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(accepting_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by week_day
+) accepting on accepting.week_day = week_days.week_day
+where ('' in (${dynamics_week_day}) or week_days.week_day::varchar in (${dynamics_week_day}))
+order by week_days.order_index asc]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_dynamics_revenue_chart_by_hours_ds"
+               id="cvpp_dynamics_revenue_chart_by_hours_ds"
+               type="sql">
+      <Name>cvpp_dynamics_revenue_chart_by_hours_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="direct_ctg" name="direct_ctg" type="String"/>
+         <Parameter default="accept_type" name="accept_type" type="String"/>
+         <Parameter default="pay_type" name="pay_type" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="dynamics_operation_type" name="dynamics_operation_type" type="String"/>
+         <Parameter default="dynamics_mail_type" name="dynamics_mail_type" type="String"/>
+         <Parameter default="dynamics_hour" name="dynamics_hour" type="String"/>
+         <Parameter default="dynamics_week_day" name="dynamics_week_day" type="String"/>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="0" name="pay_type_sum" type="Integer"/>
+      </Parameters>
+      <Query><![CDATA[select
+    hours.hour "Час",
+    ifnull(revenue_package / 100, 0) "Посылка",
+    ifnull(revenue_ems / 100, 0) "Отправление EMS",
+    ifnull(revenue_spacket / 100, 0) "Мелкий пакет"
+from dicts.cvpp_hours hours
+left join (
+    select
+        hour(accepting_date_time_local::datetime) "hour",
+        sum(case when mail_type in (4, 23, 27, 28, 29, 47) then isnull(total_rate, 0) else 0 end) revenue_package,
+        sum(case when mail_type in (5) then isnull(total_rate, 0) else 0 end) revenue_spacket,
+        sum(case when mail_type in (7, 34, 41) then isnull(total_rate, 0) else 0 end) revenue_ems
+    from tracking.cvpp cvpp
+        left join dicts.dim_fps fps on fps.post_object_index::varchar = accepting_index
+        left join dicts.fps fi on fps.post_object_index = fi.post_object_index
+    where (${date_from} = '' or cast(${date_from} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) >= ${date_from})
+        and (${date_to} = '' or cast(${date_to} as varchar) is null or SUBSTRING(accepting_date_time_local, 1, 10) <= ${date_to})
+        and ('' in (${dynamics_hour}) or hour(accepting_date_time_local::datetime)::varchar in (${dynamics_hour}))
+        and ('' in (${dynamics_week_day}) or dayofweek(accepting_date_time_local::datetime)::varchar in (${dynamics_week_day}))
+        and ('' in (${dynamics_mail_type})
+            or ('1' in (${dynamics_mail_type}) and mail_type in (5))
+            or ('2' in (${dynamics_mail_type}) and mail_type in (7, 34, 41))
+            or ('3' in (${dynamics_mail_type}) and mail_type in (4, 23, 27, 28, 29, 47)))
+        and ('' in (${direct_ctg}) or 'direct_ctg' in (${direct_ctg}) or nvl(direct_ctg, 999999)::VARCHAR in (${direct_ctg}))
+        and ('' in (${accept_type}) OR 'accept_type' in (${accept_type}) OR nvl(accepting_attr, 999999)::VARCHAR in (${accept_type}) OR ('999999' in (${accept_type}) and accepting_attr not in (select code from dicts.accept_type)))
+        and ('' in (${pay_type}) or 'pay_type' in (${pay_type}) or (pay_type & ${pay_type_sum} != 0) or ('999999' in (${pay_type}) and pay_type is null))
+        and ('' in (${fps}) or 'fps' in (${fps})
+            or '[fps].[' || fps.macroregion || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+            or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_object || ']' in (${fps}))
+    group by hour
+) accepting on accepting.hour = hours.hour
+where ('' in (${dynamics_hour}) or hours.hour::varchar in (${dynamics_hour}))
+order by hours.hour]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_type_ds" id="mail_type_ds" type="sql">
+      <Name>mail_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.mailtype
+where code not in (10, 11)]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_ctg_ds" id="mail_ctg_ds" type="sql">
+      <Name>mail_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.mailctg
+  union
+  select 999999, '<Не определено>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="direct_ctg_ds" id="direct_ctg_ds" type="sql">
+      <Name>direct_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.direct_ctg
+  union
+  select 999999, '<Не определено>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="place_type_ds" id="place_type_ds" type="sql">
+      <Name>place_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.place_type]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="pay_type_ds" id="pay_type_ds" type="sql">
+      <Name>pay_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+  select code "value", name
+  from dicts.pay_type
+  union
+  select 999999, '<Не определено>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="accept_type_ds" id="accept_type_ds" type="sql">
+      <Name>accept_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+select code "value", name
+from dicts.accept_type
+  union
+  select 999999, '<Не определено>'
+) values
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_operation_type_ds"
+               id="dynamics_operation_type_ds"
+               type="sql">
+      <Name>dynamics_operation_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 1 "value", 'Вручение' as name
+union select 2 "value", 'Приём' as name
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_mail_type_ds" id="dynamics_mail_type_ds"
+               type="sql">
+      <Name>dynamics_mail_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 1 "value", 'Мелкий пакет' as name
+union select 2 "value", 'Отправление EMS' as name
+union select 3 "value", 'Посылка' as name
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_year_ds" id="dynamics_year_ds" type="sql">
+      <Name>dynamics_year_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select "year" 
+from (
+  select 2014 "year" 
+  union select 2015 
+  union select 2016 
+  union select 2017 
+  union select 2018 
+  union select 2019 
+  union select 2020 
+  union select 2021 
+  union select 2022 
+  union select 2023
+) years
+where year <= year(now())
+order by year]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_hour_ds" id="dynamics_hour_ds" type="sql">
+      <Name>dynamics_hour_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select hour from dicts.cvpp_hours order by hour asc;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_week_day_ds" id="dynamics_week_day_ds"
+               type="sql">
+      <Name>dynamics_week_day_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select week_day "value", caption from dicts.cvpp_week_days order by order_index asc;]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="dynamics_month_ds" id="dynamics_month_ds"
+               type="sql">
+      <Name>dynamics_month_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select 1 "month" 
+union select 2
+union select 3
+union select 4
+union select 5
+union select 6
+union select 7
+union select 8
+union select 9
+union select 10
+union select 11
+union select 12
+order by month]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="cvpp_date_ds" id="cvpp_date_ds" type="sql">
+      <Name>cvpp_date_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select max(report_date)
+from tracking.cvpp_date]]></Query>
+   </DataAccess>
+</CDADescriptor>

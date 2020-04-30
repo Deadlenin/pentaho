@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdf><title>KPI доставки из ММПО</title><description>Сводная информация по срокам доставки из ММПО</description><author>akryukov</author><style>Clean</style><rendererType>blueprint</rendererType><require>false</require><widget>false</widget><widgetName></widgetName><widgetParameters></widgetParameters></cdf>

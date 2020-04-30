@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="kpi_zone_fact_common_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_direction_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_mail_group_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_drill_rpos_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="fps_direction_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="trans_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="kpi_zone_fact_common_ds"
+               id="kpi_zone_fact_common_ds"
+               type="sql">
+      <Name>kpi_zone_fact_common_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then fps.ufps end "УФПС",
+
+    nullifzero(sum(incoming.total)) "Входящий поток. Всего",
+    nullifzero(sum(incoming.not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(incoming.in_time)) "Входящий поток. В срок",
+    nullifzero(sum(incoming.on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming.in_time) / nullifzero(sum(incoming.total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(outgoing.total)) "Исходящий поток. Всего",
+    nullifzero(sum(outgoing.not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(outgoing.in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(outgoing.on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing.in_time) / nullifzero(sum(outgoing.total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(in_ufps.total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(in_ufps.not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(in_ufps.in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(in_ufps.on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(in_ufps.in_time) / nullifzero(sum(in_ufps.total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(zeroifnull(incoming.in_time) + zeroifnull(outgoing.in_time) + zeroifnull(in_ufps.in_time))
+          / nullifzero(sum(zeroifnull(incoming.total) + zeroifnull(outgoing.total) + zeroifnull(in_ufps.total))) * 100)::integer "Общий KPI, %"
+from dicts.dim_fps_structure fps
+left join (
+    select
+        index_to idx,
+        count(*) total,
+        count(case when (incoming_time > incoming_term) or (incoming_time = incoming_term and arrive_hour >= mt.group_max_arrive_hour) then 1 end) not_in_time,
+        count(case when (incoming_time < incoming_term) or (incoming_time = incoming_term and arrive_hour < mt.group_max_arrive_hour) then 1 end) in_time,
+        count(case when incoming_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_from
+    where not in_ufps_status and has_opers_in_d_ufps
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx
+) incoming on incoming.idx = fps.post_object_index::varchar
+left join (
+    select
+        index_from idx,
+        count(*) total,
+        count(case when outgoing_time > outgoing_term then 1 end) not_in_time,
+        count(case when outgoing_time <= outgoing_term then 1 end) in_time,
+        count(case when outgoing_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_to
+    where not in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx
+) outgoing on outgoing.idx = fps.post_object_index::varchar
+left join (
+    select
+        index_from idx,
+        count(*) total,
+        count(case when in_ufps_time > in_ufps_term then 1 end) not_in_time,
+        count(case when in_ufps_time <= in_ufps_term then 1 end) in_time,
+        count(case when in_ufps_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    where in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx
+) in_ufps on in_ufps.idx = fps.post_object_index::varchar
+where
+    (incoming.idx is not null or outgoing.idx is not null or in_ufps.idx is not null)
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+group by
+    "Макрорегион", "УФПС"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_direction_ds"
+               id="kpi_zone_fact_direction_ds"
+               type="sql">
+      <Name>kpi_zone_fact_direction_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then fps.ufps end "УФПС",
+    fps_direction.ufps "УФПС направления",
+
+    nullifzero(sum(incoming.total)) "Входящий поток. Всего",
+    nullifzero(sum(incoming.not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(incoming.in_time)) "Входящий поток. В срок",
+    nullifzero(sum(incoming.on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming.in_time) / nullifzero(sum(incoming.total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(outgoing.total)) "Исходящий поток. Всего",
+    nullifzero(sum(outgoing.not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(outgoing.in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(outgoing.on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing.in_time) / nullifzero(sum(outgoing.total)) * 100)::integer "Исходящий поток. KPI, %"
+from (
+    select
+        index_to idx,
+        index_from idx_direction
+    from tracking.kpi_zone_history as kpi_zone
+    union
+    select
+        index_from idx,
+        index_to idx_direction
+    from tracking.kpi_zone_history as kpi_zone
+) group_columns
+join dicts.dim_fps_structure fps on fps.post_object_index = group_columns.idx
+join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = group_columns.idx_direction
+left join (
+    select
+        index_to idx,
+        index_from idx_direction,
+        count(*) total,
+        count(case when (incoming_time > incoming_term) or (incoming_time = incoming_term and arrive_hour >= mt.group_max_arrive_hour) then 1 end) not_in_time,
+        count(case when (incoming_time < incoming_term) or (incoming_time = incoming_term and arrive_hour < mt.group_max_arrive_hour) then 1 end) in_time,
+        count(case when incoming_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_from
+    where not in_ufps_status and has_opers_in_d_ufps
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, idx_direction
+) incoming on incoming.idx = group_columns.idx and incoming.idx_direction = group_columns.idx_direction
+left join (
+    select
+        index_from idx,
+        index_to idx_direction,
+        count(*) total,
+        count(case when outgoing_time > outgoing_term then 1 end) not_in_time,
+        count(case when outgoing_time <= outgoing_term then 1 end) in_time,
+        count(case when outgoing_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_to
+    where not in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, idx_direction
+) outgoing on outgoing.idx = group_columns.idx and outgoing.idx_direction = group_columns.idx_direction
+where
+    (incoming.idx is not null or outgoing.idx is not null)
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+group by
+    "Макрорегион", "УФПС", "УФПС направления"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_mail_group_ds"
+               id="kpi_zone_fact_mail_group_ds"
+               type="sql">
+      <Name>kpi_zone_fact_mail_group_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then fps.ufps end "УФПС",
+    mtg.group_name "Группа видов отправлений",
+
+    nullifzero(sum(incoming.total)) "Входящий поток. Всего",
+    nullifzero(sum(incoming.not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(incoming.in_time)) "Входящий поток. В срок",
+    nullifzero(sum(incoming.on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming.in_time) / nullifzero(sum(incoming.total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(outgoing.total)) "Исходящий поток. Всего",
+    nullifzero(sum(outgoing.not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(outgoing.in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(outgoing.on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing.in_time) / nullifzero(sum(outgoing.total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(in_ufps.total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(in_ufps.not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(in_ufps.in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(in_ufps.on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(in_ufps.in_time) / nullifzero(sum(in_ufps.total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(zeroifnull(incoming.in_time) + zeroifnull(outgoing.in_time) + zeroifnull(in_ufps.in_time))
+          / nullifzero(sum(zeroifnull(incoming.total) + zeroifnull(outgoing.total) + zeroifnull(in_ufps.total))) * 100)::integer "Общий KPI, %"
+from dicts.dim_fps_structure fps
+join (
+    select
+        index_to idx,
+        mail_type_group
+    from tracking.kpi_zone_history as kpi_zone
+    union
+    select
+        index_from idx,
+        mail_type_group
+    from tracking.kpi_zone_history as kpi_zone
+) group_columns on group_columns.idx = fps.post_object_index
+join (
+    select distinct
+        group_id,
+        group_name
+    from dicts.bonus_mail_type_groups
+) mtg on mtg.group_id = group_columns.mail_type_group
+left join (
+    select
+        index_to idx,
+        mail_type_group,
+        count(*) total,
+        count(case when (incoming_time > incoming_term) or (incoming_time = incoming_term and arrive_hour >= mt.group_max_arrive_hour) then 1 end) not_in_time,
+        count(case when (incoming_time < incoming_term) or (incoming_time = incoming_term and arrive_hour < mt.group_max_arrive_hour) then 1 end) in_time,
+        count(case when incoming_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_from
+    where not in_ufps_status and has_opers_in_d_ufps
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type_group
+) incoming on incoming.idx = group_columns.idx and incoming.mail_type_group = group_columns.mail_type_group
+left join (
+    select
+        index_from idx,
+        mail_type_group,
+        count(*) total,
+        count(case when outgoing_time > outgoing_term then 1 end) not_in_time,
+        count(case when outgoing_time <= outgoing_term then 1 end) in_time,
+        count(case when outgoing_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_to
+    where not in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type_group
+) outgoing on outgoing.idx = group_columns.idx and outgoing.mail_type_group = group_columns.mail_type_group
+left join (
+    select
+        index_from idx,
+        mail_type_group,
+        count(*) total,
+        count(case when in_ufps_time > in_ufps_term then 1 end) not_in_time,
+        count(case when in_ufps_time <= in_ufps_term then 1 end) in_time,
+        count(case when in_ufps_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    where in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type_group
+) in_ufps on in_ufps.idx = group_columns.idx and in_ufps.mail_type_group = group_columns.mail_type_group
+where
+    (incoming.idx is not null or outgoing.idx is not null or in_ufps.idx is not null)
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+group by
+    "Макрорегион", "УФПС", "Группа видов отправлений"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_mail_type_ds"
+               id="kpi_zone_fact_mail_type_ds"
+               type="sql">
+      <Name>kpi_zone_fact_mail_type_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    fps.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then fps.ufps end "УФПС",
+    bmt.name "Виды отправлений",
+
+    nullifzero(sum(incoming.total)) "Входящий поток. Всего",
+    nullifzero(sum(incoming.not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(incoming.in_time)) "Входящий поток. В срок",
+    nullifzero(sum(incoming.on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming.in_time) / nullifzero(sum(incoming.total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(outgoing.total)) "Исходящий поток. Всего",
+    nullifzero(sum(outgoing.not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(outgoing.in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(outgoing.on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing.in_time) / nullifzero(sum(outgoing.total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(in_ufps.total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(in_ufps.not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(in_ufps.in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(in_ufps.on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(in_ufps.in_time) / nullifzero(sum(in_ufps.total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(zeroifnull(incoming.in_time) + zeroifnull(outgoing.in_time) + zeroifnull(in_ufps.in_time))
+          / nullifzero(sum(zeroifnull(incoming.total) + zeroifnull(outgoing.total) + zeroifnull(in_ufps.total))) * 100)::integer "Общий KPI, %"
+from dicts.dim_fps_structure fps
+join (
+    select
+        index_to idx,
+        mail_type
+    from tracking.kpi_zone_history as kpi_zone
+    union
+    select
+        index_from idx,
+        mail_type
+    from tracking.kpi_zone_history as kpi_zone
+) group_columns on group_columns.idx = fps.post_object_index
+join dicts.bonus_mail_type_groups bmt on bmt.type = group_columns.mail_type
+left join (
+    select
+        index_to idx,
+        mail_type,
+        count(*) total,
+        count(case when (incoming_time > incoming_term) or (incoming_time = incoming_term and arrive_hour >= mt.group_max_arrive_hour) then 1 end) not_in_time,
+        count(case when (incoming_time < incoming_term) or (incoming_time = incoming_term and arrive_hour < mt.group_max_arrive_hour) then 1 end) in_time,
+        count(case when incoming_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_from
+    where not in_ufps_status and has_opers_in_d_ufps
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type
+) incoming on incoming.idx = group_columns.idx and incoming.mail_type = group_columns.mail_type
+left join (
+    select
+        index_from idx,
+        mail_type,
+        count(*) total,
+        count(case when outgoing_time > outgoing_term then 1 end) not_in_time,
+        count(case when outgoing_time <= outgoing_term then 1 end) in_time,
+        count(case when outgoing_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    left join dicts.dim_fps_structure fps_direction on fps_direction.post_object_index = index_to
+    where not in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type
+) outgoing on outgoing.idx = group_columns.idx and outgoing.mail_type = group_columns.mail_type
+left join (
+    select
+        index_from idx,
+        mail_type,
+        count(*) total,
+        count(case when in_ufps_time > in_ufps_term then 1 end) not_in_time,
+        count(case when in_ufps_time <= in_ufps_term then 1 end) in_time,
+        count(case when in_ufps_time is null then 1 end) on_way
+    from tracking.kpi_zone_history as kpi_zone
+    left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+    where in_ufps_status
+        and (${date_from} = '' or accepting_date >= ${date_from})
+        and (${date_to} = '' or accepting_date <= ${date_to})
+        and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+            or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+        and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+        and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    group by idx, mail_type
+) in_ufps on in_ufps.idx = group_columns.idx and in_ufps.mail_type = group_columns.mail_type
+where
+    (incoming.idx is not null or outgoing.idx is not null or in_ufps.idx is not null)
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+group by
+    "Макрорегион", "УФПС", "Виды отправлений"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_drill_rpos_ds" id="kpi_zone_drill_rpos_ds"
+               type="sql">
+      <Name>kpi_zone_drill_rpos_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="group_by_attr" name="group_by_attr" type="String"/>
+         <Parameter default="selected_group_by_attr" name="selected_group_by_attr" type="String"/>
+         <Parameter default="mail_direction" name="mail_direction" type="String"/>
+         <Parameter default="kpi_ctg" name="kpi_ctg" type="String"/>
+         <Parameter default="selected_macroregion" name="selected_macroregion" type="String"/>
+         <Parameter default="selected_ufps" name="selected_ufps" type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    bar_code "ШПИ",
+    '...' "Краткая трассировка",
+    mt.name "Вид отправления",
+    mailctg.name "Категория",
+    transtype.name "Способ пересылки",
+    case when ${mail_direction} = 'incoming' then fps_direction.macroregion else fps.macroregion end "Макрорегион приёма",
+    case when ${mail_direction} = 'incoming' then fps_direction.ufps else fps.ufps end "УФПС приёма",
+    case when ${mail_direction} = 'incoming' then fps_direction.post_object else fps.post_object end "ОПС приёма",
+    accepting_date "Дата приёма",
+    case when ${mail_direction} = 'incoming' then fps.macroregion else fps_direction.macroregion end "Макрорегион назначения",
+    case when ${mail_direction} = 'incoming' then fps.ufps else fps_direction.ufps end "УФПС назначения",
+    case when ${mail_direction} = 'incoming' then fps.post_object else fps_direction.post_object end "ОПС назначения",
+    case when ${mail_direction} = 'in_ufps'  then in_ufps_time
+         else outgoing_time
+    end "УФПС приёма. Фактический срок",
+    case when ${mail_direction} = 'in_ufps'  then in_ufps_term
+         else outgoing_term
+    end "УФПС приёма. Норматив",
+    case when ${mail_direction} = 'in_ufps'  then in_ufps_time
+         else incoming_time
+    end "УФПС назначения. Фактический срок",
+    case when ${mail_direction} = 'in_ufps'  then in_ufps_term
+         else incoming_term
+    end "УФПС назначения. Норматив",
+    delivery_time "Общие значения. Фактический срок",
+    delivery_term "Общие значения. Норматив"
+from tracking.kpi_zone_history as kpi_zone
+left join dicts.dim_fps_structure fps on (
+    (${mail_direction} = 'incoming' and not in_ufps_status and fps.post_object_index = kpi_zone.index_to)
+    or (${mail_direction} = 'outgoing' and not in_ufps_status and fps.post_object_index = kpi_zone.index_from)
+    or (${mail_direction} = 'in_ufps' and in_ufps_status and fps.post_object_index = kpi_zone.index_from)
+)
+left join dicts.dim_fps_structure fps_direction on (
+    (${mail_direction} = 'incoming' and not in_ufps_status and fps_direction.post_object_index = kpi_zone.index_from)
+    or (${mail_direction} = 'outgoing' and not in_ufps_status and fps_direction.post_object_index = kpi_zone.index_to)
+    or (${mail_direction} = 'in_ufps' and in_ufps_status and fps_direction.post_object_index = kpi_zone.index_to)
+)
+left join dicts.bonus_mail_type_groups mt on kpi_zone.mail_type = mt.type
+left join dicts.mailctg on kpi_zone.mail_ctg = mailctg.code
+left join dicts.transtype on kpi_zone.trans_type = transtype.code
+where (${date_from} = '' or accepting_date >= ${date_from})
+    and (${date_to} = '' or accepting_date <= ${date_to})
+    and ('' in (${fps}) or 'fps' in (${fps})
+        or '[fps].[' || fps.macroregion || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || ']' in (${fps})
+        or '[fps].[' || fps.macroregion || '].[' || fps.ufps || '].[' || fps.post_office || '].[' || fps.post_object || ']' in (${fps}))
+    and (
+        (${mail_direction} = 'incoming' and has_opers_in_d_ufps and not in_ufps_status
+            and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction}))
+        or (${mail_direction} = 'outgoing' and not in_ufps_status and (${fps_direction} = '-1' or fps_direction.ufps_index = ${fps_direction}))
+        or (${mail_direction} = 'in_ufps' and in_ufps_status)
+    )
+    and ('' in (${mail_type}) or 'mail_type' in (${mail_type})
+        or '[mail_type].[' || mt.group_name || ']' in (${mail_type})
+        or '[mail_type].[' || mt.group_name || '].[' || mt.name || ']' in (${mail_type}))
+    and ('' in (${mail_ctg}) or 'mail_ctg' in (${mail_ctg}) or mail_ctg::varchar in (${mail_ctg}))
+    and ('' in (${trans_type}) or 'trans_type' in (${trans_type}) or trans_type::varchar in (${trans_type}))
+    and (
+        (${fps_level} = 'macroregion' and fps.macroregion = ${selected_macroregion})
+        or (${fps_level} = 'ufps' and fps.macroregion = ${selected_macroregion} and fps.ufps = ${selected_ufps})
+    )
+    and (
+        (${group_by_attr} = 'common')
+        or (${group_by_attr} = 'direction' and fps_direction.ufps = ${selected_group_by_attr})
+        or (${group_by_attr} = 'mail_group' and mt.group_name = ${selected_group_by_attr})
+        or (${group_by_attr} = 'mail_type' and mt.name = ${selected_group_by_attr})
+    )
+    and (
+        (${kpi_ctg} = 'total')
+        or (${kpi_ctg} = 'in_time' and ${mail_direction} = 'incoming'
+            and ((incoming_time < incoming_term) or (incoming_time = incoming_term and arrive_hour < mt.group_max_arrive_hour)))
+        or (${kpi_ctg} = 'in_time' and ${mail_direction} = 'outgoing' and outgoing_time <= outgoing_term)
+        or (${kpi_ctg} = 'in_time' and ${mail_direction} = 'in_ufps' and in_ufps_time <= in_ufps_term)
+        or (${kpi_ctg} = 'not_in_time' and ${mail_direction} = 'incoming'
+            and ((incoming_time > incoming_term) or (incoming_time = incoming_term and arrive_hour >= mt.group_max_arrive_hour)))
+        or (${kpi_ctg} = 'not_in_time' and ${mail_direction} = 'outgoing' and outgoing_time > outgoing_term)
+        or (${kpi_ctg} = 'not_in_time' and ${mail_direction} = 'in_ufps' and in_ufps_time > in_ufps_term)
+        or (${kpi_ctg} = 'on_way' and ${mail_direction} = 'incoming' and incoming_time is null)
+        or (${kpi_ctg} = 'on_way' and ${mail_direction} = 'outgoing' and outgoing_time is null)
+        or (${kpi_ctg} = 'on_way' and ${mail_direction} = 'in_ufps' and in_ufps_time is null)
+    )
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="fps_direction_ds" id="fps_direction_ds" type="sql">
+      <Name>fps_direction_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+    select -1 as "value", '<Любое>' as name
+    union all
+    select distinct ufps_index, ufps_index || ' ' || ufps
+    from dicts.fps_structure
+) values    
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="trans_type_ds" id="trans_type_ds" type="sql">
+      <Name>trans_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.transtype
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_ctg_ds" id="mail_ctg_ds" type="sql">
+      <Name>mail_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.mailctg
+order by "value"]]></Query>
+   </DataAccess>
+</CDADescriptor>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="kpi_zone_fact_common_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_direction_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_mail_group_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_fact_mail_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="kpi_zone_drill_rpos_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="fps_direction_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="trans_type_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+      <Connection id="mail_ctg_ds" type="sql.jndi">
+         <Jndi>vertica</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" connection="kpi_zone_fact_common_ds"
+               id="kpi_zone_fact_common_ds"
+               type="sql">
+      <Name>kpi_zone_fact_common_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+         <Parameter default="ak_bar_code_param" name="ak_bar_code_param" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    kz.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then kz.ufps end "УФПС",
+
+    nullifzero(sum(kz.incoming_total)) "Входящий поток. Всего",
+    nullifzero(sum(kz.incoming_not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(kz.incoming_in_time)) "Входящий поток. В срок",
+    nullifzero(sum(kz.incoming_on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming_in_time) / nullifzero(sum(incoming_total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(kz.outgoing_total)) "Исходящий поток. Всего",
+    nullifzero(sum(kz.outgoing_not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(kz.outgoing_in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(kz.outgoing_on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing_in_time) / nullifzero(sum(outgoing_total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(kz.in_ufps_total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(kz.in_ufps_not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(kz.in_ufps_in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(kz.in_ufps_on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(kz.in_ufps_in_time) / nullifzero(sum(kz.in_ufps_total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(kz.any_in_time) / nullifzero(sum(kz.any_total)) * 100)::integer "Общий KPI, %"
+from tracking_preprod.kpi_zone_drill_rpos kz
+where (IFNULL(${date_from} = '', true) or kz.accepting_date >= ${date_from})
+  and (IFNULL(${date_to} = '', true) or kz.accepting_date <= ${date_to})
+  and (IFNULL(${fps_direction} = '-1', true) or kz.ufps_index = ${fps_direction})
+  and (IFNULL('' in (${mail_type}), true)
+      or IFNULL('mail_type' in (${mail_type}), true)
+      or kz.mail_type_group_olap in (${mail_type})
+      or kz.mail_type_name_olap in (${mail_type})
+  ) and (IFNULL('' in (${mail_ctg}), true)
+      or IFNULL('mail_ctg' in (${mail_ctg}), true)
+      or kz.mail_ctg::varchar in (${mail_ctg})
+  ) and (IFNULL('' in (${trans_type}), true)
+      or IFNULL('trans_type' in (${trans_type}), true)
+	  or kz.trans_type::varchar in (${trans_type})
+  ) and (IFNULL('' in (${fps}), true)
+      or IFNULL('fps' in (${fps}), true)
+      or kz.macroregion_olap in (${fps})
+      or kz.ufps_olap in (${fps})
+      or kz.post_office_olap in (${fps})
+      or kz.post_object_olap in (${fps})
+  )
+group by
+    "Макрорегион", "УФПС"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_direction_ds"
+               id="kpi_zone_fact_direction_ds"
+               type="sql">
+      <Name>kpi_zone_fact_direction_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+         <Parameter default="ak_bar_code_param" name="ak_bar_code_param" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    kz.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then kz.ufps end "УФПС",
+    kz.ufps_direction "УФПС направления",
+
+    nullifzero(sum(kz.incoming_total)) "Входящий поток. Всего",
+    nullifzero(sum(kz.incoming_not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(kz.incoming_in_time)) "Входящий поток. В срок",
+    nullifzero(sum(kz.incoming_on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming_in_time) / nullifzero(sum(incoming_total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(kz.outgoing_total)) "Исходящий поток. Всего",
+    nullifzero(sum(kz.outgoing_not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(kz.outgoing_in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(kz.outgoing_on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing_in_time) / nullifzero(sum(outgoing_total)) * 100)::integer "Исходящий поток. KPI, %"
+    
+from tracking_preprod.kpi_zone_drill_rpos kz
+where (IFNULL(${date_from} = '', true) or kz.accepting_date >= ${date_from})
+  and (IFNULL(${date_to} = '', true) or kz.accepting_date <= ${date_to})
+  and (IFNULL(${fps_direction} = '-1', true) or kz.ufps_index = ${fps_direction})  
+  and (IFNULL('' in (${mail_type}), true)
+      or IFNULL('mail_type' in (${mail_type}), true)
+      or kz.mail_type_group_olap in (${mail_type})
+      or kz.mail_type_name_olap in (${mail_type})
+  ) and (IFNULL('' in (${mail_ctg}), true)
+      or IFNULL('mail_ctg' in (${mail_ctg}), true)
+      or kz.mail_ctg::varchar in (${mail_ctg})
+  ) and (IFNULL('' in (${trans_type}), true)
+      or IFNULL('trans_type' in (${trans_type}), true)
+	  or kz.trans_type::varchar in (${trans_type})
+  ) and (IFNULL('' in (${fps}), true)
+      or IFNULL('fps' in (${fps}), true)
+      or kz.macroregion_olap in (${fps})
+      or kz.ufps_olap in (${fps})
+      or kz.post_office_olap in (${fps})
+      or kz.post_object_olap in (${fps})
+  )
+group by
+    "Макрорегион", "УФПС", "УФПС направления"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_mail_group_ds"
+               id="kpi_zone_fact_mail_group_ds"
+               type="sql">
+      <Name>kpi_zone_fact_mail_group_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+         <Parameter default="ak_bar_code_param" name="ak_bar_code_param" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    kz.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then kz.ufps end "УФПС",
+    kz.mail_type_group "Группа видов отправлений",
+
+    nullifzero(sum(kz.incoming_total)) "Входящий поток. Всего",
+    nullifzero(sum(kz.incoming_not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(kz.incoming_in_time)) "Входящий поток. В срок",
+    nullifzero(sum(kz.incoming_on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming_in_time) / nullifzero(sum(incoming_total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(kz.outgoing_total)) "Исходящий поток. Всего",
+    nullifzero(sum(kz.outgoing_not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(kz.outgoing_in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(kz.outgoing_on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing_in_time) / nullifzero(sum(outgoing_total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(kz.in_ufps_total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(kz.in_ufps_not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(kz.in_ufps_in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(kz.in_ufps_on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(kz.in_ufps_in_time) / nullifzero(sum(kz.in_ufps_total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(kz.any_in_time) / nullifzero(sum(kz.any_total)) * 100)::integer "Общий KPI, %"
+    
+from tracking_preprod.kpi_zone_drill_rpos kz
+where (IFNULL(${date_from} = '', true) or kz.accepting_date >= ${date_from})
+  and (IFNULL(${date_to} = '', true) or kz.accepting_date <= ${date_to})
+  and (IFNULL(${fps_direction} = '-1', true) or kz.ufps_index = ${fps_direction})  
+  and (IFNULL('' in (${mail_type}), true)
+      or IFNULL('mail_type' in (${mail_type}), true)
+      or kz.mail_type_group_olap in (${mail_type})
+      or kz.mail_type_name_olap in (${mail_type})
+  ) and (IFNULL('' in (${mail_ctg}), true)
+      or IFNULL('mail_ctg' in (${mail_ctg}), true)
+      or kz.mail_ctg::varchar in (${mail_ctg})
+  ) and (IFNULL('' in (${trans_type}), true)
+      or IFNULL('trans_type' in (${trans_type}), true)
+      or kz.trans_type::varchar in (${trans_type})
+  ) and (IFNULL('' in (${fps}), true)
+      or IFNULL('fps' in (${fps}), true)
+      or kz.macroregion_olap in (${fps})
+      or kz.ufps_olap in (${fps})
+      or kz.post_office_olap in (${fps})
+      or kz.post_object_olap in (${fps})
+  )
+group by
+    "Макрорегион", "УФПС", "Группа видов отправлений"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_fact_mail_type_ds"
+               id="kpi_zone_fact_mail_type_ds"
+               type="sql">
+      <Name>kpi_zone_fact_mail_type_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+         <Parameter default="ak_bar_code_param" name="ak_bar_code_param" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    kz.macroregion "Макрорегион",
+    case when ${fps_level} = 'ufps' then kz.ufps end "УФПС",
+    kz.mail_type_name "Вид отправления",
+
+    nullifzero(sum(kz.incoming_total)) "Входящий поток. Всего",
+    nullifzero(sum(kz.incoming_not_in_time)) "Входящий поток. Не в срок",
+    nullifzero(sum(kz.incoming_in_time)) "Входящий поток. В срок",
+    nullifzero(sum(kz.incoming_on_way)) "Входящий поток. В пути\Задержано",
+    round(sum(incoming_in_time) / nullifzero(sum(incoming_total)) * 100)::integer "Входящий поток. KPI, %",
+
+    nullifzero(sum(kz.outgoing_total)) "Исходящий поток. Всего",
+    nullifzero(sum(kz.outgoing_not_in_time)) "Исходящий поток. Не в срок",
+    nullifzero(sum(kz.outgoing_in_time)) "Исходящий поток. В срок",
+    nullifzero(sum(kz.outgoing_on_way)) "Исходящий поток. В пути\Задержано",
+    round(sum(outgoing_in_time) / nullifzero(sum(outgoing_total)) * 100)::integer "Исходящий поток. KPI, %",
+
+    nullifzero(sum(kz.in_ufps_total)) "Внутриобластной поток. Всего",
+    nullifzero(sum(kz.in_ufps_not_in_time)) "Внутриобластной поток. Не в срок",
+    nullifzero(sum(kz.in_ufps_in_time)) "Внутриобластной поток. В срок",
+    nullifzero(sum(kz.in_ufps_on_way)) "Внутриобластной поток. В пути\Задержано",
+    round(sum(kz.in_ufps_in_time) / nullifzero(sum(kz.in_ufps_total)) * 100)::integer "Внутриобластной поток. KPI, %",
+
+    round(sum(kz.any_in_time) / nullifzero(sum(kz.any_total)) * 100)::integer "Общий KPI, %"
+    
+from tracking_preprod.kpi_zone_drill_rpos kz
+where (IFNULL(${date_from} = '', true) or kz.accepting_date >= ${date_from})
+  and (IFNULL(${date_to} = '', true) or kz.accepting_date <= ${date_to})
+  and (IFNULL(${fps_direction} = '-1', true) or kz.ufps_index = ${fps_direction})  
+  and (IFNULL('' in (${mail_type}), true)
+      or IFNULL('mail_type' in (${mail_type}), true)
+      or kz.mail_type_group_olap in (${mail_type})
+      or kz.mail_type_name_olap in (${mail_type})
+  ) and (IFNULL('' in (${mail_ctg}), true)
+      or IFNULL('mail_ctg' in (${mail_ctg}), true)
+      or kz.mail_ctg::varchar in (${mail_ctg})
+  ) and (IFNULL('' in (${trans_type}), true)
+      or IFNULL('trans_type' in (${trans_type}), true)
+      or kz.trans_type::varchar in (${trans_type})
+  ) and (IFNULL('' in (${fps}), true)
+      or IFNULL('fps' in (${fps}), true)
+      or kz.macroregion_olap in (${fps})
+      or kz.ufps_olap in (${fps})
+      or kz.post_office_olap in (${fps})
+      or kz.post_object_olap in (${fps})
+  )
+group by
+    "Макрорегион", "УФПС", "Вид отправления"
+limit 100000]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="kpi_zone_drill_rpos_ds" id="kpi_zone_drill_rpos_ds"
+               type="sql">
+      <Name>kpi_zone_drill_rpos_ds</Name>
+      <Cache duration="3600" enabled="false"/>
+      <Columns/>
+      <Parameters>
+         <Parameter default="date_from" name="date_from" type="String"/>
+         <Parameter default="date_to" name="date_to" type="String"/>
+         <Parameter default="fps" name="fps" type="String"/>
+         <Parameter default="fps_direction" name="fps_direction" type="String"/>
+         <Parameter default="mail_type" name="mail_type" type="String"/>
+         <Parameter default="mail_ctg" name="mail_ctg" type="String"/>
+         <Parameter default="fps_level" name="fps_level" type="String"/>
+         <Parameter default="group_by_attr" name="group_by_attr" type="String"/>
+         <Parameter default="selected_group_by_attr" name="selected_group_by_attr" type="String"/>
+         <Parameter default="mail_direction" name="mail_direction" type="String"/>
+         <Parameter default="kpi_ctg" name="kpi_ctg" type="String"/>
+         <Parameter default="selected_macroregion" name="selected_macroregion" type="String"/>
+         <Parameter default="selected_ufps" name="selected_ufps" type="String"/>
+         <Parameter default="limit" name="limit" type="String"/>
+         <Parameter default="trans_type" name="trans_type" type="String"/>
+         <Parameter default="ak_bar_code_param" name="ak_bar_code_param" type="String"/>
+      </Parameters>
+      <Query><![CDATA[select
+    kz.bar_code         "ШПИ",
+    '...'               "Краткая трассировка",
+    kz.mail_type_name   "Вид отправления",
+    mailctg.name        "Категория",
+    transtype.name      "Способ пересылки",
+    fps_src.macroregion "Макрорегион приёма",
+    fps_src.ufps        "УФПС приёма",
+    fps_src.post_object "ОПС приёма",
+    kz.accepting_date       "Дата приёма",
+    fps_dest.macroregion "Макрорегион назначения",
+    fps_dest.ufps        "УФПС назначения",
+    fps_dest.post_object "ОПС назначения",
+    kz.acc_time             "УФПС приёма. Фактический срок",
+    kz.acc_term             "УФПС приёма. Норматив",
+    NVL(kz.eow_time::varchar,' ')    "УФПС назначения. Фактический срок",
+    NVL(kz.eow_term::varchar,' ')    "УФПС назначения. Норматив",
+    kz.common_time        "Общие значения. Фактический срок",
+    kz.common_term        "Общие значения. Норматив"
+from tracking_preprod.kpi_zone_drill_rpos kz
+left join dicts.dim_fps_structure fps_src on fps_src.post_object_index = kz.index_src
+left join dicts.dim_fps_structure fps_dest on fps_dest.post_object_index = kz.index_dest
+left join dicts.mailctg on kz.mail_ctg = mailctg.code
+left join dicts.transtype on kz.trans_type = transtype.code
+where (${date_from} = '' or kz.accepting_date >= ${date_from})
+    and (${date_to} = '' or kz.accepting_date <= ${date_to})
+    and (IFNULL('fps' IN (${fps}), true) or IFNULL('' IN (${fps}),true)
+        or kz.macroregion_olap in (${fps})
+        or kz.ufps_olap in (${fps})
+        or kz.post_office_olap in (${fps})
+        or kz.post_object_olap in (${fps})
+    )
+    and ((${fps_direction} = '-1' or kz.ufps_index = ${fps_direction})
+        or (${mail_direction} = 'in_ufps')
+    )
+    and (IFNULL('mail_type' in (${mail_type}), true)
+        or IFNULL('' in (${mail_type}), true)
+        or kz.mail_type_group_olap in (${mail_type})
+        or kz.mail_type_name_olap in (${mail_type})
+	)
+    and (IFNULL('' in (${mail_ctg}), true)
+	    or IFNULL('mail_ctg' in (${mail_ctg}), true)
+		or kz.mail_ctg::varchar in (${mail_ctg})
+	)
+    and (IFNULL('' in (${trans_type}), true)
+	    or IFNULL('trans_type' in (${trans_type}), true)
+	    or kz.trans_type::varchar in (${trans_type})
+	)
+    and ((${fps_level} = 'macroregion' and kz.macroregion = ${selected_macroregion})
+        or (${fps_level} = 'ufps' and kz.macroregion = ${selected_macroregion} and kz.ufps = ${selected_ufps})
+    )
+    and ((${group_by_attr} = 'common')
+        or (${group_by_attr} = 'direction' and kz.ufps_direction = ${selected_group_by_attr})
+        or (${group_by_attr} = 'mail_group' and kz.mail_type_group = ${selected_group_by_attr})
+        or (${group_by_attr} = 'mail_type' and kz.mail_type_name = ${selected_group_by_attr})
+    )
+	and ((${kpi_ctg} = 'total' AND kz.mail_direction = ${mail_direction})
+	    OR (kz.kpi_ctg = ${kpi_ctg} AND kz.mail_direction = ${mail_direction})
+	)
+limit ${limit}]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="fps_direction_ds" id="fps_direction_ds" type="sql">
+      <Name>fps_direction_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select * from (
+    select -1 as "value", '<Любое>' as name
+    union all
+    select distinct ufps_index, ufps_index || ' ' || ufps
+    from dicts.fps_structure
+) values
+where values.value is not null
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="trans_type_ds" id="trans_type_ds" type="sql">
+      <Name>trans_type_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.transtype
+order by "value"]]></Query>
+   </DataAccess>
+   <DataAccess access="public" connection="mail_ctg_ds" id="mail_ctg_ds" type="sql">
+      <Name>mail_ctg_ds</Name>
+      <Cache duration="3600" enabled="true"/>
+      <Columns/>
+      <Parameters/>
+      <Query><![CDATA[select code "value", name
+from dicts.mailctg
+order by "value"]]></Query>
+   </DataAccess>
+</CDADescriptor>
